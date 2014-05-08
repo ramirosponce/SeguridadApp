@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>77CA8534-86A4-4EAE-BA57-14E618BD4402</string>
+	<key>IDESourceControlProjectName</key>
+	<string>SeguridadApp</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>6DC6AFD1-60EA-4606-B4DF-4E4FDFD6491C</key>
+		<string>ssh://github.com/ramirosponce/SeguridadApp.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>SeguridadApp/SeguridadApp.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>6DC6AFD1-60EA-4606-B4DF-4E4FDFD6491C</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/ramirosponce/SeguridadApp.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>6DC6AFD1-60EA-4606-B4DF-4E4FDFD6491C</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>6DC6AFD1-60EA-4606-B4DF-4E4FDFD6491C</string>
+			<key>IDESourceControlWCCName</key>
+			<string>SeguridadApp</string>
+		</dict>
+	</array>
+</dict>
+</plist>

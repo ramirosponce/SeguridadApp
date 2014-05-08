@@ -1,0 +1,28 @@
+/* 
+  Localizable.strings
+  SeguridadApp
+
+  Created by Ramiro Ponce on 06/05/14.
+  Copyright (c) 2014 Ramiro Ponce. All rights reserved.
+*/
+
+// Spanish
+
+"Filters" = "Filtros";
+"Map" = "Mapa";
+"List" = "Lista";
+"Complaints" = "Denuncias";
+"Another thing?" = "Otra cosa?";
+"Settings" = "Configuración";
+"View Profile & History" = "Ver Perfil e Historial";
+"Denounce" = "Denunciar";
+"Cancel" = "Cancelar";
+"Camera" = "Camara";
+"Select a Picture" = "Seleccionar una imagen";
+"Today" = "Hoy";
+"Last Week" = "Última semana";
+"Last Month" = "Último mes";
+"All" = "Todos";
+"Show Result by" = "Mostrar resultados por";
+"Categories" = "Categorías";
+"Filters" = "Filters";
