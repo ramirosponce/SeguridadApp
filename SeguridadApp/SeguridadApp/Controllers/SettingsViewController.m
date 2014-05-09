@@ -9,6 +9,7 @@
 #import "SettingsViewController.h"
 #import "SettingsCell.h"
 #import "MFSideMenu.h"
+#import "TermsOfUseViewController.h"
 
 @interface SettingsViewController ()
 {
@@ -82,6 +83,9 @@
     switch (indexPath.row) {
         case 0:
             [self performSegueWithIdentifier:@"suggestionSegue" sender:nil];
+            break;
+        case 1:
+            [self performSegueWithIdentifier:@"termsofseSegue" sender:nil];
             break;
         default:
             break;

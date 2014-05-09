@@ -9,11 +9,8 @@
 /* Begin PBXBuildFile section */
 		010A889B191D542500ACD1F1 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 010A889A191D542500ACD1F1 /* SettingsViewController.m */; };
 		010A889E191D5AD100ACD1F1 /* SettingsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 010A889D191D5AD100ACD1F1 /* SettingsCell.m */; };
-
-		010A88A0191D5C2000ACD1F1 /* filter_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 010A889F191D5C1F00ACD1F1 /* filter_arrow.png */; };
-		010A88A2191D5C2B00ACD1F1 /* filter_arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 010A88A1191D5C2B00ACD1F1 /* filter_arrow@2x.png */; };
 		0143258B191D7156002A1066 /* SuggestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0143258A191D7156002A1066 /* SuggestionViewController.m */; };
-
+		01D69859191D97B3009B5103 /* TermsOfUseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D69858191D97B3009B5103 /* TermsOfUseViewController.m */; };
 		C627DEF31918182800FE0C22 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C627DEF21918182800FE0C22 /* Foundation.framework */; };
 		C627DEF51918182800FE0C22 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C627DEF41918182800FE0C22 /* CoreGraphics.framework */; };
 		C627DEF71918182800FE0C22 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C627DEF61918182800FE0C22 /* UIKit.framework */; };
@@ -96,13 +93,10 @@
 		010A889A191D542500ACD1F1 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		010A889C191D5AD100ACD1F1 /* SettingsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsCell.h; sourceTree = "<group>"; };
 		010A889D191D5AD100ACD1F1 /* SettingsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsCell.m; sourceTree = "<group>"; };
-
-
-		010A889F191D5C1F00ACD1F1 /* filter_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = filter_arrow.png; sourceTree = "<group>"; };
-		010A88A1191D5C2B00ACD1F1 /* filter_arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "filter_arrow@2x.png"; sourceTree = "<group>"; };
 		01432589191D7156002A1066 /* SuggestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuggestionViewController.h; sourceTree = "<group>"; };
 		0143258A191D7156002A1066 /* SuggestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuggestionViewController.m; sourceTree = "<group>"; };
-
+		01D69857191D97B3009B5103 /* TermsOfUseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TermsOfUseViewController.h; sourceTree = "<group>"; };
+		01D69858191D97B3009B5103 /* TermsOfUseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TermsOfUseViewController.m; sourceTree = "<group>"; };
 		C627DEEF1918182800FE0C22 /* SeguridadApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeguridadApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C627DEF21918182800FE0C22 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C627DEF41918182800FE0C22 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -326,6 +320,8 @@
 				010A889A191D542500ACD1F1 /* SettingsViewController.m */,
 				01432589191D7156002A1066 /* SuggestionViewController.h */,
 				0143258A191D7156002A1066 /* SuggestionViewController.m */,
+				01D69857191D97B3009B5103 /* TermsOfUseViewController.h */,
+				01D69858191D97B3009B5103 /* TermsOfUseViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -595,6 +591,7 @@
 				C6B44476191C15C2005C7056 /* FiltersViewController.m in Sources */,
 				C627DF3619181A7300FE0C22 /* UIViewController+MFSideMenuAdditions.m in Sources */,
 				C627DF031918182800FE0C22 /* AppDelegate.m in Sources */,
+				01D69859191D97B3009B5103 /* TermsOfUseViewController.m in Sources */,
 				C6A46C95191C2E00000F431B /* CategoryFilter.m in Sources */,
 				C6BE14EB19194D8500C618AC /* Complaint.m in Sources */,
 				C6B44484191C1F1F005C7056 /* CategoryFilterCell.m in Sources */,
