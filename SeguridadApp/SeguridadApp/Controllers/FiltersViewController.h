@@ -12,4 +12,7 @@
 {
     __weak IBOutlet UITableView* filtersTableView;
 }
+
+@property (nonatomic) BOOL fromMenu;
+
 @end

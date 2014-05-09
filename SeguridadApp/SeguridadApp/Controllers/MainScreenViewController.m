@@ -11,6 +11,7 @@
 #import "ComplaintCell.h"
 #import "Complaint.h"
 #import "MFSideMenu.h"
+#import "FiltersViewController.h"
 
 @interface MainScreenViewController ()
 {
@@ -73,9 +74,6 @@
     
     mapView.delegate = self;
     mapView.showsUserLocation = YES;
-    
-    NSLog(@"adasdasdas");
-    [[[UIAlertView alloc] initWithTitle:nil message:@"sdfsdf" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil] show];
 }
 
 - (void) loadLocations:(NSArray*) locations
@@ -205,6 +203,17 @@
     }
     
     return nil;
+}
+
+#pragma mark -
+#pragma mark Segue methods
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"filterSegue"]) {
+        FiltersViewController* filtersVC = [segue destinationViewController];
+        filtersVC.fromMenu = NO;
+    }
 }
 
 @end

@@ -84,4 +84,25 @@ static GlobalManager * sharedInstance = nil;
     return NO;
 }
 
+- (void) loadCategories:(NSArray*) categories_temp
+{
+    if (self.categories)
+        [self.categories removeAllObjects];
+    
+    if (categories_temp)
+        self.categories = [[NSMutableArray alloc] initWithArray:categories_temp];
+}
+
+- (void) removeCategoryFilter:(CategoryFilter*)category
+{
+    NSMutableArray* category_filters_aux = [NSMutableArray arrayWithArray:self.category_filters];
+    for (int i = 0; i < [category_filters_aux count]; i++) {
+        CategoryFilter* category_selected = [category_filters_aux objectAtIndex:i];
+        if ([category_selected.category_id isEqualToString:category.category_id]) {
+            [category_filters_aux removeObjectAtIndex:i];
+        }
+    }
+    self.category_filters = [[NSMutableArray alloc] initWithArray:category_filters_aux];
+}
+
 @end

@@ -9,6 +9,7 @@
 #import "SideMenuViewController.h"
 #import "MFSideMenu.h"
 #import "MenuCell.h"
+#import "FiltersViewController.h"
 
 @interface SideMenuViewController ()
 {
@@ -136,7 +137,30 @@
     selectedIndex = indexPath.row;
     [menuTableView reloadData];
     
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
     MFSideMenuContainerViewController *container = (MFSideMenuContainerViewController*)[self parentViewController];
+    
+    switch (indexPath.row) {
+        case 0:{
+            UINavigationController *navigationController =
+            [storyboard instantiateViewControllerWithIdentifier:@"CenterViewController"];
+            [container setCenterViewController:navigationController];
+        }
+            
+            break;
+        case 2:{
+            FiltersViewController *filtersController =
+            [storyboard instantiateViewControllerWithIdentifier:@"FiltersViewController"];
+            UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:filtersController];
+            
+            filtersController.fromMenu = YES;
+            [container setCenterViewController:navigationController];
+        }
+            
+            break;
+        default:
+            break;
+    }
     
     if (container.menuState == MFSideMenuStateLeftMenuOpen) {
         [container setMenuState:MFSideMenuStateClosed completion:nil];

@@ -149,7 +149,7 @@
         <!--Filters View Controller-->
         <scene sceneID="Ztf-ob-MeL">
             <objects>
-                <viewController id="1jz-4D-MEK" customClass="FiltersViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FiltersViewController" id="1jz-4D-MEK" customClass="FiltersViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="s6W-IW-IPj">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

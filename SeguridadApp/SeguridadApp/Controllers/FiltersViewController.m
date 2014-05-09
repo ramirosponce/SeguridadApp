@@ -11,6 +11,7 @@
 #import "CategoryFilterCell.h"
 #import "DataHelper.h"
 #import "CategoryFilter.h"
+#import "MFSideMenu.h"
 
 #define K_FILTERS_SECTIONS      2
 
@@ -39,16 +40,12 @@
     [super viewDidLoad];
     
     timeData = [[NSArray alloc] initWithArray:[DataHelper getTimeFilterData]];
-    
-    
-    
-    
-    
-    categoryData = [[NSMutableArray alloc] initWithCapacity:0];
-    [categoryData addObject:[[CategoryFilter alloc] initWithData:@{@"id": @"-1",@"name": NSLocalizedString(@"All", @"All")}]];
-    [categoryData addObjectsFromArray:[DataHelper getCategoryFilterData]];
-    
     [self setupInterface];
+    [self loadCategories];
+    
+    //categoryData = [[NSMutableArray alloc] initWithCapacity:0];
+    //[categoryData addObject:[[CategoryFilter alloc] initWithData:@{@"id": @"-1",@"name": NSLocalizedString(@"All", @"All")}]];
+    //[categoryData addObjectsFromArray:[DataHelper getCategoryFilterData]];
 }
 
 - (void) loadCategories
@@ -62,7 +59,7 @@
         isCategoryFiltersEmpty = NO;
     }
     
-    NSArray* categories = [DataHelper getTimeFilterData];
+    NSArray* categories = [DataHelper getCategoryFilterData];
     for (CategoryFilter* category in categories) {
         if (isCategoryFiltersEmpty) {
             category.isSelected = YES;
@@ -73,8 +70,20 @@
             }else
                 category.isSelected = NO;
         }
+        [categories_temp addObject:category];
     }
     
+    categoryData = [[NSMutableArray alloc] initWithArray:[GlobalManager sharedManager].categories];
+    
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+    NSArray* sortedArray = [categories sortedArrayUsingDescriptors:[NSArray arrayWithObject:sortDescriptor]];
+    categoryData = [[NSMutableArray alloc] initWithArray:sortedArray];
+    
+    CategoryFilter* category_all = [[CategoryFilter alloc]
+                                    initWithData:@{@"id": @"",
+                                                   @"name": NSLocalizedString(@"All", @"All")}];
+    category_all.isSelected = [GlobalManager sharedManager].categoryAllSelected;
+    [categoryData insertObject:category_all atIndex:0];
 }
 
 - (void)didReceiveMemoryWarning
@@ -89,10 +98,28 @@
     
     self.title = NSLocalizedString(@"Filters", @"Filters");
     [filtersTableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    
+    if (self.fromMenu) {
+        UIBarButtonItem* options = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menu_icon.png"] style:UIBarButtonItemStylePlain target:self action:@selector(showMenu)];
+        self.navigationItem.leftBarButtonItem = options;
+    }
 }
 
 #pragma mark - 
 #pragma mark Actions
+
+- (void) showMenu
+{
+    // open the left side menu
+    UINavigationController *navigationController = (UINavigationController*)self.parentViewController;
+    MFSideMenuContainerViewController *container = (MFSideMenuContainerViewController*)[navigationController parentViewController];
+    
+    if (container.menuState == MFSideMenuStateLeftMenuOpen) {
+        [container setMenuState:MFSideMenuStateClosed completion:nil];
+    }else{
+        [container setMenuState:MFSideMenuStateLeftMenuOpen completion:nil];
+    }
+}
 
 #pragma mark -
 #pragma mark UITableView methods
@@ -199,6 +226,44 @@
         [filtersTableView reloadData];
     }else{
         
+        CategoryFilter* category = [categoryData objectAtIndex:indexPath.row];
+        category.isSelected = !category.isSelected;
+        
+        if (category.isSelected) {
+            if (indexPath.row == 0){
+                [GlobalManager sharedManager].categoryAllSelected = YES;
+                
+                [[GlobalManager sharedManager] removeAllCategoryFilter];
+                // dejamos seleccionadas todas las categorias
+                for (CategoryFilter* category in categoryData) {
+                    category.isSelected = YES;
+                    
+                    if (![category.category_id isEqualToString:@""]) {
+                        [[GlobalManager sharedManager].category_filters addObject:category];
+                    }
+                }
+            }else
+                [[GlobalManager sharedManager].category_filters addObject:category];
+        }else{
+            if (indexPath.row == 0){
+                [GlobalManager sharedManager].categoryAllSelected = NO;
+                [[GlobalManager sharedManager] removeAllCategoryFilter];
+                
+                for (CategoryFilter* category in categoryData) {
+                    category.isSelected = NO;
+                }
+                
+            }else{
+                // al haber seleccionado una categoria ya seleccionada
+                // vamos a desmarcar siempre la opcion TODAS
+                CategoryFilter* category_all = categoryData[0];
+                category_all.isSelected = NO;
+                [GlobalManager sharedManager].categoryAllSelected = NO;
+                
+                [[GlobalManager sharedManager] removeCategoryFilter:category];
+            }
+        }
+        [filtersTableView reloadData];
     }
 }
 
