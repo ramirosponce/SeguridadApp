@@ -10,6 +10,7 @@
 #import "MFSideMenu.h"
 #import "MenuCell.h"
 #import "FiltersViewController.h"
+#import "SettingsViewController.h"
 
 @interface SideMenuViewController ()
 {
@@ -155,6 +156,14 @@
             
             filtersController.fromMenu = YES;
             [container setCenterViewController:navigationController];
+        }
+            
+            break;
+        case 4:{
+            SettingsViewController *settingsController =
+            [storyboard instantiateViewControllerWithIdentifier:@"SettingsViewController"];
+            UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:settingsController];
+             [container setCenterViewController:navigationController];
         }
             
             break;
