@@ -73,6 +73,9 @@
     
     mapView.delegate = self;
     mapView.showsUserLocation = YES;
+    
+    NSLog(@"adasdasdas");
+    [[[UIAlertView alloc] initWithTitle:nil message:@"sdfsdf" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil] show];
 }
 
 - (void) loadLocations:(NSArray*) locations
