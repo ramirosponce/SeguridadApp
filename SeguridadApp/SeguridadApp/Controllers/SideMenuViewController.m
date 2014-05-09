@@ -154,6 +154,16 @@
             [storyboard instantiateViewControllerWithIdentifier:@"FiltersViewController"];
             UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:filtersController];
             
+            [navigationController.navigationBar setTranslucent:NO];
+            
+            //[[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(0x067AB5)];
+            //[[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+            
+            //[[UINavigationBar appearance]
+            // setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName,
+            //                         [UIFont systemFontOfSize:17.0], NSFontAttributeName,
+            //                         nil]];
+            
             filtersController.fromMenu = YES;
             [container setCenterViewController:navigationController];
         }
@@ -163,6 +173,7 @@
             SettingsViewController *settingsController =
             [storyboard instantiateViewControllerWithIdentifier:@"SettingsViewController"];
             UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:settingsController];
+            [navigationController.navigationBar setTranslucent:NO];
              [container setCenterViewController:navigationController];
         }
             
