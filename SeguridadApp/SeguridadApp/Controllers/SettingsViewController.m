@@ -80,16 +80,13 @@
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     switch (indexPath.row) {
-        case 0:{
+        case 0:
             [self performSegueWithIdentifier:@"suggestionSegue" sender:nil];
-            
-             }
-        
             break;
-            
         default:
             break;
     }
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
 
 @end
