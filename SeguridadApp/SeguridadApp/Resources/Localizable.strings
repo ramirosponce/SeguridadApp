@@ -34,3 +34,10 @@
 "Sign In"= "Iniciar Sesión";
 "Do you have any suggestion?" = "¿Tienes alguna sugerencia?";
 "Add suggestion" = "Agrega una sugerencia";
+"log in with email" = "Entrar con email";
+"i have no account" = "No tengo cuenta";
+"Email" = "Correo Electrónico";
+"Password" = "Contraseña";
+"User Name" = "Seudónimo";
+"Confirm Password" = "Confirmar contraseña";
+"Register" = "Registrarme";

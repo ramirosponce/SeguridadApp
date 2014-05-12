@@ -11,6 +11,9 @@
 		010A889E191D5AD100ACD1F1 /* SettingsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 010A889D191D5AD100ACD1F1 /* SettingsCell.m */; };
 		012BF9051921528800C0722B /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 012BF9041921528800C0722B /* AboutViewController.m */; };
 		0143258B191D7156002A1066 /* SuggestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0143258A191D7156002A1066 /* SuggestionViewController.m */; };
+		01648686192160D60094900B /* SignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01648685192160D60094900B /* SignInViewController.m */; };
+		01648689192168C70094900B /* LoginEmailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01648688192168C70094900B /* LoginEmailViewController.m */; };
+		0164868C19216F7F0094900B /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0164868B19216F7F0094900B /* RegisterViewController.m */; };
 		0192E21019215AF200F95FDC /* MapInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0192E20F19215AF200F95FDC /* MapInformationViewController.m */; };
 		01D69859191D97B3009B5103 /* TermsOfUseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D69858191D97B3009B5103 /* TermsOfUseViewController.m */; };
 		C627DEF31918182800FE0C22 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C627DEF21918182800FE0C22 /* Foundation.framework */; };
@@ -99,6 +102,12 @@
 		012BF9041921528800C0722B /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		01432589191D7156002A1066 /* SuggestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuggestionViewController.h; sourceTree = "<group>"; };
 		0143258A191D7156002A1066 /* SuggestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuggestionViewController.m; sourceTree = "<group>"; };
+		01648684192160D60094900B /* SignInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignInViewController.h; sourceTree = "<group>"; };
+		01648685192160D60094900B /* SignInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignInViewController.m; sourceTree = "<group>"; };
+		01648687192168C70094900B /* LoginEmailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginEmailViewController.h; sourceTree = "<group>"; };
+		01648688192168C70094900B /* LoginEmailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginEmailViewController.m; sourceTree = "<group>"; };
+		0164868A19216F7F0094900B /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		0164868B19216F7F0094900B /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		0192E20E19215AF200F95FDC /* MapInformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapInformationViewController.h; sourceTree = "<group>"; };
 		0192E20F19215AF200F95FDC /* MapInformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapInformationViewController.m; sourceTree = "<group>"; };
 		01D69857191D97B3009B5103 /* TermsOfUseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TermsOfUseViewController.h; sourceTree = "<group>"; };
@@ -332,6 +341,12 @@
 				012BF9041921528800C0722B /* AboutViewController.m */,
 				0192E20E19215AF200F95FDC /* MapInformationViewController.h */,
 				0192E20F19215AF200F95FDC /* MapInformationViewController.m */,
+				01648684192160D60094900B /* SignInViewController.h */,
+				01648685192160D60094900B /* SignInViewController.m */,
+				01648687192168C70094900B /* LoginEmailViewController.h */,
+				01648688192168C70094900B /* LoginEmailViewController.m */,
+				0164868A19216F7F0094900B /* RegisterViewController.h */,
+				0164868B19216F7F0094900B /* RegisterViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -585,14 +600,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				0192E21019215AF200F95FDC /* MapInformationViewController.m in Sources */,
+				01648689192168C70094900B /* LoginEmailViewController.m in Sources */,
 				C655E2A5191AD20500C7E2F0 /* ComplaintViewController.m in Sources */,
 				C6BE14E719194D4300C618AC /* ComplaintCell.m in Sources */,
 				C6BE14EE19194DB400C618AC /* Location.m in Sources */,
 				0143258B191D7156002A1066 /* SuggestionViewController.m in Sources */,
 				C6B44481191C1EDF005C7056 /* TimeFilterCell.m in Sources */,
 				C627DF091918182800FE0C22 /* ViewController.m in Sources */,
+				01648686192160D60094900B /* SignInViewController.m in Sources */,
 				C6D2BD7F1918333F00D7BA0A /* MainScreenViewController.m in Sources */,
 				010A889E191D5AD100ACD1F1 /* SettingsCell.m in Sources */,
+				0164868C19216F7F0094900B /* RegisterViewController.m in Sources */,
 				010A889B191D542500ACD1F1 /* SettingsViewController.m in Sources */,
 				C627DF3419181A7300FE0C22 /* MFSideMenuContainerViewController.m in Sources */,
 				C6D2BD821918394500D7BA0A /* LoaderViewController.m in Sources */,

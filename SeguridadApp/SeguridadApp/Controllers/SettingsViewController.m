@@ -106,6 +106,9 @@
         case 4:
             [self performSegueWithIdentifier:@"mapInformationSegue" sender:nil];
             break;
+        case 5:
+            [self performSegueWithIdentifier:@"signInScreenSegue" sender:nil];
+            break;
         default:
             break;
     }
