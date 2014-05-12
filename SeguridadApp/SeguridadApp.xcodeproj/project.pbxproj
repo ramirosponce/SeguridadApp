@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		010A889B191D542500ACD1F1 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 010A889A191D542500ACD1F1 /* SettingsViewController.m */; };
 		010A889E191D5AD100ACD1F1 /* SettingsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 010A889D191D5AD100ACD1F1 /* SettingsCell.m */; };
+		012BF9051921528800C0722B /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 012BF9041921528800C0722B /* AboutViewController.m */; };
 		0143258B191D7156002A1066 /* SuggestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0143258A191D7156002A1066 /* SuggestionViewController.m */; };
 		01D69859191D97B3009B5103 /* TermsOfUseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D69858191D97B3009B5103 /* TermsOfUseViewController.m */; };
 		C627DEF31918182800FE0C22 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C627DEF21918182800FE0C22 /* Foundation.framework */; };
@@ -93,6 +94,8 @@
 		010A889A191D542500ACD1F1 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		010A889C191D5AD100ACD1F1 /* SettingsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsCell.h; sourceTree = "<group>"; };
 		010A889D191D5AD100ACD1F1 /* SettingsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsCell.m; sourceTree = "<group>"; };
+		012BF9031921528800C0722B /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
+		012BF9041921528800C0722B /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		01432589191D7156002A1066 /* SuggestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuggestionViewController.h; sourceTree = "<group>"; };
 		0143258A191D7156002A1066 /* SuggestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuggestionViewController.m; sourceTree = "<group>"; };
 		01D69857191D97B3009B5103 /* TermsOfUseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TermsOfUseViewController.h; sourceTree = "<group>"; };
@@ -322,6 +325,8 @@
 				0143258A191D7156002A1066 /* SuggestionViewController.m */,
 				01D69857191D97B3009B5103 /* TermsOfUseViewController.h */,
 				01D69858191D97B3009B5103 /* TermsOfUseViewController.m */,
+				012BF9031921528800C0722B /* AboutViewController.h */,
+				012BF9041921528800C0722B /* AboutViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -585,6 +590,7 @@
 				010A889B191D542500ACD1F1 /* SettingsViewController.m in Sources */,
 				C627DF3419181A7300FE0C22 /* MFSideMenuContainerViewController.m in Sources */,
 				C6D2BD821918394500D7BA0A /* LoaderViewController.m in Sources */,
+				012BF9051921528800C0722B /* AboutViewController.m in Sources */,
 				C627DF3519181A7300FE0C22 /* MFSideMenuShadow.m in Sources */,
 				C6D2BD861918445600D7BA0A /* DataHelper.m in Sources */,
 				C6BE15061919717B00C618AC /* MenuCell.m in Sources */,

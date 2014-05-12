@@ -87,6 +87,9 @@
         case 1:
             [self performSegueWithIdentifier:@"termsofseSegue" sender:nil];
             break;
+        case 2:
+            [self performSegueWithIdentifier:@"aboutSegue" sender:nil];
+            break;
         default:
             break;
     }
