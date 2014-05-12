@@ -90,6 +90,19 @@
         case 2:
             [self performSegueWithIdentifier:@"aboutSegue" sender:nil];
             break;
+        case 3:{
+            NSString *shareString = @"Estoy usando la aplicacion de seguridad para hacer denuncias en mi iphone.";
+            //UIImage *shareImage = [UIImage imageNamed:@"filter_arrow.png"];
+            NSURL *shareUrl = [NSURL URLWithString:@"http://www.google.com"];
+            
+            NSArray *activityItems = [NSArray arrayWithObjects:shareString, shareUrl, nil];
+            UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
+            activityViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+            
+            [self presentViewController:activityViewController animated:YES completion:nil];
+            
+            }
+            break;
         default:
             break;
     }
