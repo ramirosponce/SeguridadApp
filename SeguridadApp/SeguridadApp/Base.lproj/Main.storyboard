@@ -203,11 +203,39 @@
                         <segue destination="djP-Ye-HFc" kind="push" identifier="suggestionSegue" id="0B6-4Y-AGu"/>
                         <segue destination="EHp-Fs-kCj" kind="push" identifier="termsofseSegue" id="Kfx-fx-0Qp"/>
                         <segue destination="VwR-6o-1LR" kind="push" identifier="aboutSegue" id="2Wd-tg-918"/>
+                        <segue destination="MAV-Mz-Uxd" kind="push" identifier="mapInformationSegue" id="u7E-hh-TJv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sll-Sc-Jxo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="470" y="-1675"/>
+        </scene>
+        <!--Map Information View Controller-->
+        <scene sceneID="WEv-RM-ljt">
+            <objects>
+                <viewController id="MAV-Mz-Uxd" customClass="MapInformationViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="RO3-Hm-qL8">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qEv-U2-u52">
+                                <rect key="frame" x="20" y="0.0" width="280" height="114"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <string key="text">El mapa utilizado para ubicar las denuncias es proporcionado por apple y puede presentar inconsistencias en las vias y direcciones. La actualización y corrección de este mapa no depende del sistema.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="iPx-y5-x9Z"/>
+                    <connections>
+                        <outlet property="maptextLabel" destination="qEv-U2-u52" id="ZN9-FK-XTn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c3D-ZE-egX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="606" y="-783"/>
         </scene>
         <!--About View Controller-->
         <scene sceneID="oU3-Ll-7F7">

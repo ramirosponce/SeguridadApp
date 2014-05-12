@@ -11,6 +11,7 @@
 		010A889E191D5AD100ACD1F1 /* SettingsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 010A889D191D5AD100ACD1F1 /* SettingsCell.m */; };
 		012BF9051921528800C0722B /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 012BF9041921528800C0722B /* AboutViewController.m */; };
 		0143258B191D7156002A1066 /* SuggestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0143258A191D7156002A1066 /* SuggestionViewController.m */; };
+		0192E21019215AF200F95FDC /* MapInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0192E20F19215AF200F95FDC /* MapInformationViewController.m */; };
 		01D69859191D97B3009B5103 /* TermsOfUseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D69858191D97B3009B5103 /* TermsOfUseViewController.m */; };
 		C627DEF31918182800FE0C22 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C627DEF21918182800FE0C22 /* Foundation.framework */; };
 		C627DEF51918182800FE0C22 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C627DEF41918182800FE0C22 /* CoreGraphics.framework */; };
@@ -98,6 +99,8 @@
 		012BF9041921528800C0722B /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		01432589191D7156002A1066 /* SuggestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuggestionViewController.h; sourceTree = "<group>"; };
 		0143258A191D7156002A1066 /* SuggestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuggestionViewController.m; sourceTree = "<group>"; };
+		0192E20E19215AF200F95FDC /* MapInformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapInformationViewController.h; sourceTree = "<group>"; };
+		0192E20F19215AF200F95FDC /* MapInformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapInformationViewController.m; sourceTree = "<group>"; };
 		01D69857191D97B3009B5103 /* TermsOfUseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TermsOfUseViewController.h; sourceTree = "<group>"; };
 		01D69858191D97B3009B5103 /* TermsOfUseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TermsOfUseViewController.m; sourceTree = "<group>"; };
 		C627DEEF1918182800FE0C22 /* SeguridadApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeguridadApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -327,6 +330,8 @@
 				01D69858191D97B3009B5103 /* TermsOfUseViewController.m */,
 				012BF9031921528800C0722B /* AboutViewController.h */,
 				012BF9041921528800C0722B /* AboutViewController.m */,
+				0192E20E19215AF200F95FDC /* MapInformationViewController.h */,
+				0192E20F19215AF200F95FDC /* MapInformationViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -579,6 +584,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0192E21019215AF200F95FDC /* MapInformationViewController.m in Sources */,
 				C655E2A5191AD20500C7E2F0 /* ComplaintViewController.m in Sources */,
 				C6BE14E719194D4300C618AC /* ComplaintCell.m in Sources */,
 				C6BE14EE19194DB400C618AC /* Location.m in Sources */,

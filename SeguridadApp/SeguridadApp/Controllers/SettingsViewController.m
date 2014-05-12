@@ -103,6 +103,9 @@
             
             }
             break;
+        case 4:
+            [self performSegueWithIdentifier:@"mapInformationSegue" sender:nil];
+            break;
         default:
             break;
     }
