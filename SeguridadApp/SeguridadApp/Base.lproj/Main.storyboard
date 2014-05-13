@@ -209,7 +209,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sll-Sc-Jxo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-926" y="-587"/>
+            <point key="canvasLocation" x="-1676" y="-931"/>
         </scene>
         <!--Login Email View Controller-->
         <scene sceneID="wWl-Z5-yQD">
@@ -272,7 +272,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bAA-K3-l86" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1780" y="-59"/>
+            <point key="canvasLocation" x="-634" y="597"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="vVO-U1-Rqi">
@@ -355,7 +355,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H6P-Tt-Y6b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2286" y="475"/>
+            <point key="canvasLocation" x="-634" y="1243"/>
         </scene>
         <!--Sign In View Controller-->
         <scene sceneID="UEh-Qz-ce8">
@@ -400,7 +400,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W4e-Rq-ts3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1240" y="475"/>
+            <point key="canvasLocation" x="-1118" y="635"/>
         </scene>
         <!--Map Information View Controller-->
         <scene sceneID="WEv-RM-ljt">
@@ -427,7 +427,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c3D-ZE-egX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1240" y="-143"/>
+            <point key="canvasLocation" x="-1134" y="33"/>
         </scene>
         <!--About View Controller-->
         <scene sceneID="oU3-Ll-7F7">
@@ -455,7 +455,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7yi-N8-0r5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1229" y="-715"/>
+            <point key="canvasLocation" x="-105" y="-411"/>
         </scene>
         <!--Terms Of Use View Controller-->
         <scene sceneID="yal-3O-uAM">
@@ -483,11 +483,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K4w-UT-Fdb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-<<<<<<< HEAD
-            <point key="canvasLocation" x="1213" y="-1333"/>
-=======
-            <point key="canvasLocation" x="-379" y="-9"/>
->>>>>>> develop/detail_screen
+            <point key="canvasLocation" x="-105" y="179"/>
         </scene>
         <!--Suggestion View Controller-->
         <scene sceneID="k0i-cj-RgX">
@@ -541,11 +537,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B9Y-Mw-pid" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-<<<<<<< HEAD
-            <point key="canvasLocation" x="1553" y="-1683"/>
-=======
-            <point key="canvasLocation" x="-379" y="-595"/>
->>>>>>> develop/detail_screen
+            <point key="canvasLocation" x="-634" y="-827"/>
         </scene>
         <!--Filters View Controller-->
         <scene sceneID="Ztf-ob-MeL">
@@ -963,7 +955,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="0jt-F4-Vga"/>
-        <segue reference="hnY-kg-Ogx"/>
+        <segue reference="Kfx-fx-0Qp"/>
+        <segue reference="sAC-Eb-JtH"/>
     </inferredMetricsTieBreakers>
 </document>
