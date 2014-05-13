@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RegisterViewController : UIViewController <UITextFieldDelegate>
+@interface RegisterViewController : UIViewController <UITextFieldDelegate, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 {
     __weak IBOutlet UITextField* emailField;
     __weak IBOutlet UITextField* userNameField;
@@ -16,6 +16,8 @@
     __weak IBOutlet UITextField* passwordConfirmField;
     __weak IBOutlet UILabel* registerButton;
     __weak IBOutlet UILabel* termsButton;
+    
+    __weak IBOutlet UIImageView* photoImageView;
 
 }
 

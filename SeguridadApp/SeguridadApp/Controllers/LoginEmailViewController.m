@@ -40,6 +40,8 @@
 
 - (void) setupInterface
 {
+    self.title = NSLocalizedString(@"Iniciar Sesion", @"Iniciar Sesion");
+    
     [emailField setPlaceholder:NSLocalizedString(@"Email", @"Email")];
     [emailField setKeyboardType:UIKeyboardTypeEmailAddress];
     [emailField setReturnKeyType:UIReturnKeyNext];

@@ -282,8 +282,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera_empty.png" id="cjX-gn-89P">
+                                <rect key="frame" x="20" y="27" width="80" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="HLz-mL-MWz">
-                                <rect key="frame" x="20" y="21" width="280" height="30"/>
+                                <rect key="frame" x="115" y="34" width="185" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -292,7 +296,7 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="xQO-VD-O7C">
-                                <rect key="frame" x="20" y="64" width="280" height="30"/>
+                                <rect key="frame" x="115" y="77" width="185" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -301,7 +305,7 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="78J-gU-Vs6">
-                                <rect key="frame" x="20" y="106" width="280" height="30"/>
+                                <rect key="frame" x="20" y="119" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -310,7 +314,7 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="zij-Cj-s6a">
-                                <rect key="frame" x="20" y="148" width="280" height="30"/>
+                                <rect key="frame" x="20" y="161" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -319,14 +323,14 @@
                                 </connections>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zs0-HA-8UT">
-                                <rect key="frame" x="20" y="192" width="280" height="21"/>
+                                <rect key="frame" x="20" y="205" width="280" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.66274511810000003" blue="0.87450987099999999" alpha="1" colorSpace="deviceRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="li2-0f-Us2">
-                                <rect key="frame" x="20" y="225" width="280" height="21"/>
+                                <rect key="frame" x="20" y="238" width="280" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Label">
@@ -347,6 +351,7 @@
                         <outlet property="emailField" destination="HLz-mL-MWz" id="Idm-Mk-HwL"/>
                         <outlet property="passwordConfirmField" destination="zij-Cj-s6a" id="1qe-Bo-mvk"/>
                         <outlet property="passwordField" destination="78J-gU-Vs6" id="1n6-az-XrF"/>
+                        <outlet property="photoImageView" destination="cjX-gn-89P" id="Ij5-KH-QjN"/>
                         <outlet property="registerButton" destination="zs0-HA-8UT" id="9la-5d-AmV"/>
                         <outlet property="termsButton" destination="li2-0f-Us2" id="pay-zj-isP"/>
                         <outlet property="userNameField" destination="xQO-VD-O7C" id="dcw-tA-FnN"/>
@@ -955,7 +960,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Kfx-fx-0Qp"/>
         <segue reference="sAC-Eb-JtH"/>
+        <segue reference="hnY-kg-Ogx"/>
     </inferredMetricsTieBreakers>
 </document>
