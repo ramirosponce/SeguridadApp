@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Location.h"
+#import "User.h"
 
 @interface Complaint : NSObject
 
@@ -21,6 +22,8 @@
 @property (nonatomic) int isntTrue;
 @property (nonatomic, strong) NSArray* pictures;
 @property (nonatomic, strong) NSArray* tags;
+@property (nonatomic) BOOL isAnonymous;
+@property (nonatomic, strong) User* user;
 
 - (id) initWithData:(NSDictionary*)dictionary;
 

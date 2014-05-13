@@ -11,8 +11,9 @@
 #import "DetailPicturesCell.h"
 #import "DetailFeelingCell.h"
 #import "Complaint.h"
+#import "DetailUserCell.h"
 
-#define SECTIONS    3
+#define SECTIONS    4
 
 @interface DetailViewController ()
 {
@@ -99,7 +100,7 @@
         [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
         [cell populateCell:self.complaint.pictures];
         return cell;
-    }else{
+    }else if (indexPath.section == 2){
         static NSString* identifier = @"DetailFeelingCell";
         DetailFeelingCell* cell = [tableView dequeueReusableCellWithIdentifier:identifier];
         
@@ -109,8 +110,22 @@
         }
         
         [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
-        [cell populateCellWithAffected:24 isTrue:3 isntTrue:10];
+        [cell populateCellWithAffected:self.complaint.affected isTrue:self.complaint.isTrue isntTrue:self.complaint.isntTrue];
         return cell;
+    }else{
+        
+        static NSString* identifier = @"DetailUserCell";
+        DetailUserCell* cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    
+        if (!cell) {
+            [tableView registerNib:[UINib nibWithNibName:@"DetailUserCell" bundle:nil] forCellReuseIdentifier:identifier];
+            cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+        }
+    
+        [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+        [cell populateCell:self.complaint.user isAnonymous:self.complaint.isAnonymous];
+        return cell;
+    
     }
 }
 
@@ -128,6 +143,11 @@
             break;
         case 2:
             height = 54.0;
+            break;
+        case 3:
+            height = 60.0;
+            if (self.complaint.isAnonymous)
+                height = 44.0;
             break;
     }
     return height;

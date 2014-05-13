@@ -23,9 +23,9 @@
 - (void) populateCellWithAffected:(int)affected isTrue:(int)isTrue isntTrue:(int)isntTrue
 {
     
-    affectedNumber.contentEdgeInsets = UIEdgeInsetsMake(0, 5, 0, 0);
-    isTrueNumber.contentEdgeInsets = UIEdgeInsetsMake(0, 5, 0, 0);
-    isntTrueNumber.contentEdgeInsets = UIEdgeInsetsMake(0, 5, 0, 0);
+    affectedNumber.contentEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
+    isTrueNumber.contentEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
+    isntTrueNumber.contentEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
     
     affectedTitle.contentEdgeInsets = UIEdgeInsetsMake(0, 5, 0, 0);
     isTrueTitle.contentEdgeInsets = UIEdgeInsetsMake(0, 5, 0, 0);
@@ -43,9 +43,9 @@
     [isTrueTitle setSelected:YES];
     [isntTrueTitle setSelected:YES];
     
-    [affectedNumber.titleLabel setText:[NSString stringWithFormat:@"%i",affected]];
-    [isTrueNumber.titleLabel setText:[NSString stringWithFormat:@"%i",isTrue]];
-    [isntTrueNumber.titleLabel setText:[NSString stringWithFormat:@"%i",isntTrue]];
+    [affectedNumber setTitle:[NSString stringWithFormat:@"%i",affected] forState:UIControlStateNormal];
+    [isTrueNumber setTitle:[NSString stringWithFormat:@"%i",isTrue] forState:UIControlStateNormal];
+    [isntTrueNumber setTitle:[NSString stringWithFormat:@"%i",isntTrue] forState:UIControlStateNormal];
     
     [affectedTitle.titleLabel setText:NSLocalizedString(@"Me afecta", @"Me afecta")];
     [isTrueTitle.titleLabel setText:NSLocalizedString(@"Es cierto", @"Es cierto")];

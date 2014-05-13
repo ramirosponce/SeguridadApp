@@ -23,6 +23,8 @@
         self.isntTrue = [[dictionary objectForKey:@"isntTrue"] intValue];
         self.pictures = [dictionary objectForKey:@"pictures"];
         self.tags = [dictionary objectForKey:@"tags"];
+        self.isAnonymous = [[dictionary objectForKey:@"isAnonymous"] boolValue];
+        self.user = [[User alloc] initWithData:[dictionary objectForKey:@"user"]];
     }
     return self;
 }

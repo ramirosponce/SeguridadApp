@@ -22,7 +22,13 @@
                         @"isTrue": @"2",
                         @"isntTrue": @"0",
                         @"pictures": @[@"picture_example.png"],
-                        @"tags":@[@"robo,asalto"]},
+                        @"tags":@[@"robo,asalto"],
+                        @"isAnonymous": [NSNumber numberWithBool:YES],
+                        @"user":@{
+                                @"id":@"123",
+                                @"username":@"Mr T",
+                                @"picture":@"mrT.png"}
+                        },
                       @{@"id": @"2",
                         @"title": @"Asalto a mano armada",
                         @"datetime": [NSDate date],
@@ -32,7 +38,13 @@
                         @"isTrue": @"2",
                         @"isntTrue": @"0",
                         @"pictures": @[@"picture_example.png"],
-                        @"tags":@[@"robo,asalto"]},
+                        @"tags":@[@"robo,asalto"],
+                        @"isAnonymous": [NSNumber numberWithBool:YES],
+                        @"user":@{
+                                @"id":@"12",
+                                @"username":@"He Man",
+                                @"picture":@"heman.png"}
+                        },
                       @{@"id": @"3",
                         @"title": @"Asalto a mano armada 2",
                         @"datetime": [NSDate date],
@@ -42,7 +54,13 @@
                         @"isTrue": @"0",
                         @"isntTrue": @"0",
                         @"pictures": @[],
-                        @"tags":@[@"robo,asalto"]},
+                        @"tags":@[@"robo,asalto"],
+                        @"isAnonymous": [NSNumber numberWithBool:NO],
+                        @"user":@{
+                                @"id":@"34",
+                                @"username":@"Diego Maradona",
+                                @"picture":@"maradona.jpg"}
+                        },
                       @{@"id": @"4",
                         @"title": @"Robo de bolso 2",
                         @"datetime": [NSDate date],
@@ -52,7 +70,13 @@
                         @"isTrue": @"2",
                         @"isntTrue": @"0",
                         @"pictures": @[@"picture_example.png"],
-                        @"tags":@[@"robo,asalto"]},
+                        @"tags":@[@"robo,asalto"],
+                        @"isAnonymous": [NSNumber numberWithBool:YES],
+                        @"user":@{
+                                @"id":@"98",
+                                @"username":@"James Bond",
+                                @"picture":@"bond.jpg"}
+                        },
                       @{@"id": @"4",
                         @"title": @"Abusador",
                         @"datetime": [NSDate date],
@@ -62,7 +86,13 @@
                         @"isTrue": @"2",
                         @"isntTrue": @"0",
                         @"pictures": @[],
-                        @"tags":@[@"abusador",@"violacion",@"droga"]},
+                        @"tags":@[@"abusador",@"violacion",@"droga"],
+                        @"isAnonymous": [NSNumber numberWithBool:NO],
+                        @"user":@{
+                                @"id":@"44",
+                                @"username":@"Juan Felippo",
+                                @"picture":@"juan.jpg"}
+                        },
                       @{@"id": @"4",
                         @"title": @"Venta de droga",
                         @"datetime": [NSDate date],
@@ -72,7 +102,13 @@
                         @"isTrue": @"2",
                         @"isntTrue": @"0",
                         @"pictures": @[],
-                        @"tags":@[@"violacion",@"droga"]},
+                        @"tags":@[@"violacion",@"droga"],
+                        @"isAnonymous": [NSNumber numberWithBool:NO],
+                        @"user":@{
+                                @"id":@"77",
+                                @"username":@"Alberto Rodriguez",
+                                @"picture":@"alberto.jpg"}
+                        },
                       @{@"id": @"4",
                         @"title": @"Durante el paso de la Avenida...",
                         @"datetime": [NSDate date],
@@ -82,7 +118,13 @@
                         @"isTrue": @"2",
                         @"isntTrue": @"0",
                         @"pictures": @[],
-                        @"tags":@[@"abusador",@"violacion",@"droga"]},
+                        @"tags":@[@"abusador",@"violacion",@"droga"],
+                        @"isAnonymous": [NSNumber numberWithBool:YES],
+                        @"user":@{
+                                @"id":@"33",
+                                @"username":@"Cristina K",
+                                @"picture":@"kkk.jpg"}
+                        },
                       @{@"id": @"4",
                         @"title": @"Invasion espacio publico",
                         @"datetime": [NSDate date],
@@ -92,7 +134,13 @@
                         @"isTrue": @"2",
                         @"isntTrue": @"0",
                         @"pictures": @[],
-                        @"tags":@[@"abusador",@"violacion",@"droga"]},
+                        @"tags":@[@"abusador",@"violacion",@"droga"],
+                        @"isAnonymous": [NSNumber numberWithBool:NO],
+                        @"user":@{
+                                @"id":@"76",
+                                @"username":@"Edgar Glellel",
+                                @"picture":@"turco.jpg"}
+                        },
                       @{@"id": @"4",
                         @"title": @"Abusador",
                         @"datetime": [NSDate date],
@@ -102,7 +150,13 @@
                         @"isTrue": @"2",
                         @"isntTrue": @"0",
                         @"pictures": @[],
-                        @"tags":@[@"abusador",@"violacion",@"droga"]}
+                        @"tags":@[@"abusador",@"violacion",@"droga"],
+                        @"isAnonymous": [NSNumber numberWithBool:NO],
+                        @"user":@{
+                                @"id":@"44",
+                                @"username":@"Juan Felippo",
+                                @"picture":@"juan.jpg"}
+                        }
                       
                       ];
     return data;
