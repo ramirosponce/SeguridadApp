@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
+#import "GBFlatButton.h"
 
 @interface MainScreenViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, MKMapViewDelegate>
 {
@@ -17,6 +18,7 @@
     __weak IBOutlet MKMapView* mapView;
     __weak IBOutlet UITableView* complaintTableView;
     __weak IBOutlet UIView* mapLeftTab;
+    __weak IBOutlet GBFlatButton* complaintButton;
 }
 
 - (IBAction)complaintAction:(id)sender;

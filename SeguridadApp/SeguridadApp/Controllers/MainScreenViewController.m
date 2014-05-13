@@ -12,10 +12,15 @@
 #import "Complaint.h"
 #import "MFSideMenu.h"
 #import "FiltersViewController.h"
+#import "ComplaintPointAnnotation.h"
+#import "DetailViewController.h"
+
+
 
 @interface MainScreenViewController ()
 {
     NSMutableArray* data;
+    Complaint* currentComplaintSelected;
 }
 @end
 
@@ -69,20 +74,24 @@
     [mapLeftTab setBackgroundColor:[UIColor clearColor]];
     
     [complaintTableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    [complaintTableView setContentInset:UIEdgeInsetsMake(0,0,70,0)];
     
     [segmentedMenu addTarget:self action:@selector(segmentedValueChange:) forControlEvents:UIControlEventValueChanged];
     
     mapView.delegate = self;
     mapView.showsUserLocation = YES;
+    
+    [complaintButton setSelected:YES];
 }
 
 - (void) loadLocations:(NSArray*) locations
 {
     for (Complaint* complaint in locations) {
-        MKPointAnnotation* complaintAnnotation = [[MKPointAnnotation alloc] init];
+        ComplaintPointAnnotation* complaintAnnotation = [[ComplaintPointAnnotation alloc] init];
         complaintAnnotation.coordinate = CLLocationCoordinate2DMake([complaint.location.latitude doubleValue], [complaint.location.longitude doubleValue]);
         complaintAnnotation.title = complaint.complaint_title;
         complaintAnnotation.subtitle = complaint.complaint_description;
+        complaintAnnotation.complaint = complaint;
         [mapView addAnnotation:complaintAnnotation];
     }
 }
@@ -143,11 +152,18 @@
     if (cell == nil) {
         cell = (ComplaintCell*)[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
-    
+    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     Complaint* complaint = [data objectAtIndex:indexPath.row];
     [cell populateCell:complaint];
     
     return cell;
+}
+
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    currentComplaintSelected = [data objectAtIndex:indexPath.row];
+    [self performSegueWithIdentifier:@"detailSegue" sender:nil];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 #pragma mark -
@@ -159,13 +175,30 @@
     [mapView setRegion:[mapView regionThatFits:region] animated:YES];
 }
 
--(void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
+-(void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
+{
     id <MKAnnotation> annotation = [view annotation];
     if ([annotation isKindOfClass:[MKPointAnnotation class]])
     {
-        NSLog(@"Clicked Pizza Shop");
+        [self performSegueWithIdentifier:@"detailSegue" sender:nil];
     }
-    [[[UIAlertView alloc] initWithTitle:nil message:@"ir a detalle" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
+}
+
+- (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
+{
+    //MKAnnotation *selectedAnnotation = view.annotation // This will give the annotation.
+    /*if([view.annotation.title isEqualToString:@"yourTitle"])
+    {
+        // Do something
+    }*/
+    
+    ComplaintPointAnnotation* annotation = [view annotation];
+    if ([annotation isKindOfClass:[ComplaintPointAnnotation class]])
+    {
+        NSLog(@"TITLE: %@", view.annotation.title);
+        currentComplaintSelected = annotation.complaint;
+        //[self performSegueWithIdentifier:@"detailSegue" sender:nil];
+    }
 }
 
 - (MKAnnotationView *)mapView:(MKMapView *)map viewForAnnotation:(id <MKAnnotation>)annotation
@@ -213,6 +246,10 @@
     if ([segue.identifier isEqualToString:@"filterSegue"]) {
         FiltersViewController* filtersVC = [segue destinationViewController];
         filtersVC.fromMenu = NO;
+    }else if ([segue.identifier isEqualToString:@"detailSegue"]) {
+        
+        DetailViewController* complaintVC = [segue destinationViewController];
+        complaintVC.complaint = currentComplaintSelected;
     }
 }
 
