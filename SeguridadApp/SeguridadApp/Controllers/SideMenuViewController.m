@@ -36,7 +36,7 @@
     
     data = @[
              @{@"title": NSLocalizedString(@"Map", @"Map"),@"icon_name": @"pin_icon.png"},
-             @{@"title": NSLocalizedString(@"Complaints", @"Complaints"),@"icon_name": @"eye_icon.png"},
+             @{@"title": NSLocalizedString(@"Complaints", @"Complaints"),@"icon_name": @"eye_icon.png",@"hasNew":[NSNumber numberWithBool:YES],@"newCount":[NSNumber numberWithInt:12]},
              @{@"title": NSLocalizedString(@"Filters", @"Filters"),@"icon_name": @"switches_icon.png"},
              @{@"title": NSLocalizedString(@"Another thing?", @"Another thing?"),@"icon_name": @"filters_icon.png"},
              @{@"title": NSLocalizedString(@"Settings", @"Settings"),@"icon_name": @"tire_icon.png"},
@@ -128,7 +128,16 @@
         isSelected = YES;
     }
     
-    [cell populateCell:[data objectAtIndex:indexPath.row] isSelected:isSelected];
+    NSDictionary* dic = [data objectAtIndex:indexPath.row];
+    BOOL hasNew = NO;
+    int newCount = 0;
+    if ([dic objectForKey:@"hasNew"]) {
+        hasNew = [[dic objectForKey:@"hasNew"] boolValue];
+        hasNew = YES;
+        newCount = [[dic objectForKey:@"newCount"] intValue];
+    }
+    
+    [cell populateCell:[data objectAtIndex:indexPath.row] isSelected:isSelected badge:hasNew badgeCount:newCount badgeColor:[UIColor redColor]];
     
     return cell;
 }

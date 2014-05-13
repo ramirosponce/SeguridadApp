@@ -96,7 +96,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Option" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PuQ-lQ-Wrb">
-                                                    <rect key="frame" x="55" y="14" width="247" height="21"/>
+                                                    <rect key="frame" x="55" y="14" width="202" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="14"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -111,6 +111,20 @@
                                                     <rect key="frame" x="20" y="12" width="25" height="25"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
+                                                <view userInteractionEnabled="NO" contentMode="scaleToFill" id="EiT-eW-n4x">
+                                                    <rect key="frame" x="233" y="9" width="31" height="31"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <subviews>
+                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FrI-iB-bMf">
+                                                            <rect key="frame" x="-1" y="-1" width="31" height="31"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" red="0.96078437569999997" green="0.23921570180000001" blue="0.1294117719" alpha="1" colorSpace="deviceRGB"/>
+                                                </view>
                                                 <view contentMode="scaleToFill" id="K2M-ei-kXe">
                                                     <rect key="frame" x="0.0" y="48" width="320" height="1"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -120,6 +134,8 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="badge_background" destination="EiT-eW-n4x" id="HpS-2p-7iL"/>
+                                            <outlet property="badge_text" destination="FrI-iB-bMf" id="qj3-gW-BNh"/>
                                             <outlet property="cell_icon" destination="WgK-t8-yEh" id="44i-MG-0bl"/>
                                             <outlet property="cell_title" destination="PuQ-lQ-Wrb" id="0HW-Cf-h7e"/>
                                             <outlet property="icon_background" destination="EbY-24-cwx" id="7B9-gp-sGs"/>

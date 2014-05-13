@@ -370,7 +370,6 @@
 				0143258A191D7156002A1066 /* SuggestionViewController.m */,
 				01D69857191D97B3009B5103 /* TermsOfUseViewController.h */,
 				01D69858191D97B3009B5103 /* TermsOfUseViewController.m */,
-
 				012BF9031921528800C0722B /* AboutViewController.h */,
 				012BF9041921528800C0722B /* AboutViewController.m */,
 				0192E20E19215AF200F95FDC /* MapInformationViewController.h */,
@@ -381,10 +380,8 @@
 				01648688192168C70094900B /* LoginEmailViewController.m */,
 				0164868A19216F7F0094900B /* RegisterViewController.h */,
 				0164868B19216F7F0094900B /* RegisterViewController.m */,
-
 				C6A7658A1921337E000AA56E /* DetailViewController.h */,
 				C6A7658B1921337E000AA56E /* DetailViewController.m */,
-
 			);
 			path = Controllers;
 			sourceTree = "<group>";

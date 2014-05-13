@@ -24,7 +24,7 @@
     [super setSelected:selected animated:animated];
 }
 
-- (void) populateCell:(NSDictionary*)data isSelected:(BOOL)isSelected
+- (void) populateCell:(NSDictionary*)data isSelected:(BOOL)isSelected badge:(BOOL)badge badgeCount:(int)badgeCount badgeColor:(UIColor*)badgeColor
 {
     NSString* icon_name = [data objectForKey:@"icon_name"];
     [cell_icon setImage:[UIImage imageNamed:icon_name]];
@@ -39,7 +39,19 @@
     
     [icon_background setClipsToBounds:YES];
     [icon_background.layer setCornerRadius:(float)(icon_background.frame.size.width/2)];
+    [badge_background setClipsToBounds:YES];
+    [badge_background.layer setCornerRadius:(float)(badge_background.frame.size.width/2)];
+    [badge_background.layer setBorderColor:[[UIColor lightGrayColor] CGColor]];
+    [badge_background.layer setBorderWidth:1];
     
+    badge_background.hidden = !badge;
+    badge_text.hidden = !badge;
+    [badge_background setBackgroundColor:badgeColor];
+    badge_text.text = [NSString stringWithFormat:@"%i",badgeCount];
+    [badge_text setTextColor:[UIColor whiteColor]];
+    [badge_text setBackgroundColor:[UIColor clearColor]];
+    
+
 }
 
 @end
