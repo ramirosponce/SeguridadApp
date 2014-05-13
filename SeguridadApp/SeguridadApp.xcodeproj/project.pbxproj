@@ -33,11 +33,23 @@
 		C627DF3419181A7300FE0C22 /* MFSideMenuContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C627DF2F19181A7300FE0C22 /* MFSideMenuContainerViewController.m */; };
 		C627DF3519181A7300FE0C22 /* MFSideMenuShadow.m in Sources */ = {isa = PBXBuildFile; fileRef = C627DF3119181A7300FE0C22 /* MFSideMenuShadow.m */; };
 		C627DF3619181A7300FE0C22 /* UIViewController+MFSideMenuAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = C627DF3319181A7300FE0C22 /* UIViewController+MFSideMenuAdditions.m */; };
+		C64945F119228D6700C813A3 /* GBFlatButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C64945EC19228D6700C813A3 /* GBFlatButton.m */; };
+		C64945F219228D6700C813A3 /* GBFlatSelectableButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C64945EE19228D6700C813A3 /* GBFlatSelectableButton.m */; };
+		C64945F319228D6700C813A3 /* UIColor+GBFlatButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C64945F019228D6700C813A3 /* UIColor+GBFlatButton.m */; };
+		C64945F7192295DE00C813A3 /* DetailFeelingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C64945F5192295DE00C813A3 /* DetailFeelingCell.m */; };
+		C64945F8192295DE00C813A3 /* DetailFeelingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C64945F6192295DE00C813A3 /* DetailFeelingCell.xib */; };
 		C655E2A5191AD20500C7E2F0 /* ComplaintViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C655E2A4191AD20500C7E2F0 /* ComplaintViewController.m */; };
+		C68221B3192167E7003B579F /* ComplaintPointAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = C68221B2192167E7003B579F /* ComplaintPointAnnotation.m */; };
+		C68221B719216BF2003B579F /* DetailComplaintCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C68221B519216BF2003B579F /* DetailComplaintCell.m */; };
+		C68221B819216BF2003B579F /* DetailComplaintCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C68221B619216BF2003B579F /* DetailComplaintCell.xib */; };
+		C68221BC192171ED003B579F /* DetailPicturesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C68221BA192171ED003B579F /* DetailPicturesCell.m */; };
+		C68221BD192171ED003B579F /* DetailPicturesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C68221BB192171ED003B579F /* DetailPicturesCell.xib */; };
 		C6A46C95191C2E00000F431B /* CategoryFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = C6A46C94191C2E00000F431B /* CategoryFilter.m */; };
 		C6A46C98191C3E6B000F431B /* filter_checkmark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C6A46C96191C3E6B000F431B /* filter_checkmark@2x.png */; };
 		C6A46C99191C3E6B000F431B /* filter_checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = C6A46C97191C3E6B000F431B /* filter_checkmark.png */; };
 		C6A46C9C191C4232000F431B /* GlobalManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C6A46C9B191C4232000F431B /* GlobalManager.m */; };
+		C6A7658C1921337E000AA56E /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6A7658B1921337E000AA56E /* DetailViewController.m */; };
+		C6A7659019213764000AA56E /* SLParallaxController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6A7658F19213764000AA56E /* SLParallaxController.m */; };
 		C6AACB4B1919822F0030F19C /* eye_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C6AACB411919822F0030F19C /* eye_icon.png */; };
 		C6AACB4C1919822F0030F19C /* filters_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C6AACB421919822F0030F19C /* filters_icon.png */; };
 		C6AACB4D1919822F0030F19C /* gps_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C6AACB431919822F0030F19C /* gps_icon.png */; };
@@ -138,15 +150,36 @@
 		C627DF3119181A7300FE0C22 /* MFSideMenuShadow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFSideMenuShadow.m; sourceTree = "<group>"; };
 		C627DF3219181A7300FE0C22 /* UIViewController+MFSideMenuAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MFSideMenuAdditions.h"; sourceTree = "<group>"; };
 		C627DF3319181A7300FE0C22 /* UIViewController+MFSideMenuAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MFSideMenuAdditions.m"; sourceTree = "<group>"; };
+		C64945EB19228D6700C813A3 /* GBFlatButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBFlatButton.h; sourceTree = "<group>"; };
+		C64945EC19228D6700C813A3 /* GBFlatButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBFlatButton.m; sourceTree = "<group>"; };
+		C64945ED19228D6700C813A3 /* GBFlatSelectableButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBFlatSelectableButton.h; sourceTree = "<group>"; };
+		C64945EE19228D6700C813A3 /* GBFlatSelectableButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBFlatSelectableButton.m; sourceTree = "<group>"; };
+		C64945EF19228D6700C813A3 /* UIColor+GBFlatButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+GBFlatButton.h"; sourceTree = "<group>"; };
+		C64945F019228D6700C813A3 /* UIColor+GBFlatButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+GBFlatButton.m"; sourceTree = "<group>"; };
+		C64945F4192295DE00C813A3 /* DetailFeelingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailFeelingCell.h; sourceTree = "<group>"; };
+		C64945F5192295DE00C813A3 /* DetailFeelingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailFeelingCell.m; sourceTree = "<group>"; };
+		C64945F6192295DE00C813A3 /* DetailFeelingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailFeelingCell.xib; sourceTree = "<group>"; };
 		C655E2A3191AD20500C7E2F0 /* ComplaintViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComplaintViewController.h; sourceTree = "<group>"; };
 		C655E2A4191AD20500C7E2F0 /* ComplaintViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComplaintViewController.m; sourceTree = "<group>"; };
 		C6641DDF19193D3600D0E3B4 /* Main.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Main.h; sourceTree = "<group>"; };
+		C68221B1192167E7003B579F /* ComplaintPointAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComplaintPointAnnotation.h; sourceTree = "<group>"; };
+		C68221B2192167E7003B579F /* ComplaintPointAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComplaintPointAnnotation.m; sourceTree = "<group>"; };
+		C68221B419216BF2003B579F /* DetailComplaintCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailComplaintCell.h; sourceTree = "<group>"; };
+		C68221B519216BF2003B579F /* DetailComplaintCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailComplaintCell.m; sourceTree = "<group>"; };
+		C68221B619216BF2003B579F /* DetailComplaintCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailComplaintCell.xib; sourceTree = "<group>"; };
+		C68221B9192171ED003B579F /* DetailPicturesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailPicturesCell.h; sourceTree = "<group>"; };
+		C68221BA192171ED003B579F /* DetailPicturesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailPicturesCell.m; sourceTree = "<group>"; };
+		C68221BB192171ED003B579F /* DetailPicturesCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailPicturesCell.xib; sourceTree = "<group>"; };
 		C6A46C93191C2E00000F431B /* CategoryFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryFilter.h; sourceTree = "<group>"; };
 		C6A46C94191C2E00000F431B /* CategoryFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryFilter.m; sourceTree = "<group>"; };
 		C6A46C96191C3E6B000F431B /* filter_checkmark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "filter_checkmark@2x.png"; sourceTree = "<group>"; };
 		C6A46C97191C3E6B000F431B /* filter_checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = filter_checkmark.png; sourceTree = "<group>"; };
 		C6A46C9A191C4232000F431B /* GlobalManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalManager.h; sourceTree = "<group>"; };
 		C6A46C9B191C4232000F431B /* GlobalManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalManager.m; sourceTree = "<group>"; };
+		C6A7658A1921337E000AA56E /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		C6A7658B1921337E000AA56E /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		C6A7658E19213764000AA56E /* SLParallaxController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLParallaxController.h; sourceTree = "<group>"; };
+		C6A7658F19213764000AA56E /* SLParallaxController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLParallaxController.m; sourceTree = "<group>"; };
 		C6AACB411919822F0030F19C /* eye_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eye_icon.png; sourceTree = "<group>"; };
 		C6AACB421919822F0030F19C /* filters_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = filters_icon.png; sourceTree = "<group>"; };
 		C6AACB431919822F0030F19C /* gps_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gps_icon.png; sourceTree = "<group>"; };
@@ -337,6 +370,7 @@
 				0143258A191D7156002A1066 /* SuggestionViewController.m */,
 				01D69857191D97B3009B5103 /* TermsOfUseViewController.h */,
 				01D69858191D97B3009B5103 /* TermsOfUseViewController.m */,
+<<<<<<< HEAD
 				012BF9031921528800C0722B /* AboutViewController.h */,
 				012BF9041921528800C0722B /* AboutViewController.m */,
 				0192E20E19215AF200F95FDC /* MapInformationViewController.h */,
@@ -347,6 +381,10 @@
 				01648688192168C70094900B /* LoginEmailViewController.m */,
 				0164868A19216F7F0094900B /* RegisterViewController.h */,
 				0164868B19216F7F0094900B /* RegisterViewController.m */,
+=======
+				C6A7658A1921337E000AA56E /* DetailViewController.h */,
+				C6A7658B1921337E000AA56E /* DetailViewController.m */,
+>>>>>>> develop/detail_screen
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -358,6 +396,8 @@
 				C6641DDF19193D3600D0E3B4 /* Main.h */,
 				C6A46C9A191C4232000F431B /* GlobalManager.h */,
 				C6A46C9B191C4232000F431B /* GlobalManager.m */,
+				C68221B1192167E7003B579F /* ComplaintPointAnnotation.h */,
+				C68221B2192167E7003B579F /* ComplaintPointAnnotation.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -365,6 +405,8 @@
 		C627DF2A19181A4600FE0C22 /* External */ = {
 			isa = PBXGroup;
 			children = (
+				C64945EA19228D6700C813A3 /* GBFaltButton */,
+				C6A7658D1921372E000AA56E /* SLParallaxController */,
 				C627DF2C19181A7300FE0C22 /* MFSideMenu */,
 			);
 			path = External;
@@ -418,6 +460,28 @@
 			path = MFSideMenu;
 			sourceTree = "<group>";
 		};
+		C64945EA19228D6700C813A3 /* GBFaltButton */ = {
+			isa = PBXGroup;
+			children = (
+				C64945EB19228D6700C813A3 /* GBFlatButton.h */,
+				C64945EC19228D6700C813A3 /* GBFlatButton.m */,
+				C64945ED19228D6700C813A3 /* GBFlatSelectableButton.h */,
+				C64945EE19228D6700C813A3 /* GBFlatSelectableButton.m */,
+				C64945EF19228D6700C813A3 /* UIColor+GBFlatButton.h */,
+				C64945F019228D6700C813A3 /* UIColor+GBFlatButton.m */,
+			);
+			path = GBFaltButton;
+			sourceTree = "<group>";
+		};
+		C6A7658D1921372E000AA56E /* SLParallaxController */ = {
+			isa = PBXGroup;
+			children = (
+				C6A7658E19213764000AA56E /* SLParallaxController.h */,
+				C6A7658F19213764000AA56E /* SLParallaxController.m */,
+			);
+			path = SLParallaxController;
+			sourceTree = "<group>";
+		};
 		C6BE14E419194D2500C618AC /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -431,6 +495,15 @@
 				C6B44483191C1F1F005C7056 /* CategoryFilterCell.m */,
 				010A889C191D5AD100ACD1F1 /* SettingsCell.h */,
 				010A889D191D5AD100ACD1F1 /* SettingsCell.m */,
+				C68221B419216BF2003B579F /* DetailComplaintCell.h */,
+				C68221B519216BF2003B579F /* DetailComplaintCell.m */,
+				C68221B619216BF2003B579F /* DetailComplaintCell.xib */,
+				C68221B9192171ED003B579F /* DetailPicturesCell.h */,
+				C68221BA192171ED003B579F /* DetailPicturesCell.m */,
+				C68221BB192171ED003B579F /* DetailPicturesCell.xib */,
+				C64945F4192295DE00C813A3 /* DetailFeelingCell.h */,
+				C64945F5192295DE00C813A3 /* DetailFeelingCell.m */,
+				C64945F6192295DE00C813A3 /* DetailFeelingCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -546,6 +619,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C6AACB531919822F0030F19C /* switches_icon.png in Resources */,
+				C68221BD192171ED003B579F /* DetailPicturesCell.xib in Resources */,
 				C6BE14F6191958E800C618AC /* isntTrueIcon.png in Resources */,
 				C6BE14FA191958E800C618AC /* isTrueIcon@2x.png in Resources */,
 				C6F767FC191D830800F36DC6 /* filter_arrow.png in Resources */,
@@ -568,6 +642,8 @@
 				C6AACB541919822F0030F19C /* tire_icon.png in Resources */,
 				C6BE1502191965BF00C618AC /* Default.png in Resources */,
 				C6BE14F8191958E800C618AC /* affectedIcon@2x.png in Resources */,
+				C68221B819216BF2003B579F /* DetailComplaintCell.xib in Resources */,
+				C64945F8192295DE00C813A3 /* DetailFeelingCell.xib in Resources */,
 				C6DD5554191B2BB8001701EE /* camera_empty.png in Resources */,
 				C6B44479191C194D005C7056 /* check_box_off@2x.png in Resources */,
 				C6BE14E11919426000C618AC /* Localizable.strings in Resources */,
@@ -603,8 +679,11 @@
 				01648689192168C70094900B /* LoginEmailViewController.m in Sources */,
 				C655E2A5191AD20500C7E2F0 /* ComplaintViewController.m in Sources */,
 				C6BE14E719194D4300C618AC /* ComplaintCell.m in Sources */,
+				C68221B719216BF2003B579F /* DetailComplaintCell.m in Sources */,
 				C6BE14EE19194DB400C618AC /* Location.m in Sources */,
 				0143258B191D7156002A1066 /* SuggestionViewController.m in Sources */,
+				C64945F319228D6700C813A3 /* UIColor+GBFlatButton.m in Sources */,
+				C68221BC192171ED003B579F /* DetailPicturesCell.m in Sources */,
 				C6B44481191C1EDF005C7056 /* TimeFilterCell.m in Sources */,
 				C627DF091918182800FE0C22 /* ViewController.m in Sources */,
 				01648686192160D60094900B /* SignInViewController.m in Sources */,
@@ -613,21 +692,27 @@
 				0164868C19216F7F0094900B /* RegisterViewController.m in Sources */,
 				010A889B191D542500ACD1F1 /* SettingsViewController.m in Sources */,
 				C627DF3419181A7300FE0C22 /* MFSideMenuContainerViewController.m in Sources */,
+				C64945F7192295DE00C813A3 /* DetailFeelingCell.m in Sources */,
 				C6D2BD821918394500D7BA0A /* LoaderViewController.m in Sources */,
 				012BF9051921528800C0722B /* AboutViewController.m in Sources */,
 				C627DF3519181A7300FE0C22 /* MFSideMenuShadow.m in Sources */,
 				C6D2BD861918445600D7BA0A /* DataHelper.m in Sources */,
 				C6BE15061919717B00C618AC /* MenuCell.m in Sources */,
+				C64945F219228D6700C813A3 /* GBFlatSelectableButton.m in Sources */,
 				C6B44476191C15C2005C7056 /* FiltersViewController.m in Sources */,
+				C6A7659019213764000AA56E /* SLParallaxController.m in Sources */,
 				C627DF3619181A7300FE0C22 /* UIViewController+MFSideMenuAdditions.m in Sources */,
 				C627DF031918182800FE0C22 /* AppDelegate.m in Sources */,
 				01D69859191D97B3009B5103 /* TermsOfUseViewController.m in Sources */,
+				C68221B3192167E7003B579F /* ComplaintPointAnnotation.m in Sources */,
 				C6A46C95191C2E00000F431B /* CategoryFilter.m in Sources */,
 				C6BE14EB19194D8500C618AC /* Complaint.m in Sources */,
+				C6A7658C1921337E000AA56E /* DetailViewController.m in Sources */,
 				C6B44484191C1F1F005C7056 /* CategoryFilterCell.m in Sources */,
 				C6D2BD7C1918333100D7BA0A /* SideMenuViewController.m in Sources */,
 				C6A46C9C191C4232000F431B /* GlobalManager.m in Sources */,
 				C627DEFF1918182800FE0C22 /* main.m in Sources */,
+				C64945F119228D6700C813A3 /* GBFlatButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
