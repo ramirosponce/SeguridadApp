@@ -109,6 +109,18 @@
     // Init selt as default tableview's delegate & datasource
     self.tableView.dataSource   = self;
     self.tableView.delegate     = self;
+    
+    [self.tableView.layer setShadowColor:[UIColor blackColor].CGColor];
+    [self.tableView.layer setShadowOpacity:0.8];
+    [self.tableView.layer setShadowRadius:3.0];
+    [self.tableView.layer setShadowOffset:CGSizeMake(1.0, 1.0)];
+    
+    [self.tableView.layer setCornerRadius:5.0f];
+    
+    // border
+    //[self.tableView.layer setBorderColor:[UIColor lightGrayColor].CGColor];
+    //[self.tableView.layer setBorderWidth:1.5f];
+    
     [self.view addSubview:self.tableView];
 }
 

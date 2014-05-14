@@ -102,6 +102,9 @@
 		C6DD5553191B2BB8001701EE /* camera_empty@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C6DD5551191B2BB8001701EE /* camera_empty@2x.png */; };
 		C6DD5554191B2BB8001701EE /* camera_empty.png in Resources */ = {isa = PBXBuildFile; fileRef = C6DD5552191B2BB8001701EE /* camera_empty.png */; };
 		C6DD5558191B2DDF001701EE /* segmented-bg-pressed-left.png in Resources */ = {isa = PBXBuildFile; fileRef = C6DD5557191B2DDF001701EE /* segmented-bg-pressed-left.png */; };
+		C6ED61D81923C6E7004F7FFF /* DetailCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C6ED61D61923C6E7004F7FFF /* DetailCommentCell.m */; };
+		C6ED61D91923C6E7004F7FFF /* DetailCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6ED61D71923C6E7004F7FFF /* DetailCommentCell.xib */; };
+		C6ED61DC1923C751004F7FFF /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = C6ED61DB1923C751004F7FFF /* Comment.m */; };
 		C6F767FB191D830800F36DC6 /* filter_arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C6F767F9191D830800F36DC6 /* filter_arrow@2x.png */; };
 		C6F767FC191D830800F36DC6 /* filter_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = C6F767FA191D830800F36DC6 /* filter_arrow.png */; };
 /* End PBXBuildFile section */
@@ -256,6 +259,11 @@
 		C6DD5551191B2BB8001701EE /* camera_empty@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera_empty@2x.png"; sourceTree = "<group>"; };
 		C6DD5552191B2BB8001701EE /* camera_empty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera_empty.png; sourceTree = "<group>"; };
 		C6DD5557191B2DDF001701EE /* segmented-bg-pressed-left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "segmented-bg-pressed-left.png"; sourceTree = "<group>"; };
+		C6ED61D51923C6E7004F7FFF /* DetailCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailCommentCell.h; sourceTree = "<group>"; };
+		C6ED61D61923C6E7004F7FFF /* DetailCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailCommentCell.m; sourceTree = "<group>"; };
+		C6ED61D71923C6E7004F7FFF /* DetailCommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailCommentCell.xib; sourceTree = "<group>"; };
+		C6ED61DA1923C751004F7FFF /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
+		C6ED61DB1923C751004F7FFF /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
 		C6F767F9191D830800F36DC6 /* filter_arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "filter_arrow@2x.png"; sourceTree = "<group>"; };
 		C6F767FA191D830800F36DC6 /* filter_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = filter_arrow.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -543,6 +551,9 @@
 				C6CAD2BF1922CF6D004C2BFE /* DetailUserCell.h */,
 				C6CAD2C01922CF6D004C2BFE /* DetailUserCell.m */,
 				C6CAD2C11922CF6D004C2BFE /* DetailUserCell.xib */,
+				C6ED61D51923C6E7004F7FFF /* DetailCommentCell.h */,
+				C6ED61D61923C6E7004F7FFF /* DetailCommentCell.m */,
+				C6ED61D71923C6E7004F7FFF /* DetailCommentCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -558,6 +569,8 @@
 				C6A46C94191C2E00000F431B /* CategoryFilter.m */,
 				C68242551922CDDB00BF7050 /* User.h */,
 				C68242561922CDDB00BF7050 /* User.m */,
+				C6ED61DA1923C751004F7FFF /* Comment.h */,
+				C6ED61DB1923C751004F7FFF /* Comment.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -673,6 +686,7 @@
 				C6B4447E191C198D005C7056 /* check_box_on.png in Resources */,
 				C6BE14F5191958E800C618AC /* isntTrueIcon@2x.png in Resources */,
 				C66D88661922D7220029A7F2 /* alberto.jpg in Resources */,
+				C6ED61D91923C6E7004F7FFF /* DetailCommentCell.xib in Resources */,
 				C6AACB4C1919822F0030F19C /* filters_icon.png in Resources */,
 				C6DD5553191B2BB8001701EE /* camera_empty@2x.png in Resources */,
 				C6AACB501919822F0030F19C /* menu_icon.png in Resources */,
@@ -733,6 +747,7 @@
 				C68221B719216BF2003B579F /* DetailComplaintCell.m in Sources */,
 				C6BE14EE19194DB400C618AC /* Location.m in Sources */,
 				0143258B191D7156002A1066 /* SuggestionViewController.m in Sources */,
+				C6ED61DC1923C751004F7FFF /* Comment.m in Sources */,
 				C64945F319228D6700C813A3 /* UIColor+GBFlatButton.m in Sources */,
 				C68221BC192171ED003B579F /* DetailPicturesCell.m in Sources */,
 				C6B44481191C1EDF005C7056 /* TimeFilterCell.m in Sources */,
@@ -762,6 +777,7 @@
 				C6A7658C1921337E000AA56E /* DetailViewController.m in Sources */,
 				C6B44484191C1F1F005C7056 /* CategoryFilterCell.m in Sources */,
 				C6D2BD7C1918333100D7BA0A /* SideMenuViewController.m in Sources */,
+				C6ED61D81923C6E7004F7FFF /* DetailCommentCell.m in Sources */,
 				C6A46C9C191C4232000F431B /* GlobalManager.m in Sources */,
 				C6CAD2C21922CF6D004C2BFE /* DetailUserCell.m in Sources */,
 				C627DEFF1918182800FE0C22 /* main.m in Sources */,

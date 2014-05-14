@@ -8,6 +8,7 @@
 
 #import "DataHelper.h"
 #import "CategoryFilter.h"
+#import "Comment.h"
 
 @implementation DataHelper
 
@@ -190,6 +191,58 @@
                       [[CategoryFilter alloc] initWithData:@{@"id": @"13",@"name": @"Fraudes / Estafas"}],
                       [[CategoryFilter alloc] initWithData:@{@"id": @"14",@"name": @"Conductas antiecologicas"}],
                       [[CategoryFilter alloc] initWithData:@{@"id": @"15",@"name": @"Otros"}],
+                      ];
+    return data;
+}
+
+
+/*
+ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.Lorem ipsum dolor sit er elit lamet,
+ */
+
++ (NSArray*) getCommentsData{
+    
+    NSArray* data = @[
+                      [[Comment alloc] initWithData:@{@"id":@"13",
+                                                      @"text":@"Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                                                      @"user":@{@"id":@"44",
+                                                                @"username":@"James Bond",
+                                                                @"picture":@"bond.jpg"}}],
+                      [[Comment alloc] initWithData:@{@"id":@"13",
+                                                      @"text":@"Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu",
+                                                      @"user":@{@"id":@"44",
+                                                                @"username":@"Juan Felippo",
+                                                                @"picture":@"juan.jpg"}}],
+                      [[Comment alloc] initWithData:@{@"id":@"13",
+                                                      @"text":@"Ut enim ad minim veniam, quis nostrud",
+                                                      @"user":@{@"id":@"44",
+                                                                @"username":@"He Man",
+                                                                @"picture":@"heman.png"}}],
+                      [[Comment alloc] initWithData:@{@"id":@"13",
+                                                      @"text":@"Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.Lorem ipsum dolor sit er elit lamet",
+                                                      @"user":@{@"id":@"44",
+                                                                @"username":@"Cristina K",
+                                                                @"picture":@"kkk.jpg"}}],
+                      [[Comment alloc] initWithData:@{@"id":@"13",
+                                                      @"text":@"Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.Lorem ipsum dolor sit er elit lamet",
+                                                      @"user":@{@"id":@"44",
+                                                                @"username":@"Diego Maradona",
+                                                                @"picture":@"maradona.jpg"}}],
+                      [[Comment alloc] initWithData:@{@"id":@"13",
+                                                      @"text":@"consectetaur cillium adipisicing pecu",
+                                                      @"user":@{@"id":@"44",
+                                                                @"username":@"Mr T.",
+                                                                @"picture":@"mrT.png"}}],
+                      [[Comment alloc] initWithData:@{@"id":@"13",
+                                                      @"text":@"Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                                                      @"user":@{@"id":@"44",
+                                                                @"username":@"Edgar Glellel",
+                                                                @"picture":@"turco.jpg"}}],
+                      [[Comment alloc] initWithData:@{@"id":@"13",
+                                                      @"text":@"Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+                                                      @"user":@{@"id":@"44",
+                                                                @"username":@"Juan Felippo",
+                                                                @"picture":@"juan.jpg"}}],
                       ];
     return data;
 }

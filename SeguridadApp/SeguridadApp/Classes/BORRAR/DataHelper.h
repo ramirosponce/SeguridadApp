@@ -13,5 +13,6 @@
 + (NSArray*) getMapData;
 + (NSArray*) getTimeFilterData;
 + (NSArray*) getCategoryFilterData;
++ (NSArray*) getCommentsData;
 
 @end

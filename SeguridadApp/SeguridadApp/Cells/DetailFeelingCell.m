@@ -47,10 +47,9 @@
     [isTrueNumber setTitle:[NSString stringWithFormat:@"%i",isTrue] forState:UIControlStateNormal];
     [isntTrueNumber setTitle:[NSString stringWithFormat:@"%i",isntTrue] forState:UIControlStateNormal];
     
-    [affectedTitle.titleLabel setText:NSLocalizedString(@"Me afecta", @"Me afecta")];
-    [isTrueTitle.titleLabel setText:NSLocalizedString(@"Es cierto", @"Es cierto")];
-    [isntTrueTitle.titleLabel setText:NSLocalizedString(@"No es cierto", @"No es cierto")];
-    
+    [affectedTitle setTitle:NSLocalizedString(@"Me afecta", @"Me afecta") forState:UIControlStateNormal];
+    [isTrueTitle setTitle:NSLocalizedString(@"Es cierto", @"Es cierto") forState:UIControlStateNormal];
+    [isntTrueTitle setTitle:NSLocalizedString(@"No es cierto", @"No es cierto") forState:UIControlStateNormal];
 }
 
 @end
