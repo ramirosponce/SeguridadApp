@@ -15,6 +15,7 @@
     __weak IBOutlet UILabel* cell_title;
     __weak IBOutlet UITextView* cell_description;
     __weak IBOutlet UILabel* cell_date;
+    UIView *topShadowView;
 }
 
 - (void) populateCell:(Complaint*)complaint;

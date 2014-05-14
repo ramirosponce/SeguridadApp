@@ -25,6 +25,13 @@
 
 - (void) populateCell:(NSArray*)images
 {
+    for (id view in picture_scroller.subviews) {
+        if ([view isKindOfClass:[UIImageView class]]) {
+            [view removeFromSuperview];
+        }
+        
+    }
+    
     [picture_scroller setContentSize:CGSizeMake(images.count * IMAGE_ORIGIN, picture_scroller.frame.size.height)];
     
     CGFloat origin_x = 3.0;

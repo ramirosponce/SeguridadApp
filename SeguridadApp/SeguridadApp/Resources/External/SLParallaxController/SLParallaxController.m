@@ -110,12 +110,12 @@
     self.tableView.dataSource   = self;
     self.tableView.delegate     = self;
     
-    [self.tableView.layer setShadowColor:[UIColor blackColor].CGColor];
+    /*[self.tableView.layer setShadowColor:[UIColor blackColor].CGColor];
     [self.tableView.layer setShadowOpacity:0.8];
     [self.tableView.layer setShadowRadius:3.0];
     [self.tableView.layer setShadowOffset:CGSizeMake(1.0, 1.0)];
     
-    [self.tableView.layer setCornerRadius:5.0f];
+    [self.tableView.layer setCornerRadius:5.0f];*/
     
     // border
     //[self.tableView.layer setBorderColor:[UIColor lightGrayColor].CGColor];
@@ -290,7 +290,7 @@
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+/*- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
     //first get total rows in that section by current indexPath.
     NSInteger totalRow = [tableView numberOfRowsInSection:indexPath.section];
 
@@ -309,7 +309,7 @@
             [tableView.tableFooterView setBackgroundColor:[UIColor whiteColor]];
         }
     }
-}
+}*/
 
 #pragma mark - MapView Delegate
 

@@ -23,6 +23,7 @@
 {
     NSArray* data;
     NSArray* comments;
+    NSMutableArray* commentsHeights;
 }
 @end
 
@@ -46,6 +47,14 @@
     
     data = @[@"titulo1",@"titulo2",@"titulo3",@"titulo4",@"titulo5",@"titulo6"];
     comments = [[NSArray alloc] initWithArray:[DataHelper getCommentsData]];
+    
+    commentsHeights = [[NSMutableArray alloc] initWithCapacity:0];
+    for (Comment* comment in comments) {
+        CGFloat height = [self getCommentCellHeight2:comment];
+        [commentsHeights addObject:[NSNumber numberWithFloat:height]];
+    }
+    
+    
     [self setupInterface];
 }
 
@@ -61,6 +70,11 @@
 {
     self.title = NSLocalizedString(@"Detalle", @"Detalle");
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    
+    [self.tableView registerNib:[UINib nibWithNibName:@"DetailComplaintCell" bundle:nil] forCellReuseIdentifier:@"DetailComplaintCell"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"DetailPicturesCell" bundle:nil] forCellReuseIdentifier:@"DetailPicturesCell"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"DetailFeelingCell" bundle:nil] forCellReuseIdentifier:@"DetailFeelingCell"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"DetailUserCell" bundle:nil] forCellReuseIdentifier:@"DetailUserCell"];
 }
 
 #pragma mark -
@@ -81,7 +95,6 @@
     }
     return numberOfRows;
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -124,16 +137,16 @@
         
         static NSString* identifier = @"DetailUserCell";
         DetailUserCell* cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-    
+        
         if (!cell) {
             [tableView registerNib:[UINib nibWithNibName:@"DetailUserCell" bundle:nil] forCellReuseIdentifier:identifier];
             cell = [tableView dequeueReusableCellWithIdentifier:identifier];
         }
-    
+        
         [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
         [cell populateCell:self.complaint.user isAnonymous:self.complaint.isAnonymous];
         return cell;
-    
+        
     }else{
         static NSString* identifier = @"DetailCommentCell";
         DetailCommentCell* cell = [tableView dequeueReusableCellWithIdentifier:identifier];
@@ -149,6 +162,7 @@
         return cell;
     }
 }
+
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -171,7 +185,8 @@
                 height = 44.0;
             break;
         case 4:
-            height = [self getCommentCellHeight:indexPath];
+            //height = [self getCommentCellHeight:indexPath];
+            height = [[commentsHeights objectAtIndex:indexPath.row] floatValue];
             break;
     }
     return height;
@@ -181,6 +196,53 @@
 {
     Comment* comment = (Comment*)[comments objectAtIndex:indexPath.row];
     
+    CGRect titleFrame = CGRectMake(55.0, 8.0, 245.0, 21.0);
+    CGRect commentFrame = CGRectMake(55.0, 27.0, 245.0, 21.0);
+    
+    UIFont* titleFont = [UIFont boldSystemFontOfSize:16.0];
+    NSDictionary *stringAttributes = [NSDictionary dictionaryWithObject:titleFont forKey: NSFontAttributeName];
+    
+    /* title */
+    CGSize titleExpectedLabelSize;
+    CGFloat titleNewHeight;
+    CGSize titleConstraintSize = CGSizeMake(245.0f, 999.0f);
+    
+    NSString* cell_title = [NSString stringWithFormat:@"%@ %@:",comment.user.username, NSLocalizedString(@"dijo", @"dijo")];
+    
+    titleExpectedLabelSize = [cell_title boundingRectWithSize:titleConstraintSize
+                                                      options:NSStringDrawingTruncatesLastVisibleLine|NSStringDrawingUsesLineFragmentOrigin
+                                                   attributes:stringAttributes context:nil].size;
+    titleNewHeight = titleExpectedLabelSize.height;
+    //titleNewHeight += 5;
+    
+    CGRect  titleFrame_aux = titleFrame;
+    titleFrame_aux.size.height = titleNewHeight;
+    titleFrame = titleFrame_aux;
+    
+    /* comment and date*/
+    UIFont* commentFont = [UIFont systemFontOfSize:14];
+    stringAttributes = [NSDictionary dictionaryWithObject:commentFont forKey: NSFontAttributeName];
+    
+    CGSize commentExpectedLabelSize;
+    CGFloat commentNewHeight;
+    CGSize commentConstraintSize = CGSizeMake(245.0f, 999.0);
+    commentExpectedLabelSize = [comment.text boundingRectWithSize:commentConstraintSize
+                                                          options:NSStringDrawingTruncatesLastVisibleLine|NSStringDrawingUsesLineFragmentOrigin
+                                                       attributes:stringAttributes context:nil].size;
+    commentNewHeight = commentExpectedLabelSize.height;
+    commentNewHeight += 10;
+    
+    
+    CGRect commentFrame_aux = commentFrame;
+    commentFrame_aux.origin.y = titleFrame.origin.y + titleFrame.size.height;
+    commentFrame_aux.size.height = commentNewHeight;
+    commentFrame = commentFrame_aux;
+    
+    return commentFrame.origin.y + commentFrame.size.height;
+}
+
+- (CGFloat)getCommentCellHeight2:(Comment *)comment
+{
     CGRect titleFrame = CGRectMake(55.0, 8.0, 245.0, 21.0);
     CGRect commentFrame = CGRectMake(55.0, 27.0, 245.0, 21.0);
     

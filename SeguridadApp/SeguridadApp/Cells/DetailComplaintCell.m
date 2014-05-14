@@ -35,6 +35,17 @@
     cell_description.layer.borderColor = [[UIColor lightGrayColor] CGColor];
     cell_description.layer.borderWidth = 0.5f;
     
+    //top shadow
+    
+    if (topShadowView == nil) {
+        topShadowView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.bounds.size.width, 5)];
+        CAGradientLayer *topShadow = [CAGradientLayer layer];
+        topShadow.frame = CGRectMake(0, 0, self.bounds.size.width, 5);
+        topShadow.colors = [NSArray arrayWithObjects:(id)[[UIColor colorWithWhite:0.0 alpha:0.25f] CGColor], (id)[[UIColor clearColor] CGColor], nil];
+        [topShadowView.layer insertSublayer:topShadow atIndex:0];
+        
+        [self addSubview:topShadowView];
+    }
 }
 
 @end

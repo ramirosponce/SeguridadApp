@@ -7,6 +7,7 @@
 //
 
 #import "DetailCommentCell.h"
+#import "UIImageView+WebCache.h"
 
 @implementation DetailCommentCell
 
@@ -25,7 +26,9 @@
     cell_title.text = [NSString stringWithFormat:@"%@ %@:",comment.user.username, NSLocalizedString(@"dijo", @"dijo")];
     [profile_picture setClipsToBounds:YES];
     [profile_picture.layer setCornerRadius:(float)(profile_picture.frame.size.width/2)];
-    [profile_picture setImage:[UIImage imageNamed:comment.user.profile_image_name]];
+    //[profile_picture setImage:[UIImage imageNamed:comment.user.profile_image_name]];
+    
+    [profile_picture setImageWithURL:nil placeholderImage:[UIImage imageNamed:comment.user.profile_image_name]];
     
     cell_comment.text = comment.text;
     
