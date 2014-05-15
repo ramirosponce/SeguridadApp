@@ -219,8 +219,8 @@
             //pinView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"CustomPinAnnotationView"];
             pinView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"CustomPinAnnotationView"];
             pinView.canShowCallout = YES;
-            //pinView.image = [UIImage imageNamed:@"pizza_slice_32.png"];
-            //pinView.calloutOffset = CGPointMake(0, 32);
+            pinView.image = [UIImage imageNamed:@"orange_marker.png"];
+            pinView.calloutOffset = CGPointMake(0,19);
             
             // Add a detail disclosure button to the callout.
             UIButton* rightButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];

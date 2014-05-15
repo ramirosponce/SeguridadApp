@@ -33,6 +33,18 @@
 		C627DF3419181A7300FE0C22 /* MFSideMenuContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C627DF2F19181A7300FE0C22 /* MFSideMenuContainerViewController.m */; };
 		C627DF3519181A7300FE0C22 /* MFSideMenuShadow.m in Sources */ = {isa = PBXBuildFile; fileRef = C627DF3119181A7300FE0C22 /* MFSideMenuShadow.m */; };
 		C627DF3619181A7300FE0C22 /* UIViewController+MFSideMenuAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = C627DF3319181A7300FE0C22 /* UIViewController+MFSideMenuAdditions.m */; };
+		C63DA468192537B200CA0CFE /* black_marker.png in Resources */ = {isa = PBXBuildFile; fileRef = C63DA45C192537B200CA0CFE /* black_marker.png */; };
+		C63DA469192537B200CA0CFE /* black_marker@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C63DA45D192537B200CA0CFE /* black_marker@2x.png */; };
+		C63DA46A192537B200CA0CFE /* blue_marker.png in Resources */ = {isa = PBXBuildFile; fileRef = C63DA45E192537B200CA0CFE /* blue_marker.png */; };
+		C63DA46B192537B200CA0CFE /* blue_marker@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C63DA45F192537B200CA0CFE /* blue_marker@2x.png */; };
+		C63DA46C192537B200CA0CFE /* green_marker.png in Resources */ = {isa = PBXBuildFile; fileRef = C63DA460192537B200CA0CFE /* green_marker.png */; };
+		C63DA46D192537B200CA0CFE /* green_marker@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C63DA461192537B200CA0CFE /* green_marker@2x.png */; };
+		C63DA46E192537B200CA0CFE /* orange_marker.png in Resources */ = {isa = PBXBuildFile; fileRef = C63DA462192537B200CA0CFE /* orange_marker.png */; };
+		C63DA46F192537B200CA0CFE /* orange_marker@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C63DA463192537B200CA0CFE /* orange_marker@2x.png */; };
+		C63DA470192537B200CA0CFE /* pink_marker.png in Resources */ = {isa = PBXBuildFile; fileRef = C63DA464192537B200CA0CFE /* pink_marker.png */; };
+		C63DA471192537B200CA0CFE /* pink_marker@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C63DA465192537B200CA0CFE /* pink_marker@2x.png */; };
+		C63DA472192537B200CA0CFE /* purple_marker.png in Resources */ = {isa = PBXBuildFile; fileRef = C63DA466192537B200CA0CFE /* purple_marker.png */; };
+		C63DA473192537B200CA0CFE /* purple_marker@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C63DA467192537B200CA0CFE /* purple_marker@2x.png */; };
 		C64945F119228D6700C813A3 /* GBFlatButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C64945EC19228D6700C813A3 /* GBFlatButton.m */; };
 		C64945F219228D6700C813A3 /* GBFlatSelectableButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C64945EE19228D6700C813A3 /* GBFlatSelectableButton.m */; };
 		C64945F319228D6700C813A3 /* UIColor+GBFlatButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C64945F019228D6700C813A3 /* UIColor+GBFlatButton.m */; };
@@ -178,6 +190,18 @@
 		C627DF3119181A7300FE0C22 /* MFSideMenuShadow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFSideMenuShadow.m; sourceTree = "<group>"; };
 		C627DF3219181A7300FE0C22 /* UIViewController+MFSideMenuAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MFSideMenuAdditions.h"; sourceTree = "<group>"; };
 		C627DF3319181A7300FE0C22 /* UIViewController+MFSideMenuAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MFSideMenuAdditions.m"; sourceTree = "<group>"; };
+		C63DA45C192537B200CA0CFE /* black_marker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = black_marker.png; sourceTree = "<group>"; };
+		C63DA45D192537B200CA0CFE /* black_marker@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "black_marker@2x.png"; sourceTree = "<group>"; };
+		C63DA45E192537B200CA0CFE /* blue_marker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blue_marker.png; sourceTree = "<group>"; };
+		C63DA45F192537B200CA0CFE /* blue_marker@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blue_marker@2x.png"; sourceTree = "<group>"; };
+		C63DA460192537B200CA0CFE /* green_marker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = green_marker.png; sourceTree = "<group>"; };
+		C63DA461192537B200CA0CFE /* green_marker@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "green_marker@2x.png"; sourceTree = "<group>"; };
+		C63DA462192537B200CA0CFE /* orange_marker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = orange_marker.png; sourceTree = "<group>"; };
+		C63DA463192537B200CA0CFE /* orange_marker@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "orange_marker@2x.png"; sourceTree = "<group>"; };
+		C63DA464192537B200CA0CFE /* pink_marker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pink_marker.png; sourceTree = "<group>"; };
+		C63DA465192537B200CA0CFE /* pink_marker@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pink_marker@2x.png"; sourceTree = "<group>"; };
+		C63DA466192537B200CA0CFE /* purple_marker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = purple_marker.png; sourceTree = "<group>"; };
+		C63DA467192537B200CA0CFE /* purple_marker@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "purple_marker@2x.png"; sourceTree = "<group>"; };
 		C64945EB19228D6700C813A3 /* GBFlatButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBFlatButton.h; sourceTree = "<group>"; };
 		C64945EC19228D6700C813A3 /* GBFlatButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBFlatButton.m; sourceTree = "<group>"; };
 		C64945ED19228D6700C813A3 /* GBFlatSelectableButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBFlatSelectableButton.h; sourceTree = "<group>"; };
@@ -488,6 +512,18 @@
 		C627DF2B19181A5800FE0C22 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				C63DA45C192537B200CA0CFE /* black_marker.png */,
+				C63DA45D192537B200CA0CFE /* black_marker@2x.png */,
+				C63DA45E192537B200CA0CFE /* blue_marker.png */,
+				C63DA45F192537B200CA0CFE /* blue_marker@2x.png */,
+				C63DA460192537B200CA0CFE /* green_marker.png */,
+				C63DA461192537B200CA0CFE /* green_marker@2x.png */,
+				C63DA462192537B200CA0CFE /* orange_marker.png */,
+				C63DA463192537B200CA0CFE /* orange_marker@2x.png */,
+				C63DA464192537B200CA0CFE /* pink_marker.png */,
+				C63DA465192537B200CA0CFE /* pink_marker@2x.png */,
+				C63DA466192537B200CA0CFE /* purple_marker.png */,
+				C63DA467192537B200CA0CFE /* purple_marker@2x.png */,
 				C6F767F9191D830800F36DC6 /* filter_arrow@2x.png */,
 				C6F767FA191D830800F36DC6 /* filter_arrow.png */,
 				C6A46C96191C3E6B000F431B /* filter_checkmark@2x.png */,
@@ -758,31 +794,41 @@
 				C6BE14F6191958E800C618AC /* isntTrueIcon.png in Resources */,
 				C6BE14FA191958E800C618AC /* isTrueIcon@2x.png in Resources */,
 				C66D886B1922D7220029A7F2 /* maradona.jpg in Resources */,
+				C63DA472192537B200CA0CFE /* purple_marker.png in Resources */,
 				C66D886D1922D7220029A7F2 /* turco.jpg in Resources */,
 				C6F767FC191D830800F36DC6 /* filter_arrow.png in Resources */,
 				C6CAD2C31922CF6D004C2BFE /* DetailUserCell.xib in Resources */,
+				C63DA471192537B200CA0CFE /* pink_marker@2x.png in Resources */,
 				C6AACB511919822F0030F19C /* pin_icon.png in Resources */,
 				C6BE14F9191958E800C618AC /* affectedIcon.png in Resources */,
 				C6B4447E191C198D005C7056 /* check_box_on.png in Resources */,
 				C6BE14F5191958E800C618AC /* isntTrueIcon@2x.png in Resources */,
 				C66D88661922D7220029A7F2 /* alberto.jpg in Resources */,
+				C63DA46F192537B200CA0CFE /* orange_marker@2x.png in Resources */,
 				C6ED61D91923C6E7004F7FFF /* DetailCommentCell.xib in Resources */,
 				C6AACB4C1919822F0030F19C /* filters_icon.png in Resources */,
+				C63DA46A192537B200CA0CFE /* blue_marker.png in Resources */,
 				C6DD5553191B2BB8001701EE /* camera_empty@2x.png in Resources */,
 				C6AACB501919822F0030F19C /* menu_icon.png in Resources */,
 				C6DD5558191B2DDF001701EE /* segmented-bg-pressed-left.png in Resources */,
+				C63DA46C192537B200CA0CFE /* green_marker.png in Resources */,
 				C627DF0B1918182800FE0C22 /* Images.xcassets in Resources */,
 				C6AACB4F1919822F0030F19C /* map_icon.png in Resources */,
 				C6BE1501191965BF00C618AC /* Default-568h@2x.png in Resources */,
 				C6AACB58191992E90030F19C /* picture_example.png in Resources */,
 				C6AACB56191982A40030F19C /* avatar.jpg in Resources */,
+				C63DA46E192537B200CA0CFE /* orange_marker.png in Resources */,
 				C6AACB4B1919822F0030F19C /* eye_icon.png in Resources */,
 				C66D88691922D7220029A7F2 /* juan.jpg in Resources */,
 				C6F767FB191D830800F36DC6 /* filter_arrow@2x.png in Resources */,
 				C6B4447A191C194D005C7056 /* check_box_on@2x.png in Resources */,
+				C63DA473192537B200CA0CFE /* purple_marker@2x.png in Resources */,
+				C63DA470192537B200CA0CFE /* pink_marker.png in Resources */,
 				C6AACB541919822F0030F19C /* tire_icon.png in Resources */,
 				C6BE1502191965BF00C618AC /* Default.png in Resources */,
+				C63DA46D192537B200CA0CFE /* green_marker@2x.png in Resources */,
 				C66D88681922D7220029A7F2 /* heman.png in Resources */,
+				C63DA46B192537B200CA0CFE /* blue_marker@2x.png in Resources */,
 				C6BE14F8191958E800C618AC /* affectedIcon@2x.png in Resources */,
 				C68221B819216BF2003B579F /* DetailComplaintCell.xib in Resources */,
 				C64945F8192295DE00C813A3 /* DetailFeelingCell.xib in Resources */,
@@ -792,6 +838,8 @@
 				C6BE14E11919426000C618AC /* Localizable.strings in Resources */,
 				C6BE14F7191958E800C618AC /* isTrueIcon.png in Resources */,
 				C6AACB4D1919822F0030F19C /* gps_icon.png in Resources */,
+				C63DA468192537B200CA0CFE /* black_marker.png in Resources */,
+				C63DA469192537B200CA0CFE /* black_marker@2x.png in Resources */,
 				C627DEFD1918182800FE0C22 /* InfoPlist.strings in Resources */,
 				C66D886C1922D7220029A7F2 /* mrT.png in Resources */,
 				C6B4447D191C198D005C7056 /* check_box_off.png in Resources */,

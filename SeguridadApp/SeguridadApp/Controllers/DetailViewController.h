@@ -11,7 +11,7 @@
 
 @class Complaint;
 
-@interface DetailViewController : SLParallaxController
+@interface DetailViewController : SLParallaxController <UIActionSheetDelegate>
 
 @property (nonatomic, strong) Complaint* complaint;
 

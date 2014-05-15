@@ -63,6 +63,43 @@
     [super didReceiveMemoryWarning];
 }
 
+- (MKAnnotationView *)mapView:(MKMapView *)map viewForAnnotation:(id <MKAnnotation>)annotation
+{
+    // If it's the user location, just return nil.
+    if ([annotation isKindOfClass:[MKUserLocation class]])
+        return nil;
+    
+    // Handle any custom annotations.
+    if ([annotation isKindOfClass:[MKPointAnnotation class]])
+    {
+        // Try to dequeue an existing pin view first.
+        //MKAnnotationView *pinView = (MKAnnotationView*)[map dequeueReusableAnnotationViewWithIdentifier:@"CustomPinAnnotationView"];
+        MKPinAnnotationView *pinView = (MKPinAnnotationView*)[self.mapView dequeueReusableAnnotationViewWithIdentifier:@"CustomPinAnnotationView"];
+        if (pinView == nil)
+        {
+            // If an existing pin view was not available, create one.
+            //pinView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"CustomPinAnnotationView"];
+            pinView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"CustomPinAnnotationView"];
+            pinView.canShowCallout = YES;
+            pinView.image = [UIImage imageNamed:@"orange_marker.png"];
+            pinView.calloutOffset = CGPointMake(0,19);
+            
+            // Add a detail disclosure button to the callout.
+            UIButton* rightButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+            pinView.rightCalloutAccessoryView = rightButton;
+            
+            // Add an image to the left callout.
+            //UIImageView *iconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"pizza_slice_32.png"]];
+            //pinView.leftCalloutAccessoryView = iconView;
+        } else {
+            pinView.annotation = annotation;
+        }
+        return pinView;
+    }
+    
+    return nil;
+}
+
 #pragma mark -
 #pragma mark private methods
 
@@ -71,11 +108,23 @@
     self.title = NSLocalizedString(@"Detalle", @"Detalle");
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     
-    [self.tableView registerNib:[UINib nibWithNibName:@"DetailComplaintCell" bundle:nil] forCellReuseIdentifier:@"DetailComplaintCell"];
-    [self.tableView registerNib:[UINib nibWithNibName:@"DetailPicturesCell" bundle:nil] forCellReuseIdentifier:@"DetailPicturesCell"];
-    [self.tableView registerNib:[UINib nibWithNibName:@"DetailFeelingCell" bundle:nil] forCellReuseIdentifier:@"DetailFeelingCell"];
-    [self.tableView registerNib:[UINib nibWithNibName:@"DetailUserCell" bundle:nil] forCellReuseIdentifier:@"DetailUserCell"];
+    UIBarButtonItem* options = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(shareAction:)];
+    self.navigationItem.rightBarButtonItem = options;
 }
+
+#pragma mark - 
+#pragma mark Actions methods
+
+- (void) shareAction:(id)sender
+{
+    UIActionSheet* actionsheet = [[UIActionSheet alloc] initWithTitle:nil
+                                                             delegate:self
+                                                    cancelButtonTitle:NSLocalizedString(@"Cancel", @"Cancel")
+                                               destructiveButtonTitle:nil
+                                                    otherButtonTitles:NSLocalizedString(@"Share on Facebook", @"Share on Facebook"), NSLocalizedString(@"Share on Twitter", @"Share on Twitter"),NSLocalizedString(@"Share on Mail",@"Share on Mail"), nil];
+    [actionsheet showInView:self.view];
+}
+
 
 #pragma mark -
 #pragma mark Table view data source
@@ -288,40 +337,20 @@
     return commentFrame.origin.y + commentFrame.size.height;
 }
 
-/*- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+#pragma mark -
+#pragma mark UIActionSheetDelegate implementation
+
+- (void) actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    TestDetail2Cell *cell;
-    static NSString *identifier = @"TestDetail2Cell";
     
-    if(indexPath.row == 0){
-        //identifier = @"firstCell";
-        // Add some shadow to the first cell
-        cell = (TestDetail2Cell*)[tableView dequeueReusableCellWithIdentifier:identifier];
-        if(!cell){
-            
-            cell = (TestDetail2Cell*)[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
-                                                            reuseIdentifier:identifier];
-            
-            CGRect shadowFrame      = cell.layer.bounds;
-            CGPathRef shadowPath    = [UIBezierPath bezierPathWithRect:shadowFrame].CGPath;
-            cell.layer.shadowPath   = shadowPath;
-            [cell.layer setShadowOffset:CGSizeMake(-2, -2)];
-            [cell.layer setShadowColor:[[UIColor grayColor] CGColor]];
-            [cell.layer setShadowOpacity:.75];
-        }
+    NSString *buttonTitle = [actionSheet buttonTitleAtIndex:buttonIndex];
+    if  ([buttonTitle isEqualToString:NSLocalizedString(@"Share on Facebook", @"Share on Facebook")]){
+        [[[UIAlertView alloc] initWithTitle:nil message:@"Facebook share" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+    }else if  ([buttonTitle isEqualToString:NSLocalizedString(@"Share on Twitter", @"Share on Twitter")]){
+        [[[UIAlertView alloc] initWithTitle:nil message:@"Twitter share" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+    }else if  ([buttonTitle isEqualToString:NSLocalizedString(@"Share on Mail",@"Share on Mail")]){
+        [[[UIAlertView alloc] initWithTitle:nil message:@"Mail share" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
     }
-    else{
-        //identifier = @"otherCell";
-        cell = (TestDetail2Cell*)[tableView dequeueReusableCellWithIdentifier:identifier];
-        if(!cell)
-            cell = (TestDetail2Cell*)[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
-                                                            reuseIdentifier:identifier];
-    }
-    
-    //NSString* title = [data objectAtIndex:indexPath.row];
-    //[[cell textLabel] setText:title];
-    [cell populateCell:[data objectAtIndex:indexPath.row]];
-    return cell;
-}*/
+}
 
 @end
