@@ -42,4 +42,8 @@
 // @minLatitude : subtract to the current user's latitude to move it on Y axis in order to view it when the map move
 - (void)zoomToUserLocation:(MKUserLocation *)userLocation minLatitude:(float)minLatitude animated:(BOOL)anim;
 
+-(void) openShutter;
+-(void) closeShutter;
+
+
 @end

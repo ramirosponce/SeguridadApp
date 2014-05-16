@@ -105,6 +105,16 @@
 		C6BE1502191965BF00C618AC /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = C6BE14FF191965BF00C618AC /* Default.png */; };
 		C6BE1503191965BF00C618AC /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C6BE1500191965BF00C618AC /* Default@2x.png */; };
 		C6BE15061919717B00C618AC /* MenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C6BE15051919717B00C618AC /* MenuCell.m */; };
+		C6C4D18819268E6900A61959 /* HPGrowingTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = C6C4D18519268E6900A61959 /* HPGrowingTextView.m */; };
+		C6C4D18919268E6900A61959 /* HPTextViewInternal.m in Sources */ = {isa = PBXBuildFile; fileRef = C6C4D18719268E6900A61959 /* HPTextViewInternal.m */; };
+		C6C4D19219268ECE00A61959 /* MessageEntryBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = C6C4D18A19268ECE00A61959 /* MessageEntryBackground.png */; };
+		C6C4D19319268ECE00A61959 /* MessageEntryBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C6C4D18B19268ECE00A61959 /* MessageEntryBackground@2x.png */; };
+		C6C4D19419268ECE00A61959 /* MessageEntryInputField.png in Resources */ = {isa = PBXBuildFile; fileRef = C6C4D18C19268ECE00A61959 /* MessageEntryInputField.png */; };
+		C6C4D19519268ECE00A61959 /* MessageEntryInputField@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C6C4D18D19268ECE00A61959 /* MessageEntryInputField@2x.png */; };
+		C6C4D19619268ECE00A61959 /* MessageEntrySendButton.png in Resources */ = {isa = PBXBuildFile; fileRef = C6C4D18E19268ECE00A61959 /* MessageEntrySendButton.png */; };
+		C6C4D19719268ECE00A61959 /* MessageEntrySendButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C6C4D18F19268ECE00A61959 /* MessageEntrySendButton@2x.png */; };
+		C6C4D19819268ECE00A61959 /* MessageEntrySendButtonPressed.png in Resources */ = {isa = PBXBuildFile; fileRef = C6C4D19019268ECE00A61959 /* MessageEntrySendButtonPressed.png */; };
+		C6C4D19919268ECE00A61959 /* MessageEntrySendButtonPressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C6C4D19119268ECE00A61959 /* MessageEntrySendButtonPressed@2x.png */; };
 		C6CAD2C21922CF6D004C2BFE /* DetailUserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C6CAD2C01922CF6D004C2BFE /* DetailUserCell.m */; };
 		C6CAD2C31922CF6D004C2BFE /* DetailUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6CAD2C11922CF6D004C2BFE /* DetailUserCell.xib */; };
 		C6CC6ADD19240DBA009FB7B1 /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = C6CC6AC119240DBA009FB7B1 /* MKAnnotationView+WebCache.m */; };
@@ -283,6 +293,18 @@
 		C6BE1500191965BF00C618AC /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		C6BE15041919717B00C618AC /* MenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuCell.h; sourceTree = "<group>"; };
 		C6BE15051919717B00C618AC /* MenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuCell.m; sourceTree = "<group>"; };
+		C6C4D18419268E6900A61959 /* HPGrowingTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPGrowingTextView.h; sourceTree = "<group>"; };
+		C6C4D18519268E6900A61959 /* HPGrowingTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPGrowingTextView.m; sourceTree = "<group>"; };
+		C6C4D18619268E6900A61959 /* HPTextViewInternal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPTextViewInternal.h; sourceTree = "<group>"; };
+		C6C4D18719268E6900A61959 /* HPTextViewInternal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPTextViewInternal.m; sourceTree = "<group>"; };
+		C6C4D18A19268ECE00A61959 /* MessageEntryBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MessageEntryBackground.png; sourceTree = "<group>"; };
+		C6C4D18B19268ECE00A61959 /* MessageEntryBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MessageEntryBackground@2x.png"; sourceTree = "<group>"; };
+		C6C4D18C19268ECE00A61959 /* MessageEntryInputField.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MessageEntryInputField.png; sourceTree = "<group>"; };
+		C6C4D18D19268ECE00A61959 /* MessageEntryInputField@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MessageEntryInputField@2x.png"; sourceTree = "<group>"; };
+		C6C4D18E19268ECE00A61959 /* MessageEntrySendButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MessageEntrySendButton.png; sourceTree = "<group>"; };
+		C6C4D18F19268ECE00A61959 /* MessageEntrySendButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MessageEntrySendButton@2x.png"; sourceTree = "<group>"; };
+		C6C4D19019268ECE00A61959 /* MessageEntrySendButtonPressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MessageEntrySendButtonPressed.png; sourceTree = "<group>"; };
+		C6C4D19119268ECE00A61959 /* MessageEntrySendButtonPressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MessageEntrySendButtonPressed@2x.png"; sourceTree = "<group>"; };
 		C6CAD2BF1922CF6D004C2BFE /* DetailUserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailUserCell.h; sourceTree = "<group>"; };
 		C6CAD2C01922CF6D004C2BFE /* DetailUserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailUserCell.m; sourceTree = "<group>"; };
 		C6CAD2C11922CF6D004C2BFE /* DetailUserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailUserCell.xib; sourceTree = "<group>"; };
@@ -501,6 +523,7 @@
 		C627DF2A19181A4600FE0C22 /* External */ = {
 			isa = PBXGroup;
 			children = (
+				C6C4D18319268E6900A61959 /* GrowingTextView */,
 				C6CC6ABF19240DBA009FB7B1 /* SDWebImage */,
 				C64945EA19228D6700C813A3 /* GBFaltButton */,
 				C6A7658D1921372E000AA56E /* SLParallaxController */,
@@ -668,6 +691,25 @@
 			path = "TEST BORRAR";
 			sourceTree = "<group>";
 		};
+		C6C4D18319268E6900A61959 /* GrowingTextView */ = {
+			isa = PBXGroup;
+			children = (
+				C6C4D18A19268ECE00A61959 /* MessageEntryBackground.png */,
+				C6C4D18B19268ECE00A61959 /* MessageEntryBackground@2x.png */,
+				C6C4D18C19268ECE00A61959 /* MessageEntryInputField.png */,
+				C6C4D18D19268ECE00A61959 /* MessageEntryInputField@2x.png */,
+				C6C4D18E19268ECE00A61959 /* MessageEntrySendButton.png */,
+				C6C4D18F19268ECE00A61959 /* MessageEntrySendButton@2x.png */,
+				C6C4D19019268ECE00A61959 /* MessageEntrySendButtonPressed.png */,
+				C6C4D19119268ECE00A61959 /* MessageEntrySendButtonPressed@2x.png */,
+				C6C4D18419268E6900A61959 /* HPGrowingTextView.h */,
+				C6C4D18519268E6900A61959 /* HPGrowingTextView.m */,
+				C6C4D18619268E6900A61959 /* HPTextViewInternal.h */,
+				C6C4D18719268E6900A61959 /* HPTextViewInternal.m */,
+			);
+			path = GrowingTextView;
+			sourceTree = "<group>";
+		};
 		C6CC6ABF19240DBA009FB7B1 /* SDWebImage */ = {
 			isa = PBXGroup;
 			children = (
@@ -790,11 +832,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				C6AACB531919822F0030F19C /* switches_icon.png in Resources */,
+				C6C4D19819268ECE00A61959 /* MessageEntrySendButtonPressed.png in Resources */,
 				C68221BD192171ED003B579F /* DetailPicturesCell.xib in Resources */,
 				C6BE14F6191958E800C618AC /* isntTrueIcon.png in Resources */,
 				C6BE14FA191958E800C618AC /* isTrueIcon@2x.png in Resources */,
 				C66D886B1922D7220029A7F2 /* maradona.jpg in Resources */,
 				C63DA472192537B200CA0CFE /* purple_marker.png in Resources */,
+				C6C4D19219268ECE00A61959 /* MessageEntryBackground.png in Resources */,
 				C66D886D1922D7220029A7F2 /* turco.jpg in Resources */,
 				C6F767FC191D830800F36DC6 /* filter_arrow.png in Resources */,
 				C6CAD2C31922CF6D004C2BFE /* DetailUserCell.xib in Resources */,
@@ -812,14 +856,18 @@
 				C6AACB501919822F0030F19C /* menu_icon.png in Resources */,
 				C6DD5558191B2DDF001701EE /* segmented-bg-pressed-left.png in Resources */,
 				C63DA46C192537B200CA0CFE /* green_marker.png in Resources */,
+				C6C4D19419268ECE00A61959 /* MessageEntryInputField.png in Resources */,
 				C627DF0B1918182800FE0C22 /* Images.xcassets in Resources */,
 				C6AACB4F1919822F0030F19C /* map_icon.png in Resources */,
 				C6BE1501191965BF00C618AC /* Default-568h@2x.png in Resources */,
 				C6AACB58191992E90030F19C /* picture_example.png in Resources */,
 				C6AACB56191982A40030F19C /* avatar.jpg in Resources */,
+				C6C4D19319268ECE00A61959 /* MessageEntryBackground@2x.png in Resources */,
 				C63DA46E192537B200CA0CFE /* orange_marker.png in Resources */,
 				C6AACB4B1919822F0030F19C /* eye_icon.png in Resources */,
 				C66D88691922D7220029A7F2 /* juan.jpg in Resources */,
+				C6C4D19919268ECE00A61959 /* MessageEntrySendButtonPressed@2x.png in Resources */,
+				C6C4D19619268ECE00A61959 /* MessageEntrySendButton.png in Resources */,
 				C6F767FB191D830800F36DC6 /* filter_arrow@2x.png in Resources */,
 				C6B4447A191C194D005C7056 /* check_box_on@2x.png in Resources */,
 				C63DA473192537B200CA0CFE /* purple_marker@2x.png in Resources */,
@@ -839,6 +887,7 @@
 				C6BE14F7191958E800C618AC /* isTrueIcon.png in Resources */,
 				C6AACB4D1919822F0030F19C /* gps_icon.png in Resources */,
 				C63DA468192537B200CA0CFE /* black_marker.png in Resources */,
+				C6C4D19519268ECE00A61959 /* MessageEntryInputField@2x.png in Resources */,
 				C63DA469192537B200CA0CFE /* black_marker@2x.png in Resources */,
 				C627DEFD1918182800FE0C22 /* InfoPlist.strings in Resources */,
 				C66D886C1922D7220029A7F2 /* mrT.png in Resources */,
@@ -846,6 +895,7 @@
 				C6BE1503191965BF00C618AC /* Default@2x.png in Resources */,
 				C6AACB4E1919822F0030F19C /* infinity_icon.png in Resources */,
 				C6A46C98191C3E6B000F431B /* filter_checkmark@2x.png in Resources */,
+				C6C4D19719268ECE00A61959 /* MessageEntrySendButton@2x.png in Resources */,
 				C6A46C99191C3E6B000F431B /* filter_checkmark.png in Resources */,
 				C66D886A1922D7220029A7F2 /* kkk.jpg in Resources */,
 				C627DF061918182800FE0C22 /* Main.storyboard in Resources */,
@@ -886,6 +936,8 @@
 				01648686192160D60094900B /* SignInViewController.m in Sources */,
 				C6D2BD7F1918333F00D7BA0A /* MainScreenViewController.m in Sources */,
 				010A889E191D5AD100ACD1F1 /* SettingsCell.m in Sources */,
+				C6C4D18919268E6900A61959 /* HPTextViewInternal.m in Sources */,
+				C6C4D18819268E6900A61959 /* HPGrowingTextView.m in Sources */,
 				C6CC6AEA19240DBA009FB7B1 /* UIImageView+WebCache.m in Sources */,
 				C6CC6AE419240DBA009FB7B1 /* SDWebImageManager.m in Sources */,
 				0164868C19216F7F0094900B /* RegisterViewController.m in Sources */,
