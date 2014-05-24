@@ -87,8 +87,8 @@
     _default_Y_mapView          = DEFAULT_Y_OFFSET;
     _headerYOffSet              = DEFAULT_Y_OFFSET;
     _heightMap                  = 1000.0f;
-    _regionAnimated             = YES;
-    _userLocationUpdateAnimated = YES;
+    _regionAnimated             = NO;
+    _userLocationUpdateAnimated = NO;
 }
 
 -(void)setupTableView{

@@ -13,6 +13,6 @@
 @property (nonatomic, strong) NSString* longitude;
 @property (nonatomic, strong) NSString* latitude;
 
-- (id) initWithData:(NSDictionary*)dictionary;
+- (id) initWithData:(NSString*)location_string;
 
 @end

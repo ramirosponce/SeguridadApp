@@ -11,6 +11,7 @@
 #import "MFSideMenu.h"
 #import "SideMenuViewController.h"
 #import "MainScreenViewController.h"
+#import "MBProgressHUD.h"
 
 @interface LoaderViewController ()
 
@@ -36,12 +37,26 @@
     }else{
         [loader_background setImage:[UIImage imageNamed:@"Default.png"]];
     }
-    
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    [self performSelector:@selector(showMainScreen) withObject:nil afterDelay:0.5];
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.labelText = NSLocalizedString(@"Loading...", @"Loading...");
+    
+    [NetworkManager runComplaintTypesRequest:^(NSArray *types, NSError *error) {
+        if (!error) {
+            
+            [[GlobalManager sharedManager] saveComplaintTypes:types];
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+            
+            [self performSelector:@selector(showMainScreen) withObject:nil afterDelay:0.5];
+        }else{
+#warning MANEJAR ERROR DE CARGA DE TIPOS DE DENUNCIAS
+            NSLog(@"%@",error.description);
+        }
+    }];
 }
 
 - (void)showMainScreen

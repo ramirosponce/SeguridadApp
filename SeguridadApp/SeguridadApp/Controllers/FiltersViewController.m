@@ -10,8 +10,11 @@
 #import "TimeFilterCell.h"
 #import "CategoryFilterCell.h"
 #import "DataHelper.h"
-#import "CategoryFilter.h"
+
 #import "MFSideMenu.h"
+
+//#import "CategoryFilter.h"
+#import "ComplaintType.h"
 
 #define K_FILTERS_SECTIONS      2
 
@@ -59,13 +62,14 @@
         isCategoryFiltersEmpty = NO;
     }
     
-    NSArray* categories = [DataHelper getCategoryFilterData];
-    for (CategoryFilter* category in categories) {
+    NSArray* categories = [GlobalManager sharedManager].complaint_types;
+    
+    for (ComplaintType* category in categories) {
         if (isCategoryFiltersEmpty) {
             category.isSelected = YES;
             [[GlobalManager sharedManager].category_filters addObject:category];
         }else{
-            if ([[GlobalManager sharedManager] isCategorySelected:category.category_id]) {
+            if ([[GlobalManager sharedManager] isCategorySelected:category.type_id]) {
                 category.isSelected = YES;
             }else
                 category.isSelected = NO;
@@ -73,15 +77,16 @@
         [categories_temp addObject:category];
     }
     
-    categoryData = [[NSMutableArray alloc] initWithArray:[GlobalManager sharedManager].categories];
+    //categoryData = [[NSMutableArray alloc] initWithArray:[GlobalManager sharedManager].categories];
+    categoryData = [[NSMutableArray alloc] initWithArray:categories_temp];
     
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
     NSArray* sortedArray = [categories sortedArrayUsingDescriptors:[NSArray arrayWithObject:sortDescriptor]];
     categoryData = [[NSMutableArray alloc] initWithArray:sortedArray];
+
+    NSDictionary* all_data = @{@"_id": @"",@"nombre": NSLocalizedString(@"All", @"All")};
     
-    CategoryFilter* category_all = [[CategoryFilter alloc]
-                                    initWithData:@{@"id": @"",
-                                                   @"name": NSLocalizedString(@"All", @"All")}];
+    ComplaintType* category_all = [[ComplaintType alloc]initWithData:all_data];
     category_all.isSelected = [GlobalManager sharedManager].categoryAllSelected;
     [categoryData insertObject:category_all atIndex:0];
 }
@@ -210,7 +215,7 @@
         }
         [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
         
-        CategoryFilter* category = [categoryData objectAtIndex:indexPath.row];
+        ComplaintType* category = [categoryData objectAtIndex:indexPath.row];
         [cell populateCell:category.name isSelected:category.isSelected];
         
         return cell;
@@ -226,7 +231,7 @@
         [filtersTableView reloadData];
     }else{
         
-        CategoryFilter* category = [categoryData objectAtIndex:indexPath.row];
+        ComplaintType* category = [categoryData objectAtIndex:indexPath.row];
         category.isSelected = !category.isSelected;
         
         if (category.isSelected) {
@@ -235,10 +240,10 @@
                 
                 [[GlobalManager sharedManager] removeAllCategoryFilter];
                 // dejamos seleccionadas todas las categorias
-                for (CategoryFilter* category in categoryData) {
+                for (ComplaintType* category in categoryData) {
                     category.isSelected = YES;
                     
-                    if (![category.category_id isEqualToString:@""]) {
+                    if (![category.type_id isEqualToString:@""]) {
                         [[GlobalManager sharedManager].category_filters addObject:category];
                     }
                 }
@@ -249,14 +254,14 @@
                 [GlobalManager sharedManager].categoryAllSelected = NO;
                 [[GlobalManager sharedManager] removeAllCategoryFilter];
                 
-                for (CategoryFilter* category in categoryData) {
+                for (ComplaintType* category in categoryData) {
                     category.isSelected = NO;
                 }
                 
             }else{
                 // al haber seleccionado una categoria ya seleccionada
                 // vamos a desmarcar siempre la opcion TODAS
-                CategoryFilter* category_all = categoryData[0];
+                ComplaintType* category_all = categoryData[0];
                 category_all.isSelected = NO;
                 [GlobalManager sharedManager].categoryAllSelected = NO;
                 

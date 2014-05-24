@@ -14,7 +14,7 @@
 
 @property (nonatomic, strong) NSString* complaint_id;
 @property (nonatomic, strong) NSString* complaint_title;
-@property (nonatomic, strong) NSDate* complaint_date;
+@property (nonatomic, strong) NSString* complaint_date;
 @property (nonatomic, strong) NSString* complaint_description;
 @property (nonatomic, strong) Location* location;
 @property (nonatomic) int affected;
@@ -22,6 +22,13 @@
 @property (nonatomic) int isntTrue;
 @property (nonatomic, strong) NSArray* pictures;
 @property (nonatomic, strong) NSArray* tags;
+
+@property (nonatomic, strong) NSArray* attachs;
+@property (nonatomic) int frecuentemente;
+@property (nonatomic, strong) NSString* hora;
+@property (nonatomic, strong) NSString* region;
+
+
 @property (nonatomic) BOOL isAnonymous;
 @property (nonatomic, strong) User* user;
 

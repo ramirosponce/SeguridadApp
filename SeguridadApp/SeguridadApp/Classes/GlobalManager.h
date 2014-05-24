@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class CategoryFilter;
+@class ComplaintType;
 
 @interface GlobalManager : NSObject
 
@@ -18,14 +18,20 @@
 @property (nonatomic, strong) NSMutableArray* category_filters;
 @property (nonatomic, strong) NSMutableArray* categories;
 
+// this is for load content
+@property (nonatomic, strong) NSArray* complaint_types;
+
 + (GlobalManager *) sharedManager;
 
+
+// load methods
+- (void) saveComplaintTypes:(NSArray*)types;
 
 // filters methods
 - (BOOL) areCategoryFilters;
 - (void) removeAllCategoryFilter;
 - (BOOL) isCategorySelected:(NSString*)category_id;
 - (void) loadCategories:(NSArray*) categories_temp;
-- (void) removeCategoryFilter:(CategoryFilter*)category;
+- (void) removeCategoryFilter:(ComplaintType*)category;
 
 @end

@@ -10,13 +10,13 @@
 
 @implementation Location
 
-- (id) initWithData:(NSDictionary*)dictionary
+- (id) initWithData:(NSString*)location_string
 {
     self = [super init];
     if (self != nil) {
-        self.longitude = [dictionary objectForKey:@"lon"];
-        self.latitude = [dictionary objectForKey:@"lat"];
-        
+        NSArray *location = [location_string componentsSeparatedByString:@","];
+        self.latitude = [location objectAtIndex:0];
+        self.longitude = [location objectAtIndex:1];
     }
     return self;
 }

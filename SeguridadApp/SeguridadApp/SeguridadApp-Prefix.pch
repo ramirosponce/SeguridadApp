@@ -15,4 +15,5 @@
     #import <Foundation/Foundation.h>
     #import "Main.h"
     #import "GlobalManager.h"
+    #import "NetworkManager.h"
 #endif

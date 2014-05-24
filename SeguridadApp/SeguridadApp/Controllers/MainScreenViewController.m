@@ -14,7 +14,7 @@
 #import "FiltersViewController.h"
 #import "ComplaintPointAnnotation.h"
 #import "DetailViewController.h"
-
+#import "MBProgressHUD.h"
 
 
 @interface MainScreenViewController ()
@@ -42,18 +42,30 @@
     [self setupInterface];
     
     data = [[NSMutableArray alloc] initWithCapacity:0];
-    NSArray* data_temp = [DataHelper getMapData];
+    /*NSArray* data_temp = [DataHelper getMapData];
     for (NSDictionary* dic in data_temp) {
         Complaint* complaint = [[Complaint alloc] initWithData:dic];
         [data addObject:complaint];
-    }
+    }*/
     
-    [self loadLocations:data];
+    
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
+}
+
+- (void) viewDidAppear:(BOOL)animated
+{
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.labelText = NSLocalizedString(@"Loading...", @"Loading...");
+    
+    [NetworkManager runMapRequestWithLimit:15 completition:^(NSArray *map_complaints, NSError *error) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        data = [[NSMutableArray alloc] initWithArray:map_complaints];
+        [self loadLocations:data];
+    }];
 }
 
 #pragma mark -
@@ -171,8 +183,8 @@
 
 - (void)mapView:(MKMapView *)map didUpdateUserLocation:(MKUserLocation *)userLocation
 {
-    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 1000, 1000);
-    [mapView setRegion:[mapView regionThatFits:region] animated:YES];
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 20000, 20000);
+    [mapView setRegion:[mapView regionThatFits:region] animated:NO];
 }
 
 -(void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control

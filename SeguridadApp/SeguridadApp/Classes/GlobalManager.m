@@ -7,7 +7,9 @@
 //
 
 #import "GlobalManager.h"
-#import "CategoryFilter.h"
+//#import "CategoryFilter.h"
+#import "ComplaintType.h"
+
 
 @implementation GlobalManager
 
@@ -22,11 +24,13 @@ static GlobalManager * sharedInstance = nil;
     {
         /* Init Singleton */
         
-        
         // inicializacion para los datos de filtro
         self.datefilterType = kDateFilterToday;
         self.categoryAllSelected = YES;
         self.category_filters = [[NSMutableArray alloc] initWithCapacity:0];
+        
+        // inicializacion para los datos globales
+        self.complaint_types = [[NSArray alloc] init];
     }
     return self;
 }
@@ -57,6 +61,11 @@ static GlobalManager * sharedInstance = nil;
 #pragma mark -
 #pragma mark load methods
 
+- (void) saveComplaintTypes:(NSArray*)types
+{
+    self.complaint_types = [[NSArray alloc] initWithArray:types];
+}
+
 #pragma mark -
 #pragma mark Filters methods
 
@@ -75,9 +84,9 @@ static GlobalManager * sharedInstance = nil;
 
 - (BOOL) isCategorySelected:(NSString*)category_id
 {
-    for (CategoryFilter* category_selected in self.category_filters) {
+    for (ComplaintType* category_selected in self.category_filters) {
         
-        if ([category_selected.category_id isEqualToString:category_id]) {
+        if ([category_selected.type_id isEqualToString:category_id]) {
             return YES;
         }
     }
@@ -93,12 +102,12 @@ static GlobalManager * sharedInstance = nil;
         self.categories = [[NSMutableArray alloc] initWithArray:categories_temp];
 }
 
-- (void) removeCategoryFilter:(CategoryFilter*)category
+- (void) removeCategoryFilter:(ComplaintType*)category
 {
     NSMutableArray* category_filters_aux = [NSMutableArray arrayWithArray:self.category_filters];
     for (int i = 0; i < [category_filters_aux count]; i++) {
-        CategoryFilter* category_selected = [category_filters_aux objectAtIndex:i];
-        if ([category_selected.category_id isEqualToString:category.category_id]) {
+        ComplaintType* category_selected = [category_filters_aux objectAtIndex:i];
+        if ([category_selected.type_id isEqualToString:category.type_id]) {
             [category_filters_aux removeObjectAtIndex:i];
         }
     }
