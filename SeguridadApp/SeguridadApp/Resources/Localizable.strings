@@ -37,8 +37,10 @@
 "log in with email" = "Entrar con email";
 "i have no account" = "No tengo cuenta";
 "Email" = "Correo Electrónico";
-"Password" = "Contraseña";
 "User Name" = "Seudónimo";
+"Name" = "Nombre";
+"First name" = "Apellido";
+"Password" = "Contraseña";
 "Confirm Password" = "Confirmar contraseña";
 "Register" = "Registrarme";
 "Loading..." = "Cargando...";

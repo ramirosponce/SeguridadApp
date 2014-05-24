@@ -40,27 +40,33 @@
 
 - (void) setupInterface
 {
-    [signinNormalButton setText:NSLocalizedString(@"log in with email", @"log in with email")];
-    [noaccountButton setText:NSLocalizedString(@"i have no account", @"i have no account")];
-    
-    [signinNormalButton setUserInteractionEnabled:YES];
-    UITapGestureRecognizer* signinNormalButtonGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapViewWithGesture:)];
-    [signinNormalButtonGesture setNumberOfTapsRequired:1];
-    [signinNormalButton addGestureRecognizer:signinNormalButtonGesture];
-    
-    [noaccountButton setUserInteractionEnabled:YES];
-    UITapGestureRecognizer* noaccountButtonGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapViewWithGesturePush:)];
-    [noaccountButtonGesture setNumberOfTapsRequired:1];
-    [noaccountButton addGestureRecognizer:noaccountButtonGesture];
+    [noAccountButton setTitle:NSLocalizedString(@"i have no account", @"i have no account") forState:UIControlStateNormal];
+    [loginNormalButton setTitle:NSLocalizedString(@"log in with email", @"log in with email") forState:UIControlStateNormal];
 }
+
 #pragma mark -
 #pragma mark Actions methods
-- (void) didTapViewWithGesture:(UITapGestureRecognizer*) tapGesture
+
+- (IBAction) loginNormalButton:(id)sender
 {
     [self performSegueWithIdentifier:@"loginEmailSegue" sender:nil];
 }
-- (void) didTapViewWithGesturePush:(UITapGestureRecognizer*) tapGesture
+
+- (IBAction) noAccountButton:(id)sender
 {
     [self performSegueWithIdentifier:@"registerSegue" sender:nil];
 }
+
 @end
+
+
+
+
+
+
+
+
+
+
+
+

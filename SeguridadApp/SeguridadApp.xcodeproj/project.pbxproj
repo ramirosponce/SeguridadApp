@@ -51,6 +51,7 @@
 		C64945F7192295DE00C813A3 /* DetailFeelingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C64945F5192295DE00C813A3 /* DetailFeelingCell.m */; };
 		C64945F8192295DE00C813A3 /* DetailFeelingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C64945F6192295DE00C813A3 /* DetailFeelingCell.xib */; };
 		C655E2A5191AD20500C7E2F0 /* ComplaintViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C655E2A4191AD20500C7E2F0 /* ComplaintViewController.m */; };
+		C65DA608193147D7002E2B55 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C65DA607193147D7002E2B55 /* FacebookSDK.framework */; };
 		C66D88661922D7220029A7F2 /* alberto.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C66D885E1922D7220029A7F2 /* alberto.jpg */; };
 		C66D88671922D7220029A7F2 /* bond.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C66D885F1922D7220029A7F2 /* bond.jpg */; };
 		C66D88681922D7220029A7F2 /* heman.png in Resources */ = {isa = PBXBuildFile; fileRef = C66D88601922D7220029A7F2 /* heman.png */; };
@@ -236,6 +237,7 @@
 		C64945F6192295DE00C813A3 /* DetailFeelingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailFeelingCell.xib; sourceTree = "<group>"; };
 		C655E2A3191AD20500C7E2F0 /* ComplaintViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComplaintViewController.h; sourceTree = "<group>"; };
 		C655E2A4191AD20500C7E2F0 /* ComplaintViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComplaintViewController.m; sourceTree = "<group>"; };
+		C65DA607193147D7002E2B55 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		C6641DDF19193D3600D0E3B4 /* Main.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Main.h; sourceTree = "<group>"; };
 		C66D885E1922D7220029A7F2 /* alberto.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = alberto.jpg; sourceTree = "<group>"; };
 		C66D885F1922D7220029A7F2 /* bond.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bond.jpg; sourceTree = "<group>"; };
@@ -403,6 +405,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C6BE14E319194B1D00C618AC /* MapKit.framework in Frameworks */,
+				C65DA608193147D7002E2B55 /* FacebookSDK.framework in Frameworks */,
 				C627DEF51918182800FE0C22 /* CoreGraphics.framework in Frameworks */,
 				C627DEF71918182800FE0C22 /* UIKit.framework in Frameworks */,
 				C627DEF31918182800FE0C22 /* Foundation.framework in Frameworks */,
@@ -444,6 +447,7 @@
 		C627DEF11918182800FE0C22 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C65DA607193147D7002E2B55 /* FacebookSDK.framework */,
 				C6BE14E219194B1D00C618AC /* MapKit.framework */,
 				C627DEF21918182800FE0C22 /* Foundation.framework */,
 				C627DEF41918182800FE0C22 /* CoreGraphics.framework */,
@@ -1206,6 +1210,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SeguridadApp/SeguridadApp-Prefix.pch";
 				INFOPLIST_FILE = "SeguridadApp/SeguridadApp-Info.plist";
@@ -1219,6 +1227,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SeguridadApp/SeguridadApp-Prefix.pch";
 				INFOPLIST_FILE = "SeguridadApp/SeguridadApp-Info.plist";

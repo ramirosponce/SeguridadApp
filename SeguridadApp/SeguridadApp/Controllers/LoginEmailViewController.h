@@ -12,8 +12,13 @@
 {
     __weak IBOutlet UITextField* emailField;
     __weak IBOutlet UITextField* passwordField;
-    __weak IBOutlet UILabel* loginButton;
-    __weak IBOutlet UILabel* noaccountButton;
+    
+    __weak IBOutlet UIButton* loginButton;
+    __weak IBOutlet UIButton* noAccountButton;
+    
 }
+
+- (IBAction)loginButtonAction:(id)sender;
+- (IBAction)noAccountButtonAction:(id)sender;
 
 @end

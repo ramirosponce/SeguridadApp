@@ -9,7 +9,9 @@
 #import "LoginEmailViewController.h"
 
 @interface LoginEmailViewController ()
-
+{
+    UITextField * activeTextField;
+}
 @end
 
 @implementation LoginEmailViewController
@@ -27,13 +29,11 @@
 {
     [super viewDidLoad];
     [self setupInterface];
-    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 #pragma mark -
 #pragma mark private methods
@@ -48,34 +48,45 @@
     [passwordField setPlaceholder:NSLocalizedString(@"Password", @"Password")];
     [passwordField setSecureTextEntry:YES];
     [passwordField setReturnKeyType:UIReturnKeyDone];
-    [loginButton setText:NSLocalizedString(@"Sign In", @"Sign In")];
-    [noaccountButton setText:NSLocalizedString(@"i have no account", @"i have no account")];
     
-    [loginButton setUserInteractionEnabled:YES];
-    UITapGestureRecognizer* loginButtonGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapViewWithGesture:)];
-    [loginButtonGesture setNumberOfTapsRequired:1];
-    [loginButton addGestureRecognizer:loginButtonGesture];
+    emailField.delegate = self;
+    passwordField.delegate = self;
     
-    [noaccountButton setUserInteractionEnabled:YES];
-    UITapGestureRecognizer* noaccountButtonGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapViewWithGesturePush:)];
-    [noaccountButtonGesture setNumberOfTapsRequired:1];
-    [noaccountButton addGestureRecognizer:noaccountButtonGesture];
-
+    [loginButton setTitle:NSLocalizedString(@"Sign In", @"Sign In") forState:UIControlStateNormal];
+    [noAccountButton setTitle:NSLocalizedString(@"i have no account", @"i have no account") forState:UIControlStateNormal];
 }
+
 #pragma mark -
 #pragma mark Actions methods
-- (void) didTapViewWithGesture:(UITapGestureRecognizer*) tapGesture
+
+- (IBAction)loginButtonAction:(id)sender
 {
-  [[[UIAlertView alloc] initWithTitle:nil message:@"login button action" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
+    [activeTextField resignFirstResponder];
+    [[[UIAlertView alloc] initWithTitle:nil message:@"login button action" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
 }
-- (void) didTapViewWithGesturePush:(UITapGestureRecognizer*) tapGesture
+
+- (IBAction)noAccountButtonAction:(id)sender
 {
+    [activeTextField resignFirstResponder];
     [self performSegueWithIdentifier:@"registerSegue" sender:nil];
+    
 }
+
+#pragma mark -
+#pragma mark UITextfieldDelegate methods
+
+- (void) textFieldDidBeginEditing:(UITextField *)textField{
+    activeTextField = textField;
+}
+
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    if ( textField == emailField ) { [passwordField becomeFirstResponder]; }
-    else if (textField == passwordField ) { [passwordField resignFirstResponder]; }
+    if ( textField == emailField ) {
+        [passwordField becomeFirstResponder];
+    }else if (textField == passwordField ) {
+        [passwordField resignFirstResponder];
+    }
     return YES;
 }
+
 @end

@@ -11,6 +11,7 @@
 @interface RegisterViewController ()
 {
     UITextField* currentTextfield;
+    CGRect originalContainerFrame;
 }
 @end
 
@@ -31,6 +32,16 @@
     [self setupInterface];
 }
 
+- (void) viewDidAppear:(BOOL)animated
+{
+    [self setupKeyboardNotifications];
+}
+
+- (void) viewDidDisappear:(BOOL)animated
+{
+    [self removeKeyboardNotifications];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -45,26 +56,27 @@
     [emailField setPlaceholder:NSLocalizedString(@"Email", @"Email")];
     [emailField setKeyboardType:UIKeyboardTypeEmailAddress];
     [emailField setReturnKeyType:UIReturnKeyNext];
-    [userNameField setPlaceholder:NSLocalizedString(@"User Name",@"User Name")];
-    [userNameField setReturnKeyType:UIReturnKeyNext];
+    
+    [user_name setPlaceholder:NSLocalizedString(@"Name",@"Name")];
+    [user_name setReturnKeyType:UIReturnKeyNext];
+    
+    [user_firstname setPlaceholder:NSLocalizedString(@"First name",@"First name")];
+    [user_firstname setReturnKeyType:UIReturnKeyNext];
+    
     [passwordField setPlaceholder:NSLocalizedString(@"Password", @"Password")];
     [passwordField setReturnKeyType:UIReturnKeyNext];
     [passwordField setSecureTextEntry:YES];
     [passwordConfirmField setSecureTextEntry:YES];
     [passwordConfirmField setPlaceholder:NSLocalizedString(@"Confirm password", @"Confirm password")];
     [passwordConfirmField setReturnKeyType:UIReturnKeyDone];
-    [registerButton setText:NSLocalizedString(@"Register",@"Register")];
-    [termsButton setText:NSLocalizedString(@"Terms and Use Conditions", @"Terms and Use Conditions")];
     
-    [registerButton setUserInteractionEnabled:YES];
-    UITapGestureRecognizer* registerButtonGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapViewWithGesture:)];
-    [registerButtonGesture setNumberOfTapsRequired:1];
-    [registerButton addGestureRecognizer:registerButtonGesture];
     
-    [termsButton setUserInteractionEnabled:YES];
-    UITapGestureRecognizer* termsButtonGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapViewWithGesturePush:)];
-    [termsButtonGesture setNumberOfTapsRequired:1];
-    [termsButton addGestureRecognizer:termsButtonGesture];
+    [registerButton setTitle:NSLocalizedString(@"Register",@"Register") forState:UIControlStateNormal];
+    [termsButton setTitle:NSLocalizedString(@"Terms and Use Conditions", @"Terms and Use Conditions") forState:UIControlStateNormal];
+
+    CGFloat max_y_content_scroll = registerButton.frame.origin.y + registerButton.frame.size.height + 10;
+    [container_scroll setContentSize:CGSizeMake(container_scroll.frame.size.width, max_y_content_scroll)];
+    originalContainerFrame = container_scroll.frame;
     
     [photoImageView setUserInteractionEnabled:YES];
     UITapGestureRecognizer* pictureTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(addImageAction:)];
@@ -73,15 +85,83 @@
     [photoImageView addGestureRecognizer:pictureTapRecognizer];
     
 }
+
+- (void) removeKeyboardNotifications
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+}
+
+- (void) setupKeyboardNotifications
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+}
+
+#pragma mark -
+#pragma mark Keyboards methods
+
+//Code from Brett Schumann
+-(void) keyboardWillShow:(NSNotification *)note{
+    
+    // get keyboard size and loctaion
+	CGRect keyboardBounds;
+    [[note.userInfo valueForKey:UIKeyboardFrameEndUserInfoKey] getValue: &keyboardBounds];
+    NSNumber *duration = [note.userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey];
+    NSNumber *curve = [note.userInfo objectForKey:UIKeyboardAnimationCurveUserInfoKey];
+    
+    // Need to translate the bounds to account for rotation.
+    keyboardBounds = [self.view convertRect:keyboardBounds toView:nil];
+    
+	// get a rect for the textView frame
+	CGRect containerFrame = container_scroll.frame;
+    containerFrame.size.height = self.view.bounds.size.height - keyboardBounds.size.height;
+    
+	// animations settings
+	[UIView beginAnimations:nil context:NULL];
+	[UIView setAnimationBeginsFromCurrentState:YES];
+    [UIView setAnimationDuration:[duration doubleValue]];
+    [UIView setAnimationCurve:[curve intValue]];
+	
+	// set views with new info
+	container_scroll.frame = containerFrame;
+	
+	// commit animations
+	[UIView commitAnimations];
+}
+
+-(void) keyboardWillHide:(NSNotification *)note{
+    
+    NSNumber *duration = [note.userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey];
+    NSNumber *curve = [note.userInfo objectForKey:UIKeyboardAnimationCurveUserInfoKey];
+	
+	// get a rect for the textView frame
+	CGRect containerFrame = container_scroll.frame;
+    containerFrame.size.height = originalContainerFrame.size.height;
+    
+	// animations settings
+	[UIView beginAnimations:nil context:NULL];
+	[UIView setAnimationBeginsFromCurrentState:YES];
+    [UIView setAnimationDuration:[duration doubleValue]];
+    [UIView setAnimationCurve:[curve intValue]];
+    
+	// set views with new info
+	container_scroll.frame = containerFrame;
+	// commit animations
+	[UIView commitAnimations];
+    
+}
+
 #pragma mark -
 #pragma mark Actions methods
 
-- (void) didTapViewWithGesture:(UITapGestureRecognizer*) tapGesture
+- (IBAction)registerButtonAction:(id)sender
 {
     [[[UIAlertView alloc] initWithTitle:nil message:@"register button action" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
 }
 
-- (void) didTapViewWithGesturePush:(UITapGestureRecognizer*) tapGesture
+- (IBAction)termsButtonAction:(id)sender
 {
     [self performSegueWithIdentifier:@"termsofuseSegue" sender:nil];
 }
@@ -93,8 +173,10 @@
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     if ( textField == emailField ) {
-        [userNameField becomeFirstResponder];
-    }else if (textField == userNameField ) {
+        [user_name becomeFirstResponder];
+    }else if (textField == user_name ) {
+        [user_firstname becomeFirstResponder];
+    }else if (textField == user_firstname ) {
         [passwordField becomeFirstResponder];
     }else if (textField == passwordField ) {
         [passwordConfirmField becomeFirstResponder];

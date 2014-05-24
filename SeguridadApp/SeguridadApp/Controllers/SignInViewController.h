@@ -7,12 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <FacebookSDK/FacebookSDK.h>
 
 @interface SignInViewController : UIViewController
 {
-    __weak IBOutlet UILabel* signinNormalButton;
-    __weak IBOutlet UILabel* noaccountButton;
     __weak IBOutlet UIButton* loginFacebookButton;
+    __weak IBOutlet UIButton* loginNormalButton;
+    __weak IBOutlet UIButton* noAccountButton;
+    
+    __weak IBOutlet FBLoginView* loginFacebook;
 }
+
+- (IBAction) loginNormalButton:(id)sender;
+- (IBAction) noAccountButton:(id)sender;
 
 @end
