@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="Q2t-AD-npg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="Q2t-AD-npg">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -404,7 +404,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="cS6-lb-wHx" userLabel="normal login button">
-                                <rect key="frame" x="20" y="81" width="280" height="30"/>
+                                <rect key="frame" x="20" y="42" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -414,7 +414,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="euz-d6-RMk" userLabel="no account button">
-                                <rect key="frame" x="20" y="192" width="280" height="30"/>
+                                <rect key="frame" x="20" y="153" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button">
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -425,7 +425,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" id="KYd-3N-2cl" customClass="FBLoginView">
-                                <rect key="frame" x="20" y="120" width="280" height="57"/>
+                                <rect key="frame" x="46" y="89" width="228" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
@@ -434,6 +434,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="q2i-Nu-k3z"/>
                     <connections>
+                        <outlet property="loginFacebook" destination="KYd-3N-2cl" id="izk-wC-PMq"/>
                         <outlet property="loginNormalButton" destination="cS6-lb-wHx" id="bNI-ZV-obM"/>
                         <outlet property="noAccountButton" destination="euz-d6-RMk" id="GsO-BE-vke"/>
                         <segue destination="i0f-Jq-e51" kind="push" identifier="loginEmailSegue" id="nrv-zP-CoV"/>

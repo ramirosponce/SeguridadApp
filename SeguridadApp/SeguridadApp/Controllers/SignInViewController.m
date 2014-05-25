@@ -7,6 +7,7 @@
 //
 
 #import "SignInViewController.h"
+#import "MFSideMenu.h"
 
 @interface SignInViewController ()
 
@@ -42,6 +43,10 @@
 {
     [noAccountButton setTitle:NSLocalizedString(@"i have no account", @"i have no account") forState:UIControlStateNormal];
     [loginNormalButton setTitle:NSLocalizedString(@"log in with email", @"log in with email") forState:UIControlStateNormal];
+    
+    // In your viewDidLoad method:
+    loginFacebook.readPermissions = @[@"public_profile", @"email"];
+    loginFacebook.delegate = self;
 }
 
 #pragma mark -
@@ -57,16 +62,25 @@
     [self performSegueWithIdentifier:@"registerSegue" sender:nil];
 }
 
+#pragma mark - 
+#pragma mark FBLoginViewDelegate methods
+// This method will be called when the user information has been fetched
+- (void)loginViewFetchedUserInfo:(FBLoginView *)loginView user:(id<FBGraphUser>)user {
+    
+    NSLog(@"user: %@",user);
+    
+//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+//    
+//    UINavigationController *navigationController = (UINavigationController*)self.parentViewController;
+//    MFSideMenuContainerViewController *container = (MFSideMenuContainerViewController*)[navigationController parentViewController];
+//    
+//    UINavigationController *centerViewController =
+//    [storyboard instantiateViewControllerWithIdentifier:@"CenterViewController"];
+//    [container setCenterViewController:centerViewController];
+    
+    //self.profilePictureView.profileID = user.id;
+    //self.nameLabel.text = user.name;
+}
+
+
 @end
-
-
-
-
-
-
-
-
-
-
-
-
