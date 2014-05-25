@@ -10,39 +10,24 @@
 
 @implementation ComplaintType
 
-//@property (nonatomic, strong) NSString* type_id;
-//@property (nonatomic, strong) NSString* icon_name;
-//@property (nonatomic, strong) NSString* name;
-//@property (nonatomic, strong) NSArray*  subcategories;
-
-//"_id" = 536c79694b9c10f0fb4be618;
-//icon = "alcohol.png";
-//nombre = "Art\U00edculos ilegales";
-//subcategorias =         (
-//                         Contrabando,
-//                         Drogas,
-//                         "Alcohol a menores",
-//                         "Cosas robada"
-//                         );
-
 - (id)initWithData:(NSDictionary *)dData
 {
     self = [super init];
     if (self) {
         
-        if ([dData objectForKey:@"_id"]) {
+        if ([AppHelper existObject:@"_id" in:dData]) {
             self.type_id = [dData objectForKey:@"_id"];
         }
         
-        if ([dData objectForKey:@"icon"]) {
+        if ([AppHelper existObject:@"icon" in:dData]) {
             self.icon_name = [dData objectForKey:@"icon"];
         }
         
-        if ([dData objectForKey:@"nombre"]) {
+        if ([AppHelper existObject:@"nombre" in:dData]) {
             self.name = [dData objectForKey:@"nombre"];
         }
         
-        if ([dData objectForKey:@"subcategorias"]) {
+        if ([AppHelper existObject:@"subcategorias" in:dData]) {
             self.subcategories = [[NSArray alloc] initWithArray:[dData objectForKey:@"subcategorias"]];
         }
         

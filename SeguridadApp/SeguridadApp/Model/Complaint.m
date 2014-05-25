@@ -10,42 +10,49 @@
 
 @implementation Complaint
 
-- (id) initWithDataOLD:(NSDictionary*)dictionary{
-    self = [super init];
-    if (self != nil) {
-        self.complaint_id = [dictionary objectForKey:@"id"];
-        self.complaint_title = [dictionary objectForKey:@"title"];
-        self.complaint_date = [dictionary objectForKey:@"datetime"];
-        self.complaint_description = [dictionary objectForKey:@"description"];
-        self.location = [[Location alloc] initWithData:[dictionary objectForKey:@"location"]];
-        self.affected = [[dictionary objectForKey:@"affected"] intValue];
-        self.isTrue = [[dictionary objectForKey:@"isTrue"] intValue];
-        self.isntTrue = [[dictionary objectForKey:@"isntTrue"] intValue];
-        self.pictures = [dictionary objectForKey:@"pictures"];
-        self.tags = [dictionary objectForKey:@"tags"];
-        self.isAnonymous = [[dictionary objectForKey:@"isAnonymous"] boolValue];
-        self.user = [[User alloc] initWithData:[dictionary objectForKey:@"user"]];
-    }
-    return self;
-}
-
 - (id) initWithData:(NSDictionary*)dictionary{
     self = [super init];
     if (self != nil) {
-        self.complaint_id = [dictionary objectForKey:@"_id"];//
-        self.complaint_title = [dictionary objectForKey:@"titulo"];//
-        self.complaint_date = [dictionary objectForKey:@"fecha"];//
-        self.complaint_description = [dictionary objectForKey:@"descripcion"];//
-        self.location = [[Location alloc] initWithData:[dictionary objectForKey:@"pos"]];//
         
-        self.affected = [[dictionary objectForKey:@"afectados"] intValue];//
-        self.isTrue = [[dictionary objectForKey:@"escierto"] intValue];//
-        self.isntTrue = [[dictionary objectForKey:@"nocierto"] intValue];//
+        if ([AppHelper existObject:@"_id" in:dictionary]) {
+            self.complaint_id = [dictionary objectForKey:@"_id"];
+        }
         
-        self.pictures = [dictionary objectForKey:@"fotos"];//
-        self.tags = [dictionary objectForKey:@"tags"];//
+        if ([AppHelper existObject:@"titulo" in:dictionary]) {
+            self.complaint_title = [dictionary objectForKey:@"titulo"];
+        }
         
+        if ([AppHelper existObject:@"fecha" in:dictionary]) {
+            self.complaint_date = [dictionary objectForKey:@"fecha"];//
+        }
         
+        if ([AppHelper existObject:@"descripcion" in:dictionary]) {
+            self.complaint_description = [dictionary objectForKey:@"descripcion"];//
+        }
+        
+        if ([AppHelper existObject:@"pos" in:dictionary]) {
+            self.location = [[Location alloc] initWithData:[dictionary objectForKey:@"pos"]];//
+        }
+        
+        if ([AppHelper existObject:@"afectados" in:dictionary]) {
+            self.affected = [[dictionary objectForKey:@"afectados"] intValue];//
+        }
+        
+        if ([AppHelper existObject:@"escierto" in:dictionary]) {
+            self.isTrue = [[dictionary objectForKey:@"escierto"] intValue];//
+        }
+        
+        if ([AppHelper existObject:@"nocierto" in:dictionary]) {
+            self.isntTrue = [[dictionary objectForKey:@"nocierto"] intValue];//
+        }
+        
+        if ([AppHelper existObject:@"fotos" in:dictionary]) {
+            self.pictures = [dictionary objectForKey:@"fotos"];//
+        }
+        
+        if ([AppHelper existObject:@"tags" in:dictionary]) {
+            self.tags = [dictionary objectForKey:@"tags"];//
+        }
         
         //self.isAnonymous = [[dictionary objectForKey:@"isAnonymous"] boolValue];
         //self.user = [[User alloc] initWithData:[dictionary objectForKey:@"user"]];

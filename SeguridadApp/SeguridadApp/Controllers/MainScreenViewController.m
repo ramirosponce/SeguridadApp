@@ -58,11 +58,11 @@
 
 - (void) viewDidAppear:(BOOL)animated
 {
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
     hud.labelText = NSLocalizedString(@"Loading...", @"Loading...");
     
-    [NetworkManager runMapRequestWithLimit:15 completition:^(NSArray *map_complaints, NSError *error) {
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
+    [NetworkManager runMapRequestWithLimit:MAX_COMPLAINT_COUNT completition:^(NSArray *map_complaints, NSError *error) {
+        [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
         data = [[NSMutableArray alloc] initWithArray:map_complaints];
         [self loadLocations:data];
     }];

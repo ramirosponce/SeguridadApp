@@ -16,4 +16,6 @@
     #import "Main.h"
     #import "GlobalManager.h"
     #import "NetworkManager.h"
+    #import "AppHelper.h"
+    #import "UserHelper.h"
 #endif

@@ -78,6 +78,8 @@
 		C6894A31192BD36F0096A54D /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = C6894A26192BD36F0096A54D /* AFURLRequestSerialization.m */; };
 		C6894A32192BD36F0096A54D /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = C6894A28192BD36F0096A54D /* AFURLResponseSerialization.m */; };
 		C6894A33192BD36F0096A54D /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C6894A2A192BD36F0096A54D /* AFURLSessionManager.m */; };
+		C69914461932A32D0076A716 /* AppHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C69914451932A32D0076A716 /* AppHelper.m */; };
+		C69914491932B4310076A716 /* UserHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C69914481932B4310076A716 /* UserHelper.m */; };
 		C6A46C95191C2E00000F431B /* CategoryFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = C6A46C94191C2E00000F431B /* CategoryFilter.m */; };
 		C6A46C98191C3E6B000F431B /* filter_checkmark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C6A46C96191C3E6B000F431B /* filter_checkmark@2x.png */; };
 		C6A46C99191C3E6B000F431B /* filter_checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = C6A46C97191C3E6B000F431B /* filter_checkmark.png */; };
@@ -282,6 +284,10 @@
 		C6894A28192BD36F0096A54D /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
 		C6894A29192BD36F0096A54D /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
 		C6894A2A192BD36F0096A54D /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
+		C69914441932A32D0076A716 /* AppHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppHelper.h; sourceTree = "<group>"; };
+		C69914451932A32D0076A716 /* AppHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppHelper.m; sourceTree = "<group>"; };
+		C69914471932B4310076A716 /* UserHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserHelper.h; sourceTree = "<group>"; };
+		C69914481932B4310076A716 /* UserHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserHelper.m; sourceTree = "<group>"; };
 		C6A46C93191C2E00000F431B /* CategoryFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryFilter.h; sourceTree = "<group>"; };
 		C6A46C94191C2E00000F431B /* CategoryFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryFilter.m; sourceTree = "<group>"; };
 		C6A46C96191C3E6B000F431B /* filter_checkmark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "filter_checkmark@2x.png"; sourceTree = "<group>"; };
@@ -562,6 +568,10 @@
 				C68221B2192167E7003B579F /* ComplaintPointAnnotation.m */,
 				C6894A0C192BD2210096A54D /* NetworkManager.h */,
 				C6894A0D192BD2210096A54D /* NetworkManager.m */,
+				C69914441932A32D0076A716 /* AppHelper.h */,
+				C69914451932A32D0076A716 /* AppHelper.m */,
+				C69914471932B4310076A716 /* UserHelper.h */,
+				C69914481932B4310076A716 /* UserHelper.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -1050,6 +1060,7 @@
 				C6CC6AE519240DBA009FB7B1 /* SDWebImagePrefetcher.m in Sources */,
 				C64945F7192295DE00C813A3 /* DetailFeelingCell.m in Sources */,
 				C6D2BD821918394500D7BA0A /* LoaderViewController.m in Sources */,
+				C69914491932B4310076A716 /* UserHelper.m in Sources */,
 				012BF9051921528800C0722B /* AboutViewController.m in Sources */,
 				C627DF3519181A7300FE0C22 /* MFSideMenuShadow.m in Sources */,
 				C6D2BD861918445600D7BA0A /* DataHelper.m in Sources */,
@@ -1060,6 +1071,7 @@
 				C6B44476191C15C2005C7056 /* FiltersViewController.m in Sources */,
 				C6CC6AE819240DBA009FB7B1 /* UIImage+MultiFormat.m in Sources */,
 				C6894A33192BD36F0096A54D /* AFURLSessionManager.m in Sources */,
+				C69914461932A32D0076A716 /* AppHelper.m in Sources */,
 				C6CC6AE719240DBA009FB7B1 /* UIImage+GIF.m in Sources */,
 				C6A7659019213764000AA56E /* SLParallaxController.m in Sources */,
 				C68242571922CDDB00BF7050 /* User.m in Sources */,

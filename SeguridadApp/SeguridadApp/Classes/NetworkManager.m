@@ -117,4 +117,31 @@
     }];
 }
 
++ (void) runSignupRequestWithParams:(NSDictionary*)params completition:(SignupCompletitionHandler)completitionHandler
+{
+    [self PostRequest:API_SIGNUP params:params completitionHandler:^(AFHTTPRequestOperation *operation, id responseObject, NSError *error) {
+        
+        if (!error) {
+            completitionHandler(responseObject, nil);
+        }else{
+            NSLog(@"Error: %@", error.description);
+            completitionHandler(nil, error);
+        }
+        
+    }];
+}
+
++ (void) runLoginRequestWithParams:(NSDictionary*)params completition:(LoginCompletitionHandler)completitionHandler
+{
+    [self PostRequest:API_LOGIN params:params completitionHandler:^(AFHTTPRequestOperation *operation, id responseObject, NSError *error) {
+        
+        if (!error) {
+            completitionHandler(responseObject, nil);
+        }else{
+            completitionHandler(nil, error);
+        }
+        
+    }];
+}
+
 @end

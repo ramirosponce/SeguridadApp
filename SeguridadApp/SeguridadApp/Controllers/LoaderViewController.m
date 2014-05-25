@@ -42,14 +42,14 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
     hud.labelText = NSLocalizedString(@"Loading...", @"Loading...");
     
     [NetworkManager runComplaintTypesRequest:^(NSArray *types, NSError *error) {
         if (!error) {
             
             [[GlobalManager sharedManager] saveComplaintTypes:types];
-            [MBProgressHUD hideHUDForView:self.view animated:YES];
+            [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
             
             [self performSelector:@selector(showMainScreen) withObject:nil afterDelay:0.5];
         }else{

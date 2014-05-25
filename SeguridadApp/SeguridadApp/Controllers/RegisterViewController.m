@@ -7,6 +7,7 @@
 //
 
 #import "RegisterViewController.h"
+#import "MBProgressHUD.h"
 
 @interface RegisterViewController ()
 {
@@ -158,7 +159,49 @@
 
 - (IBAction)registerButtonAction:(id)sender
 {
-    [[[UIAlertView alloc] initWithTitle:nil message:@"register button action" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
+    if (emailField.text.length == 0 || user_name.text.length == 0 || user_firstname.text.length == 0 ||
+        passwordField.text.length == 0 || passwordConfirmField.text.length == 0) {
+        
+        [[[UIAlertView alloc] initWithTitle:nil message:NSLocalizedString(@"You must complete all fields.",@"You must complete all fields.") delegate:nil cancelButtonTitle:NSLocalizedString(@"Ok", @"Ok") otherButtonTitles:nil] show];
+        
+        return;
+    }
+    
+    if (![AppHelper NSStringIsValidEmail:emailField.text]){
+        
+        [[[UIAlertView alloc] initWithTitle:nil message:NSLocalizedString(@"You should enter a valid email address.",@"You should enter a valid email address.") delegate:nil cancelButtonTitle:NSLocalizedString(@"Ok", @"Ok") otherButtonTitles:nil] show];
+        return;
+    }
+    
+    if (![passwordField.text isEqualToString:passwordConfirmField.text]) {
+        [[[UIAlertView alloc] initWithTitle:nil message:NSLocalizedString(@"Your password fields doesn't match.","Your password fields doesn't match.") delegate:nil cancelButtonTitle:NSLocalizedString(@"Ok", @"Ok") otherButtonTitles:nil] show];
+        return;
+    }
+    
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+    hud.labelText = NSLocalizedString(@"Loading...", @"Loading...");
+    
+    NSDictionary* params = @{@"email": emailField.text,
+                             @"nombre": user_name.text,
+                             @"apellido": user_firstname.text,
+                             @"password": passwordField.text};
+    [NetworkManager runSignupRequestWithParams:params completition:^(NSDictionary *data, NSError *error) {
+        
+        [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
+        
+        if (!data) {
+            [[[UIAlertView alloc] initWithTitle:nil message:NSLocalizedString(@"Something is wrong, please try again later.","Something is wrong, please try again later.") delegate:nil cancelButtonTitle:NSLocalizedString(@"Ok", @"Ok") otherButtonTitles:nil] show];
+        }else{
+            
+            NSString* response = [data objectForKey:@"res"];
+            if ([response isEqualToString:SIGN_UP_OK]) {
+                [[[UIAlertView alloc] initWithTitle:nil message:NSLocalizedString(@"Registration successfully.","Registration successfully.") delegate:nil cancelButtonTitle:NSLocalizedString(@"Ok", @"Ok") otherButtonTitles:nil] show];
+                // go to main scren or do something
+            }
+            
+        }
+    }];
 }
 
 - (IBAction)termsButtonAction:(id)sender
