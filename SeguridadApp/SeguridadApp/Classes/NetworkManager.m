@@ -99,13 +99,14 @@
 {
     NSDictionary* params = @{@"limit":[NSString stringWithFormat:@"%i",limit]};
     [self PostRequest:API_DENUNCIA_SEARCH params:params completitionHandler:^(AFHTTPRequestOperation *operation, id responseObject, NSError *error) {
-        NSLog(@"request: %@",responseObject);
+        
         if (!error) {
             
             NSMutableArray* complaints = [NSMutableArray arrayWithCapacity:0];
             
             NSArray* response_array = (NSArray*)responseObject;
             for (NSDictionary* data in response_array) {
+                NSLog(@"response denuncia: %@", data);
                 Complaint* complaint = [[Complaint alloc] initWithData:data];
                 [complaints addObject:complaint];
             }

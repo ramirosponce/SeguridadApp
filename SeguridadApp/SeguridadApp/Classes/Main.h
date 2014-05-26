@@ -40,6 +40,7 @@ typedef enum {
 #define API_NEW                       @"denuncia/new"
 #define API_LOGIN                     @"login"
 #define API_SIGNUP                    @"signup"
+#define API_UPLOAD                    @"app/uploads/"
 
 #define SIGN_UP_OK                    @"OP_OK"  // res = "OP_OK";
 

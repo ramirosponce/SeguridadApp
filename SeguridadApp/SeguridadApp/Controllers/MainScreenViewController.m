@@ -65,6 +65,7 @@
         [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
         data = [[NSMutableArray alloc] initWithArray:map_complaints];
         [self loadLocations:data];
+        [complaintTableView reloadData];
     }];
 }
 

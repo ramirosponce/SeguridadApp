@@ -23,12 +23,19 @@
 
 - (void) populateCell:(Comment*)comment
 {
-    cell_title.text = [NSString stringWithFormat:@"%@ %@:",comment.user.username, NSLocalizedString(@"dijo", @"dijo")];
+    
+    NSString* user_name = NSLocalizedString(@"User", @"User");
+    if (comment.user.username) {
+        user_name = comment.user.username;
+    }
+    
+    cell_title.text = [NSString stringWithFormat:@"%@ %@:",user_name, NSLocalizedString(@"dijo", @"dijo")];
     [profile_picture setClipsToBounds:YES];
     [profile_picture.layer setCornerRadius:(float)(profile_picture.frame.size.width/2)];
     //[profile_picture setImage:[UIImage imageNamed:comment.user.profile_image_name]];
     
-    [profile_picture setImageWithURL:nil placeholderImage:[UIImage imageNamed:comment.user.profile_image_name]];
+    //[profile_picture setImageWithURL:nil placeholderImage:[UIImage imageNamed:comment.user.profile_image_name]];
+    profile_picture.hidden = YES;
     
     cell_comment.text = comment.text;
     
