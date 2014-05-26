@@ -7,6 +7,7 @@
 //
 
 #import "Complaint.h"
+#import "Comment.h"
 
 @implementation Complaint
 
@@ -46,13 +47,25 @@
             self.isntTrue = [[dictionary objectForKey:@"nocierto"] intValue];//
         }
         
-        if ([AppHelper existObject:@"fotos" in:dictionary]) {
-            self.pictures = [dictionary objectForKey:@"fotos"];//
+        if ([AppHelper existObject:@"attachs" in:dictionary]) {
+            self.attachs = [dictionary objectForKey:@"attachs"];//
         }
         
         if ([AppHelper existObject:@"tags" in:dictionary]) {
             self.tags = [dictionary objectForKey:@"tags"];//
         }
+        
+        if ([AppHelper existObject:@"comentarios" in:dictionary]) {
+            //comments
+            self.comments = [[NSMutableArray alloc] initWithCapacity:0];
+            NSArray* comments_aux = [dictionary objectForKey:@"comentarios"];
+            for (NSDictionary* data in comments_aux) {
+                Comment* comment = [[Comment alloc] initWithData:data];
+                [self.comments addObject:comment];
+            }
+        }
+        
+        self.isAnonymous = YES;
         
         //self.isAnonymous = [[dictionary objectForKey:@"isAnonymous"] boolValue];
         //self.user = [[User alloc] initWithData:[dictionary objectForKey:@"user"]];
