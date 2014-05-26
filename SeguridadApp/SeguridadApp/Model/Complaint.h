@@ -22,6 +22,7 @@
 @property (nonatomic) int isntTrue;
 @property (nonatomic, strong) NSArray* pictures;
 @property (nonatomic, strong) NSArray* tags;
+@property (nonatomic, strong) NSMutableArray* comments;
 
 @property (nonatomic, strong) NSArray* attachs;
 @property (nonatomic) int frecuentemente;

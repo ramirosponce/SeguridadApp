@@ -8,6 +8,8 @@
 
 #import "ComplaintCell.h"
 #import "Complaint.h"
+#import "UIImageView+WebCache.h"
+
 
 #define LABEL_FRAME_WITH_IMAGE      202.0
 #define LABEL_FRAME_WITHOUT_IMAGE   290.0
@@ -34,13 +36,16 @@
     CGRect titleFrame = complaint_title.frame;
     CGRect descriptionFrame = complaint_description.frame;
     
-    if (complaint.pictures != nil && complaint.pictures.count > 0) {
+    if (complaint.attachs != nil && complaint.attachs.count > 0) {
         
         titleFrame.size.width = LABEL_FRAME_WITH_IMAGE;
         descriptionFrame.size.width = LABEL_FRAME_WITH_IMAGE;
         
-        NSString* image_named = [complaint.pictures objectAtIndex:0];
+        NSString* image_named = [complaint.attachs objectAtIndex:0];
         [complaint_picture setImage:[UIImage imageNamed:image_named]];
+        
+        NSURL* image_url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@%@",API_BASE_URL,API_UPLOAD,image_named]];
+        [complaint_picture setImageWithURL:image_url];
     }else{
         titleFrame.size.width = LABEL_FRAME_WITHOUT_IMAGE;
         descriptionFrame.size.width = LABEL_FRAME_WITHOUT_IMAGE;
@@ -57,7 +62,7 @@
     
     NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.dateFormat = @"dd/MM/yyyy";
-    complaint_date.text = [dateFormatter stringFromDate:complaint.complaint_date];
+    //complaint_date.text = [dateFormatter stringFromDate:complaint.complaint_date];
     
     
     

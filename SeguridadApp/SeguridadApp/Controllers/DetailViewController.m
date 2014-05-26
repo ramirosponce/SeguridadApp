@@ -21,7 +21,6 @@
 
 @interface DetailViewController ()
 {
-    NSArray* data;
     NSArray* comments;
     NSMutableArray* commentsHeights;
     BOOL keyboardIsShowed;
@@ -46,8 +45,7 @@
     self.selectedLocation = CLLocationCoordinate2DMake([self.complaint.location.latitude doubleValue],
                                                            [self.complaint.location.longitude doubleValue]);
     
-    data = @[@"titulo1",@"titulo2",@"titulo3",@"titulo4",@"titulo5",@"titulo6"];
-    comments = [[NSArray alloc] initWithArray:[DataHelper getCommentsData]];
+    comments = [[NSArray alloc] initWithArray:self.complaint.comments];
     
     commentsHeights = [[NSMutableArray alloc] initWithCapacity:0];
     for (Comment* comment in comments) {
@@ -330,7 +328,7 @@
         }
         
         [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
-        [cell populateCell:self.complaint.pictures];
+        [cell populateCell:self.complaint.attachs];
         return cell;
     }else if (indexPath.section == 2){
         static NSString* identifier = @"DetailFeelingCell";
@@ -383,7 +381,7 @@
             height = 183.0;
             break;
         case 1:
-            if (self.complaint.pictures.count > 0) {
+            if (self.complaint.attachs.count > 0) {
                 height = 75.0;
             }
             break;
@@ -454,8 +452,11 @@
 
 - (CGFloat)getCommentCellHeight2:(Comment *)comment
 {
-    CGRect titleFrame = CGRectMake(55.0, 8.0, 245.0, 21.0);
-    CGRect commentFrame = CGRectMake(55.0, 27.0, 245.0, 21.0);
+    //CGRect titleFrame = CGRectMake(55.0, 8.0, 245.0, 21.0);
+    //CGRect commentFrame = CGRectMake(55.0, 27.0, 245.0, 21.0);
+    
+    CGRect titleFrame = CGRectMake(20.0, 8.0, 245.0, 21.0);
+    CGRect commentFrame = CGRectMake(20.0, 27.0, 245.0, 21.0);
     
     UIFont* titleFont = [UIFont boldSystemFontOfSize:16.0];
     NSDictionary *stringAttributes = [NSDictionary dictionaryWithObject:titleFont forKey: NSFontAttributeName];
