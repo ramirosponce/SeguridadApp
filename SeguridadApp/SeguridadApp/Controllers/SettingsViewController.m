@@ -13,7 +13,7 @@
 
 @interface SettingsViewController ()
 {
-    NSArray* data;
+    NSMutableArray* data;
 }
 @end
 
@@ -31,14 +31,29 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    data = @[
+    /*data = @[
              @{@"title": NSLocalizedString(@"Help us to improve", @"Help us to improve")},
              @{@"title": NSLocalizedString(@"Terms and Use Conditions", @"Terms and Use Conditions")},
              @{@"title": NSLocalizedString(@"About", @"About")},
              @{@"title": NSLocalizedString(@"Share", @"Share")},
              @{@"title": NSLocalizedString(@"Maps Information", @"Maps Information")},
              @{@"title": NSLocalizedString(@"Sign In", @"Sign In")},
-             ];
+             ];*/
+    data = [[NSMutableArray alloc] initWithCapacity:0];
+    [data addObject:@{@"title": NSLocalizedString(@"Help us to improve", @"Help us to improve")}];
+    [data addObject:@{@"title": NSLocalizedString(@"Terms and Use Conditions", @"Terms and Use Conditions")}];
+    [data addObject:@{@"title": NSLocalizedString(@"About", @"About")}];
+    [data addObject:@{@"title": NSLocalizedString(@"Share", @"Share")}];
+    [data addObject:@{@"title": NSLocalizedString(@"Maps Information", @"Maps Information")}];
+    //NSLog(@"Token: %@",[UserHelper getUserToken]);
+    //Pregunto si existe el Token y sino existe permitimos el Sign In
+    if (![UserHelper getUserToken]) {
+        [data addObject:@{@"title": NSLocalizedString(@"Sign In", @"Sign In")}];
+    }
+    
+    //[data addObject:@{@"title": NSLocalizedString(@"Sign In", @"Sign In")}];
+    
+    
     [settingsTableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     self.title = NSLocalizedString(@"Settings", @"Settings");
     UIBarButtonItem* options = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menu_icon.png"] style:UIBarButtonItemStylePlain target:self action:@selector(showMenu)];

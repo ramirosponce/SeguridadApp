@@ -44,7 +44,15 @@
     
     [self setupInterface];
     [self setupProfile];
-    
+    [logOutButton setTitle:NSLocalizedString(@"Log Out", @"Log Out") forState:UIControlStateNormal];
+    [logOutButton setSelected:YES];
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    if (![UserHelper getUserToken])
+        [logOutButton setHidden:YES];
+    else
+        [logOutButton setHidden:NO];
 }
 
 - (void)didReceiveMemoryWarning
@@ -86,6 +94,12 @@
 
 #pragma mark -
 #pragma mark Actions methods
+
+- (IBAction)logoutButtom:(id)sender{
+    NSLog(@"logoutButtom Action");
+    [UserHelper removeUser];
+    [logOutButton setHidden:YES];
+}
 
 - (void) didTapViewWithGesture:(UITapGestureRecognizer*) tapGesture
 {

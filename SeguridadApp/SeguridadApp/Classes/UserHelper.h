@@ -16,5 +16,6 @@
 + (NSString*) getUserMailSaved;
 + (NSString*) getUserPassword;
 + (NSString*) getUserToken;
++ (void) removeUser;
 
 @end

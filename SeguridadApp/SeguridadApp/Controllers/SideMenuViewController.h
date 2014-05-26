@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GBFlatButton.h"
 
 @interface SideMenuViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 {
@@ -16,6 +17,8 @@
     __weak IBOutlet UIImageView* avatar_imageView;
     __weak IBOutlet UILabel* profile_name;
     __weak IBOutlet UILabel* profile_legend;
+    __weak IBOutlet GBFlatButton* logOutButton;
     
 }
+- (IBAction)logoutButtom:(id)sender;
 @end

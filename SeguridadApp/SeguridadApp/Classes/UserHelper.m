@@ -42,5 +42,11 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     return [defaults objectForKey:@"user_token"];
 }
-
++ (void) removeUser{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults removeObjectForKey:@"user_mail"];
+    [defaults removeObjectForKey:@"user_token"];
+    [defaults removeObjectForKey:@"user_password"];
+    [defaults synchronize];
+}
 @end
