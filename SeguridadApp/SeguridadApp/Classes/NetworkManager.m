@@ -56,7 +56,11 @@
 {
     NSString* url_string = [NSString stringWithFormat:@"%@%@",API_BASE_URL,endpoint];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+<<<<<<< HEAD
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
+=======
+    //manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+>>>>>>> abb29aa29cb3ce4b0384eeebd1004766af43a469
     [manager POST:url_string parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         completitionHandler(operation, responseObject, nil);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -145,6 +149,20 @@
         }else{
             NSLog(@"Error: %@", error.description);
             NSLog(@"Response Data error: %@",operation.responseObject);
+            completitionHandler(nil, error);
+        }
+        
+    }];
+}
+
++ (void) runSendComplaintRequestWithParams:(NSDictionary*)params completition:(SendComplaintCompletitionHandler)completitionHandler
+{
+    [self PostRequest:API_NEW params:params completitionHandler:^(AFHTTPRequestOperation *operation, id responseObject, NSError *error) {
+        
+        if (!error) {
+            completitionHandler(responseObject, nil);
+        }else{
+            NSLog(@"Error: %@", error.description);
             completitionHandler(nil, error);
         }
         

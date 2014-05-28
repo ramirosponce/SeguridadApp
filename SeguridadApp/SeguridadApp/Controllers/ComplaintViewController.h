@@ -25,6 +25,8 @@
     
     __weak IBOutlet UILabel* informationButton;
     __weak IBOutlet UILabel* complaintButton;
+    NSString* latitude;
+    NSString* longitude;
 }
 
 - (IBAction)wantInformationValueChanged:(id)sender;

@@ -13,6 +13,7 @@ typedef void (^ComplaintTypeCompletionHandler)(NSArray* types, NSError *error);
 typedef void (^ComplaintMapCompletionHandler)(NSArray* map_complaints, NSError *error);
 typedef void (^SignupCompletitionHandler)(NSDictionary* data, NSError* error);
 typedef void (^LoginCompletitionHandler) (NSDictionary* data, NSError* error);
+typedef void (^SendComplaintCompletitionHandler) (NSDictionary* data, NSError* error);
 
 @interface NetworkManager : NSObject
 
@@ -25,5 +26,7 @@ typedef void (^LoginCompletitionHandler) (NSDictionary* data, NSError* error);
 + (void) runSignupRequestWithParams:(NSDictionary*)params completition:(SignupCompletitionHandler)completitionHandler;
 
 + (void) runLoginRequestWithParams:(NSDictionary*)params completition:(LoginCompletitionHandler)completitionHandler;
+
++ (void) runSendComplaintRequestWithParams:(NSDictionary*)params completition:(SendComplaintCompletitionHandler)completitionHandler;
 
 @end
