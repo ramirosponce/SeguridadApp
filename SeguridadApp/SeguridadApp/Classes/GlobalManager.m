@@ -31,6 +31,7 @@ static GlobalManager * sharedInstance = nil;
         
         // inicializacion para los datos globales
         self.complaint_types = [[NSArray alloc] init];
+        self.regions = [[NSArray alloc] init];
     }
     return self;
 }
@@ -64,6 +65,11 @@ static GlobalManager * sharedInstance = nil;
 - (void) saveComplaintTypes:(NSArray*)types
 {
     self.complaint_types = [[NSArray alloc] initWithArray:types];
+}
+
+- (void) saveRegions:(NSArray*)r
+{
+    self.regions = [[NSArray alloc] initWithArray:r];
 }
 
 #pragma mark -

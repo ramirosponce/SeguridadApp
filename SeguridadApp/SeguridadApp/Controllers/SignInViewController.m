@@ -76,15 +76,16 @@
     
     //Login With Facebook
     NSDictionary* params = @{@"email": [user objectForKey:@"email"], @"password": [user objectForKey:@"id"]};
-    [NetworkManager runLoginRequestWithParams:params completition:^(NSDictionary *data, NSError *error) {
+    [NetworkManager runLoginRequestWithParams:params completition:^(NSDictionary *data, NSError *error, NSString* error_message) {
         
         NSLog(@"%@",params);
         [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
         
         
         
-        if ([data objectForKey:@"err"]) {
-        //if (!data) {
+        //if ([data objectForKey:@"err"]) {
+        if (error) {
+            
             MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
             hud.labelText = NSLocalizedString(@"Registrando...", @"Registrando...");
             
@@ -95,12 +96,12 @@
             NSLog(@"%@",paramsRegister);
             
             //    Register
-            [NetworkManager runSignupRequestWithParams:paramsRegister completition:^(NSDictionary *data, NSError *error) {
+            [NetworkManager runSignupRequestWithParams:paramsRegister completition:^(NSDictionary *data, NSError *error, NSString* error_message) {
                 
                 [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
                 
-                if (!data) {
-                    [[[UIAlertView alloc] initWithTitle:nil message:NSLocalizedString(@"Something is wrong, please try again later.","Something is wrong, please try again later.") delegate:nil cancelButtonTitle:NSLocalizedString(@"Ok", @"Ok") otherButtonTitles:nil] show];
+                if (error) {
+                    [[[UIAlertView alloc] initWithTitle:nil message:error_message delegate:nil cancelButtonTitle:NSLocalizedString(@"Ok", @"Ok") otherButtonTitles:nil] show];
                 }else{
                     
                     NSString* response = [data objectForKey:@"res"];
@@ -121,7 +122,7 @@
         }else{
             
             // guardamos el usuario y password
-            [UserHelper saveUser:[user objectForKey:@"email"] password:[user objectForKey:@"id"]];
+            //[UserHelper saveUser:[user objectForKey:@"email"] password:[user objectForKey:@"id"]];
             [UserHelper saveUser:[user objectForKey:@"email"] password:[user objectForKey:@"id"] first_name:[user objectForKey:@"first_name"] last_name:[user objectForKey:@"last_name"]];
             
             // guardamos el token

@@ -12,11 +12,11 @@
 
 + (NSString*) errorMessage:(NSString*)error_message
 {
-    if ([error_message isEqualToString:@"ERR_LOGIN_INCORRECT"]) {
+    if ([error_message isEqualToString:ERR_LOGIN_INCORRECT]) {
         return NSLocalizedString(@"Email o Password incorrectos. Por favor, verifique los datos ingreasados.", @"Email o Password incorrectos. Por favor, verifique los datos ingreasados.");
     }
     
-    if ([error_message isEqualToString:@"ERR_USR_EMAIL_UNCONFIRMED"]) {
+    if ([error_message isEqualToString:ERR_USR_EMAIL_UNCONFIRMED]) {
         return NSLocalizedString(@"Confirme el email de registracion para realizar esta accion. Quiere que reenviemos el mail de confirmacion?.", @"Confirme el email de registracion para realizar esta accion. Quiere que reenviemos el mail de confirmacion?.");
     }
     

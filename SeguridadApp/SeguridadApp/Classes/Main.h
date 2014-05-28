@@ -41,8 +41,12 @@ typedef enum {
 #define API_LOGIN                     @"login"
 #define API_SIGNUP                    @"signup"
 #define API_UPLOAD                    @"app/uploads/"
+#define API_REGIONS                   @"regiones"
 
-#define SIGN_UP_OK                    @"OP_OK"  // res = "OP_OK";
+#define SIGN_UP_OK                    @"OP_OK"
+#define ERR_LOGIN_INCORRECT           @"ERR_LOGIN_INCORRECT"
+#define ERR_USR_EMAIL_UNCONFIRMED     @"ERR_USR_EMAIL_UNCONFIRMED"
+
 
 #define MAX_COMPLAINT_COUNT          15
 

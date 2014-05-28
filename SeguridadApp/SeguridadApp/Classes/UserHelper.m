@@ -23,8 +23,8 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:mail forKey:@"user_mail"];
     [defaults setObject:password forKey:@"user_password"];
-    [defaults setObject:password forKey:@"user_first_name"];
-    [defaults setObject:password forKey:@"user_last_name"];
+    [defaults setObject:first_name forKey:@"user_first_name"];
+    [defaults setObject:last_name forKey:@"user_last_name"];
     [defaults synchronize];
 }
 

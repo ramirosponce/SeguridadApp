@@ -9,27 +9,36 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 
-@interface ComplaintViewController : UIViewController <UIActionSheetDelegate, UIImagePickerControllerDelegate,UINavigationControllerDelegate, UITextViewDelegate, MKMapViewDelegate>
+@interface ComplaintViewController : UIViewController <UIActionSheetDelegate, UIImagePickerControllerDelegate,UINavigationControllerDelegate, UITextViewDelegate, MKMapViewDelegate, UITextFieldDelegate>
 {
     __weak IBOutlet UIImageView* photoImageView;
+    __weak IBOutlet UITextField* complaintTitle;
     __weak IBOutlet UITextView* commentView;
+    
     __weak IBOutlet UILabel* commentPlaceholder;
-    __weak IBOutlet UILabel* kindOfComplaint;
+    __weak IBOutlet UIButton* kindOfComplaint;
     __weak IBOutlet MKMapView* locationView;
     
-    __weak IBOutlet UISwitch* wantInformation;
-    __weak IBOutlet UILabel* wantInformationLabel;
+    __weak IBOutlet UISwitch* frequently;
+    __weak IBOutlet UIButton* dateButton;
+    __weak IBOutlet UIButton* hourButton;
     
-    __weak IBOutlet UISwitch* wantUpdates;
-    __weak IBOutlet UILabel* wantUpdatesLabel;
+    __weak IBOutlet UIButton* complaintButton;
+    __weak IBOutlet UIButton* dateSelected;
+    __weak IBOutlet UIView* dateView;
+    __weak IBOutlet UIDatePicker* datePicker;
     
-    __weak IBOutlet UILabel* informationButton;
-    __weak IBOutlet UILabel* complaintButton;
+    
     NSString* latitude;
     NSString* longitude;
 }
 
-- (IBAction)wantInformationValueChanged:(id)sender;
-- (IBAction)wantUpdateValueChanged:(id)sender;
+- (IBAction)frequentlyValueChanged:(id)sender;
+
+- (IBAction)kindOfComplaintAction:(id)sender;
+- (IBAction)dateButtonAction:(id)sender;
+- (IBAction)hourButtonAction:(id)sender;
+- (IBAction)complaintButtonAction:(id)sender;
+
 
 @end

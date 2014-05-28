@@ -186,12 +186,12 @@
                              @"nombre": user_name.text,
                              @"apellido": user_firstname.text,
                              @"password": passwordField.text};
-    [NetworkManager runSignupRequestWithParams:params completition:^(NSDictionary *data, NSError *error) {
+    [NetworkManager runSignupRequestWithParams:params completition:^(NSDictionary *data, NSError *error, NSString* error_message) {
         
         [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
         
-        if (!data) {
-            [[[UIAlertView alloc] initWithTitle:nil message:NSLocalizedString(@"Something is wrong, please try again later.","Something is wrong, please try again later.") delegate:nil cancelButtonTitle:NSLocalizedString(@"Ok", @"Ok") otherButtonTitles:nil] show];
+        if (error) {
+            [[[UIAlertView alloc] initWithTitle:nil message:error_message delegate:nil cancelButtonTitle:NSLocalizedString(@"Ok", @"Ok") otherButtonTitles:nil] show];
         }else{
             
             NSString* response = [data objectForKey:@"res"];

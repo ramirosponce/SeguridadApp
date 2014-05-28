@@ -16,6 +16,7 @@
 		0164868C19216F7F0094900B /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0164868B19216F7F0094900B /* RegisterViewController.m */; };
 		0192E21019215AF200F95FDC /* MapInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0192E20F19215AF200F95FDC /* MapInformationViewController.m */; };
 		01D69859191D97B3009B5103 /* TermsOfUseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D69858191D97B3009B5103 /* TermsOfUseViewController.m */; };
+		C6172448193663B800743545 /* Region.m in Sources */ = {isa = PBXBuildFile; fileRef = C6172447193663B800743545 /* Region.m */; };
 		C625A9EE193585CB009D8D5A /* ErrorHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C625A9ED193585CB009D8D5A /* ErrorHelper.m */; };
 		C627DEF31918182800FE0C22 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C627DEF21918182800FE0C22 /* Foundation.framework */; };
 		C627DEF51918182800FE0C22 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C627DEF41918182800FE0C22 /* CoreGraphics.framework */; };
@@ -191,6 +192,8 @@
 		0192E20F19215AF200F95FDC /* MapInformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapInformationViewController.m; sourceTree = "<group>"; };
 		01D69857191D97B3009B5103 /* TermsOfUseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TermsOfUseViewController.h; sourceTree = "<group>"; };
 		01D69858191D97B3009B5103 /* TermsOfUseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TermsOfUseViewController.m; sourceTree = "<group>"; };
+		C6172446193663B800743545 /* Region.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Region.h; sourceTree = "<group>"; };
+		C6172447193663B800743545 /* Region.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Region.m; sourceTree = "<group>"; };
 		C625A9EC193585CB009D8D5A /* ErrorHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ErrorHelper.h; sourceTree = "<group>"; };
 		C625A9ED193585CB009D8D5A /* ErrorHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ErrorHelper.m; sourceTree = "<group>"; };
 		C627DEEF1918182800FE0C22 /* SeguridadApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeguridadApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -784,6 +787,8 @@
 				C6ED61DB1923C751004F7FFF /* Comment.m */,
 				C6BF5F08192BDEB500CBCCF1 /* ComplaintType.h */,
 				C6BF5F09192BDEB500CBCCF1 /* ComplaintType.m */,
+				C6172446193663B800743545 /* Region.h */,
+				C6172447193663B800743545 /* Region.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1055,6 +1060,7 @@
 				C6894A32192BD36F0096A54D /* AFURLResponseSerialization.m in Sources */,
 				C6CC6AEA19240DBA009FB7B1 /* UIImageView+WebCache.m in Sources */,
 				C6CC6AE419240DBA009FB7B1 /* SDWebImageManager.m in Sources */,
+				C6172448193663B800743545 /* Region.m in Sources */,
 				C6894A2D192BD36F0096A54D /* AFHTTPSessionManager.m in Sources */,
 				0164868C19216F7F0094900B /* RegisterViewController.m in Sources */,
 				C6CC6ADD19240DBA009FB7B1 /* MKAnnotationView+WebCache.m in Sources */,

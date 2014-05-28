@@ -10,6 +10,8 @@
 #import "Reachability.h"
 #import "ComplaintType.h"
 #import "Complaint.h"
+#import "Region.h"
+#import "ErrorHelper.h"
 
 @implementation NetworkManager
 
@@ -56,11 +58,7 @@
 {
     NSString* url_string = [NSString stringWithFormat:@"%@%@",API_BASE_URL,endpoint];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-<<<<<<< HEAD
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
-=======
-    //manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
->>>>>>> abb29aa29cb3ce4b0384eeebd1004766af43a469
     [manager POST:url_string parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         completitionHandler(operation, responseObject, nil);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -102,6 +100,24 @@
     }];
 }
 
++ (void) runRegionsRequest:(RegionsCompletionHandler)completitionHandler
+{
+    [self GetRequest:API_REGIONS params:nil completitionHandler:^(AFHTTPRequestOperation *operation, id responseObject, NSError *error) {
+        if (!error) {
+            NSMutableArray* regions = [NSMutableArray arrayWithCapacity:0];
+            NSArray* response_array = (NSArray*)responseObject;
+            
+            for (NSDictionary* data in response_array) {
+                Region* region = [[Region alloc] initWithData:data];
+                [regions addObject:region];
+            }
+            completitionHandler(regions, nil);
+        }else{
+            completitionHandler(nil, error);
+        }
+    }];
+}
+
 + (void) runMapRequestWithLimit:(int)limit completition:(ComplaintMapCompletionHandler)completitionHandler
 {
     NSDictionary* params = @{@"limit":[NSString stringWithFormat:@"%i",limit]};
@@ -129,12 +145,10 @@
 {
     [self PostRequest:API_SIGNUP params:params completitionHandler:^(AFHTTPRequestOperation *operation, id responseObject, NSError *error) {
         if (!error) {
-            NSLog(@"Response: %@", responseObject);
-            completitionHandler(responseObject, nil);
+            completitionHandler(responseObject, nil, nil);
         }else{
-            NSLog(@"Error: %@", error.description);
-            NSLog(@"Response Data error: %@",operation.responseObject);
-            completitionHandler(nil, error);
+            NSString* err = [operation.responseObject objectForKey:@"err"];
+            completitionHandler(nil, error, [ErrorHelper errorMessage:err]);
         }
         
     }];
@@ -144,12 +158,10 @@
 {
     [self PostRequest:API_LOGIN params:params completitionHandler:^(AFHTTPRequestOperation *operation, id responseObject, NSError *error) {
         if (!error) {
-            NSLog(@"Response: %@", responseObject);
-            completitionHandler(responseObject, nil);
+            completitionHandler(responseObject, nil, nil);
         }else{
-            NSLog(@"Error: %@", error.description);
-            NSLog(@"Response Data error: %@",operation.responseObject);
-            completitionHandler(nil, error);
+            NSString* err = [operation.responseObject objectForKey:@"err"];
+            completitionHandler(nil, error, [ErrorHelper errorMessage:err]);
         }
         
     }];
@@ -162,7 +174,6 @@
         if (!error) {
             completitionHandler(responseObject, nil);
         }else{
-            NSLog(@"Error: %@", error.description);
             completitionHandler(nil, error);
         }
         

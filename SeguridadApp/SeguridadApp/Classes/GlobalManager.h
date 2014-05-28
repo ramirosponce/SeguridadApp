@@ -20,12 +20,14 @@
 
 // this is for load content
 @property (nonatomic, strong) NSArray* complaint_types;
+@property (nonatomic, strong) NSArray* regions;
 
 + (GlobalManager *) sharedManager;
 
 
 // load methods
 - (void) saveComplaintTypes:(NSArray*)types;
+- (void) saveRegions:(NSArray*)r;
 
 // filters methods
 - (BOOL) areCategoryFilters;

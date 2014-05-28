@@ -45,13 +45,25 @@
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
     hud.labelText = NSLocalizedString(@"Loading...", @"Loading...");
     
+    // obtenemos los tipos de denuncia
     [NetworkManager runComplaintTypesRequest:^(NSArray *types, NSError *error) {
         if (!error) {
             
             [[GlobalManager sharedManager] saveComplaintTypes:types];
-            [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
             
-            [self performSelector:@selector(showMainScreen) withObject:nil afterDelay:0.5];
+            // obtenemos las regiones
+            [NetworkManager runRegionsRequest:^(NSArray *regions, NSError *error) {
+                
+                if (!error) {
+                    [[GlobalManager sharedManager] saveRegions:regions];
+                    
+                    [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
+                    [self performSelector:@selector(showMainScreen) withObject:nil afterDelay:0.5];
+                }else{
+#warning MANEJAR ERROR DE CARGA DE REGIONES
+                    NSLog(@"%@",error.description);
+                }
+            }];
         }else{
 #warning MANEJAR ERROR DE CARGA DE TIPOS DE DENUNCIAS
             NSLog(@"%@",error.description);

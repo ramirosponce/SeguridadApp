@@ -89,12 +89,12 @@
     hud.labelText = NSLocalizedString(@"Loading...", @"Loading...");
     
     NSDictionary* params = @{@"email": emailField.text, @"password": passwordField.text};
-    [NetworkManager runLoginRequestWithParams:params completition:^(NSDictionary *data, NSError *error) {
+    [NetworkManager runLoginRequestWithParams:params completition:^(NSDictionary *data, NSError *error, NSString* error_message) {
         
         [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
         
-        if (!data) {
-            [[[UIAlertView alloc] initWithTitle:nil message:NSLocalizedString(@"Something is wrong, please try again later.","Something is wrong, please try again later.") delegate:nil cancelButtonTitle:NSLocalizedString(@"Ok", @"Ok") otherButtonTitles:nil] show];
+        if (error) {
+            [[[UIAlertView alloc] initWithTitle:nil message:error_message delegate:nil cancelButtonTitle:NSLocalizedString(@"Ok", @"Ok") otherButtonTitles:nil] show];
         }else{
             
             [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];

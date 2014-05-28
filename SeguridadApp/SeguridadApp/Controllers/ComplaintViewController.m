@@ -53,6 +53,13 @@
 {
     self.title = NSLocalizedString(@"Denounce", @"Denounce");
     
+    [complaintTitle setPlaceholder:NSLocalizedString(@"Titulo de la denuncia", @"Titulo de la denuncia")];
+    [kindOfComplaint setTitle:NSLocalizedString(@"Tipo de denuncia", @"Tipo de denuncia") forState:UIControlStateNormal];
+    [dateButton setTitle:NSLocalizedString(@"Fecha", @"Fecha") forState:UIControlStateNormal];
+    [hourButton setTitle:NSLocalizedString(@"Hora", @"Hora") forState:UIControlStateNormal];
+    [complaintButton setTitle:NSLocalizedString(@"Denunciar", @"Denunciar") forState:UIControlStateNormal];
+    
+    
     [commentView setClipsToBounds:YES];
     [commentView.layer setCornerRadius:(float)5.0];
     commentView.layer.borderColor = [[UIColor lightGrayColor] CGColor];
@@ -64,46 +71,8 @@
     [pictureTapRecognizer setNumberOfTouchesRequired:1];
     [photoImageView addGestureRecognizer:pictureTapRecognizer];
     
-    [wantInformation setOn:YES];
-    [wantUpdates setOn:NO];
+    [frequently setOn:NO];
     
-    CGRect wantInformationFrame = wantInformation.frame;
-    CGRect wantInformationLabelFrame = wantInformationLabel.frame;
-    CGRect wantUpdatesFrame = wantUpdates.frame;
-    CGRect wantUpdatesLabelFrame = wantUpdatesLabel.frame;
-    
-    if (IS_IPHONE_5) {
-        wantInformationFrame.origin.y = WANT_INFORMATION_Y_POS_4_INCH;
-        wantInformationLabelFrame.origin.y = WANT_INFORMATION_Y_POS_4_INCH;
-        wantUpdatesFrame.origin.y = WANT_UPDATES_Y_POS_4_INCH;
-        wantUpdatesLabelFrame.origin.y = WANT_UPDATES_Y_POS_4_INCH;
-    }else{
-        wantInformationFrame.origin.y = WANT_INFORMATION_Y_POS_3_5_INCH;
-        wantInformationLabelFrame.origin.y = WANT_INFORMATION_Y_POS_3_5_INCH;
-        wantUpdatesFrame.origin.y = WANT_UPDATES_Y_POS_3_5_INCH;
-        wantUpdatesLabelFrame.origin.y = WANT_UPDATES_Y_POS_3_5_INCH;
-    }
-    
-    wantInformation.frame = wantInformationFrame;
-    wantInformationLabel.frame = wantInformationLabelFrame;
-    wantUpdates.frame = wantUpdatesFrame;
-    wantUpdatesLabel.frame = wantUpdatesLabelFrame;
-    
-    
-    [kindOfComplaint setUserInteractionEnabled:YES];
-    UITapGestureRecognizer* kindOfComplaintGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(kindOfComplaintAction:)];
-    [kindOfComplaintGesture setNumberOfTapsRequired:1];
-    [kindOfComplaint addGestureRecognizer:kindOfComplaintGesture];
-    
-    [informationButton setUserInteractionEnabled:YES];
-    UITapGestureRecognizer* informationButtonGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(informationButtonAction:)];
-    [informationButtonGesture setNumberOfTapsRequired:1];
-    [informationButton addGestureRecognizer:informationButtonGesture];
-    
-    [complaintButton setUserInteractionEnabled:YES];
-    UITapGestureRecognizer* complaintButtonGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(complaintButtonAction:)];
-    [complaintButtonGesture setNumberOfTapsRequired:1];
-    [complaintButton addGestureRecognizer:complaintButtonGesture];
     
     locationView.delegate = self;
     locationView.showsUserLocation = YES;
@@ -113,22 +82,48 @@
     [viewGesture setNumberOfTapsRequired:1];
     [self.view addGestureRecognizer:viewGesture];
     
+    // set bar items actions
+    //[doneBarItem setAction:@selector(hideDateView)];
+    
+    CGRect pickerContainerFrame = dateView.frame;
+    pickerContainerFrame.origin.y = [[UIScreen mainScreen] bounds].size.height;
+    dateView.frame = pickerContainerFrame;
+    
+    [dateView.layer setShadowColor:[UIColor blackColor].CGColor];
+    [dateView.layer setShadowOpacity:0.8];
+    [dateView.layer setShadowRadius:3.0];
+    [dateView.layer setShadowOffset:CGSizeMake(1.0, 1.0)];
+    
+    [dateView.layer setCornerRadius:5.0f];
+    
 }
 
 #pragma mark -
 #pragma mark Action methods
 
-- (void) kindOfComplaintAction:(UITapGestureRecognizer*) tapGesture
+- (IBAction)kindOfComplaintAction:(id)sender
 {
     [[[UIAlertView alloc] initWithTitle:nil message:@"kind button action" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
 }
 
-- (void) informationButtonAction:(UITapGestureRecognizer*) tapGesture
+- (IBAction)dateButtonAction:(id)sender
 {
-    [[[UIAlertView alloc] initWithTitle:nil message:@"information button action" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
+    
+    [datePicker setDatePickerMode:UIDatePickerModeDate];
+    
+    NSString* date_selected = dateSelected.titleLabel.text;
+    
+    
+    [self showDateView];
 }
 
-- (void) complaintButtonAction:(UITapGestureRecognizer*) tapGesture
+- (IBAction)hourButtonAction:(id)sender
+{
+    [datePicker setDatePickerMode:UIDatePickerModeTime];
+    [self showDateView];
+}
+
+- (IBAction)complaintButtonAction:(id)sender
 {
     /*
      Params for denuncia
@@ -151,7 +146,6 @@
      titulo: "TEST2",
      }
      */
-    [[[UIAlertView alloc] initWithTitle:nil message:@"denunciar button action" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
     NSDate * date = [NSDate date];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"];
@@ -226,14 +220,16 @@
     [commentView resignFirstResponder];
 }
 
-- (IBAction)wantInformationValueChanged:(id)sender
+- (IBAction)frequentlyValueChanged:(id)sender
 {
-    NSLog(@"-- wantInformationValueChanged --");
-}
-
-- (IBAction)wantUpdateValueChanged:(id)sender
-{
-    NSLog(@"** wantUpdateValueChanged **");
+    UISwitch* switch_frequently = (UISwitch*)sender;
+    if (switch_frequently.isOn) {
+        [dateButton setEnabled:NO];
+        [hourButton setEnabled:NO];
+    }else{
+        [dateButton setEnabled:YES];
+        [hourButton setEnabled:YES];
+    }
 }
 
 #pragma mark -
@@ -258,6 +254,15 @@
         [self presentViewController:picker animated:YES completion:NULL];
     }
     
+}
+
+#pragma mark -
+#pragma mark UITextfieldDelegate methods
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [commentView becomeFirstResponder];
+    return NO;
 }
 
 #pragma mark -
@@ -329,5 +334,50 @@
     
     [locationView addAnnotation:point];
 }
+     
+#pragma mark -
+#pragma mark Date picker view methods
+
+// dateSelected
+
+- (IBAction)doneDateAction:(id)sender{
+    
+    NSDate *pickerDate = [datePicker date];
+    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+    
+    if (datePicker.datePickerMode == UIDatePickerModeDate) {
+        [dateFormatter setDateFormat:@"dd/MM/yyyy"];
+        NSString *selectionString = [dateFormatter stringFromDate:pickerDate];
+        [dateButton setTitle:selectionString forState:UIControlStateNormal];
+    }else{
+        [dateFormatter setDateFormat:@"K:mm a"];
+        NSString *selectionString = [dateFormatter stringFromDate:pickerDate];
+        [hourButton setTitle:selectionString forState:UIControlStateNormal];
+    }
+    
+    [self hideDateView];
+}
+
+- (void) hideDateView
+{
+    CGRect pickerContainerFrame = dateView.frame;
+    pickerContainerFrame.origin.y = self.view.frame.size.height;
+    
+    [UIView animateWithDuration:0.2 animations:^{
+        dateView.frame = pickerContainerFrame;
+    }];
+}
+
+- (void) showDateView
+{
+    CGRect pickerContainerFrame = dateView.frame;
+    pickerContainerFrame.origin.y = self.view.frame.size.height - pickerContainerFrame.size.height;
+    
+    [UIView animateWithDuration:0.2 animations:^{
+        dateView.frame = pickerContainerFrame;
+    }];
+}
+
+
 
 @end
