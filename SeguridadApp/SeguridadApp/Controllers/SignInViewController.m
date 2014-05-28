@@ -9,6 +9,7 @@
 #import "SignInViewController.h"
 #import "MFSideMenu.h"
 #import "MBProgressHUD.h"
+#import "SideMenuViewController.h"
 
 @interface SignInViewController ()
 
@@ -69,41 +70,34 @@
 - (void)loginViewFetchedUserInfo:(FBLoginView *)loginView user:(id<FBGraphUser>)user {
     
     NSLog(@"user: %@",user);
-    /*
-     email = "turco082@gmail.com";
-     "first_name" = Edgar;
-     gender = male;
-     id = 288080781353539;
-     "last_name" = Glellel;
-     link = "https://www.facebook.com/app_scoped_user_id/288080781353539/";
-     locale = "es_LA";
-     name = "Edgar Glellel";
-     timezone = "-3";
-     "updated_time" = "2012-10-12T16:51:52+0000";
-     verified = 0;
-     */
     
-    
-    
-    //MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
-    //hud.labelText = NSLocalizedString(@"Loading...", @"Loading...");
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+    hud.labelText = NSLocalizedString(@"Ingresando...", @"Ingresando...");
     
     //Login With Facebook
     NSDictionary* params = @{@"email": [user objectForKey:@"email"], @"password": [user objectForKey:@"id"]};
     [NetworkManager runLoginRequestWithParams:params completition:^(NSDictionary *data, NSError *error) {
         
-        //[MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
+        NSLog(@"%@",params);
+        [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
         
-        if (!data) {
-            //[[[UIAlertView alloc] initWithTitle:nil message:NSLocalizedString(@"Something is wrong, please try again later.","Something is wrong, please try again later.") delegate:nil cancelButtonTitle:NSLocalizedString(@"Ok", @"Ok") otherButtonTitles:nil] show];
+        
+        
+        if ([data objectForKey:@"err"]) {
+        //if (!data) {
+            MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+            hud.labelText = NSLocalizedString(@"Registrando...", @"Registrando...");
+            
             NSDictionary* paramsRegister = @{@"email": [user objectForKey:@"email"],
                                      @"nombre": [user objectForKey:@"first_name"],
                                      @"apellido": [user objectForKey:@"last_name"],
                                      @"password": [user objectForKey:@"id"]};
+            NSLog(@"%@",paramsRegister);
+            
             //    Register
             [NetworkManager runSignupRequestWithParams:paramsRegister completition:^(NSDictionary *data, NSError *error) {
                 
-                //[MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
+                [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
                 
                 if (!data) {
                     [[[UIAlertView alloc] initWithTitle:nil message:NSLocalizedString(@"Something is wrong, please try again later.","Something is wrong, please try again later.") delegate:nil cancelButtonTitle:NSLocalizedString(@"Ok", @"Ok") otherButtonTitles:nil] show];
@@ -113,15 +107,22 @@
                     if ([response isEqualToString:SIGN_UP_OK]) {
                         [[[UIAlertView alloc] initWithTitle:nil message:NSLocalizedString(@"Registration successfully.","Registration successfully.") delegate:nil cancelButtonTitle:NSLocalizedString(@"Ok", @"Ok") otherButtonTitles:nil] show];
                         // go to main scren or do something
+                        
+                        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+                        UINavigationController *navigationController = (UINavigationController*)self.parentViewController;
+                        MFSideMenuContainerViewController *container = (MFSideMenuContainerViewController*)[navigationController parentViewController];
+                        UINavigationController *centerViewController =
+                        [storyboard instantiateViewControllerWithIdentifier:@"CenterViewController"];
+                        [container setCenterViewController:centerViewController];
                     }
                     
                 }
             }];
         }else{
             
-            //[MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
             // guardamos el usuario y password
             [UserHelper saveUser:[user objectForKey:@"email"] password:[user objectForKey:@"id"]];
+            [UserHelper saveUser:[user objectForKey:@"email"] password:[user objectForKey:@"id"] first_name:[user objectForKey:@"first_name"] last_name:[user objectForKey:@"last_name"]];
             
             // guardamos el token
             NSString* token = [data objectForKey:@"token"];
@@ -129,7 +130,15 @@
                 [UserHelper saveToken:token];
             }
             
-            // do something or go to main screen
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+            UINavigationController *navigationController = (UINavigationController*)self.parentViewController;
+            MFSideMenuContainerViewController *container = (MFSideMenuContainerViewController*)[navigationController parentViewController];
+            UINavigationController *centerViewController =
+            [storyboard instantiateViewControllerWithIdentifier:@"CenterViewController"];
+            [container setCenterViewController:centerViewController];
+            
+            SideMenuViewController* sideMenu = (SideMenuViewController*)container.leftMenuViewController;
+            [sideMenu changeUserStatus];
         }
     }];
     

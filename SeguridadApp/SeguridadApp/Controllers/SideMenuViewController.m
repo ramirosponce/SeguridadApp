@@ -11,6 +11,7 @@
 #import "MenuCell.h"
 #import "FiltersViewController.h"
 #import "SettingsViewController.h"
+#import <FacebookSDK/FacebookSDK.h>
 
 @interface SideMenuViewController ()
 {
@@ -49,10 +50,13 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated{
-    if (![UserHelper getUserToken])
+    if (![UserHelper getUserToken]){
         [logOutButton setHidden:YES];
-    else
+        [profile_name setText:NSLocalizedString(@"Nobody Logged", @"Nobody Logged")];
+    }else{
         [logOutButton setHidden:NO];
+        [profile_name setText:[NSString stringWithFormat:@"%@ %@", [UserHelper getUserFirstName],[UserHelper getUserLastName]]];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -92,13 +96,28 @@
     selectedIndex = 0;
 }
 
+- (void) changeUserStatus
+{
+    if (![UserHelper getUserToken]){
+        [logOutButton setHidden:YES];
+        [profile_name setText:NSLocalizedString(@"Nobody Logged", @"Nobody Logged")];
+    }else{
+        [logOutButton setHidden:NO];
+        [profile_name setText:[NSString stringWithFormat:@"%@ %@", [UserHelper getUserFirstName],[UserHelper getUserLastName]]];
+    }
+}
+
 #pragma mark -
 #pragma mark Actions methods
 
 - (IBAction)logoutButtom:(id)sender{
-    NSLog(@"logoutButtom Action");
+    
+    if (FBSession.activeSession.state == FBSessionStateOpen || FBSession.activeSession.state == FBSessionStateOpenTokenExtended) {
+        [FBSession.activeSession closeAndClearTokenInformation];
+    }
+    
     [UserHelper removeUser];
-    [logOutButton setHidden:YES];
+    [self changeUserStatus];
 }
 
 - (void) didTapViewWithGesture:(UITapGestureRecognizer*) tapGesture

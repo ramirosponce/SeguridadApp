@@ -23,16 +23,18 @@
 #pragma mark -
 #pragma mark Common methods
 
-/*+ (AFHTTPRequestSerializer *)serializer {
++ (AFHTTPRequestSerializer *)serializer {
     AFHTTPRequestSerializer *customSerializer = [AFHTTPRequestSerializer serializer];
-    [customSerializer setValue:[RLStringsManager getTimeZoneName] forHTTPHeaderField:@"zone"];
+    //[customSerializer setValue:[RLStringsManager getTimeZoneName] forHTTPHeaderField:@"zone"];
+    
     return customSerializer;
-}*/
+}
 
 + (void) GetRequest:(NSString*) endpoint params:(NSDictionary*)params username:(NSString*)username password:(NSString*)password token:(NSString*)token completitionHandler:(void (^)(AFHTTPRequestOperation *operation,id responseObject, NSError *error))completitionHandler
 {
     NSString* url_string = [NSString stringWithFormat:@"%@%@",API_BASE_URL,endpoint];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
     [manager GET:url_string parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         completitionHandler(operation, responseObject, nil);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -54,6 +56,7 @@
 {
     NSString* url_string = [NSString stringWithFormat:@"%@%@",API_BASE_URL,endpoint];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
     [manager POST:url_string parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         completitionHandler(operation, responseObject, nil);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -106,7 +109,7 @@
             
             NSArray* response_array = (NSArray*)responseObject;
             for (NSDictionary* data in response_array) {
-                NSLog(@"response denuncia: %@", data);
+                //NSLog(@"response denuncia: %@", data);
                 Complaint* complaint = [[Complaint alloc] initWithData:data];
                 [complaints addObject:complaint];
             }
@@ -121,11 +124,12 @@
 + (void) runSignupRequestWithParams:(NSDictionary*)params completition:(SignupCompletitionHandler)completitionHandler
 {
     [self PostRequest:API_SIGNUP params:params completitionHandler:^(AFHTTPRequestOperation *operation, id responseObject, NSError *error) {
-        
         if (!error) {
+            NSLog(@"Response: %@", responseObject);
             completitionHandler(responseObject, nil);
         }else{
             NSLog(@"Error: %@", error.description);
+            NSLog(@"Response Data error: %@",operation.responseObject);
             completitionHandler(nil, error);
         }
         
@@ -135,10 +139,12 @@
 + (void) runLoginRequestWithParams:(NSDictionary*)params completition:(LoginCompletitionHandler)completitionHandler
 {
     [self PostRequest:API_LOGIN params:params completitionHandler:^(AFHTTPRequestOperation *operation, id responseObject, NSError *error) {
-        
         if (!error) {
+            NSLog(@"Response: %@", responseObject);
             completitionHandler(responseObject, nil);
         }else{
+            NSLog(@"Error: %@", error.description);
+            NSLog(@"Response Data error: %@",operation.responseObject);
             completitionHandler(nil, error);
         }
         

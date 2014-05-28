@@ -20,5 +20,9 @@
     __weak IBOutlet GBFlatButton* logOutButton;
     
 }
+
 - (IBAction)logoutButtom:(id)sender;
+- (void) changeUserStatus;
+
+
 @end

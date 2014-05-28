@@ -16,6 +16,7 @@
 		0164868C19216F7F0094900B /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0164868B19216F7F0094900B /* RegisterViewController.m */; };
 		0192E21019215AF200F95FDC /* MapInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0192E20F19215AF200F95FDC /* MapInformationViewController.m */; };
 		01D69859191D97B3009B5103 /* TermsOfUseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D69858191D97B3009B5103 /* TermsOfUseViewController.m */; };
+		C625A9EE193585CB009D8D5A /* ErrorHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C625A9ED193585CB009D8D5A /* ErrorHelper.m */; };
 		C627DEF31918182800FE0C22 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C627DEF21918182800FE0C22 /* Foundation.framework */; };
 		C627DEF51918182800FE0C22 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C627DEF41918182800FE0C22 /* CoreGraphics.framework */; };
 		C627DEF71918182800FE0C22 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C627DEF61918182800FE0C22 /* UIKit.framework */; };
@@ -190,6 +191,8 @@
 		0192E20F19215AF200F95FDC /* MapInformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapInformationViewController.m; sourceTree = "<group>"; };
 		01D69857191D97B3009B5103 /* TermsOfUseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TermsOfUseViewController.h; sourceTree = "<group>"; };
 		01D69858191D97B3009B5103 /* TermsOfUseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TermsOfUseViewController.m; sourceTree = "<group>"; };
+		C625A9EC193585CB009D8D5A /* ErrorHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ErrorHelper.h; sourceTree = "<group>"; };
+		C625A9ED193585CB009D8D5A /* ErrorHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ErrorHelper.m; sourceTree = "<group>"; };
 		C627DEEF1918182800FE0C22 /* SeguridadApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeguridadApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C627DEF21918182800FE0C22 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C627DEF41918182800FE0C22 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -572,6 +575,8 @@
 				C69914451932A32D0076A716 /* AppHelper.m */,
 				C69914471932B4310076A716 /* UserHelper.h */,
 				C69914481932B4310076A716 /* UserHelper.m */,
+				C625A9EC193585CB009D8D5A /* ErrorHelper.h */,
+				C625A9ED193585CB009D8D5A /* ErrorHelper.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -1037,6 +1042,7 @@
 				C6CC6AE619240DBA009FB7B1 /* UIButton+WebCache.m in Sources */,
 				C68221BC192171ED003B579F /* DetailPicturesCell.m in Sources */,
 				C6CC6ADE19240DBA009FB7B1 /* NSData+ImageContentType.m in Sources */,
+				C625A9EE193585CB009D8D5A /* ErrorHelper.m in Sources */,
 				C6CC6AE119240DBA009FB7B1 /* SDWebImageDecoder.m in Sources */,
 				C6B44481191C1EDF005C7056 /* TimeFilterCell.m in Sources */,
 				C627DF091918182800FE0C22 /* ViewController.m in Sources */,

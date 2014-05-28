@@ -18,6 +18,16 @@
     [defaults synchronize];
 }
 
++ (void) saveUser:(NSString*)mail password:(NSString*)password first_name:(NSString*)first_name last_name:(NSString*)last_name
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:mail forKey:@"user_mail"];
+    [defaults setObject:password forKey:@"user_password"];
+    [defaults setObject:password forKey:@"user_first_name"];
+    [defaults setObject:password forKey:@"user_last_name"];
+    [defaults synchronize];
+}
+
 + (void) saveToken:(NSString*)token
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -42,6 +52,19 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     return [defaults objectForKey:@"user_token"];
 }
+
++ (NSString*) getUserFirstName
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    return [defaults objectForKey:@"user_first_name"];
+}
+
++ (NSString*) getUserLastName
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    return [defaults objectForKey:@"user_last_name"];
+}
+
 + (void) removeUser{
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults removeObjectForKey:@"user_mail"];
