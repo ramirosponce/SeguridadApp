@@ -54,6 +54,7 @@
 {
     NSString* url_string = [NSString stringWithFormat:@"%@%@",API_BASE_URL,endpoint];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    //manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
     [manager POST:url_string parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         completitionHandler(operation, responseObject, nil);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -139,6 +140,20 @@
         if (!error) {
             completitionHandler(responseObject, nil);
         }else{
+            completitionHandler(nil, error);
+        }
+        
+    }];
+}
+
++ (void) runSendComplaintRequestWithParams:(NSDictionary*)params completition:(SendComplaintCompletitionHandler)completitionHandler
+{
+    [self PostRequest:API_NEW params:params completitionHandler:^(AFHTTPRequestOperation *operation, id responseObject, NSError *error) {
+        
+        if (!error) {
+            completitionHandler(responseObject, nil);
+        }else{
+            NSLog(@"Error: %@", error.description);
             completitionHandler(nil, error);
         }
         

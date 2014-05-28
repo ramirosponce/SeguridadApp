@@ -130,7 +130,83 @@
 
 - (void) complaintButtonAction:(UITapGestureRecognizer*) tapGesture
 {
+    /*
+     Params for denuncia
+     {
+     afectados: 1,
+     attachs: [],
+     comentarios: [],
+     descripcion: "ASSSSSSS",
+     escierto: 0,
+     fecha: null,
+     fotos: ["sinfoto.jpg", "fghj.jpg"],
+     frecuentemente: true,
+     hora: null,
+     icon: "terrorismo.png",
+     nocierto: 0,
+     pos: "18.471009514707436,-69.80233798851259", //posicion del marcador en
+     el mapa
+     region: "Los Frailes",
+     tags: ["Terrorismo - Existencia de explosivos"],
+     titulo: "TEST2",
+     }
+     */
     [[[UIAlertView alloc] initWithTitle:nil message:@"denunciar button action" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
+    NSDate * date = [NSDate date];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"];
+    NSString* fecha = [dateFormatter stringFromDate:date];
+    
+    [dateFormatter setDateFormat:@"HH:mm aa"];
+    NSString* hora = [dateFormatter stringFromDate:date];
+    
+    NSLog(@"fecha y hora = %@ - %@", fecha,  hora);
+    
+    NSString* pos = [NSString stringWithFormat:@"%@,%@", latitude, longitude];
+    
+    NSLog(@"Location after calibration, user location (%@)", pos);
+    
+    if (commentView.text.length == 0) {
+        
+        [[[UIAlertView alloc] initWithTitle:nil message:NSLocalizedString(@"You must complete all fields.",@"You must complete all fields.") delegate:nil cancelButtonTitle:NSLocalizedString(@"Ok", @"Ok") otherButtonTitles:nil] show];
+        
+        return;
+    }
+    //NSArray* commentArray = [NSArray arrayWithObject:commentView.text];
+    
+    NSDictionary* params = @{@"descripcion": commentView.text,
+                             //@"afectados": , Preguntar que es!
+                             //@"attachs": ,
+                             //@"comentarios": , No se puede mandar
+                             //@"escierto": ,No se puede mandar
+                             //@"nocierto": ,No se puede mandar
+                             @"frecuentemente": @"false",
+                             //@"region": , No tiene sentido
+                             @"icon": @"terrorismo.png",
+                             //@"tags": ,
+                             @"titulo": @"Denuncia M",
+                             //@"fotos": ,
+                             @"pos": pos,
+                             @"hora": hora,
+                             @"fecha": fecha,
+                             @"from": @"iPhone"};
+    [NetworkManager runSendComplaintRequestWithParams:params completition:^(NSDictionary *data, NSError *error) {
+        
+        //[MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
+        
+        if (!data) {
+            [[[UIAlertView alloc] initWithTitle:nil message:NSLocalizedString(@"Something is wrong, please try again later.","Something is wrong, please try again later.") delegate:nil cancelButtonTitle:NSLocalizedString(@"Ok", @"Ok") otherButtonTitles:nil] show];
+        }else{
+            ////NSLog(@"ERROR= %@", error.description);
+            NSString* response = @"hola";//[data objectForKey:@"res"];
+            NSLog(@"DATA= %@",data);
+            if ([response isEqualToString:SIGN_UP_OK]) {
+                [[[UIAlertView alloc] initWithTitle:nil message:NSLocalizedString(@"Denuncia successfully.","Denuncia successfully.") delegate:nil cancelButtonTitle:NSLocalizedString(@"Ok", @"Ok") otherButtonTitles:nil] show];
+                // go to main scren or do something
+            }
+            
+        }
+    }];
 }
 
 - (IBAction)addImageAction:(id)sender
@@ -239,6 +315,9 @@
     MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
     point.coordinate = userLocation.coordinate;
     
+    latitude = [NSString stringWithFormat:@"%f", userLocation.coordinate.latitude];
+    longitude = [NSString stringWithFormat:@"%f", userLocation.coordinate.longitude];
+
     //NSString* title = [NSString stringWithFormat:@"%.f, %.f", userLocation.coordinate.longitude, userLocation.coordinate.latitude];
     //point.title = title;
     //point.subtitle = @"I'm here!!!";
