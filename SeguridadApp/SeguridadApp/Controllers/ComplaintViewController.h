@@ -8,8 +8,16 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
+#import "Region.h"
 
-@interface ComplaintViewController : UIViewController <UIActionSheetDelegate, UIImagePickerControllerDelegate,UINavigationControllerDelegate, UITextViewDelegate, MKMapViewDelegate, UITextFieldDelegate>
+@protocol ComplaintDelegate <NSObject>
+
+@optional
+- (void) didFinishCategorySelection:(NSString*)category subcategory:(NSString*)subcategory;
+- (void) didFinishRegionSelection:(Region*)region;
+@end
+
+@interface ComplaintViewController : UIViewController <UIActionSheetDelegate, UIImagePickerControllerDelegate,UINavigationControllerDelegate, UITextViewDelegate, MKMapViewDelegate, UITextFieldDelegate, ComplaintDelegate>
 {
     __weak IBOutlet UIImageView* photoImageView;
     __weak IBOutlet UITextField* complaintTitle;
@@ -17,6 +25,7 @@
     
     __weak IBOutlet UILabel* commentPlaceholder;
     __weak IBOutlet UIButton* kindOfComplaint;
+    __weak IBOutlet UIButton* regionButtonAction;
     __weak IBOutlet MKMapView* locationView;
     
     __weak IBOutlet UISwitch* frequently;
@@ -31,11 +40,14 @@
     
     NSString* latitude;
     NSString* longitude;
+    MKPointAnnotation *point;
 }
 
 - (IBAction)frequentlyValueChanged:(id)sender;
 
 - (IBAction)kindOfComplaintAction:(id)sender;
+- (IBAction)regionButtonAction:(id)sender;
+
 - (IBAction)dateButtonAction:(id)sender;
 - (IBAction)hourButtonAction:(id)sender;
 - (IBAction)complaintButtonAction:(id)sender;

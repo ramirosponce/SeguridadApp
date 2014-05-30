@@ -48,5 +48,5 @@ typedef enum {
 #define ERR_USR_EMAIL_UNCONFIRMED     @"ERR_USR_EMAIL_UNCONFIRMED"
 
 
-#define MAX_COMPLAINT_COUNT          15
+#define MAX_COMPLAINT_COUNT          55
 

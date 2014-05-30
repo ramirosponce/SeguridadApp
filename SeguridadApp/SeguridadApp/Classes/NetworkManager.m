@@ -124,7 +124,7 @@
     [self PostRequest:API_DENUNCIA_SEARCH params:params completitionHandler:^(AFHTTPRequestOperation *operation, id responseObject, NSError *error) {
         
         if (!error) {
-            
+            //NSLog(@"%@", responseObject);
             NSMutableArray* complaints = [NSMutableArray arrayWithCapacity:0];
             
             NSArray* response_array = (NSArray*)responseObject;
@@ -172,8 +172,10 @@
     [self PostRequest:API_NEW params:params completitionHandler:^(AFHTTPRequestOperation *operation, id responseObject, NSError *error) {
         
         if (!error) {
+            NSLog(@"response ok: %@", responseObject);
             completitionHandler(responseObject, nil);
         }else{
+            NSLog(@"error: %@", operation.responseObject);
             completitionHandler(nil, error);
         }
         

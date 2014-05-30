@@ -7,6 +7,9 @@
 //
 
 #import "ComplaintViewController.h"
+#import "SelectCategoryViewController.h"
+#import "SelectRegionViewController.h"
+#import "MBProgressHUD.h"
 
 #define WANT_INFORMATION_Y_POS_4_INCH            270
 #define WANT_UPDATES_Y_POS_4_INCH                321
@@ -55,6 +58,8 @@
     
     [complaintTitle setPlaceholder:NSLocalizedString(@"Titulo de la denuncia", @"Titulo de la denuncia")];
     [kindOfComplaint setTitle:NSLocalizedString(@"Tipo de denuncia", @"Tipo de denuncia") forState:UIControlStateNormal];
+    NSString* position_title = [NSString stringWithFormat:@"%@: %@",NSLocalizedString(@"Ubicacion", @"Ubicacion"),NSLocalizedString(@"Mi ubicacion", @"Mi ubicacion")];
+    [regionButtonAction setTitle:position_title forState:UIControlStateNormal];
     [dateButton setTitle:NSLocalizedString(@"Fecha", @"Fecha") forState:UIControlStateNormal];
     [hourButton setTitle:NSLocalizedString(@"Hora", @"Hora") forState:UIControlStateNormal];
     [complaintButton setTitle:NSLocalizedString(@"Denunciar", @"Denunciar") forState:UIControlStateNormal];
@@ -96,6 +101,7 @@
     
     [dateView.layer setCornerRadius:5.0f];
     
+    point = [[MKPointAnnotation alloc] init];
 }
 
 #pragma mark -
@@ -103,17 +109,33 @@
 
 - (IBAction)kindOfComplaintAction:(id)sender
 {
-    [[[UIAlertView alloc] initWithTitle:nil message:@"kind button action" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
+    [self hideDateView];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    
+    UINavigationController *categriesController =
+    (UINavigationController*) [storyboard instantiateViewControllerWithIdentifier:@"selectComplaintType"];
+    
+    SelectCategoryViewController* categoryView = [[categriesController viewControllers] objectAtIndex:0];
+    categoryView.delegate = self;
+    [self presentViewController:categriesController animated:YES completion:nil];
+}
+
+- (IBAction)regionButtonAction:(id)sender
+{
+    [self hideDateView];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    
+    UINavigationController *regionsController =
+    (UINavigationController*) [storyboard instantiateViewControllerWithIdentifier:@"selectRegion"];
+    
+    SelectRegionViewController* regionsView = [[regionsController viewControllers] objectAtIndex:0];
+    regionsView.delegate = self;
+    [self presentViewController:regionsController animated:YES completion:nil];
 }
 
 - (IBAction)dateButtonAction:(id)sender
 {
-    
     [datePicker setDatePickerMode:UIDatePickerModeDate];
-    
-    NSString* date_selected = dateSelected.titleLabel.text;
-    
-    
     [self showDateView];
 }
 
@@ -125,86 +147,122 @@
 
 - (IBAction)complaintButtonAction:(id)sender
 {
-    /*
-     Params for denuncia
-     {
-     afectados: 1,
-     attachs: [],
-     comentarios: [],
-     descripcion: "ASSSSSSS",
-     escierto: 0,
-     fecha: null,
-     fotos: ["sinfoto.jpg", "fghj.jpg"],
-     frecuentemente: true,
-     hora: null,
-     icon: "terrorismo.png",
-     nocierto: 0,
-     pos: "18.471009514707436,-69.80233798851259", //posicion del marcador en
-     el mapa
-     region: "Los Frailes",
-     tags: ["Terrorismo - Existencia de explosivos"],
-     titulo: "TEST2",
-     }
-     */
-    NSDate * date = [NSDate date];
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"];
-    NSString* fecha = [dateFormatter stringFromDate:date];
+    NSString* kind_of_complaint_selected = nil;
+    NSString* date_selected = nil;
+    NSString* hour_selected = nil;
+    NSString* complaint_title = nil;
+    NSString* complaint_description = nil;
     
-    [dateFormatter setDateFormat:@"HH:mm aa"];
-    NSString* hora = [dateFormatter stringFromDate:date];
+    if ([kindOfComplaint.titleLabel.text isEqualToString:NSLocalizedString(@"Tipo de denuncia", @"Tipo de denuncia")]) {
+        [[[UIAlertView alloc] initWithTitle:nil message:NSLocalizedString(@"Por favor, seleccione un tipo de denuncia", @"Por favor, seleccione un tipo de denuncia") delegate:nil cancelButtonTitle:NSLocalizedString(@"Ok", @"Ok") otherButtonTitles:nil] show];
+        return;
+    }else
+        kind_of_complaint_selected = kindOfComplaint.titleLabel.text;
     
-    NSLog(@"fecha y hora = %@ - %@", fecha,  hora);
+    if (!frequently.isOn) {
+        
+        if ([dateButton.titleLabel.text isEqualToString:NSLocalizedString(@"Fecha", @"Fecha")]) {
+            [[[UIAlertView alloc] initWithTitle:nil message:NSLocalizedString(@"Por favor, seleccione una fecha", @"Por favor, seleccione una una fecha") delegate:nil cancelButtonTitle:NSLocalizedString(@"Ok", @"Ok") otherButtonTitles:nil] show];
+            return;
+        }else
+            date_selected = dateButton.titleLabel.text;
+        
+        
+        if ([hourButton.titleLabel.text isEqualToString:NSLocalizedString(@"Hora", @"Hora")]) {
+            [[[UIAlertView alloc] initWithTitle:nil message:NSLocalizedString(@"Por favor, seleccione una hora", @"Por favor, seleccione una hora") delegate:nil cancelButtonTitle:NSLocalizedString(@"Ok", @"Ok") otherButtonTitles:nil] show];
+            return;
+        }else
+            hour_selected = hourButton.titleLabel.text;
+    }
     
-    NSString* pos = [NSString stringWithFormat:@"%@,%@", latitude, longitude];
+    if (complaintTitle.text.length == 0) {
+        [[[UIAlertView alloc] initWithTitle:nil message:NSLocalizedString(@"Por favor, proporcione un titulo a la denuncia", @"Por favor, proporcione un titulo a la denuncia") delegate:nil cancelButtonTitle:NSLocalizedString(@"Ok", @"Ok") otherButtonTitles:nil] show];
+        return;
+    }else
+        complaint_title = complaintTitle.text;
     
-    NSLog(@"Location after calibration, user location (%@)", pos);
     
     if (commentView.text.length == 0) {
-        
-        [[[UIAlertView alloc] initWithTitle:nil message:NSLocalizedString(@"You must complete all fields.",@"You must complete all fields.") delegate:nil cancelButtonTitle:NSLocalizedString(@"Ok", @"Ok") otherButtonTitles:nil] show];
-        
+        [[[UIAlertView alloc] initWithTitle:nil message:NSLocalizedString(@"Por favor, proporcione un comentario para la denuncia", @"Por favor, proporcione un comentario para la denuncia") delegate:nil cancelButtonTitle:NSLocalizedString(@"Ok", @"Ok") otherButtonTitles:nil] show];
         return;
-    }
-    //NSArray* commentArray = [NSArray arrayWithObject:commentView.text];
+    }else
+        complaint_description = commentView.text;
     
-    NSDictionary* params = @{@"descripcion": commentView.text,
-                             //@"afectados": , Preguntar que es!
-                             //@"attachs": ,
-                             //@"comentarios": , No se puede mandar
-                             //@"escierto": ,No se puede mandar
-                             //@"nocierto": ,No se puede mandar
-                             @"frecuentemente": @"false",
-                             //@"region": , No tiene sentido
-                             @"icon": @"terrorismo.png",
-                             //@"tags": ,
-                             @"titulo": @"Denuncia M",
-                             //@"fotos": ,
-                             @"pos": pos,
-                             @"hora": hora,
-                             @"fecha": fecha,
-                             @"from": @"iPhone"};
+    
+    // creamos los parametros
+    NSMutableDictionary* params = [NSMutableDictionary dictionary];
+    
+    if (kind_of_complaint_selected) {
+        [params setObject:[NSArray arrayWithObject:kind_of_complaint_selected] forKey:@"tags"];
+    }
+    
+    if (date_selected) {
+        
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"dd/MM/yyyy"];
+        NSDate* date = [dateFormatter dateFromString:date_selected];
+        
+        [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"];
+        NSString* date_formatted = [dateFormatter stringFromDate:date];
+        
+        [params setObject:date_formatted forKey:@"fecha"];
+    }else{
+        [params setObject:@"null" forKey:@"fecha"];
+    }
+    
+    if (hour_selected) {
+        [params setObject:hour_selected forKey:@"hora"];
+    }else{
+        [params setObject:@"null" forKey:@"hora"];
+    }
+    
+    if (frequently.isOn) {
+        [params setObject:@"true" forKey:@"frecuentemente"];
+    }else{
+        [params setObject:@"false" forKey:@"frecuentemente"];
+    }
+    
+    if (complaint_title) {
+        [params setObject:complaint_title forKey:@"titulo"];
+    }
+    
+    if (complaint_description) {
+        [params setObject:complaint_description forKey:@"descripcion"];
+    }
+    
+    NSString* region_title = [NSString stringWithFormat:@"%@: ",NSLocalizedString(@"Ubicacion", @"Ubicacion")];
+    NSString* region = [regionButtonAction.titleLabel.text stringByReplacingOccurrencesOfString:region_title withString:@""];
+    [params setObject:region forKey:@"region"];
+    
+    NSString* position = [NSString stringWithFormat:@"%@,%@",latitude, longitude];
+    [params setObject:position forKey:@"pos"];
+    
+    [params setObject:[NSNumber numberWithInt:1] forKey:@"afectados"];
+    [params setObject:[NSNumber numberWithInt:0] forKey:@"escierto"];
+    [params setObject:[NSNumber numberWithInt:0] forKey:@"nocierto"];
+    
+    [params setObject:@"terrorismo.png" forKey:@"icon"];
+    
+    NSLog(@"PARAMETROS: %@",params);
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+    hud.labelText = NSLocalizedString(@"Realizando la denuncia...", @"Realizando la denuncia...");
+    
     [NetworkManager runSendComplaintRequestWithParams:params completition:^(NSDictionary *data, NSError *error) {
+        [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
         
-        //[MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
-        
-        if (!data) {
-            [[[UIAlertView alloc] initWithTitle:nil message:NSLocalizedString(@"Something is wrong, please try again later.","Something is wrong, please try again later.") delegate:nil cancelButtonTitle:NSLocalizedString(@"Ok", @"Ok") otherButtonTitles:nil] show];
+        if (error) {
+            [[[UIAlertView alloc] initWithTitle:nil message:NSLocalizedString(@"No se pudo realizar la denuncia, pruebe mas tarde nuevamente o chequee si conexion a internet",@"No se pudo realizar la denuncia, pruebe mas tarde nuevamente o chequee si conexion a internet") delegate:nil cancelButtonTitle:NSLocalizedString(@"Ok", @"Ok") otherButtonTitles:nil] show];
         }else{
-            ////NSLog(@"ERROR= %@", error.description);
-            NSString* response = @"hola";//[data objectForKey:@"res"];
-            NSLog(@"DATA= %@",data);
-            if ([response isEqualToString:SIGN_UP_OK]) {
-                [[[UIAlertView alloc] initWithTitle:nil message:NSLocalizedString(@"Denuncia successfully.","Denuncia successfully.") delegate:nil cancelButtonTitle:NSLocalizedString(@"Ok", @"Ok") otherButtonTitles:nil] show];
-                // go to main scren or do something
-            }
-            
+            [self.navigationController popViewControllerAnimated:YES];
         }
+        
     }];
 }
 
 - (IBAction)addImageAction:(id)sender
 {
+    [self hideDateView];
     [self dismissImputController];
     
     UIActionSheet* pictureActionSheet = [[UIActionSheet alloc] initWithTitle:nil
@@ -259,6 +317,10 @@
 #pragma mark -
 #pragma mark UITextfieldDelegate methods
 
+- (void) textFieldDidBeginEditing:(UITextField *)textField{
+    [self hideDateView];
+}
+
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [commentView becomeFirstResponder];
@@ -279,6 +341,8 @@
 
 -(void) textViewDidChange:(UITextView *)textView
 {
+    [self hideDateView];
+    
     if(commentView.text.length == 0){
         commentPlaceholder.hidden = NO;
     }else{
@@ -311,13 +375,20 @@
 #pragma mark -
 #pragma mark Map methods
 
+- (void) updateLocation:(CLLocationCoordinate2D)coordinate
+{
+    point.coordinate = coordinate;
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(coordinate, 20000, 20000);
+    [locationView setRegion:[locationView regionThatFits:region] animated:YES];
+    [locationView addAnnotation:point];
+}
+
 - (void)mapView:(MKMapView *)map didUpdateUserLocation:(MKUserLocation *)userLocation
 {
-    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 100, 100);
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 2000, 2000);
     [locationView setRegion:[locationView regionThatFits:region] animated:YES];
     
     // Add an annotation
-    MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
     point.coordinate = userLocation.coordinate;
     
     latitude = [NSString stringWithFormat:@"%f", userLocation.coordinate.latitude];
@@ -344,6 +415,11 @@
     
     NSDate *pickerDate = [datePicker date];
     NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+    
+    if ([pickerDate compare:[NSDate date]] == NSOrderedDescending ) {
+        [[[UIAlertView alloc] initWithTitle:nil message:NSLocalizedString(@"La fecha seleccionada es mayor a la actual", @"La fecha seleccionada es mayor a la actual") delegate:nil cancelButtonTitle:NSLocalizedString(@"Ok", @"Ok") otherButtonTitles:nil] show];
+        return;
+    }
     
     if (datePicker.datePickerMode == UIDatePickerModeDate) {
         [dateFormatter setDateFormat:@"dd/MM/yyyy"];
@@ -378,6 +454,32 @@
     }];
 }
 
+#pragma mark -
+#pragma mark ComplaintDelegate methods
 
+- (void) didFinishCategorySelection:(NSString*)category subcategory:(NSString*)subcategory
+{
+    [kindOfComplaint setTitle:[NSString stringWithFormat:@"%@ - %@", category, subcategory] forState:UIControlStateNormal];
+}
+
+- (void) didFinishRegionSelection:(Region*)region
+{
+    NSString* region_name = region.region_name;
+    
+    if ([region_name isEqualToString:NSLocalizedString(@"Mi ubicacion", @"Mi ubicacion")]) {
+        locationView.showsUserLocation = YES;
+    }else{
+        
+        latitude = region.region_latitude;
+        longitude = region.region_longitude;
+        
+        locationView.showsUserLocation = NO;
+        CLLocationCoordinate2D region_coordinate = CLLocationCoordinate2DMake([region.region_latitude floatValue], [region.region_longitude floatValue]);
+        [self updateLocation:region_coordinate];
+    }
+
+    NSString* position_title = [NSString stringWithFormat:@"%@: %@",NSLocalizedString(@"Ubicacion", @"Ubicacion"),region_name];
+    [regionButtonAction setTitle:position_title forState:UIControlStateNormal];
+}
 
 @end
