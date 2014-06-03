@@ -35,11 +35,13 @@
 {
     [super viewDidLoad];
     
+    //@{@"title": NSLocalizedString(@"Complaints", @"Complaints"),@"icon_name": @"eye_icon.png",@"hasNew":[NSNumber numberWithBool:YES],@"newCount":[NSNumber numberWithInt:12]},
+    //@{@"title": NSLocalizedString(@"Another thing?", @"Another thing?"),@"icon_name": @"filters_icon.png"},
+    
     data = @[
              @{@"title": NSLocalizedString(@"Map", @"Map"),@"icon_name": @"pin_icon.png"},
-             @{@"title": NSLocalizedString(@"Complaints", @"Complaints"),@"icon_name": @"eye_icon.png",@"hasNew":[NSNumber numberWithBool:YES],@"newCount":[NSNumber numberWithInt:12]},
+             @{@"title": NSLocalizedString(@"Complaints", @"Complaints"),@"icon_name": @"eye_icon.png"},
              @{@"title": NSLocalizedString(@"Filters", @"Filters"),@"icon_name": @"switches_icon.png"},
-             @{@"title": NSLocalizedString(@"Another thing?", @"Another thing?"),@"icon_name": @"filters_icon.png"},
              @{@"title": NSLocalizedString(@"Settings", @"Settings"),@"icon_name": @"tire_icon.png"},
              ];
     
@@ -211,7 +213,7 @@
         }
             
             break;
-        case 4:{
+        case 3:{
             SettingsViewController *settingsController =
             [storyboard instantiateViewControllerWithIdentifier:@"SettingsViewController"];
             UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:settingsController];

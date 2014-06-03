@@ -234,7 +234,7 @@
             pinView.canShowCallout = YES;
             pinView.image = [UIImage imageNamed:@"orange_marker.png"];
             pinView.calloutOffset = CGPointMake(0,19);
-            
+            //pinView.draggable = YES;
             // Add a detail disclosure button to the callout.
             UIButton* rightButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
             pinView.rightCalloutAccessoryView = rightButton;

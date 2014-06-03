@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GBFlatButton.h"
+
 @class Complaint;
 
 @interface ComplaintCell : UITableViewCell
@@ -20,6 +22,14 @@
     __weak IBOutlet UILabel* complaint_isTrue;
     __weak IBOutlet UILabel* complaint_isntTrue;
     __weak IBOutlet UILabel* complaint_affected;
+
+    __weak IBOutlet GBFlatButton* affectedNumber;
+    __weak IBOutlet GBFlatButton* isTrueNumber;
+    __weak IBOutlet GBFlatButton* isntTrueNumber;
+    
+    __weak IBOutlet GBFlatButton* affectedTitle;
+    __weak IBOutlet GBFlatButton* isTrueTitle;
+    __weak IBOutlet GBFlatButton* isntTrueTitle;
 }
 
 - (void) populateCell:(Complaint*)complaint;

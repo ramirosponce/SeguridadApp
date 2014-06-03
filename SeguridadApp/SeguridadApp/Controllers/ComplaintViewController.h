@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 #import "Region.h"
+#import "NetworkAuxiliar.h"
 
 @protocol ComplaintDelegate <NSObject>
 
@@ -17,7 +18,7 @@
 - (void) didFinishRegionSelection:(Region*)region;
 @end
 
-@interface ComplaintViewController : UIViewController <UIActionSheetDelegate, UIImagePickerControllerDelegate,UINavigationControllerDelegate, UITextViewDelegate, MKMapViewDelegate, UITextFieldDelegate, ComplaintDelegate>
+@interface ComplaintViewController : UIViewController <UIActionSheetDelegate, UIImagePickerControllerDelegate,UINavigationControllerDelegate, UITextViewDelegate, MKMapViewDelegate, UITextFieldDelegate, ComplaintDelegate, MKAnnotation,NetworkAuxiliarDelegate>
 {
     __weak IBOutlet UIImageView* photoImageView;
     __weak IBOutlet UITextField* complaintTitle;
@@ -41,6 +42,9 @@
     NSString* latitude;
     NSString* longitude;
     MKPointAnnotation *point;
+    
+    NetworkAuxiliar* networkAux;
+    
 }
 
 - (IBAction)frequentlyValueChanged:(id)sender;

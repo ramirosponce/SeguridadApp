@@ -39,7 +39,7 @@
     
     for (NSString* image_name in images) {
         
-        NSURL* image_url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@%@",API_BASE_URL,API_UPLOAD,image_name]];
+        NSURL* image_url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@%@",API_BASE_URL,API_UPLOADS,image_name]];
         UIImageView* picture_container = [[UIImageView alloc] initWithFrame:CGRectMake(origin_x, 0.0, IMAGE_WIDTH, IMAGE_WIDTH)];
         [picture_container setImageWithURL:image_url];
         [picture_container setClipsToBounds:YES];

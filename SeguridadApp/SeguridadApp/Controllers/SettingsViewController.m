@@ -33,11 +33,11 @@
     [super viewDidLoad];
     
     data = [[NSMutableArray alloc] initWithCapacity:0];
-    [data addObject:@{@"title": NSLocalizedString(@"Help us to improve", @"Help us to improve")}];
+    //[data addObject:@{@"title": NSLocalizedString(@"Help us to improve", @"Help us to improve")}];
     [data addObject:@{@"title": NSLocalizedString(@"Terms and Use Conditions", @"Terms and Use Conditions")}];
     [data addObject:@{@"title": NSLocalizedString(@"About", @"About")}];
     [data addObject:@{@"title": NSLocalizedString(@"Share", @"Share")}];
-    [data addObject:@{@"title": NSLocalizedString(@"Maps Information", @"Maps Information")}];
+    //[data addObject:@{@"title": NSLocalizedString(@"Maps Information", @"Maps Information")}];
     
     //Pregunto si existe el Token y sino existe permitimos el Sign In
     if (![UserHelper getUserToken]) {
@@ -86,16 +86,16 @@
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     switch (indexPath.row) {
+        //case 0:
+        //    [self performSegueWithIdentifier:@"suggestionSegue" sender:nil];
+        //    break;
         case 0:
-            [self performSegueWithIdentifier:@"suggestionSegue" sender:nil];
-            break;
-        case 1:
             [self performSegueWithIdentifier:@"termsofseSegue" sender:nil];
             break;
-        case 2:
+        case 1:
             [self performSegueWithIdentifier:@"aboutSegue" sender:nil];
             break;
-        case 3:{
+        case 2:{
             NSString *shareString = @"Estoy usando la aplicacion de seguridad para hacer denuncias en mi iphone.";
             //UIImage *shareImage = [UIImage imageNamed:@"filter_arrow.png"];
             NSURL *shareUrl = [NSURL URLWithString:@"http://www.google.com"];
@@ -108,10 +108,10 @@
             
             }
             break;
-        case 4:
-            [self performSegueWithIdentifier:@"mapInformationSegue" sender:nil];
-            break;
-        case 5:
+        //case 4:
+        //    [self performSegueWithIdentifier:@"mapInformationSegue" sender:nil];
+        //    break;
+        case 3:
             [self performSegueWithIdentifier:@"signInScreenSegue" sender:nil];
             break;
         default:

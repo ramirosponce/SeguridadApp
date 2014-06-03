@@ -155,6 +155,7 @@
 		C6CC6AE819240DBA009FB7B1 /* UIImage+MultiFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = C6CC6AD819240DBA009FB7B1 /* UIImage+MultiFormat.m */; };
 		C6CC6AE919240DBA009FB7B1 /* UIImage+WebP.m in Sources */ = {isa = PBXBuildFile; fileRef = C6CC6ADA19240DBA009FB7B1 /* UIImage+WebP.m */; };
 		C6CC6AEA19240DBA009FB7B1 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = C6CC6ADC19240DBA009FB7B1 /* UIImageView+WebCache.m */; };
+		C6CC8C96193E5F4900463FA0 /* NetworkAuxiliar.m in Sources */ = {isa = PBXBuildFile; fileRef = C6CC8C95193E5F4900463FA0 /* NetworkAuxiliar.m */; };
 		C6D2BD7C1918333100D7BA0A /* SideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6D2BD7B1918333100D7BA0A /* SideMenuViewController.m */; };
 		C6D2BD7F1918333F00D7BA0A /* MainScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6D2BD7E1918333F00D7BA0A /* MainScreenViewController.m */; };
 		C6D2BD821918394500D7BA0A /* LoaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6D2BD811918394500D7BA0A /* LoaderViewController.m */; };
@@ -409,6 +410,8 @@
 		C6CC6ADA19240DBA009FB7B1 /* UIImage+WebP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+WebP.m"; sourceTree = "<group>"; };
 		C6CC6ADB19240DBA009FB7B1 /* UIImageView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+WebCache.h"; sourceTree = "<group>"; };
 		C6CC6ADC19240DBA009FB7B1 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
+		C6CC8C94193E5F4900463FA0 /* NetworkAuxiliar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkAuxiliar.h; sourceTree = "<group>"; };
+		C6CC8C95193E5F4900463FA0 /* NetworkAuxiliar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkAuxiliar.m; sourceTree = "<group>"; };
 		C6D2BD7A1918333100D7BA0A /* SideMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideMenuViewController.h; sourceTree = "<group>"; };
 		C6D2BD7B1918333100D7BA0A /* SideMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideMenuViewController.m; sourceTree = "<group>"; };
 		C6D2BD7D1918333F00D7BA0A /* MainScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainScreenViewController.h; sourceTree = "<group>"; };
@@ -598,6 +601,8 @@
 				C68221B2192167E7003B579F /* ComplaintPointAnnotation.m */,
 				C6894A0C192BD2210096A54D /* NetworkManager.h */,
 				C6894A0D192BD2210096A54D /* NetworkManager.m */,
+				C6CC8C94193E5F4900463FA0 /* NetworkAuxiliar.h */,
+				C6CC8C95193E5F4900463FA0 /* NetworkAuxiliar.m */,
 				C69914441932A32D0076A716 /* AppHelper.h */,
 				C69914451932A32D0076A716 /* AppHelper.m */,
 				C69914471932B4310076A716 /* UserHelper.h */,
@@ -1106,6 +1111,7 @@
 				C64945F7192295DE00C813A3 /* DetailFeelingCell.m in Sources */,
 				C6D2BD821918394500D7BA0A /* LoaderViewController.m in Sources */,
 				C69914491932B4310076A716 /* UserHelper.m in Sources */,
+				C6CC8C96193E5F4900463FA0 /* NetworkAuxiliar.m in Sources */,
 				C64E75AA193777C300EEC815 /* RegionCell.m in Sources */,
 				012BF9051921528800C0722B /* AboutViewController.m in Sources */,
 				C627DF3519181A7300FE0C22 /* MFSideMenuShadow.m in Sources */,

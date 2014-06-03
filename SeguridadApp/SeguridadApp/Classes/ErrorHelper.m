@@ -20,6 +20,10 @@
         return NSLocalizedString(@"Confirme el email de registracion para realizar esta accion. Quiere que reenviemos el mail de confirmacion?.", @"Confirme el email de registracion para realizar esta accion. Quiere que reenviemos el mail de confirmacion?.");
     }
     
+    if ([error_message isEqualToString:ERR_FILE_IS_REQUIRED]) {
+        return NSLocalizedString(@"Error al subir archivo, por favor intentelo nuevamente mas tarde.", @"Error al subir archivo, por favor intentelo nuevamente mas tarde.");
+    }
+    
     return NSLocalizedString(@"Ha ocurrido un problema, Por favor intentelo nuevamente mas tarde.", @"Ha ocurrido un problema, Por favor intentelo nuevamente mas tarde.");
 }
 
