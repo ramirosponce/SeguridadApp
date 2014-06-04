@@ -124,7 +124,7 @@
     [self PostRequest:API_DENUNCIA_SEARCH params:params completitionHandler:^(AFHTTPRequestOperation *operation, id responseObject, NSError *error) {
         
         if (!error) {
-            //NSLog(@"%@", responseObject);
+            NSLog(@"%@", responseObject);
             NSMutableArray* complaints = [NSMutableArray arrayWithCapacity:0];
             
             NSArray* response_array = (NSArray*)responseObject;
@@ -180,81 +180,6 @@
         }
         
     }];
-}
-
-+ (void) runUploadImage:(UIImage*)image completition:(UploadImageCompletitionHandler)completitionHandler
-{
-    /*NSString* url_string = [NSString stringWithFormat:@"%@%@",API_BASE_URL,API_UPLOAD];
-    NSMutableDictionary* dic = [NSMutableDictionary dictionary];
-    [dic setValue:UIImageJPEGRepresentation(image,1.0) forKey:@"file"];
-    
-    NSData* uploadFile = nil;
-    if ([dic objectForKey:@"file"]) {
-        uploadFile = (NSData*)[dic objectForKey:@"file"];
-        [dic removeObjectForKey:@"file"];
-    }
-    
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    manager.requestSerializer = [AFJSONRequestSerializer serializer];
-    [manager POST:url_string parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-        if (uploadFile) {
-            [formData appendPartWithFileData:uploadFile name:@"image" fileName:@"photo.jpg" mimeType:@"image/jpeg"];
-        }
-        
-    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"success: %@", responseObject);
-        //completitionHandler (responseObject, nil);
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Error: %@", error.description);
-        NSLog(@"Error operation: %@", operation.responseObject);
-        //completitionHandler(nil, error);
-    }];*/
-    
-    
-    /// -------------------------------------------------------------
-    
-    NSString *boundary = @"------WebKitFormBoundaryry2BRYQ7DtZ97sNg";
-    
-    // create request
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-    [request setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
-    [request setHTTPShouldHandleCookies:NO];
-    [request setTimeoutInterval:30];
-    [request setHTTPMethod:@"POST"];
-    
-    // set Content-Type in HTTP header
-    NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@", boundary];
-    [request setValue:contentType forHTTPHeaderField: @"Content-Type"];
-    
-    // post body
-    NSMutableData *body = [NSMutableData data];
-    
-    // add image data
-    NSData *imageData = UIImageJPEGRepresentation(image, 1.0);
-    if (imageData) {
-        [body appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
-        [body appendData:[@"Content-Disposition: form-data; filename=\"image.jpg\"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
-        [body appendData:[@"Content-Type: image/jpeg\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
-        [body appendData:imageData];
-        [body appendData:[[NSString stringWithFormat:@"\r\n"] dataUsingEncoding:NSUTF8StringEncoding]];
-    }
-    
-    [body appendData:[[NSString stringWithFormat:@"--%@--\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
-    
-    // setting the body of the post to the reqeust
-    [request setHTTPBody:body];
-    
-    // set the content-length
-    NSString *postLength = [NSString stringWithFormat:@"%lu", [body length]];
-    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
-    
-    // set URL
-    NSString* url_string = [NSString stringWithFormat:@"%@%@",API_BASE_URL,API_UPLOAD];
-    NSURL* requestURL = [NSURL URLWithString:url_string];
-    [request setURL:requestURL];
-    
-    
 }
 
 @end

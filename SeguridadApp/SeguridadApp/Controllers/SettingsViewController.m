@@ -32,6 +32,8 @@
 {
     [super viewDidLoad];
     
+    [self setupInterface];
+    
     data = [[NSMutableArray alloc] initWithCapacity:0];
     //[data addObject:@{@"title": NSLocalizedString(@"Help us to improve", @"Help us to improve")}];
     [data addObject:@{@"title": NSLocalizedString(@"Terms and Use Conditions", @"Terms and Use Conditions")}];
@@ -45,9 +47,6 @@
     }
     
     [settingsTableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-    self.title = NSLocalizedString(@"Settings", @"Settings");
-    UIBarButtonItem* options = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menu_icon.png"] style:UIBarButtonItemStylePlain target:self action:@selector(showMenu)];
-    self.navigationItem.leftBarButtonItem = options;
 }
 
 - (void)didReceiveMemoryWarning
@@ -55,10 +54,22 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma mark -
+#pragma mark private methods
+
+- (void) setupInterface
+{
+    self.title = NSLocalizedString(@"Settings", @"Settings");
+    UIBarButtonItem* options = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menu_icon.png"] style:UIBarButtonItemStylePlain target:self action:@selector(showMenu)];
+    self.navigationItem.leftBarButtonItem = options;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [data count];
 }
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString* CellIdentifier = @"SettingsCell";
@@ -71,6 +82,7 @@
     
     return cell;
 }
+
 - (void) showMenu
 {
     // open the left side menu
@@ -83,6 +95,7 @@
         [container setMenuState:MFSideMenuStateLeftMenuOpen completion:nil];
     }
 }
+
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     switch (indexPath.row) {

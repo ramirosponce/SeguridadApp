@@ -30,6 +30,12 @@
     __weak IBOutlet GBFlatButton* affectedTitle;
     __weak IBOutlet GBFlatButton* isTrueTitle;
     __weak IBOutlet GBFlatButton* isntTrueTitle;
+    
+    __weak IBOutlet UIView* photoBG1;
+    __weak IBOutlet UIView* photoBG2;
+    __weak IBOutlet UIView* photoBG3;
+    
+    __weak IBOutlet UIActivityIndicatorView* indicator;
 }
 
 - (void) populateCell:(Complaint*)complaint;

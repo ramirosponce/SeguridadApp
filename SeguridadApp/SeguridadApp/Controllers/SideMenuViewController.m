@@ -12,6 +12,7 @@
 #import "FiltersViewController.h"
 #import "SettingsViewController.h"
 #import <FacebookSDK/FacebookSDK.h>
+#import "ComplaintsViewController.h"
 
 @interface SideMenuViewController ()
 {
@@ -107,6 +108,9 @@
         [logOutButton setHidden:NO];
         [profile_name setText:[NSString stringWithFormat:@"%@ %@", [UserHelper getUserFirstName],[UserHelper getUserLastName]]];
     }
+    
+    selectedIndex = 0;
+    [menuTableView reloadData];
 }
 
 #pragma mark -
@@ -120,6 +124,15 @@
     
     [UserHelper removeUser];
     [self changeUserStatus];
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    MFSideMenuContainerViewController *container = (MFSideMenuContainerViewController*)[self parentViewController];
+    UINavigationController *navigationController =
+    [storyboard instantiateViewControllerWithIdentifier:@"CenterViewController"];
+    [container setCenterViewController:navigationController];
+    
+    selectedIndex = 0;
+    [menuTableView reloadData];
 }
 
 - (void) didTapViewWithGesture:(UITapGestureRecognizer*) tapGesture
@@ -192,6 +205,15 @@
             [container setCenterViewController:navigationController];
         }
             
+            break;
+        case 1:
+        {
+            ComplaintsViewController *complaintsController =
+            [storyboard instantiateViewControllerWithIdentifier:@"ComplaintsViewController"];
+            UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:complaintsController];
+            [navigationController.navigationBar setTranslucent:NO];
+            [container setCenterViewController:navigationController];
+        }
             break;
         case 2:{
             FiltersViewController *filtersController =

@@ -8,6 +8,8 @@
 
 #import "LoginEmailViewController.h"
 #import "MBProgressHUD.h"
+#import "MFSideMenu.h"
+#import "SideMenuViewController.h"
 
 @interface LoginEmailViewController ()
 {
@@ -97,7 +99,8 @@
             [[[UIAlertView alloc] initWithTitle:nil message:error_message delegate:nil cancelButtonTitle:NSLocalizedString(@"Ok", @"Ok") otherButtonTitles:nil] show];
         }else{
             
-            [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
+            NSLog(@"user: %@",data);
+            
             // guardamos el usuario y password
             [UserHelper saveUser:emailField.text password:passwordField.text];
             
@@ -107,7 +110,15 @@
                 [UserHelper saveToken:token];
             }
             
-            // do something or go to main screen
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+            UINavigationController *navigationController = (UINavigationController*)self.parentViewController;
+            MFSideMenuContainerViewController *container = (MFSideMenuContainerViewController*)[navigationController parentViewController];
+            UINavigationController *centerViewController =
+            [storyboard instantiateViewControllerWithIdentifier:@"CenterViewController"];
+            [container setCenterViewController:centerViewController];
+            
+            SideMenuViewController* sideMenu = (SideMenuViewController*)container.leftMenuViewController;
+            [sideMenu changeUserStatus];
         }
     }];
     

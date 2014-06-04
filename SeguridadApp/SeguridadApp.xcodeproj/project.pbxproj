@@ -68,6 +68,7 @@
 		C66D886B1922D7220029A7F2 /* maradona.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C66D88631922D7220029A7F2 /* maradona.jpg */; };
 		C66D886C1922D7220029A7F2 /* mrT.png in Resources */ = {isa = PBXBuildFile; fileRef = C66D88641922D7220029A7F2 /* mrT.png */; };
 		C66D886D1922D7220029A7F2 /* turco.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C66D88651922D7220029A7F2 /* turco.jpg */; };
+		C67866CF193ED30D00E345E5 /* ComplaintsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C67866CE193ED30D00E345E5 /* ComplaintsViewController.m */; };
 		C68221B3192167E7003B579F /* ComplaintPointAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = C68221B2192167E7003B579F /* ComplaintPointAnnotation.m */; };
 		C68221B719216BF2003B579F /* DetailComplaintCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C68221B519216BF2003B579F /* DetailComplaintCell.m */; };
 		C68221B819216BF2003B579F /* DetailComplaintCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C68221B619216BF2003B579F /* DetailComplaintCell.xib */; };
@@ -274,6 +275,8 @@
 		C66D88631922D7220029A7F2 /* maradona.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = maradona.jpg; sourceTree = "<group>"; };
 		C66D88641922D7220029A7F2 /* mrT.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mrT.png; sourceTree = "<group>"; };
 		C66D88651922D7220029A7F2 /* turco.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = turco.jpg; sourceTree = "<group>"; };
+		C67866CD193ED30D00E345E5 /* ComplaintsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComplaintsViewController.h; sourceTree = "<group>"; };
+		C67866CE193ED30D00E345E5 /* ComplaintsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComplaintsViewController.m; sourceTree = "<group>"; };
 		C68221B1192167E7003B579F /* ComplaintPointAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComplaintPointAnnotation.h; sourceTree = "<group>"; };
 		C68221B2192167E7003B579F /* ComplaintPointAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComplaintPointAnnotation.m; sourceTree = "<group>"; };
 		C68221B419216BF2003B579F /* DetailComplaintCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailComplaintCell.h; sourceTree = "<group>"; };
@@ -562,6 +565,8 @@
 				C655E2A4191AD20500C7E2F0 /* ComplaintViewController.m */,
 				C6B44474191C15C2005C7056 /* FiltersViewController.h */,
 				C6B44475191C15C2005C7056 /* FiltersViewController.m */,
+				C67866CD193ED30D00E345E5 /* ComplaintsViewController.h */,
+				C67866CE193ED30D00E345E5 /* ComplaintsViewController.m */,
 				010A8899191D542500ACD1F1 /* SettingsViewController.h */,
 				010A889A191D542500ACD1F1 /* SettingsViewController.m */,
 				01432589191D7156002A1066 /* SuggestionViewController.h */,
@@ -1146,6 +1151,7 @@
 				C6A46C9C191C4232000F431B /* GlobalManager.m in Sources */,
 				C6894A2B192BD36F0096A54D /* AFHTTPRequestOperation.m in Sources */,
 				C6894A31192BD36F0096A54D /* AFURLRequestSerialization.m in Sources */,
+				C67866CF193ED30D00E345E5 /* ComplaintsViewController.m in Sources */,
 				C6CAD2C21922CF6D004C2BFE /* DetailUserCell.m in Sources */,
 				C627DEFF1918182800FE0C22 /* main.m in Sources */,
 				C6894A2F192BD36F0096A54D /* AFSecurityPolicy.m in Sources */,

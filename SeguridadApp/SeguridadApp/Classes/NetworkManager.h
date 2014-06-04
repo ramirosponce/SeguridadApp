@@ -15,7 +15,6 @@ typedef void (^ComplaintMapCompletionHandler)(NSArray* map_complaints, NSError *
 typedef void (^SignupCompletitionHandler)(NSDictionary* data, NSError* error, NSString* error_message);
 typedef void (^LoginCompletitionHandler) (NSDictionary* data, NSError* error, NSString* error_message);
 typedef void (^SendComplaintCompletitionHandler) (NSDictionary* data, NSError* error);
-typedef void (^UploadImageCompletitionHandler) (NSString* data, NSError* error);
 
 @interface NetworkManager : NSObject
 
@@ -32,7 +31,5 @@ typedef void (^UploadImageCompletitionHandler) (NSString* data, NSError* error);
 + (void) runLoginRequestWithParams:(NSDictionary*)params completition:(LoginCompletitionHandler)completitionHandler;
 
 + (void) runSendComplaintRequestWithParams:(NSDictionary*)params completition:(SendComplaintCompletitionHandler)completitionHandler;
-
-+ (void) runUploadImage:(UIImage*)image completition:(UploadImageCompletitionHandler)completitionHandler;
 
 @end

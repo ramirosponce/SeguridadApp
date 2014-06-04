@@ -39,6 +39,19 @@
     [complaint_picture setClipsToBounds:YES];
     [complaint_picture.layer setCornerRadius:(float)5.0];
     
+    [photoBG1 setClipsToBounds:YES];
+    [photoBG1.layer setCornerRadius:(float)5.0];
+    
+    [photoBG2 setClipsToBounds:YES];
+    [photoBG2.layer setCornerRadius:(float)5.0];
+    
+    [photoBG3 setClipsToBounds:YES];
+    [photoBG3.layer setCornerRadius:(float)5.0];
+    
+    
+    [indicator startAnimating];
+    
+    
     if (complaint.attachs != nil && complaint.attachs.count > 0) {
         
         titleFrame.size.width = LABEL_FRAME_WITH_IMAGE;
@@ -48,8 +61,12 @@
         [complaint_picture setImage:[UIImage imageNamed:image_named]];
         
         NSURL* image_url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@%@",API_BASE_URL,API_UPLOADS,image_named]];
-        [complaint_picture setImageWithURL:image_url];
+        [complaint_picture setImageWithURL:image_url
+                                 completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
+            [indicator stopAnimating];
+        }];
     }else{
+        [indicator stopAnimating];
         titleFrame.size.width = LABEL_FRAME_WITHOUT_IMAGE;
         descriptionFrame.size.width = LABEL_FRAME_WITHOUT_IMAGE;
         complaint_picture.image = nil;
