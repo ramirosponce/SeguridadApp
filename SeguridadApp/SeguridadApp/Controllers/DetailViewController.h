@@ -12,7 +12,7 @@
 
 @class Complaint;
 
-@interface DetailViewController : SLParallaxController <UIActionSheetDelegate, HPGrowingTextViewDelegate>
+@interface DetailViewController : SLParallaxController <UIActionSheetDelegate, HPGrowingTextViewDelegate, UIAlertViewDelegate>
 {
     UIView *containerView;
     HPGrowingTextView *textView;

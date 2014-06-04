@@ -24,6 +24,10 @@
         return NSLocalizedString(@"Error al subir archivo, por favor intentelo nuevamente mas tarde.", @"Error al subir archivo, por favor intentelo nuevamente mas tarde.");
     }
     
+    if ([error_message isEqualToString:UNAUTHORIZED]) {
+        return NSLocalizedString(@"Usted no esta autorizado a realizar esta accion.", @"Usted no esta autorizado a realizar esta accion.");
+    }
+    
     return NSLocalizedString(@"Ha ocurrido un problema, Por favor intentelo nuevamente mas tarde.", @"Ha ocurrido un problema, Por favor intentelo nuevamente mas tarde.");
 }
 

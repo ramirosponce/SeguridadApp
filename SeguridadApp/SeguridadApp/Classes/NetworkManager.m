@@ -59,6 +59,12 @@
     NSString* url_string = [NSString stringWithFormat:@"%@%@",API_BASE_URL,endpoint];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    
+    if (token) {
+        NSString* token_header = [NSString stringWithFormat:@"Bearer %@",token];
+        [manager.requestSerializer setValue:token_header forHTTPHeaderField:@"Authorization"];
+    }
+    
     [manager POST:url_string parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         completitionHandler(operation, responseObject, nil);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -178,7 +184,18 @@
             NSLog(@"error: %@", operation.responseObject);
             completitionHandler(nil, error);
         }
-        
+    }];
+}
+
++ (void) sendCommentWithParams:(NSDictionary*)params token:(NSString*)token completition:(SendCommentCompletitionHandler)completitionHandler
+{
+    [self PostRequest:API_UPDATE params:params token:token completitionHandler:^(AFHTTPRequestOperation *operation, id responseObject, NSError *error) {
+        if (!error) {
+            completitionHandler(responseObject, nil, nil);
+        }else{
+            NSString* err = [operation.responseObject objectForKey:@"err"];
+            completitionHandler(nil, error, [ErrorHelper errorMessage:err]);
+        }
     }];
 }
 

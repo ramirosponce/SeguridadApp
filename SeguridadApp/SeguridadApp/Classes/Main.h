@@ -48,7 +48,8 @@ typedef enum {
 #define ERR_LOGIN_INCORRECT           @"ERR_LOGIN_INCORRECT"
 #define ERR_USR_EMAIL_UNCONFIRMED     @"ERR_USR_EMAIL_UNCONFIRMED"
 #define ERR_FILE_IS_REQUIRED          @"ERR_FILE_IS_REQUIRED"
+#define UNAUTHORIZED                  @"UNAUTHORIZED"
 
 
-#define MAX_COMPLAINT_COUNT          55
+#define MAX_COMPLAINT_COUNT          50
 

@@ -16,6 +16,7 @@
 #import "DetailUserCell.h"
 #import "Comment.h"
 #import "DataHelper.h"
+#import "MBProgressHUD.h"
 
 #define SECTIONS    5
 
@@ -156,6 +157,7 @@
     textView.internalTextView.scrollIndicatorInsets = UIEdgeInsetsMake(5, 0, 5, 0);
     textView.backgroundColor = [UIColor whiteColor];
     textView.placeholder = @"Type to see the textView grow!";
+    [textView setReturnKeyType:UIReturnKeyDefault];
     
     // textView.text = @"test\n\ntest";
 	// textView.animateHeightChange = NO; //turns off animation
@@ -194,16 +196,44 @@
     doneBtn.titleLabel.font = [UIFont boldSystemFontOfSize:18.0f];
     
     [doneBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-	[doneBtn addTarget:self action:@selector(resignTextView) forControlEvents:UIControlEventTouchUpInside];
+	[doneBtn addTarget:self action:@selector(sendComment) forControlEvents:UIControlEventTouchUpInside];
     [doneBtn setBackgroundImage:sendBtnBackground forState:UIControlStateNormal];
     [doneBtn setBackgroundImage:selectedSendBtnBackground forState:UIControlStateSelected];
 	[containerView addSubview:doneBtn];
     containerView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
 }
 
--(void)resignTextView
+- (void) sendComment
 {
-	[textView resignFirstResponder];
+    [textView resignFirstResponder];
+    
+    if (textView.text.length == 0) return;
+    
+    if (![UserHelper getUserToken]) {
+        [[[UIAlertView alloc] initWithTitle:nil message:NSLocalizedString(@"Para poder realizar un comentario debe estar logueado.", @"Para poder realizar un comentario debe estar logueado") delegate:self cancelButtonTitle:NSLocalizedString(@"Ok", @"Ok") otherButtonTitles:nil] show];
+        return;
+    }
+    
+    NSMutableDictionary* params = [NSMutableDictionary dictionary];
+    [params setObject:textView.text forKey:@"comment"];
+    [params setObject:self.complaint.complaint_id forKey:@"id"];
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+    hud.labelText = NSLocalizedString(@"Enviando...", @"Enviando...");
+    
+    [NetworkManager sendCommentWithParams:params token:[UserHelper getUserToken] completition:^(NSDictionary *data, NSError *error, NSString *error_message) {
+        
+        [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
+        
+        if (error) {
+            [[[UIAlertView alloc] initWithTitle:nil message:error_message delegate:nil cancelButtonTitle:NSLocalizedString(@"Ok", @"Ok") otherButtonTitles:nil] show];
+        }else{
+            NSString* response = [data objectForKey:@"res"];
+            if ([response isEqualToString:SIGN_UP_OK]) {
+                [self.navigationController popViewControllerAnimated:YES];
+            }
+        }
+    }];
 }
 
 #pragma mark -
@@ -508,11 +538,11 @@
     
     NSString *buttonTitle = [actionSheet buttonTitleAtIndex:buttonIndex];
     if  ([buttonTitle isEqualToString:NSLocalizedString(@"Share on Facebook", @"Share on Facebook")]){
-        [[[UIAlertView alloc] initWithTitle:nil message:@"Facebook share" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+        //[[[UIAlertView alloc] initWithTitle:nil message:@"Facebook share" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
     }else if  ([buttonTitle isEqualToString:NSLocalizedString(@"Share on Twitter", @"Share on Twitter")]){
-        [[[UIAlertView alloc] initWithTitle:nil message:@"Twitter share" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+        //[[[UIAlertView alloc] initWithTitle:nil message:@"Twitter share" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
     }else if  ([buttonTitle isEqualToString:NSLocalizedString(@"Share on Mail",@"Share on Mail")]){
-        [[[UIAlertView alloc] initWithTitle:nil message:@"Mail share" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+        //[[[UIAlertView alloc] initWithTitle:nil message:@"Mail share" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
     }
 }
 
@@ -572,5 +602,24 @@
                      }];
 }
 
+#pragma mark -
+#pragma mark AlertViewDelegate methods
+
+- (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if ([[alertView buttonTitleAtIndex:buttonIndex] isEqualToString:NSLocalizedString(@"Ok", @"Ok")]) {
+        [self performSegueWithIdentifier:@"loginSegue" sender:nil];
+    }
+}
+
+#pragma mark -
+#pragma mark AlertViewDelegate methods
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"loginSegue"]) {
+        
+    }
+}
 
 @end
