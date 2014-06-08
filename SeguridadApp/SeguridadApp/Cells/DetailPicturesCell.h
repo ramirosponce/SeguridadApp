@@ -7,11 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DetailViewController.h"
 
 @interface DetailPicturesCell : UITableViewCell
 {
     __weak IBOutlet UIScrollView* picture_scroller;
 }
+
+@property (nonatomic, assign) id <DetailDelegate> delegate;
 
 - (void) populateCell:(NSArray*)images;
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -30,6 +30,9 @@
                             <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
+                        <connections>
+                            <action selector="affectedAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="05P-Gp-ND6"/>
+                        </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="JsZ-17-nKl" userLabel="es_cierto_value" customClass="GBFlatButton">
                         <rect key="frame" x="107" y="12" width="59" height="30"/>
@@ -48,6 +51,9 @@
                             <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
+                        <connections>
+                            <action selector="isTrueAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Ub1-KT-e96"/>
+                        </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="6hl-qi-KbP" userLabel="no_es_cierto_value" customClass="GBFlatButton">
                         <rect key="frame" x="207" y="12" width="59" height="30"/>
@@ -66,6 +72,9 @@
                             <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
+                        <connections>
+                            <action selector="isNotTrueAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="BhN-CT-WkA"/>
+                        </connections>
                     </button>
                     <view contentMode="scaleToFill" id="EDT-Ry-et7">
                         <rect key="frame" x="10" y="52" width="300" height="1"/>

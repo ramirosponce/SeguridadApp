@@ -15,7 +15,7 @@
 #import "ComplaintPointAnnotation.h"
 #import "DetailViewController.h"
 #import "MBProgressHUD.h"
-
+#import "SignInViewController.h"
 
 @interface MainScreenViewController ()
 {
@@ -64,6 +64,10 @@
     [NetworkManager runMapRequestWithLimit:MAX_COMPLAINT_COUNT completition:^(NSArray *map_complaints, NSError *error) {
         [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
         data = [[NSMutableArray alloc] initWithArray:map_complaints];
+        
+        NSArray* annotations = [mapView annotations];
+        [mapView removeAnnotations:annotations];
+        
         [self loadLocations:data];
         [complaintTableView reloadData];
     }];

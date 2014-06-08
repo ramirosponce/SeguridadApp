@@ -12,6 +12,7 @@
 #import "SideMenuViewController.h"
 #import "MainScreenViewController.h"
 #import "MBProgressHUD.h"
+#import "ErrorHelper.h"
 
 @interface LoaderViewController ()
 
@@ -48,25 +49,25 @@
     // obtenemos los tipos de denuncia
     [NetworkManager runComplaintTypesRequest:^(NSArray *types, NSError *error) {
         if (!error) {
-            
             [[GlobalManager sharedManager] saveComplaintTypes:types];
             
             // obtenemos las regiones
             [NetworkManager runRegionsRequest:^(NSArray *regions, NSError *error) {
                 
                 if (!error) {
-                    [[GlobalManager sharedManager] saveRegions:regions];
-                    
                     [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
+                    [[GlobalManager sharedManager] saveRegions:regions];
                     [self performSelector:@selector(showMainScreen) withObject:nil afterDelay:0.5];
                 }else{
-#warning MANEJAR ERROR DE CARGA DE REGIONES
-                    NSLog(@"%@",error.description);
+                    [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
+                    NSString* error_message = [ErrorHelper errorMessage:@""];
+                    [[[UIAlertView alloc] initWithTitle:nil message:error_message delegate:nil cancelButtonTitle:NSLocalizedString(@"Ok", @"Ok") otherButtonTitles:nil] show];
                 }
             }];
         }else{
-#warning MANEJAR ERROR DE CARGA DE TIPOS DE DENUNCIAS
-            NSLog(@"%@",error.description);
+            [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
+            NSString* error_message = [ErrorHelper errorMessage:@""];
+            [[[UIAlertView alloc] initWithTitle:nil message:error_message delegate:nil cancelButtonTitle:NSLocalizedString(@"Ok", @"Ok") otherButtonTitles:nil] show];
         }
     }];
 }

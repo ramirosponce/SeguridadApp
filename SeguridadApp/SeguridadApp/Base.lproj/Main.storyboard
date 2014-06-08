@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="Q2t-AD-npg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="Q2t-AD-npg">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -243,9 +243,9 @@
         <!--Login Email View Controller-->
         <scene sceneID="wWl-Z5-yQD">
             <objects>
-                <viewController id="i0f-Jq-e51" customClass="LoginEmailViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginViewController" id="i0f-Jq-e51" customClass="LoginEmailViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HFr-GB-jA0">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="nSS-9m-Q0V" userLabel="mail field">
@@ -308,7 +308,7 @@
             <objects>
                 <viewController id="jWR-Sj-iqK" userLabel="Register View Controller" customClass="RegisterViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YlS-9L-OJ9">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera_empty.png" id="cjX-gn-89P">
@@ -377,7 +377,7 @@
                                 </subviews>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4Eh-jp-W9r" userLabel="terms button">
-                                <rect key="frame" x="20" y="518" width="280" height="30"/>
+                                <rect key="frame" x="20" y="454" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <state key="normal" title="Button">
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -413,7 +413,7 @@
             <objects>
                 <viewController id="cHm-am-y6s" customClass="SignInViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7V7-xa-gaN">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="cS6-lb-wHx" userLabel="normal login button">
@@ -750,30 +750,13 @@
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distance mts" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7yQ-24-1aR">
-                                                    <rect key="frame" x="12" y="60" width="99" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="GoI-1A-qdG">
-                                                    <rect key="frame" x="119" y="60" width="109" height="21"/>
+                                                    <rect key="frame" x="12" y="60" width="216" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <view contentMode="scaleToFill" id="R4D-6e-JcQ">
-                                                    <rect key="frame" x="242" y="5" width="60" height="60"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" red="0.2121882697044335" green="0.2121882697044335" blue="0.2121882697044335" alpha="1" colorSpace="calibratedRGB"/>
-                                                </view>
-                                                <view contentMode="scaleToFill" id="5tT-nt-zm9">
-                                                    <rect key="frame" x="239" y="8" width="60" height="60"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                </view>
                                                 <view contentMode="scaleToFill" id="y7v-Kv-KSc">
                                                     <rect key="frame" x="236" y="11" width="60" height="60"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -853,7 +836,6 @@
                                             <outlet property="affectedTitle" destination="hIK-qm-eax" id="Qug-Fh-r2l"/>
                                             <outlet property="complaint_date" destination="GoI-1A-qdG" id="O4E-dG-uFy"/>
                                             <outlet property="complaint_description" destination="mDi-lg-1Cc" id="sWF-up-39c"/>
-                                            <outlet property="complaint_distance" destination="7yQ-24-1aR" id="DC1-zr-juf"/>
                                             <outlet property="complaint_picture" destination="324-1m-1Xe" id="QoF-31-BdA"/>
                                             <outlet property="complaint_title" destination="wTp-Tq-4vS" id="Jx1-k4-L7C"/>
                                             <outlet property="indicator" destination="piO-q3-HeY" id="Bkz-e4-P72"/>
@@ -862,8 +844,6 @@
                                             <outlet property="isntTrueNumber" destination="z79-Vz-uDE" id="GpJ-EZ-Usr"/>
                                             <outlet property="isntTrueTitle" destination="9BP-NV-gK0" id="Uuw-6K-VXj"/>
                                             <outlet property="photoBG1" destination="y7v-Kv-KSc" id="qyo-XZ-z3B"/>
-                                            <outlet property="photoBG2" destination="5tT-nt-zm9" id="yaO-UV-YD4"/>
-                                            <outlet property="photoBG3" destination="R4D-6e-JcQ" id="FVY-A0-OVW"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -958,30 +938,13 @@
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distance mts" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="R93-vL-ggL">
-                                                    <rect key="frame" x="12" y="60" width="99" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="SJf-rz-q0k">
-                                                    <rect key="frame" x="119" y="60" width="109" height="21"/>
+                                                    <rect key="frame" x="12" y="60" width="216" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <view contentMode="scaleToFill" id="koF-BV-93r">
-                                                    <rect key="frame" x="242" y="5" width="60" height="60"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" red="0.21218826969999999" green="0.21218826969999999" blue="0.21218826969999999" alpha="1" colorSpace="calibratedRGB"/>
-                                                </view>
-                                                <view contentMode="scaleToFill" id="Ci5-gu-Nas">
-                                                    <rect key="frame" x="239" y="8" width="60" height="60"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                </view>
                                                 <view contentMode="scaleToFill" id="Noi-vt-gkW">
                                                     <rect key="frame" x="236" y="11" width="60" height="60"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1061,7 +1024,6 @@
                                             <outlet property="affectedTitle" destination="pIB-mA-3Pk" id="NUa-Ia-VC8"/>
                                             <outlet property="complaint_date" destination="SJf-rz-q0k" id="aXj-5J-Wte"/>
                                             <outlet property="complaint_description" destination="lmO-TR-iYR" id="yKW-WC-TX0"/>
-                                            <outlet property="complaint_distance" destination="R93-vL-ggL" id="Qf0-Wo-Hz3"/>
                                             <outlet property="complaint_picture" destination="dct-aS-lnV" id="IiN-hP-VNs"/>
                                             <outlet property="complaint_title" destination="w9P-Hs-ces" id="yYl-Rf-o7b"/>
                                             <outlet property="indicator" destination="lMv-wS-9Ov" id="cKx-Rk-Iix"/>
@@ -1070,8 +1032,6 @@
                                             <outlet property="isntTrueNumber" destination="QK1-Db-tuV" id="i4F-gi-fhg"/>
                                             <outlet property="isntTrueTitle" destination="7GX-hX-78h" id="p1Y-dM-AEx"/>
                                             <outlet property="photoBG1" destination="Noi-vt-gkW" id="T2J-ei-Jx8"/>
-                                            <outlet property="photoBG2" destination="Ci5-gu-Nas" id="wgn-6W-7DM"/>
-                                            <outlet property="photoBG3" destination="koF-BV-93r" id="5qZ-JY-66P"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -1416,11 +1376,14 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             <objects>
                 <viewController id="sSJ-8p-LAU" customClass="DetailViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JnK-bo-2XK">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="OFA-WT-1dd"/>
+                    <connections>
+                        <segue destination="cHm-am-y6s" kind="push" identifier="toLoginSegue" id="Dan-U6-ilI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qza-w5-eDj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1514,8 +1477,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Kfx-fx-0Qp"/>
+        <segue reference="26k-dQ-GJ3"/>
+        <segue reference="Dan-U6-ilI"/>
         <segue reference="sAC-Eb-JtH"/>
-        <segue reference="h2J-WO-vmL"/>
+        <segue reference="Kfx-fx-0Qp"/>
     </inferredMetricsTieBreakers>
 </document>

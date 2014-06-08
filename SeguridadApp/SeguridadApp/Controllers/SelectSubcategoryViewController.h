@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ComplaintViewController.h"
+#import "ComplaintType.h"
 
 @interface SelectSubcategoryViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 {
@@ -17,6 +18,8 @@
 @property (nonatomic, strong) NSString* category_selected;
 @property (nonatomic, strong) NSString* subcategory_selected;
 @property (nonatomic, strong) NSArray* subcategories;
+
+@property (nonatomic, strong) ComplaintType* category;
 
 @property (nonatomic, assign) id <ComplaintDelegate> delegate;
 

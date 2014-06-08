@@ -99,10 +99,32 @@
             [[[UIAlertView alloc] initWithTitle:nil message:error_message delegate:nil cancelButtonTitle:NSLocalizedString(@"Ok", @"Ok") otherButtonTitles:nil] show];
         }else{
             
-            NSLog(@"user: %@",data);
+            NSString* user_email = nil;
+            NSString* user_firstname = nil;
+            NSString* user_lastname = nil;
+            
+            if ([[data objectForKey:@"usr"] objectForKey:@"email"]) {
+                user_email = [[data objectForKey:@"usr"] objectForKey:@"email"];
+            }else{
+                user_email = @"";
+            }
+            
+            if ([[data objectForKey:@"usr"] objectForKey:@"nombre"]) {
+                user_firstname = [[data objectForKey:@"usr"] objectForKey:@"nombre"];
+            }else{
+                user_firstname = @"";
+            }
+            
+            if ([[data objectForKey:@"usr"] objectForKey:@"apellido"]) {
+                user_lastname = [[data objectForKey:@"usr"] objectForKey:@"apellido"];
+            }else{
+                user_lastname = @"";
+            }
+            
             
             // guardamos el usuario y password
-            [UserHelper saveUser:emailField.text password:passwordField.text];
+            //[UserHelper saveUser:emailField.text password:passwordField.text];
+            [UserHelper saveUser:user_email password:passwordField.text first_name:user_firstname last_name:user_lastname];
             
             // guardamos el token
             NSString* token = [data objectForKey:@"token"];
@@ -110,15 +132,26 @@
                 [UserHelper saveToken:token];
             }
             
-            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
-            UINavigationController *navigationController = (UINavigationController*)self.parentViewController;
-            MFSideMenuContainerViewController *container = (MFSideMenuContainerViewController*)[navigationController parentViewController];
-            UINavigationController *centerViewController =
-            [storyboard instantiateViewControllerWithIdentifier:@"CenterViewController"];
-            [container setCenterViewController:centerViewController];
-            
-            SideMenuViewController* sideMenu = (SideMenuViewController*)container.leftMenuViewController;
-            [sideMenu changeUserStatus];
+            if (self.originController) {
+                
+                UINavigationController *navigationController = (UINavigationController*)self.parentViewController;
+                MFSideMenuContainerViewController *container = (MFSideMenuContainerViewController*)[navigationController parentViewController];
+                SideMenuViewController* sideMenu = (SideMenuViewController*)container.leftMenuViewController;
+                [sideMenu changeUserStatus];
+                
+                [self.navigationController popToViewController:self.originController animated:YES];
+                
+            }else{
+                UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+                UINavigationController *navigationController = (UINavigationController*)self.parentViewController;
+                MFSideMenuContainerViewController *container = (MFSideMenuContainerViewController*)[navigationController parentViewController];
+                UINavigationController *centerViewController =
+                [storyboard instantiateViewControllerWithIdentifier:@"CenterViewController"];
+                [container setCenterViewController:centerViewController];
+                
+                SideMenuViewController* sideMenu = (SideMenuViewController*)container.leftMenuViewController;
+                [sideMenu changeUserStatus];
+            }
         }
     }];
     

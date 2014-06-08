@@ -35,7 +35,7 @@ typedef enum {
 #define API_TIPO_DENUNCIAS            @"tipodenuncias"
 #define API_DENUNCIA                  @"denuncia"
 #define API_DENUNCIA_SEARCH           @"denuncia/search"
-#define API_DENUNCUA_FIND_BY_ID       @"denuncia/findById"
+#define API_DENUNCIA_FIND_BY_ID       @"denuncia/findById"
 #define API_UPDATE                    @"denuncia/update"
 #define API_NEW                       @"denuncia/new"
 #define API_LOGIN                     @"login"
@@ -49,6 +49,8 @@ typedef enum {
 #define ERR_USR_EMAIL_UNCONFIRMED     @"ERR_USR_EMAIL_UNCONFIRMED"
 #define ERR_FILE_IS_REQUIRED          @"ERR_FILE_IS_REQUIRED"
 #define UNAUTHORIZED                  @"UNAUTHORIZED"
+#define ERR_PARAM_ID_IS_REQUIRED      @"ERR_PARAM_ID_IS_REQUIRED"
+#define ERR_USR_ACTION_EXISTENT       @"ERR_USR_ACTION_EXISTENT"
 
 
 #define MAX_COMPLAINT_COUNT          50

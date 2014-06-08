@@ -29,6 +29,7 @@
 {
     [super viewDidLoad];
     [self setupInteface];
+    self.subcategories = [[NSArray alloc] initWithArray:self.category.subcategories];
 }
 
 - (void)didReceiveMemoryWarning
@@ -42,7 +43,8 @@
 - (void) setupInteface
 {
     //self.title = NSLocalizedString(@"Subcategorias", @"Subcategorias");
-    self.title = self.category_selected;
+    self.title = self.category.name;
+    
     [subcategoriesTableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     
     //UIBarButtonItem* options = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Cerrar", @"Cerrar") style:UIBarButtonItemStylePlain target:self action:@selector(closeMenuSelection)];
@@ -85,8 +87,8 @@
     self.subcategory_selected = [self.subcategories objectAtIndex:indexPath.row];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    if (self.delegate != nil && [self.delegate respondsToSelector:@selector(didFinishCategorySelection:subcategory:)]) {
-        [self.delegate didFinishCategorySelection:self.category_selected subcategory:self.subcategory_selected];
+    if (self.delegate != nil && [self.delegate respondsToSelector:@selector(didFinishCategorySelection:subcategory:iconname:)]) {
+        [self.delegate didFinishCategorySelection:self.category.name subcategory:self.subcategory_selected iconname:self.category.icon_name];
     }
     
     [self dismissViewControllerAnimated:YES completion:nil];

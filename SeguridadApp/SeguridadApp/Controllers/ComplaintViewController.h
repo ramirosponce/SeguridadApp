@@ -14,8 +14,10 @@
 @protocol ComplaintDelegate <NSObject>
 
 @optional
-- (void) didFinishCategorySelection:(NSString*)category subcategory:(NSString*)subcategory;
+
+- (void) didFinishCategorySelection:(NSString*)category subcategory:(NSString*)subcategory iconname:(NSString*)iconname;
 - (void) didFinishRegionSelection:(Region*)region;
+
 @end
 
 @interface ComplaintViewController : UIViewController <UIActionSheetDelegate, UIImagePickerControllerDelegate,UINavigationControllerDelegate, UITextViewDelegate, MKMapViewDelegate, UITextFieldDelegate, ComplaintDelegate, MKAnnotation,NetworkAuxiliarDelegate>

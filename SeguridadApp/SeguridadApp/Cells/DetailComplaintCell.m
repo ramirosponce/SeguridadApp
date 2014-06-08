@@ -26,9 +26,16 @@
     cell_title.text = complaint.complaint_title;
     cell_description.text = complaint.complaint_description;
     
-    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
-    dateFormatter.dateFormat = @"dd/MM/yyyy hh:mm";
-    cell_date.text = [dateFormatter stringFromDate:complaint.complaint_date];
+    if (complaint.frecuentemente) {
+        cell_date.text = NSLocalizedString(@"Esto sucede frecuentemente", @"Esto sucede frecuentemente");
+    }else{
+        NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"];
+        NSDate* date = [dateFormatter dateFromString:complaint.complaint_date];
+        [dateFormatter setDateFormat:@"dd/MM/yyyy"];
+        //cell_date.text = [dateFormatter stringFromDate:complaint.complaint_date];
+        cell_date.text = [NSString stringWithFormat:@"%@ - %@", [dateFormatter stringFromDate:date], complaint.hora];
+    }
     
     [cell_description setClipsToBounds:YES];
     [cell_description.layer setCornerRadius:(float)5.0];

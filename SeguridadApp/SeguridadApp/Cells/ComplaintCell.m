@@ -77,13 +77,17 @@
     
     
     complaint_title.text = complaint.complaint_title;
-    complaint_distance.text = @"345 mts";
     complaint_description.text = complaint.complaint_description;
     
-    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
-    dateFormatter.dateFormat = @"dd/MM/yyyy";
-    //complaint_date.text = [dateFormatter stringFromDate:complaint.complaint_date];
-    
+    if (complaint.frecuentemente) {
+        complaint_date.text = NSLocalizedString(@"Esto sucede frecuentemente", @"Esto sucede frecuentemente");
+    }else{
+        NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"];
+        NSDate* date = [dateFormatter dateFromString:complaint.complaint_date];
+        [dateFormatter setDateFormat:@"dd/MM/yyyy"];
+        complaint_date.text = [NSString stringWithFormat:@"%@ - %@", [dateFormatter stringFromDate:date], complaint.hora];
+    }
     
     
     complaint_affected.text = [NSString stringWithFormat:@"%i",complaint.affected];

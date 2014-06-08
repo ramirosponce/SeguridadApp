@@ -130,7 +130,7 @@
     [self PostRequest:API_DENUNCIA_SEARCH params:params completitionHandler:^(AFHTTPRequestOperation *operation, id responseObject, NSError *error) {
         
         if (!error) {
-            NSLog(@"%@", responseObject);
+            //NSLog(@"%@", responseObject);
             NSMutableArray* complaints = [NSMutableArray arrayWithCapacity:0];
             
             NSArray* response_array = (NSArray*)responseObject;
@@ -147,9 +147,28 @@
     }];
 }
 
++ (void) runFindById:(NSString*)byID completition:(ComplaintByIDCompletionHandler)completitionHandler
+{
+    NSDictionary* params = @{@"id":byID};
+    [self PostRequest:API_DENUNCIA_FIND_BY_ID params:params completitionHandler:^(AFHTTPRequestOperation *operation, id responseObject, NSError *error) {
+        
+        //NSLog(@"Response: %@",responseObject);
+        //NSLog(@"Error: %@",operation.responseObject);
+        if (!error) {
+            Complaint* complaint = [[Complaint alloc] initWithData:responseObject];
+            completitionHandler(complaint.comments, nil);
+        }else{
+            completitionHandler(nil, error);
+        }
+        
+    }];
+}
+
+
 + (void) runSignupRequestWithParams:(NSDictionary*)params completition:(SignupCompletitionHandler)completitionHandler
 {
     [self PostRequest:API_SIGNUP params:params completitionHandler:^(AFHTTPRequestOperation *operation, id responseObject, NSError *error) {
+        
         if (!error) {
             completitionHandler(responseObject, nil, nil);
         }else{
@@ -178,10 +197,10 @@
     [self PostRequest:API_NEW params:params completitionHandler:^(AFHTTPRequestOperation *operation, id responseObject, NSError *error) {
         
         if (!error) {
-            NSLog(@"response ok: %@", responseObject);
+            //NSLog(@"response ok: %@", responseObject);
             completitionHandler(responseObject, nil);
         }else{
-            NSLog(@"error: %@", operation.responseObject);
+            //NSLog(@"error: %@", operation.responseObject);
             completitionHandler(nil, error);
         }
     }];
@@ -194,6 +213,45 @@
             completitionHandler(responseObject, nil, nil);
         }else{
             NSString* err = [operation.responseObject objectForKey:@"err"];
+            completitionHandler(nil, error, [ErrorHelper errorMessage:err]);
+        }
+    }];
+}
+
++ (void) sendAffectedWithParams:(NSDictionary*)params token:(NSString*)token completition:(AffectedCompletitionHandler)completitionHandler
+{
+    [self PostRequest:API_UPDATE params:params token:token completitionHandler:^(AFHTTPRequestOperation *operation, id responseObject, NSError *error) {
+        if (!error) {
+            completitionHandler(responseObject, nil, nil);
+        }else{
+            NSString* err = [operation.responseObject objectForKey:@"err"];
+            NSLog(@"err: %@",err);
+            completitionHandler(nil, error, [ErrorHelper errorMessage:err]);
+        }
+    }];
+}
+
++ (void) sendIsTrueWithParams:(NSDictionary*)params token:(NSString*)token completition:(IsTrueCompletitionHandler)completitionHandler
+{
+    [self PostRequest:API_UPDATE params:params token:token completitionHandler:^(AFHTTPRequestOperation *operation, id responseObject, NSError *error) {
+        if (!error) {
+            completitionHandler(responseObject, nil, nil);
+        }else{
+            NSString* err = [operation.responseObject objectForKey:@"err"];
+            NSLog(@"err: %@",err);
+            completitionHandler(nil, error, [ErrorHelper errorMessage:err]);
+        }
+    }];
+}
+
++ (void) sendIsNotTrueWithParams:(NSDictionary*)params token:(NSString*)token completition:(IsNotTrueCompletitionHandler)completitionHandler
+{
+    [self PostRequest:API_UPDATE params:params token:token completitionHandler:^(AFHTTPRequestOperation *operation, id responseObject, NSError *error) {
+        if (!error) {
+            completitionHandler(responseObject, nil, nil);
+        }else{
+            NSString* err = [operation.responseObject objectForKey:@"err"];
+            NSLog(@"err: %@",err);
             completitionHandler(nil, error, [ErrorHelper errorMessage:err]);
         }
     }];

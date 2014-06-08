@@ -28,6 +28,14 @@
         return NSLocalizedString(@"Usted no esta autorizado a realizar esta accion.", @"Usted no esta autorizado a realizar esta accion.");
     }
     
+    if ([error_message isEqualToString:ERR_PARAM_ID_IS_REQUIRED]) {
+        return NSLocalizedString(@"Ha ocurrido un problema, Por favor intentelo nuevamente mas tarde.", @"Ha ocurrido un problema, Por favor intentelo nuevamente mas tarde.");
+    }
+    
+    if ([error_message isEqualToString:ERR_USR_ACTION_EXISTENT]) {
+        return NSLocalizedString(@"Usted ya ha realizado esta accion, solamente se puede hacer una sola vez por comentario.", @"Usted ya ha realizafo esta accion, solamente se puede hacer una sola vez por comentario.");
+    }
+    
     return NSLocalizedString(@"Ha ocurrido un problema, Por favor intentelo nuevamente mas tarde.", @"Ha ocurrido un problema, Por favor intentelo nuevamente mas tarde.");
 }
 

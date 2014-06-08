@@ -37,10 +37,18 @@
     
     CGFloat origin_x = 3.0;
     
-    for (NSString* image_name in images) {
-        
+    for (int i = 0; i < [images count]; i++) {
+        NSString* image_name = images[i];
         NSURL* image_url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@%@",API_BASE_URL,API_UPLOADS,image_name]];
+        
+        UITapGestureRecognizer* pictureTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageAction:)];
+        [pictureTapRecognizer setNumberOfTapsRequired:1];
+        [pictureTapRecognizer setNumberOfTouchesRequired:1];
+        
         UIImageView* picture_container = [[UIImageView alloc] initWithFrame:CGRectMake(origin_x, 0.0, IMAGE_WIDTH, IMAGE_WIDTH)];
+        [picture_container addGestureRecognizer:pictureTapRecognizer];
+        [picture_container setUserInteractionEnabled:YES];
+        picture_container.tag = i;
         [picture_container setImageWithURL:image_url];
         [picture_container setClipsToBounds:YES];
         [picture_container.layer setCornerRadius:(float)5.0];
@@ -48,5 +56,13 @@
         origin_x += IMAGE_ORIGIN;
     }
 }
+
+- (void)imageAction:(id)sender
+{
+    if (self.delegate != nil && [self.delegate respondsToSelector:@selector(photoTouched:)]) {
+        [self.delegate photoTouched:0];
+    }
+}
+
 
 @end

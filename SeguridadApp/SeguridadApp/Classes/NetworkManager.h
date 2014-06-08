@@ -11,13 +11,19 @@
 
 typedef void (^ComplaintTypeCompletionHandler)(NSArray* types, NSError *error);
 typedef void (^RegionsCompletionHandler)(NSArray* regions, NSError *error);
+
 typedef void (^ComplaintMapCompletionHandler)(NSArray* map_complaints, NSError *error);
+typedef void (^ComplaintByIDCompletionHandler)(NSArray* comments, NSError *error);
+
 typedef void (^SignupCompletitionHandler)(NSDictionary* data, NSError* error, NSString* error_message);
 typedef void (^LoginCompletitionHandler) (NSDictionary* data, NSError* error, NSString* error_message);
 typedef void (^SendComplaintCompletitionHandler) (NSDictionary* data, NSError* error);
 
 typedef void (^SendCommentCompletitionHandler) (NSDictionary* data, NSError* error, NSString* error_message);
 
+typedef void (^AffectedCompletitionHandler) (NSDictionary* data, NSError* error, NSString* error_message);
+typedef void (^IsTrueCompletitionHandler) (NSDictionary* data, NSError* error, NSString* error_message);
+typedef void (^IsNotTrueCompletitionHandler) (NSDictionary* data, NSError* error, NSString* error_message);
 
 @interface NetworkManager : NSObject
 
@@ -29,6 +35,8 @@ typedef void (^SendCommentCompletitionHandler) (NSDictionary* data, NSError* err
 
 + (void) runMapRequestWithLimit:(int)limit completition:(ComplaintMapCompletionHandler)completitionHandler;
 
++ (void) runFindById:(NSString*)byID completition:(ComplaintByIDCompletionHandler)completitionHandler;
+
 + (void) runSignupRequestWithParams:(NSDictionary*)params completition:(SignupCompletitionHandler)completitionHandler;
 
 + (void) runLoginRequestWithParams:(NSDictionary*)params completition:(LoginCompletitionHandler)completitionHandler;
@@ -36,5 +44,11 @@ typedef void (^SendCommentCompletitionHandler) (NSDictionary* data, NSError* err
 + (void) runSendComplaintRequestWithParams:(NSDictionary*)params completition:(SendComplaintCompletitionHandler)completitionHandler;
 
 + (void) sendCommentWithParams:(NSDictionary*)params token:(NSString*)token completition:(SendCommentCompletitionHandler)completitionHandler;
+
++ (void) sendAffectedWithParams:(NSDictionary*)params token:(NSString*)token completition:(AffectedCompletitionHandler)completitionHandler;
+
++ (void) sendIsTrueWithParams:(NSDictionary*)params token:(NSString*)token completition:(IsTrueCompletitionHandler)completitionHandler;
+
++ (void) sendIsNotTrueWithParams:(NSDictionary*)params token:(NSString*)token completition:(IsNotTrueCompletitionHandler)completitionHandler;
 
 @end

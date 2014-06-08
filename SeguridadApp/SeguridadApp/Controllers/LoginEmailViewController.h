@@ -18,6 +18,8 @@
     
 }
 
+@property (nonatomic, assign) UIViewController* originController;
+
 - (IBAction)loginButtonAction:(id)sender;
 - (IBAction)noAccountButtonAction:(id)sender;
 

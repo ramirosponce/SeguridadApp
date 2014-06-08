@@ -32,11 +32,11 @@
     isntTrueTitle.contentEdgeInsets = UIEdgeInsetsMake(0, 5, 0, 0);
     
     
-    [affectedTitle setUserInteractionEnabled:NO];
+    [affectedTitle setUserInteractionEnabled:YES];
     [affectedNumber setUserInteractionEnabled:NO];
-    [isTrueTitle setUserInteractionEnabled:NO];
+    [isTrueTitle setUserInteractionEnabled:YES];
     [isTrueNumber setUserInteractionEnabled:NO];
-    [isntTrueTitle setUserInteractionEnabled:NO];
+    [isntTrueTitle setUserInteractionEnabled:YES];
     [isntTrueNumber setUserInteractionEnabled:NO];
     
     [affectedTitle setSelected:YES];
@@ -50,6 +50,27 @@
     [affectedTitle setTitle:NSLocalizedString(@"Me afecta", @"Me afecta") forState:UIControlStateNormal];
     [isTrueTitle setTitle:NSLocalizedString(@"Es cierto", @"Es cierto") forState:UIControlStateNormal];
     [isntTrueTitle setTitle:NSLocalizedString(@"No es cierto", @"No es cierto") forState:UIControlStateNormal];
+}
+
+- (IBAction)affectedAction:(id)sender
+{
+    if (self.delegate != nil && [self.delegate respondsToSelector:@selector(affectedAction:)]) {
+        [self.delegate affectedAction:sender];
+    }
+}
+
+- (IBAction)isTrueAction:(id)sender
+{
+    if (self.delegate != nil && [self.delegate respondsToSelector:@selector(isTrueAction:)]) {
+        [self.delegate isTrueAction:sender];
+    }
+}
+
+- (IBAction)isNotTrueAction:(id)sender
+{
+    if (self.delegate != nil && [self.delegate respondsToSelector:@selector(isNotTrueAction:)]) {
+        [self.delegate isNotTrueAction:sender];
+    }
 }
 
 @end

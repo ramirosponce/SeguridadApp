@@ -10,6 +10,7 @@
 #import "SettingsCell.h"
 #import "MFSideMenu.h"
 #import "TermsOfUseViewController.h"
+#import "SignInViewController.h"
 
 @interface SettingsViewController ()
 {
@@ -132,5 +133,6 @@
     }
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
+
 
 @end

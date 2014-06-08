@@ -27,6 +27,8 @@
 
 }
 
+@property (nonatomic, assign) UIViewController* originController;
+
 - (IBAction)registerButtonAction:(id)sender;
 - (IBAction)termsButtonAction:(id)sender;
 

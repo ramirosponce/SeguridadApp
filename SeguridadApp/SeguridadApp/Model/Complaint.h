@@ -25,7 +25,7 @@
 @property (nonatomic, strong) NSMutableArray* comments;
 
 @property (nonatomic, strong) NSArray* attachs;
-@property (nonatomic) int frecuentemente;
+@property (nonatomic) BOOL frecuentemente;
 @property (nonatomic, strong) NSString* hora;
 @property (nonatomic, strong) NSString* region;
 

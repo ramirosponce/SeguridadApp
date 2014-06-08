@@ -169,6 +169,18 @@
 		C6ED61DC1923C751004F7FFF /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = C6ED61DB1923C751004F7FFF /* Comment.m */; };
 		C6F767FB191D830800F36DC6 /* filter_arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C6F767F9191D830800F36DC6 /* filter_arrow@2x.png */; };
 		C6F767FC191D830800F36DC6 /* filter_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = C6F767FA191D830800F36DC6 /* filter_arrow.png */; };
+		C6FB402D1943AD5A003011C9 /* FSBasicImage.m in Sources */ = {isa = PBXBuildFile; fileRef = C6FB40191943AD5A003011C9 /* FSBasicImage.m */; };
+		C6FB402E1943AD5A003011C9 /* FSBasicImageSource.m in Sources */ = {isa = PBXBuildFile; fileRef = C6FB401B1943AD5A003011C9 /* FSBasicImageSource.m */; };
+		C6FB402F1943AD5A003011C9 /* FSImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = C6FB401E1943AD5A003011C9 /* FSImageLoader.m */; };
+		C6FB40301943AD5A003011C9 /* FSImageScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = C6FB40201943AD5A003011C9 /* FSImageScrollView.m */; };
+		C6FB40311943AD5A003011C9 /* FSImageTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = C6FB40231943AD5A003011C9 /* FSImageTitleView.m */; };
+		C6FB40321943AD5A003011C9 /* FSImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C6FB40251943AD5A003011C9 /* FSImageView.m */; };
+		C6FB40331943AD5A003011C9 /* FSImageViewerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6FB40291943AD5A003011C9 /* FSImageViewerViewController.m */; };
+		C6FB40341943AD5A003011C9 /* FSPlaceholderImages.m in Sources */ = {isa = PBXBuildFile; fileRef = C6FB402B1943AD5A003011C9 /* FSPlaceholderImages.m */; };
+		C6FB403B1943ADD8003011C9 /* EGOCache.m in Sources */ = {isa = PBXBuildFile; fileRef = C6FB40371943ADD8003011C9 /* EGOCache.m */; };
+		C6FB403C1943ADD8003011C9 /* EGOCache.podspec in Resources */ = {isa = PBXBuildFile; fileRef = C6FB40381943ADD8003011C9 /* EGOCache.podspec */; };
+		C6FB403D1943ADD8003011C9 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = C6FB40391943ADD8003011C9 /* LICENSE */; };
+		C6FB403E1943ADD8003011C9 /* README.mdown in Resources */ = {isa = PBXBuildFile; fileRef = C6FB403A1943ADD8003011C9 /* README.mdown */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -433,6 +445,32 @@
 		C6ED61DB1923C751004F7FFF /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
 		C6F767F9191D830800F36DC6 /* filter_arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "filter_arrow@2x.png"; sourceTree = "<group>"; };
 		C6F767FA191D830800F36DC6 /* filter_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = filter_arrow.png; sourceTree = "<group>"; };
+		C6FB40181943AD5A003011C9 /* FSBasicImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSBasicImage.h; sourceTree = "<group>"; };
+		C6FB40191943AD5A003011C9 /* FSBasicImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSBasicImage.m; sourceTree = "<group>"; };
+		C6FB401A1943AD5A003011C9 /* FSBasicImageSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSBasicImageSource.h; sourceTree = "<group>"; };
+		C6FB401B1943AD5A003011C9 /* FSBasicImageSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSBasicImageSource.m; sourceTree = "<group>"; };
+		C6FB401C1943AD5A003011C9 /* FSImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSImage.h; sourceTree = "<group>"; };
+		C6FB401D1943AD5A003011C9 /* FSImageLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSImageLoader.h; sourceTree = "<group>"; };
+		C6FB401E1943AD5A003011C9 /* FSImageLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSImageLoader.m; sourceTree = "<group>"; };
+		C6FB401F1943AD5A003011C9 /* FSImageScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSImageScrollView.h; sourceTree = "<group>"; };
+		C6FB40201943AD5A003011C9 /* FSImageScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSImageScrollView.m; sourceTree = "<group>"; };
+		C6FB40211943AD5A003011C9 /* FSImageSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSImageSource.h; sourceTree = "<group>"; };
+		C6FB40221943AD5A003011C9 /* FSImageTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSImageTitleView.h; sourceTree = "<group>"; };
+		C6FB40231943AD5A003011C9 /* FSImageTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSImageTitleView.m; sourceTree = "<group>"; };
+		C6FB40241943AD5A003011C9 /* FSImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSImageView.h; sourceTree = "<group>"; };
+		C6FB40251943AD5A003011C9 /* FSImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSImageView.m; sourceTree = "<group>"; };
+		C6FB40261943AD5A003011C9 /* FSImageViewer-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FSImageViewer-Prefix.pch"; sourceTree = "<group>"; };
+		C6FB40271943AD5A003011C9 /* FSImageViewer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSImageViewer.h; sourceTree = "<group>"; };
+		C6FB40281943AD5A003011C9 /* FSImageViewerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSImageViewerViewController.h; sourceTree = "<group>"; };
+		C6FB40291943AD5A003011C9 /* FSImageViewerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSImageViewerViewController.m; sourceTree = "<group>"; };
+		C6FB402A1943AD5A003011C9 /* FSPlaceholderImages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSPlaceholderImages.h; sourceTree = "<group>"; };
+		C6FB402B1943AD5A003011C9 /* FSPlaceholderImages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSPlaceholderImages.m; sourceTree = "<group>"; };
+		C6FB402C1943AD5A003011C9 /* FSTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSTitleView.h; sourceTree = "<group>"; };
+		C6FB40361943ADD8003011C9 /* EGOCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOCache.h; sourceTree = "<group>"; };
+		C6FB40371943ADD8003011C9 /* EGOCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOCache.m; sourceTree = "<group>"; };
+		C6FB40381943ADD8003011C9 /* EGOCache.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = EGOCache.podspec; sourceTree = "<group>"; };
+		C6FB40391943ADD8003011C9 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		C6FB403A1943ADD8003011C9 /* README.mdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.mdown; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -621,6 +659,8 @@
 		C627DF2A19181A4600FE0C22 /* External */ = {
 			isa = PBXGroup;
 			children = (
+				C6FB40351943ADD8003011C9 /* EGOCache */,
+				C6FB40171943AD5A003011C9 /* FSImageViewer */,
 				C6894A17192BD36F0096A54D /* AFNetworking */,
 				C6894A0F192BD2F50096A54D /* MBProgressHUD */,
 				C6894A12192BD2F50096A54D /* Reachability */,
@@ -910,6 +950,46 @@
 			path = BORRAR;
 			sourceTree = "<group>";
 		};
+		C6FB40171943AD5A003011C9 /* FSImageViewer */ = {
+			isa = PBXGroup;
+			children = (
+				C6FB40181943AD5A003011C9 /* FSBasicImage.h */,
+				C6FB40191943AD5A003011C9 /* FSBasicImage.m */,
+				C6FB401A1943AD5A003011C9 /* FSBasicImageSource.h */,
+				C6FB401B1943AD5A003011C9 /* FSBasicImageSource.m */,
+				C6FB401C1943AD5A003011C9 /* FSImage.h */,
+				C6FB401D1943AD5A003011C9 /* FSImageLoader.h */,
+				C6FB401E1943AD5A003011C9 /* FSImageLoader.m */,
+				C6FB401F1943AD5A003011C9 /* FSImageScrollView.h */,
+				C6FB40201943AD5A003011C9 /* FSImageScrollView.m */,
+				C6FB40211943AD5A003011C9 /* FSImageSource.h */,
+				C6FB40221943AD5A003011C9 /* FSImageTitleView.h */,
+				C6FB40231943AD5A003011C9 /* FSImageTitleView.m */,
+				C6FB40241943AD5A003011C9 /* FSImageView.h */,
+				C6FB40251943AD5A003011C9 /* FSImageView.m */,
+				C6FB40261943AD5A003011C9 /* FSImageViewer-Prefix.pch */,
+				C6FB40271943AD5A003011C9 /* FSImageViewer.h */,
+				C6FB40281943AD5A003011C9 /* FSImageViewerViewController.h */,
+				C6FB40291943AD5A003011C9 /* FSImageViewerViewController.m */,
+				C6FB402A1943AD5A003011C9 /* FSPlaceholderImages.h */,
+				C6FB402B1943AD5A003011C9 /* FSPlaceholderImages.m */,
+				C6FB402C1943AD5A003011C9 /* FSTitleView.h */,
+			);
+			path = FSImageViewer;
+			sourceTree = "<group>";
+		};
+		C6FB40351943ADD8003011C9 /* EGOCache */ = {
+			isa = PBXGroup;
+			children = (
+				C6FB40361943ADD8003011C9 /* EGOCache.h */,
+				C6FB40371943ADD8003011C9 /* EGOCache.m */,
+				C6FB40381943ADD8003011C9 /* EGOCache.podspec */,
+				C6FB40391943ADD8003011C9 /* LICENSE */,
+				C6FB403A1943ADD8003011C9 /* README.mdown */,
+			);
+			path = EGOCache;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1005,8 +1085,10 @@
 				C66D88661922D7220029A7F2 /* alberto.jpg in Resources */,
 				C63DA46F192537B200CA0CFE /* orange_marker@2x.png in Resources */,
 				C6ED61D91923C6E7004F7FFF /* DetailCommentCell.xib in Resources */,
+				C6FB403C1943ADD8003011C9 /* EGOCache.podspec in Resources */,
 				C6AACB4C1919822F0030F19C /* filters_icon.png in Resources */,
 				C63DA46A192537B200CA0CFE /* blue_marker.png in Resources */,
+				C6FB403D1943ADD8003011C9 /* LICENSE in Resources */,
 				C6DD5553191B2BB8001701EE /* camera_empty@2x.png in Resources */,
 				C6AACB501919822F0030F19C /* menu_icon.png in Resources */,
 				C6DD5558191B2DDF001701EE /* segmented-bg-pressed-left.png in Resources */,
@@ -1029,6 +1111,7 @@
 				C63DA470192537B200CA0CFE /* pink_marker.png in Resources */,
 				C6AACB541919822F0030F19C /* tire_icon.png in Resources */,
 				C6BE1502191965BF00C618AC /* Default.png in Resources */,
+				C6FB403E1943ADD8003011C9 /* README.mdown in Resources */,
 				C63DA46D192537B200CA0CFE /* green_marker@2x.png in Resources */,
 				C66D88681922D7220029A7F2 /* heman.png in Resources */,
 				C63DA46B192537B200CA0CFE /* blue_marker@2x.png in Resources */,
@@ -1079,6 +1162,7 @@
 				C655E2A5191AD20500C7E2F0 /* ComplaintViewController.m in Sources */,
 				C6BE14E719194D4300C618AC /* ComplaintCell.m in Sources */,
 				C68221B719216BF2003B579F /* DetailComplaintCell.m in Sources */,
+				C6FB40311943AD5A003011C9 /* FSImageTitleView.m in Sources */,
 				C6BE14EE19194DB400C618AC /* Location.m in Sources */,
 				0143258B191D7156002A1066 /* SuggestionViewController.m in Sources */,
 				C6BF5F0A192BDEB500CBCCF1 /* ComplaintType.m in Sources */,
@@ -1087,6 +1171,7 @@
 				C64945F319228D6700C813A3 /* UIColor+GBFlatButton.m in Sources */,
 				C6CC6AE619240DBA009FB7B1 /* UIButton+WebCache.m in Sources */,
 				C68221BC192171ED003B579F /* DetailPicturesCell.m in Sources */,
+				C6FB40341943AD5A003011C9 /* FSPlaceholderImages.m in Sources */,
 				C6CC6ADE19240DBA009FB7B1 /* NSData+ImageContentType.m in Sources */,
 				C625A9EE193585CB009D8D5A /* ErrorHelper.m in Sources */,
 				C6CC6AE119240DBA009FB7B1 /* SDWebImageDecoder.m in Sources */,
@@ -1098,10 +1183,12 @@
 				C6894A30192BD36F0096A54D /* AFURLConnectionOperation.m in Sources */,
 				C6C4D18919268E6900A61959 /* HPTextViewInternal.m in Sources */,
 				C6C4D18819268E6900A61959 /* HPGrowingTextView.m in Sources */,
+				C6FB40321943AD5A003011C9 /* FSImageView.m in Sources */,
 				C6894A32192BD36F0096A54D /* AFURLResponseSerialization.m in Sources */,
 				C6CC6AEA19240DBA009FB7B1 /* UIImageView+WebCache.m in Sources */,
 				C6CC6AE419240DBA009FB7B1 /* SDWebImageManager.m in Sources */,
 				C6172448193663B800743545 /* Region.m in Sources */,
+				C6FB40331943AD5A003011C9 /* FSImageViewerViewController.m in Sources */,
 				C6894A2D192BD36F0096A54D /* AFHTTPSessionManager.m in Sources */,
 				0164868C19216F7F0094900B /* RegisterViewController.m in Sources */,
 				C6CC6ADD19240DBA009FB7B1 /* MKAnnotationView+WebCache.m in Sources */,
@@ -1117,7 +1204,9 @@
 				C6D2BD821918394500D7BA0A /* LoaderViewController.m in Sources */,
 				C69914491932B4310076A716 /* UserHelper.m in Sources */,
 				C6CC8C96193E5F4900463FA0 /* NetworkAuxiliar.m in Sources */,
+				C6FB403B1943ADD8003011C9 /* EGOCache.m in Sources */,
 				C64E75AA193777C300EEC815 /* RegionCell.m in Sources */,
+				C6FB402F1943AD5A003011C9 /* FSImageLoader.m in Sources */,
 				012BF9051921528800C0722B /* AboutViewController.m in Sources */,
 				C627DF3519181A7300FE0C22 /* MFSideMenuShadow.m in Sources */,
 				C6D2BD861918445600D7BA0A /* DataHelper.m in Sources */,
@@ -1133,9 +1222,11 @@
 				C69914461932A32D0076A716 /* AppHelper.m in Sources */,
 				C6CC6AE719240DBA009FB7B1 /* UIImage+GIF.m in Sources */,
 				C6A7659019213764000AA56E /* SLParallaxController.m in Sources */,
+				C6FB40301943AD5A003011C9 /* FSImageScrollView.m in Sources */,
 				C68242571922CDDB00BF7050 /* User.m in Sources */,
 				C627DF3619181A7300FE0C22 /* UIViewController+MFSideMenuAdditions.m in Sources */,
 				C627DF031918182800FE0C22 /* AppDelegate.m in Sources */,
+				C6FB402D1943AD5A003011C9 /* FSBasicImage.m in Sources */,
 				01D69859191D97B3009B5103 /* TermsOfUseViewController.m in Sources */,
 				C68221B3192167E7003B579F /* ComplaintPointAnnotation.m in Sources */,
 				C6A46C95191C2E00000F431B /* CategoryFilter.m in Sources */,
@@ -1143,6 +1234,7 @@
 				C6BE14EB19194D8500C618AC /* Complaint.m in Sources */,
 				C6CC6AE319240DBA009FB7B1 /* SDWebImageDownloaderOperation.m in Sources */,
 				C6A7658C1921337E000AA56E /* DetailViewController.m in Sources */,
+				C6FB402E1943AD5A003011C9 /* FSBasicImageSource.m in Sources */,
 				C6894A2C192BD36F0096A54D /* AFHTTPRequestOperationManager.m in Sources */,
 				C6CC6AE219240DBA009FB7B1 /* SDWebImageDownloader.m in Sources */,
 				C6B44484191C1F1F005C7056 /* CategoryFilterCell.m in Sources */,

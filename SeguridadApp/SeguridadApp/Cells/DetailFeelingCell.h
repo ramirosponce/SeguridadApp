@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "GBFlatButton.h"
+#import "DetailViewController.h"
 
 @interface DetailFeelingCell : UITableViewCell
 {
@@ -20,6 +21,12 @@
     __weak IBOutlet GBFlatButton* isntTrueTitle;
 }
 
+@property (nonatomic, assign) id <DetailDelegate> delegate;
+
 - (void) populateCellWithAffected:(int)affected isTrue:(int)isTrue isntTrue:(int)isntTrue;
+
+- (IBAction)affectedAction:(id)sender;
+- (IBAction)isTrueAction:(id)sender;
+- (IBAction)isNotTrueAction:(id)sender;
 
 @end

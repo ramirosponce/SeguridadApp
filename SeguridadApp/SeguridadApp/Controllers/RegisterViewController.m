@@ -8,6 +8,8 @@
 
 #import "RegisterViewController.h"
 #import "MBProgressHUD.h"
+#import "MFSideMenu.h"
+#import "SideMenuViewController.h"
 
 @interface RegisterViewController ()
 {
@@ -196,10 +198,21 @@
             
             NSString* response = [data objectForKey:@"res"];
             if ([response isEqualToString:SIGN_UP_OK]) {
-                [[[UIAlertView alloc] initWithTitle:nil message:NSLocalizedString(@"Registration successfully.","Registration successfully.") delegate:nil cancelButtonTitle:NSLocalizedString(@"Ok", @"Ok") otherButtonTitles:nil] show];
-                // go to main scren or do something
+                [[[UIAlertView alloc] initWithTitle:nil message:NSLocalizedString(@"Se ha registrado correctamente, revise su casilla de correo electronico para confirmar su email. Una vez confirmado, usted puede realizar el login correctamente.","Se ha registrado correctamente, revise su casilla de correo electronico para confirmar su email. Una vez confirmado, usted puede realizar el login correctamente.") delegate:nil cancelButtonTitle:NSLocalizedString(@"Ok", @"Ok") otherButtonTitles:nil] show];
+                
+                if (self.originController) {
+                    
+                    [self.navigationController popToViewController:self.originController animated:YES];
+                    
+                }else{
+                    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+                    UINavigationController *navigationController = (UINavigationController*)self.parentViewController;
+                    MFSideMenuContainerViewController *container = (MFSideMenuContainerViewController*)[navigationController parentViewController];
+                    UINavigationController *centerViewController =
+                    [storyboard instantiateViewControllerWithIdentifier:@"CenterViewController"];
+                    [container setCenterViewController:centerViewController];
+                }
             }
-            
         }
     }];
 }

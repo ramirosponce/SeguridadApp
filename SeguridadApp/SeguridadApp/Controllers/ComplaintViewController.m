@@ -21,6 +21,7 @@
 {
     UIImage* chosenImg;
     NSString* finalImageName;
+    NSString* icon_name;
 }
 @end
 
@@ -180,13 +181,13 @@
         
         [params setObject:date_formatted forKey:@"fecha"];
     }else{
-        [params setObject:@"null" forKey:@"fecha"];
+        //[params setObject:@"null" forKey:@"fecha"];
     }
     
     if (hour_selected) {
         [params setObject:hour_selected forKey:@"hora"];
     }else{
-        [params setObject:@"null" forKey:@"hora"];
+        //[params setObject:@"null" forKey:@"hora"];
     }
     
     if (frequently.isOn) {
@@ -217,15 +218,14 @@
     if (finalImageName) {
         NSArray* pictures = [NSArray arrayWithObject:finalImageName];
         [params setObject:pictures forKey:@"attachs"];
-        [params setObject:pictures forKey:@"fotos"];
+        //[params setObject:pictures forKey:@"fotos"];
     }else{
-        [params setObject:@"[]" forKey:@"attachs"];
-        [params setObject:@"[]" forKey:@"fotos"];
+        //[params setObject:@"[]" forKey:@"attachs"];
+        //[params setObject:@"[]" forKey:@"fotos"];
     }
     
-    [params setObject:@"[]" forKey:@"comentarios"];
-    
-    [params setObject:@"terrorismo.png" forKey:@"icon"];
+    //[params setObject:@"[]" forKey:@"comentarios"];
+    [params setObject:icon_name forKey:@"icon"];
     
     NSLog(@"PARAMETROS: %@",params);
     
@@ -287,6 +287,7 @@
     if (chosenImg) {
         [networkAux uploadPhoto:chosenImg];
     }else{
+        
         NSDictionary* params = [self createParams];
         
         [NetworkManager runSendComplaintRequestWithParams:params completition:^(NSDictionary *data, NSError *error) {
@@ -488,7 +489,7 @@
     {
         CLLocationCoordinate2D droppedAt = view.annotation.coordinate;
         point.coordinate = droppedAt;
-        NSLog(@"Pin dropped at %f,%f", droppedAt.latitude, droppedAt.longitude);
+        //NSLog(@"Pin dropped at %f,%f", droppedAt.latitude, droppedAt.longitude);
     }
 }
      
@@ -543,9 +544,11 @@
 #pragma mark -
 #pragma mark ComplaintDelegate methods
 
-- (void) didFinishCategorySelection:(NSString*)category subcategory:(NSString*)subcategory
+- (void) didFinishCategorySelection:(NSString*)category subcategory:(NSString*)subcategory iconname:(NSString*)iconname
 {
+    //NSLog(@"Icon name: %@",iconname);
     [kindOfComplaint setTitle:[NSString stringWithFormat:@"%@ - %@", category, subcategory] forState:UIControlStateNormal];
+    icon_name = iconname;
 }
 
 - (void) didFinishRegionSelection:(Region*)region
@@ -590,7 +593,7 @@
 {
     NSString* name = [imagename stringByReplacingOccurrencesOfString:@"\"" withString:@""];
     finalImageName = name;
-    NSLog(@"finalImageName: -%@-", finalImageName);
+    //NSLog(@"finalImageName: -%@-", finalImageName);
     
     NSDictionary* params = [self createParams];
     [NetworkManager runSendComplaintRequestWithParams:params completition:^(NSDictionary *data, NSError *error) {

@@ -18,6 +18,12 @@
 #import "DataHelper.h"
 #import "MBProgressHUD.h"
 
+#import "SignInViewController.h"
+
+#import "FSBasicImage.h"
+#import "FSBasicImageSource.h"
+#import "FSImageViewerViewController.h"
+
 #define SECTIONS    5
 
 @interface DetailViewController ()
@@ -25,6 +31,13 @@
     NSArray* comments;
     NSMutableArray* commentsHeights;
     BOOL keyboardIsShowed;
+    
+    // variables para guardar los valores actuales para
+    // la informacion de afecta / es verdad / no es verda
+    int affected;
+    int isTrue;
+    int isNotTrue;
+    
 }
 @end
 
@@ -43,19 +56,40 @@
 {
     [super viewDidLoad];
     
+    affected = self.complaint.affected;
+    isTrue = self.complaint.isTrue;
+    isNotTrue = self.complaint.isntTrue;
+    
+    NSLog(@"lat: %@, long: %@",self.complaint.location.latitude, self.complaint.location.longitude);
+    
     self.selectedLocation = CLLocationCoordinate2DMake([self.complaint.location.latitude doubleValue],
                                                            [self.complaint.location.longitude doubleValue]);
     
-    comments = [[NSArray alloc] initWithArray:self.complaint.comments];
-    
-    commentsHeights = [[NSMutableArray alloc] initWithCapacity:0];
-    for (Comment* comment in comments) {
-        CGFloat height = [self getCommentCellHeight2:comment];
-        [commentsHeights addObject:[NSNumber numberWithFloat:height]];
-    }
-    
-    
+    //comments = [[NSArray alloc] initWithArray:self.complaint.comments];
     [self setupInterface];
+}
+
+- (void) viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+    hud.labelText = NSLocalizedString(@"Cargando comentarios...", @"Cargando comentarios...");
+    
+    [NetworkManager runFindById:self.complaint.complaint_id completition:^(NSArray *comments_aux, NSError *error) {
+        
+        [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
+        
+        comments = [[NSArray alloc] initWithArray:comments_aux];
+        
+        commentsHeights = [[NSMutableArray alloc] initWithCapacity:0];
+        for (Comment* comment in comments) {
+            CGFloat height = [self getCommentCellHeight2:comment];
+            [commentsHeights addObject:[NSNumber numberWithFloat:height]];
+        }
+        
+        [self.tableView reloadData];
+    }];
 }
 
 - (void) viewWillDisappear:(BOOL)animated
@@ -156,7 +190,7 @@
 	textView.delegate = self;
     textView.internalTextView.scrollIndicatorInsets = UIEdgeInsetsMake(5, 0, 5, 0);
     textView.backgroundColor = [UIColor whiteColor];
-    textView.placeholder = @"Type to see the textView grow!";
+    textView.placeholder = NSLocalizedString(@"Ingrese su comentario", @"Ingrese su comentario");
     [textView setReturnKeyType:UIReturnKeyDefault];
     
     // textView.text = @"test\n\ntest";
@@ -358,6 +392,7 @@
         }
         
         [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+        cell.delegate = self;
         [cell populateCell:self.complaint.attachs];
         return cell;
     }else if (indexPath.section == 2){
@@ -370,7 +405,10 @@
         }
         
         [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
-        [cell populateCellWithAffected:self.complaint.affected isTrue:self.complaint.isTrue isntTrue:self.complaint.isntTrue];
+        cell.delegate = self;
+        
+        [cell populateCellWithAffected:affected isTrue:isTrue isntTrue:isNotTrue];
+        
         return cell;
     }else if (indexPath.section == 3){
         
@@ -608,7 +646,7 @@
 - (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if ([[alertView buttonTitleAtIndex:buttonIndex] isEqualToString:NSLocalizedString(@"Ok", @"Ok")]) {
-        [self performSegueWithIdentifier:@"loginSegue" sender:nil];
+        [self performSegueWithIdentifier:@"toLoginSegue" sender:nil];
     }
 }
 
@@ -617,9 +655,129 @@
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([segue.identifier isEqualToString:@"loginSegue"]) {
-        
+    if ([segue.identifier isEqualToString:@"toLoginSegue"]) {
+        SignInViewController* vc = [segue destinationViewController];
+        vc.originController = self;
     }
+}
+
+#pragma mark -
+#pragma mark DetailDelegate methods
+
+- (void) photoTouched:(int)idx
+{
+    // imagenes:
+    //
+    NSMutableArray* images = [NSMutableArray arrayWithCapacity:0];
+    for (NSString* image_name in self.complaint.attachs) {
+        NSString* urlString = [NSString stringWithFormat:@"%@%@%@",API_BASE_URL,API_UPLOADS,image_name];
+        FSBasicImage *photo = [[FSBasicImage alloc] initWithImageURL:[NSURL URLWithString:urlString] name:nil];
+        [images addObject:photo];
+    }
+    
+    FSBasicImageSource *photoSource = [[FSBasicImageSource alloc] initWithImages:images];
+    FSImageViewerViewController *imageViewController = [[FSImageViewerViewController alloc] initWithImageSource:photoSource];
+    [self.navigationController pushViewController:imageViewController animated:YES];
+}
+
+- (void) affectedAction:(id)sender
+{
+    [textView resignFirstResponder];
+    
+    if (![UserHelper getUserToken]) {
+        [[[UIAlertView alloc] initWithTitle:nil message:NSLocalizedString(@"Para poder realizar esta accion debe estar logueado.", @"Para poder realizar esta accion debe estar logueado.") delegate:self cancelButtonTitle:NSLocalizedString(@"Ok", @"Ok") otherButtonTitles:nil] show];
+        return;
+    }
+    
+    
+    NSMutableDictionary* params = [NSMutableDictionary dictionary];
+    [params setObject:[NSNumber numberWithInt:1] forKey:@"afectados"];
+    [params setObject:self.complaint.complaint_id forKey:@"id"];
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+    hud.labelText = NSLocalizedString(@"Enviando...", @"Enviando...");
+    
+    [NetworkManager sendAffectedWithParams:params token:[UserHelper getUserToken] completition:^(NSDictionary *data, NSError *error, NSString *error_message) {
+        
+        [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
+        
+        if (error) {
+            [[[UIAlertView alloc] initWithTitle:nil message:error_message delegate:nil cancelButtonTitle:NSLocalizedString(@"Ok", @"Ok") otherButtonTitles:nil] show];
+        }else{
+            NSString* response = [data objectForKey:@"res"];
+            if ([response isEqualToString:SIGN_UP_OK]) {
+                affected++;
+                [self.tableView reloadData];
+            }
+        }
+        
+    }];
+}
+
+- (void) isTrueAction:(id)sender
+{
+    [textView resignFirstResponder];
+    
+    if (![UserHelper getUserToken]) {
+        [[[UIAlertView alloc] initWithTitle:nil message:NSLocalizedString(@"Para poder realizar esta accion debe estar logueado.", @"Para poder realizar esta accion debe estar logueado.") delegate:self cancelButtonTitle:NSLocalizedString(@"Ok", @"Ok") otherButtonTitles:nil] show];
+        return;
+    }
+    
+    NSMutableDictionary* params = [NSMutableDictionary dictionary];
+    [params setObject:[NSNumber numberWithInt:1] forKey:@"escierto"];
+    [params setObject:self.complaint.complaint_id forKey:@"id"];
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+    hud.labelText = NSLocalizedString(@"Enviando...", @"Enviando...");
+    
+    [NetworkManager sendIsTrueWithParams:params token:[UserHelper getUserToken] completition:^(NSDictionary *data, NSError *error, NSString *error_message) {
+        
+        [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
+        
+        if (error) {
+            [[[UIAlertView alloc] initWithTitle:nil message:error_message delegate:nil cancelButtonTitle:NSLocalizedString(@"Ok", @"Ok") otherButtonTitles:nil] show];
+        }else{
+            NSString* response = [data objectForKey:@"res"];
+            if ([response isEqualToString:SIGN_UP_OK]) {
+                isTrue++;
+                [self.tableView reloadData];
+            }
+        }
+    }];
+}
+
+- (void) isNotTrueAction:(id)sender
+{
+    
+    [textView resignFirstResponder];
+    
+    if (![UserHelper getUserToken]) {
+        [[[UIAlertView alloc] initWithTitle:nil message:NSLocalizedString(@"Para poder realizar esta accion debe estar logueado.", @"Para poder realizar esta accion debe estar logueado.") delegate:self cancelButtonTitle:NSLocalizedString(@"Ok", @"Ok") otherButtonTitles:nil] show];
+        return;
+    }
+    
+    NSMutableDictionary* params = [NSMutableDictionary dictionary];
+    [params setObject:[NSNumber numberWithInt:1] forKey:@"nocierto"];
+    [params setObject:self.complaint.complaint_id forKey:@"id"];
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+    hud.labelText = NSLocalizedString(@"Enviando...", @"Enviando...");
+    
+    [NetworkManager sendIsNotTrueWithParams:params token:[UserHelper getUserToken] completition:^(NSDictionary *data, NSError *error, NSString *error_message) {
+        
+        [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
+        
+        if (error) {
+            [[[UIAlertView alloc] initWithTitle:nil message:error_message delegate:nil cancelButtonTitle:NSLocalizedString(@"Ok", @"Ok") otherButtonTitles:nil] show];
+        }else{
+            NSString* response = [data objectForKey:@"res"];
+            if ([response isEqualToString:SIGN_UP_OK]) {
+                isNotTrue++;
+                [self.tableView reloadData];
+            }
+        }
+        
+    }];
 }
 
 @end

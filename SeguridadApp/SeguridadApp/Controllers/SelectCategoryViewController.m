@@ -101,8 +101,11 @@
         vc.delegate = self.delegate;
         
         ComplaintType* category = (ComplaintType*)sender;
-        vc.category_selected = category.name;
-        vc.subcategories = category.subcategories;
+        vc.category = category;
+        
+        //vc.category_selected = category.name;
+        //vc.subcategories = category.subcategories;
+        
         
     }
 }

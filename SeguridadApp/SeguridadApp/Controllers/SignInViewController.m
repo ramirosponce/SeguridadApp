@@ -11,6 +11,9 @@
 #import "MBProgressHUD.h"
 #import "SideMenuViewController.h"
 
+#import "LoginEmailViewController.h"
+#import "RegisterViewController.h"
+
 @interface SignInViewController ()
 
 @end
@@ -64,6 +67,20 @@
     [self performSegueWithIdentifier:@"registerSegue" sender:nil];
 }
 
+#pragma mark -
+#pragma mark Segue methods
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"loginEmailSegue"]) {
+        LoginEmailViewController* vc = [segue destinationViewController];
+        vc.originController = self.originController;
+    }else if ([segue.identifier isEqualToString:@"registerSegue"]) {
+        RegisterViewController* vc = [segue destinationViewController];
+        vc.originController = self.originController;
+    }
+}
+
 #pragma mark - 
 #pragma mark FBLoginViewDelegate methods
 // This method will be called when the user information has been fetched
@@ -107,16 +124,19 @@
                     NSString* response = [data objectForKey:@"res"];
                     if ([response isEqualToString:SIGN_UP_OK]) {
                         [[[UIAlertView alloc] initWithTitle:nil message:NSLocalizedString(@"Registration successfully.","Registration successfully.") delegate:nil cancelButtonTitle:NSLocalizedString(@"Ok", @"Ok") otherButtonTitles:nil] show];
-                        // go to main scren or do something
                         
-                        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
-                        UINavigationController *navigationController = (UINavigationController*)self.parentViewController;
-                        MFSideMenuContainerViewController *container = (MFSideMenuContainerViewController*)[navigationController parentViewController];
-                        UINavigationController *centerViewController =
-                        [storyboard instantiateViewControllerWithIdentifier:@"CenterViewController"];
-                        [container setCenterViewController:centerViewController];
+                        // go to main scren or do something
+                        if (self.originController) {
+                            [self.navigationController popToViewController:self.originController animated:YES];
+                        }else{
+                            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+                            UINavigationController *navigationController = (UINavigationController*)self.parentViewController;
+                            MFSideMenuContainerViewController *container = (MFSideMenuContainerViewController*)[navigationController parentViewController];
+                            UINavigationController *centerViewController =
+                            [storyboard instantiateViewControllerWithIdentifier:@"CenterViewController"];
+                            [container setCenterViewController:centerViewController];
+                        }
                     }
-                    
                 }
             }];
         }else{
@@ -131,34 +151,27 @@
                 [UserHelper saveToken:token];
             }
             
-            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
-            UINavigationController *navigationController = (UINavigationController*)self.parentViewController;
-            MFSideMenuContainerViewController *container = (MFSideMenuContainerViewController*)[navigationController parentViewController];
-            UINavigationController *centerViewController =
-            [storyboard instantiateViewControllerWithIdentifier:@"CenterViewController"];
-            [container setCenterViewController:centerViewController];
+            if (self.originController) {
+                
+                UINavigationController *navigationController = (UINavigationController*)self.parentViewController;
+                MFSideMenuContainerViewController *container = (MFSideMenuContainerViewController*)[navigationController parentViewController];
+                SideMenuViewController* sideMenu = (SideMenuViewController*)container.leftMenuViewController;
+                [sideMenu changeUserStatus];
+                [self.navigationController popToViewController:self.originController animated:YES];
             
-            SideMenuViewController* sideMenu = (SideMenuViewController*)container.leftMenuViewController;
-            [sideMenu changeUserStatus];
+            }else{
+                UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+                UINavigationController *navigationController = (UINavigationController*)self.parentViewController;
+                MFSideMenuContainerViewController *container = (MFSideMenuContainerViewController*)[navigationController parentViewController];
+                UINavigationController *centerViewController =
+                [storyboard instantiateViewControllerWithIdentifier:@"CenterViewController"];
+                [container setCenterViewController:centerViewController];
+                
+                SideMenuViewController* sideMenu = (SideMenuViewController*)container.leftMenuViewController;
+                [sideMenu changeUserStatus];
+            }
         }
     }];
-    
-    
-
-    
-    
-    
-//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
-//    
-//    UINavigationController *navigationController = (UINavigationController*)self.parentViewController;
-//    MFSideMenuContainerViewController *container = (MFSideMenuContainerViewController*)[navigationController parentViewController];
-//    
-//    UINavigationController *centerViewController =
-//    [storyboard instantiateViewControllerWithIdentifier:@"CenterViewController"];
-//    [container setCenterViewController:centerViewController];
-    
-    //self.profilePictureView.profileID = user.id;
-    //self.nameLabel.text = user.name;
 }
 
 

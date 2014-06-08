@@ -12,6 +12,9 @@
 @implementation Complaint
 
 - (id) initWithData:(NSDictionary*)dictionary{
+    NSLog(@"---------------------------");
+    NSLog(@"%@",dictionary);
+    
     self = [super init];
     if (self != nil) {
         
@@ -25,6 +28,10 @@
         
         if ([AppHelper existObject:@"fecha" in:dictionary]) {
             self.complaint_date = [dictionary objectForKey:@"fecha"];//
+        }
+        
+        if ([AppHelper existObject:@"hora" in:dictionary]) {
+            self.hora = [dictionary objectForKey:@"hora"];
         }
         
         if ([AppHelper existObject:@"descripcion" in:dictionary]) {
@@ -48,7 +55,9 @@
         }
         
         if ([AppHelper existObject:@"attachs" in:dictionary]) {
-            self.attachs = [dictionary objectForKey:@"attachs"];//
+            if ([[dictionary objectForKey:@"attachs"] isKindOfClass:[NSArray class]]) {
+                self.attachs = [dictionary objectForKey:@"attachs"];//
+            }
         }
         
         if ([AppHelper existObject:@"tags" in:dictionary]) {
@@ -63,6 +72,10 @@
                 Comment* comment = [[Comment alloc] initWithData:data];
                 [self.comments addObject:comment];
             }
+        }
+        
+        if ([AppHelper existObject:@"frecuentemente" in:dictionary]) {
+            self.frecuentemente = [[dictionary objectForKey:@"frecuentemente"] boolValue];
         }
         
         self.isAnonymous = YES;

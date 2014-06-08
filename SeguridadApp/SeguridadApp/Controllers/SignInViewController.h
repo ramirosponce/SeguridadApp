@@ -15,7 +15,10 @@
     __weak IBOutlet UIButton* noAccountButton;
     
     __weak IBOutlet FBLoginView* loginFacebook;
+    
 }
+
+@property (nonatomic, assign) UIViewController* originController;
 
 - (IBAction) loginNormalButton:(id)sender;
 - (IBAction) noAccountButton:(id)sender;

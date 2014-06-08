@@ -12,7 +12,18 @@
 
 @class Complaint;
 
-@interface DetailViewController : SLParallaxController <UIActionSheetDelegate, HPGrowingTextViewDelegate, UIAlertViewDelegate>
+@protocol DetailDelegate <NSObject>
+
+@optional
+
+- (void) photoTouched:(int)idx;
+- (void) affectedAction:(id)sender;
+- (void) isTrueAction:(id)sender;
+- (void) isNotTrueAction:(id)sender;
+
+@end
+
+@interface DetailViewController : SLParallaxController <UIActionSheetDelegate, HPGrowingTextViewDelegate, UIAlertViewDelegate, DetailDelegate>
 {
     UIView *containerView;
     HPGrowingTextView *textView;
