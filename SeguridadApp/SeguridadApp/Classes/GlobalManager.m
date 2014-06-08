@@ -26,6 +26,8 @@ static GlobalManager * sharedInstance = nil;
         
         // inicializacion para los datos de filtro
         self.datefilterType = kDateFilterToday;
+        self.category_selected = NSLocalizedString(@"All", @"All");
+        
         self.categoryAllSelected = YES;
         self.category_filters = [[NSMutableArray alloc] initWithCapacity:0];
         

@@ -39,12 +39,49 @@
     data = [[NSMutableArray alloc] initWithCapacity:0];
 }
 
+- (NSString*) getFilterDateKey
+{
+    
+    NSString* date_filter;
+    switch ([GlobalManager sharedManager].datefilterType) {
+        case kDateFilterToday:
+            date_filter = @"today";
+            break;
+        case kDateFilterWeek:
+            date_filter = @"lastWeek";
+            break;
+        case kDateFilterMonth:
+            date_filter = @"lastMonth";
+            break;
+        case kDateFilterAll:
+            date_filter = nil;
+            break;
+    }
+    return date_filter;
+}
+
 - (void) viewDidAppear:(BOOL)animated
 {
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
     hud.labelText = NSLocalizedString(@"Loading...", @"Loading...");
     
-    [NetworkManager runMapRequestWithLimit:MAX_COMPLAINT_COUNT completition:^(NSArray *map_complaints, NSError *error) {
+    NSMutableDictionary* params = [NSMutableDictionary dictionary];
+    NSString* date_filter_selected = [self getFilterDateKey];
+    
+    // date filter
+    if (date_filter_selected) {
+        [params setObject:[NSNumber numberWithInt:1] forKey:date_filter_selected];
+    }
+    
+    // limit filter
+    [params setObject:[NSNumber numberWithInt:MAX_COMPLAINT_COUNT] forKey:@"limit"];
+    
+    // Input search
+    if (![[GlobalManager sharedManager].category_selected isEqualToString:NSLocalizedString(@"All", @"All")]) {
+        [params setObject:[GlobalManager sharedManager].category_selected forKey:@"inputSearch"];
+    }
+    
+    [NetworkManager runSearchRequestWithParams:params completition:^(NSArray *map_complaints, NSError *error) {
         [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
         data = [[NSMutableArray alloc] initWithArray:map_complaints];
         [complaintTableView reloadData];

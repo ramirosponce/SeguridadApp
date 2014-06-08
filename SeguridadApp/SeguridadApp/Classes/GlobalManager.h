@@ -17,6 +17,7 @@
 @property (nonatomic) BOOL categoryAllSelected;
 @property (nonatomic, strong) NSMutableArray* category_filters;
 @property (nonatomic, strong) NSMutableArray* categories;
+@property (nonatomic, strong) NSString* category_selected;
 
 // this is for load content
 @property (nonatomic, strong) NSArray* complaint_types;

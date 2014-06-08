@@ -33,7 +33,8 @@ typedef void (^IsNotTrueCompletitionHandler) (NSDictionary* data, NSError* error
 
 + (void) runRegionsRequest:(RegionsCompletionHandler)completitionHandler;
 
-+ (void) runMapRequestWithLimit:(int)limit completition:(ComplaintMapCompletionHandler)completitionHandler;
+//+ (void) runMapRequestWithLimit:(int)limit completition:(ComplaintMapCompletionHandler)completitionHandler;
++ (void) runSearchRequestWithParams:(NSDictionary*)params completition:(ComplaintMapCompletionHandler)completitionHandler;
 
 + (void) runFindById:(NSString*)byID completition:(ComplaintByIDCompletionHandler)completitionHandler;
 

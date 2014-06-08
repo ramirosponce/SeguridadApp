@@ -216,13 +216,71 @@
         [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
         
         ComplaintType* category = [categoryData objectAtIndex:indexPath.row];
-        [cell populateCell:category.name isSelected:category.isSelected];
+        
+        BOOL isSelected = NO;
+        if ([category.name isEqualToString:[GlobalManager sharedManager].category_selected]) {
+            isSelected = YES;
+        }
+        [cell populateCell:category.name isSelected:isSelected];
         
         return cell;
     }
 }
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // set up the cell
+    if (indexPath.section == 0) {
+        
+        [GlobalManager sharedManager].datefilterType = indexPath.row;
+        [filtersTableView reloadData];
+    }else{
+        
+        ComplaintType* category = [categoryData objectAtIndex:indexPath.row];
+        [GlobalManager sharedManager].category_selected = category.name;
+        [filtersTableView reloadData];
+    }
+}
+
+/*- (UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // set up the cell
+    if (indexPath.section == 0) {
+        
+        static  NSString* CellIdentifier = @"TimeFilterCell";
+        TimeFilterCell* cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        if (cell == nil) {
+            cell = (TimeFilterCell*)[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        }
+        
+        [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+        
+        NSDictionary* time_data = [timeData objectAtIndex:indexPath.row];
+        
+        BOOL isSelected = NO;
+        if (indexPath.row == [GlobalManager sharedManager].datefilterType) {
+            isSelected = YES;
+        }
+        
+        [cell populateCell:[time_data objectForKey:@"title"] isSelected:isSelected];
+        
+        return cell;
+    }else {
+        static  NSString* CellIdentifier = @"CategoryFilterCell";
+        CategoryFilterCell* cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        if (cell == nil) {
+            cell = (CategoryFilterCell*)[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        }
+        [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+        
+        ComplaintType* category = [categoryData objectAtIndex:indexPath.row];
+        [cell populateCell:category.name isSelected:category.isSelected];
+        
+        return cell;
+    }
+}*/
+
+/*- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // set up the cell
     if (indexPath.section == 0) {
@@ -270,6 +328,6 @@
         }
         [filtersTableView reloadData];
     }
-}
+}*/
 
 @end

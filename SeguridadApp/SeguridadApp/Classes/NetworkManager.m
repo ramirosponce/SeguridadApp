@@ -124,9 +124,31 @@
     }];
 }
 
-+ (void) runMapRequestWithLimit:(int)limit completition:(ComplaintMapCompletionHandler)completitionHandler
+/*+ (void) runMapRequestWithLimit:(int)limit completition:(ComplaintMapCompletionHandler)completitionHandler
 {
     NSDictionary* params = @{@"limit":[NSString stringWithFormat:@"%i",limit]};
+    [self PostRequest:API_DENUNCIA_SEARCH params:params completitionHandler:^(AFHTTPRequestOperation *operation, id responseObject, NSError *error) {
+        
+        if (!error) {
+            //NSLog(@"%@", responseObject);
+            NSMutableArray* complaints = [NSMutableArray arrayWithCapacity:0];
+            
+            NSArray* response_array = (NSArray*)responseObject;
+            for (NSDictionary* data in response_array) {
+                //NSLog(@"response denuncia: %@", data);
+                Complaint* complaint = [[Complaint alloc] initWithData:data];
+                [complaints addObject:complaint];
+            }
+            completitionHandler(complaints, nil);
+        }else{
+            completitionHandler(nil, error);
+        }
+        
+    }];
+}*/
+
++ (void) runSearchRequestWithParams:(NSDictionary*)params completition:(ComplaintMapCompletionHandler)completitionHandler
+{
     [self PostRequest:API_DENUNCIA_SEARCH params:params completitionHandler:^(AFHTTPRequestOperation *operation, id responseObject, NSError *error) {
         
         if (!error) {
