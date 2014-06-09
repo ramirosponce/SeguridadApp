@@ -341,12 +341,20 @@
 
 - (void) shareAction:(id)sender
 {
-    UIActionSheet* actionsheet = [[UIActionSheet alloc] initWithTitle:nil
-                                                             delegate:self
-                                                    cancelButtonTitle:NSLocalizedString(@"Cancel", @"Cancel")
-                                               destructiveButtonTitle:nil
-                                                    otherButtonTitles:NSLocalizedString(@"Share on Facebook", @"Share on Facebook"), NSLocalizedString(@"Share on Twitter", @"Share on Twitter"),NSLocalizedString(@"Share on Mail",@"Share on Mail"), nil];
-    [actionsheet showInView:self.view];
+    NSString *shareString = NSLocalizedString(@"Estoy usando la aplicacion de seguridad para hacer denuncias en mi iphone.",@"Estoy usando la aplicacion de seguridad para hacer denuncias en mi iphone.");
+    NSURL *shareUrl = [NSURL URLWithString:@"http://appseguridad.avec.com.do/app"];
+    
+    NSArray *activityItems = [NSArray arrayWithObjects:shareString, shareUrl, nil];
+    UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
+    activityViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+    
+    [self presentViewController:activityViewController animated:YES completion:nil];
+    //UIActionSheet* actionsheet = [[UIActionSheet alloc] initWithTitle:nil
+    //                                                         delegate:self
+    //                                                cancelButtonTitle:NSLocalizedString(@"Cancel", @"Cancel")
+    //                                           destructiveButtonTitle:nil
+    //                                                otherButtonTitles:NSLocalizedString(@"Share on Facebook", @"Share on Facebook"), NSLocalizedString(@"Share on Twitter", @"Share on Twitter"),NSLocalizedString(@"Share on Mail",@"Share on Mail"), nil];
+    //[actionsheet showInView:self.view];
 }
 
 
@@ -666,6 +674,9 @@
 
 - (void) photoTouched:(int)idx
 {
+    keyboardIsShowed = NO;
+    [textView resignFirstResponder];
+    
     // imagenes:
     //
     NSMutableArray* images = [NSMutableArray arrayWithCapacity:0];
@@ -677,11 +688,13 @@
     
     FSBasicImageSource *photoSource = [[FSBasicImageSource alloc] initWithImages:images];
     FSImageViewerViewController *imageViewController = [[FSImageViewerViewController alloc] initWithImageSource:photoSource];
+    [imageViewController setSharingDisabled:YES];
     [self.navigationController pushViewController:imageViewController animated:YES];
 }
 
 - (void) affectedAction:(id)sender
 {
+    keyboardIsShowed = NO;
     [textView resignFirstResponder];
     
     if (![UserHelper getUserToken]) {
@@ -716,6 +729,7 @@
 
 - (void) isTrueAction:(id)sender
 {
+    keyboardIsShowed = NO;
     [textView resignFirstResponder];
     
     if (![UserHelper getUserToken]) {
@@ -748,7 +762,7 @@
 
 - (void) isNotTrueAction:(id)sender
 {
-    
+    keyboardIsShowed = NO;
     [textView resignFirstResponder];
     
     if (![UserHelper getUserToken]) {
