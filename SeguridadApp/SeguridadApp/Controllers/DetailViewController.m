@@ -73,6 +73,8 @@
 {
     [super viewDidAppear:animated];
     
+    [self setupKeyboardNotifications];
+    
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
     hud.labelText = NSLocalizedString(@"Cargando comentarios...", @"Cargando comentarios...");
     
@@ -150,7 +152,7 @@
     UIBarButtonItem* options = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(shareAction:)];
     self.navigationItem.rightBarButtonItem = options;
     
-    [self setupKeyboardNotifications];
+    
     [self setupCommentInterface];
     
     CGRect tableFrame = self.tableView.frame;
