@@ -1382,6 +1382,7 @@
 				GCC_PREFIX_HEADER = "SeguridadApp/SeguridadApp-Prefix.pch";
 				INFOPLIST_FILE = "SeguridadApp/SeguridadApp-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "0ECF3B02-9B1B-4D6D-9534-5617EFABC7D3";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1391,6 +1392,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Ramiro Ponce (2J22X5PEC2)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1399,6 +1401,7 @@
 				GCC_PREFIX_HEADER = "SeguridadApp/SeguridadApp-Prefix.pch";
 				INFOPLIST_FILE = "SeguridadApp/SeguridadApp-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "0ECF3B02-9B1B-4D6D-9534-5617EFABC7D3";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
