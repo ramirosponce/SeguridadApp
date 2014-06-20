@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>_id</key>
+		<string>536c79694b9c10f0fb4be618</string>
+		<key>icon</key>
+		<string>alcohol.png</string>
+		<key>nombre</key>
+		<string>Artículos ilegales</string>
+		<key>subcategorias</key>
+		<array>
+			<string>Contrabando</string>
+			<string>Drogas</string>
+			<string>Alcohol a menores</string>
+			<string>Cosas robada</string>
+		</array>
+	</dict>
+	<dict>
+		<key>_id</key>
+		<string>536c79f14b9c10f0fb4be61c</string>
+		<key>icon</key>
+		<string>otros.png</string>
+		<key>nombre</key>
+		<string>Otros</string>
+		<key>subcategorias</key>
+		<array>
+			<string>Anciano vulnerable</string>
+			<string>Intento de homicidio</string>
+			<string>Suicidio</string>
+			<string>Trata de personas</string>
+			<string>Transporte ilegal</string>
+			<string>Indigencia</string>
+			<string>Otros</string>
+		</array>
+	</dict>
+	<dict>
+		<key>_id</key>
+		<string>536c79d94b9c10f0fb4be61b</string>
+		<key>icon</key>
+		<string>terrorismo.png</string>
+		<key>nombre</key>
+		<string>Terrorismo</string>
+		<key>subcategorias</key>
+		<array>
+			<string>Atentado terrorista</string>
+			<string>Secuestro</string>
+			<string>Existencia de explosivos</string>
+			<string>Otros</string>
+		</array>
+	</dict>
+	<dict>
+		<key>_id</key>
+		<string>536c79a54b9c10f0fb4be61a</string>
+		<key>icon</key>
+		<string>homicidio.png</string>
+		<key>nombre</key>
+		<string>Homicidios</string>
+		<key>subcategorias</key>
+		<array>
+			<string>Con arma de fuego</string>
+			<string>Con arma blanca</string>
+			<string>Otros</string>
+		</array>
+	</dict>
+	<dict>
+		<key>_id</key>
+		<string>536c79494b9c10f0fb4be617</string>
+		<key>icon</key>
+		<string>robo.png</string>
+		<key>nombre</key>
+		<string>Hurtos</string>
+		<key>subcategorias</key>
+		<array>
+			<string>Fleteo</string>
+			<string>Raponazo</string>
+			<string>En residencia</string>
+			<string>Automóvil</string>
+			<string>Moto</string>
+			<string>Bicicleta</string>
+			<string>Celular</string>
+		</array>
+	</dict>
+	<dict>
+		<key>_id</key>
+		<string>536c798b4b9c10f0fb4be619</string>
+		<key>icon</key>
+		<string>violencia.png</string>
+		<key>nombre</key>
+		<string>Violencia</string>
+		<key>subcategorias</key>
+		<array>
+			<string>Violencia intrafamiliar</string>
+			<string>Lesiones personales</string>
+			<string>Abuso de autoridad</string>
+		</array>
+	</dict>
+</array>
+</plist>

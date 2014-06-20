@@ -195,6 +195,14 @@
     textView.placeholder = NSLocalizedString(@"Ingrese su comentario", @"Ingrese su comentario");
     [textView setReturnKeyType:UIReturnKeyDefault];
     
+    //To make the border look very close to a UITextField
+    [textView.internalTextView.layer setBorderColor:[[[UIColor grayColor] colorWithAlphaComponent:0.5] CGColor]];
+    [textView.internalTextView.layer setBorderWidth:1.0];
+    
+    //The rounded corner part, where you specify your view's corner radius:
+    textView.internalTextView.layer.cornerRadius = 5;
+    textView.internalTextView.clipsToBounds = YES;
+    
     // textView.text = @"test\n\ntest";
 	// textView.animateHeightChange = NO; //turns off animation
     
@@ -215,26 +223,44 @@
     textView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     
     // view hierachy
-    [containerView addSubview:imageView];
+    UIView* backgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, containerView.frame.size.width, containerView.frame.size.height)];
+    [backgroundView setBackgroundColor:[UIColor whiteColor]];
+    backgroundView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+    
+    UIView* line_view = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, containerView.frame.size.width, 1.0)];
+    [line_view setBackgroundColor:[UIColor lightGrayColor]];
+    [backgroundView addSubview:line_view];
+    
+    [containerView addSubview:backgroundView];
+    
+    //[containerView addSubview:imageView];
     [containerView addSubview:textView];
-    [containerView addSubview:entryImageView];
+    //[containerView addSubview:entryImageView];
+    
+    [containerView setClipsToBounds:YES];
+    [containerView.layer setCornerRadius:(float)5.0];
     
     UIImage *sendBtnBackground = [[UIImage imageNamed:@"MessageEntrySendButton.png"] stretchableImageWithLeftCapWidth:13 topCapHeight:0];
     UIImage *selectedSendBtnBackground = [[UIImage imageNamed:@"MessageEntrySendButton.png"] stretchableImageWithLeftCapWidth:13 topCapHeight:0];
     
-	UIButton *doneBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-	doneBtn.frame = CGRectMake(containerView.frame.size.width - 69, 8, 63, 27);
+    UIButton *doneBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    doneBtn.frame = CGRectMake(containerView.frame.size.width - 69, 8, 63, 27);
     doneBtn.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin;
-	[doneBtn setTitle:@"Done" forState:UIControlStateNormal];
+    [doneBtn setTitle:@"Done" forState:UIControlStateNormal];
     
-    [doneBtn setTitleShadowColor:[UIColor colorWithWhite:0 alpha:0.4] forState:UIControlStateNormal];
+	//UIButton *doneBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+	//doneBtn.frame = CGRectMake(containerView.frame.size.width - 69, 8, 63, 27);
+    //doneBtn.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin;
+	//[doneBtn setTitle:@"Done" forState:UIControlStateNormal];
+    
+    //[doneBtn setTitleShadowColor:[UIColor colorWithWhite:0 alpha:0.4] forState:UIControlStateNormal];
     doneBtn.titleLabel.shadowOffset = CGSizeMake (0.0, -1.0);
     doneBtn.titleLabel.font = [UIFont boldSystemFontOfSize:18.0f];
     
-    [doneBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    //[doneBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
 	[doneBtn addTarget:self action:@selector(sendComment) forControlEvents:UIControlEventTouchUpInside];
-    [doneBtn setBackgroundImage:sendBtnBackground forState:UIControlStateNormal];
-    [doneBtn setBackgroundImage:selectedSendBtnBackground forState:UIControlStateSelected];
+    //[doneBtn setBackgroundImage:sendBtnBackground forState:UIControlStateNormal];
+    //[doneBtn setBackgroundImage:selectedSendBtnBackground forState:UIControlStateSelected];
 	[containerView addSubview:doneBtn];
     containerView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
 }

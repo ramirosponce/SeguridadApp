@@ -13,6 +13,7 @@
 #import "MainScreenViewController.h"
 #import "MBProgressHUD.h"
 #import "ErrorHelper.h"
+#import "DataHelper.h"
 
 @interface LoaderViewController ()
 
@@ -42,7 +43,16 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
+    [[GlobalManager sharedManager] saveComplaintTypes:[DataHelper getCategoriesData]];
     
+    [[GlobalManager sharedManager] saveRegions:[DataHelper getRegionsData]];
+    
+    [self performSelector:@selector(showMainScreen) withObject:nil afterDelay:0.5];
+}
+
+/*- (void)viewDidAppear:(BOOL)animated
+{
+ 
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
     hud.labelText = NSLocalizedString(@"Loading...", @"Loading...");
     
@@ -70,7 +80,7 @@
             [[[UIAlertView alloc] initWithTitle:nil message:error_message delegate:nil cancelButtonTitle:NSLocalizedString(@"Ok", @"Ok") otherButtonTitles:nil] show];
         }
     }];
-}
+}*/
 
 - (void)showMainScreen
 {

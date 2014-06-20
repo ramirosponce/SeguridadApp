@@ -25,7 +25,6 @@
 "All" = "Todos";
 "Show Result by" = "Mostrar resultados por";
 "Categories" = "Categorías";
-"Filters" = "Filters";
 "Help us to improve" = "Ayúdanos a mejorar";
 "Terms and Use Conditions" = "Términos y Condiciones de Uso";
 "About" = "Acerca de...";
@@ -47,3 +46,6 @@
 "You must complete all fields." = "Debe completar todos los campos.";
 "Ok" = "Ok";
 "User" = "Usuario";
+"Log Out" = "Cerrar Sesión";
+
+"Nobody Logged" = "No Logueado";

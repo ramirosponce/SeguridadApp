@@ -148,11 +148,11 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="wck-8w-7Ho" customClass="GBFlatButton">
-                                <rect key="frame" x="92" y="518" width="91" height="30"/>
+                                <rect key="frame" x="68" y="518" width="140" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
                                 <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Button">
-                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.93495997536945818" green="0.21562484740645294" blue="0.21293442012455455" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -864,7 +864,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ZvH-u7-yRr" customClass="GBFlatButton">
                                 <rect key="frame" x="70" y="444" width="180" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <color key="tintColor" red="0.2314793202" green="0.5163369766" blue="0.2111703956" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Denunciar">
+                                    <color key="titleColor" red="0.23147932021639889" green="0.51633697660098521" blue="0.21117039564071965" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>

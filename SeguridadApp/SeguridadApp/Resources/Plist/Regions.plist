@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>_id</key>
+		<string>538553c6adc7812c36088a2c</string>
+		<key>lat</key>
+		<string>18.5709950283597</string>
+		<key>lbl</key>
+		<string>La Victoria</string>
+		<key>lng</key>
+		<string>-69.85662978608161</string>
+	</dict>
+	<dict>
+		<key>_id</key>
+		<string>538553d2adc7812c36088a2d</string>
+		<key>lat</key>
+		<string>18.52400600706478</string>
+		<key>lbl</key>
+		<string>Los Cacaos</string>
+		<key>lng</key>
+		<string>-70.29333628714085</string>
+	</dict>
+	<dict>
+		<key>_id</key>
+		<string>538553d9adc7812c36088a2e</string>
+		<key>lat</key>
+		<string>18.471009514707436</string>
+		<key>lbl</key>
+		<string>Los Frailes</string>
+		<key>lng</key>
+		<string>-69.80233798851259</string>
+	</dict>
+	<dict>
+		<key>_id</key>
+		<string>538553e3adc7812c36088a2f</string>
+		<key>lat</key>
+		<string>18.372313420956235</string>
+		<key>lbl</key>
+		<string>Nigua</string>
+		<key>lng</key>
+		<string>-70.06618152488954</string>
+	</dict>
+	<dict>
+		<key>_id</key>
+		<string>538553bbadc7812c36088a2b</string>
+		<key>lat</key>
+		<string>18.492675052185562</string>
+		<key>lbl</key>
+		<string>Santo Domingo</string>
+		<key>lng</key>
+		<string>-69.983896484375</string>
+	</dict>
+	<dict>
+		<key>_id</key>
+		<string>538553ecadc7812c36088a30</string>
+		<key>lat</key>
+		<string>18.327995798632298</string>
+		<key>lbl</key>
+		<string>Yaguate</string>
+		<key>lng</key>
+		<string>-70.18153797020199</string>
+	</dict>
+</array>
+</plist>

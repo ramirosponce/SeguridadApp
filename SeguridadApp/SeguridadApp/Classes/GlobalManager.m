@@ -25,7 +25,7 @@ static GlobalManager * sharedInstance = nil;
         /* Init Singleton */
         
         // inicializacion para los datos de filtro
-        self.datefilterType = kDateFilterToday;
+        self.datefilterType = kDateFilterWeek;
         self.category_selected = NSLocalizedString(@"All", @"All");
         
         self.categoryAllSelected = YES;

@@ -10,9 +10,8 @@
 
 @interface DataHelper : NSObject
 
-+ (NSArray*) getMapData;
 + (NSArray*) getTimeFilterData;
-+ (NSArray*) getCategoryFilterData;
-+ (NSArray*) getCommentsData;
++ (NSArray*) getCategoriesData;
++ (NSArray*) getRegionsData;
 
 @end
