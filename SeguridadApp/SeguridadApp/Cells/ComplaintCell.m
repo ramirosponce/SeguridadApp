@@ -53,7 +53,7 @@
     
     
     if (complaint.attachs != nil && complaint.attachs.count > 0) {
-        
+        photoBG1.hidden = NO;
         titleFrame.size.width = LABEL_FRAME_WITH_IMAGE;
         descriptionFrame.size.width = LABEL_FRAME_WITH_IMAGE;
         
@@ -70,6 +70,7 @@
         titleFrame.size.width = LABEL_FRAME_WITHOUT_IMAGE;
         descriptionFrame.size.width = LABEL_FRAME_WITHOUT_IMAGE;
         complaint_picture.image = nil;
+        photoBG1.hidden = YES;
     }
     
     complaint_title.frame = titleFrame;

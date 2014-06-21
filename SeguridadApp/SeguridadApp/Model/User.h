@@ -14,6 +14,10 @@
 @property (nonatomic, strong) NSString * username;
 @property (nonatomic, strong) NSString * profile_image_name;
 
+@property (nonatomic, strong) NSString * user_first_name;
+@property (nonatomic, strong) NSString * user_last_name;
+@property (nonatomic, strong) NSString * user_email;
+
 - (id)initWithData:(NSDictionary *)dData;
 
 @end

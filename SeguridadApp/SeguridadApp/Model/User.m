@@ -14,9 +14,27 @@
 {
     self = [super init];
     if (self) {
-        self.user_id = [data objectForKey:@"id"];
-        self.username = [data objectForKey:@"username"];
-        self.profile_image_name = [data objectForKey:@"picture"];
+        
+        if ([AppHelper existObject:@"_id" in:data]) {
+            self.user_id = [data objectForKey:@"_id"];
+        }
+        
+        if ([AppHelper existObject:@"apellido" in:data]) {
+            self.user_first_name = [data objectForKey:@"apellido"];
+        }
+        
+        if ([AppHelper existObject:@"nombre" in:data]) {
+            self.user_last_name = [data objectForKey:@"nombre"];
+        }
+        
+        if ([AppHelper existObject:@"email" in:data]) {
+            self.user_email = [data objectForKey:@"email"];
+        }
+        
+        //self.user_id = [data objectForKey:@"_id"];
+        //self.username = [data objectForKey:@"username"];
+        //self.profile_image_name = [data objectForKey:@"picture"];
+        
     }
     return self;
 }

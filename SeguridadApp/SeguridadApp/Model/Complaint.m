@@ -12,8 +12,6 @@
 @implementation Complaint
 
 - (id) initWithData:(NSDictionary*)dictionary{
-    NSLog(@"---------------------------");
-    NSLog(@"%@",dictionary);
     
     self = [super init];
     if (self != nil) {

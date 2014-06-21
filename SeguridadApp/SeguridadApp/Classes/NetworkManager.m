@@ -246,7 +246,7 @@
             completitionHandler(responseObject, nil, nil);
         }else{
             NSString* err = [operation.responseObject objectForKey:@"err"];
-            NSLog(@"err: %@",err);
+            //NSLog(@"err: %@",err);
             completitionHandler(nil, error, [ErrorHelper errorMessage:err]);
         }
     }];
@@ -259,7 +259,7 @@
             completitionHandler(responseObject, nil, nil);
         }else{
             NSString* err = [operation.responseObject objectForKey:@"err"];
-            NSLog(@"err: %@",err);
+            //NSLog(@"err: %@",err);
             completitionHandler(nil, error, [ErrorHelper errorMessage:err]);
         }
     }];
@@ -272,7 +272,7 @@
             completitionHandler(responseObject, nil, nil);
         }else{
             NSString* err = [operation.responseObject objectForKey:@"err"];
-            NSLog(@"err: %@",err);
+            //NSLog(@"err: %@",err);
             completitionHandler(nil, error, [ErrorHelper errorMessage:err]);
         }
     }];

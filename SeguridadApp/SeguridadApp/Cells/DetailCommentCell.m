@@ -25,8 +25,8 @@
 {
     
     NSString* user_name = NSLocalizedString(@"User", @"User");
-    if (comment.user.username) {
-        user_name = comment.user.username;
+    if (comment.user.user_first_name && comment.user.user_last_name) {
+        user_name = [NSString stringWithFormat:@"%@ %@", comment.user.user_first_name, comment.user.user_last_name];
     }
     
     cell_title.text = [NSString stringWithFormat:@"%@ %@:",user_name, NSLocalizedString(@"dijo", @"dijo")];

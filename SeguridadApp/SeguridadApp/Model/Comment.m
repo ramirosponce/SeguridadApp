@@ -24,8 +24,8 @@
         }
         
         
-        if ([AppHelper existObject:@"user" in:data]) {
-            self.user = [[User alloc] initWithData:[data objectForKey:@"user"]];
+        if ([AppHelper existObject:@"usr" in:data]) {
+            self.user = [[User alloc] initWithData:[data objectForKey:@"usr"]];
         }
         
         
