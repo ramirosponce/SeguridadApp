@@ -1268,11 +1268,12 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <outlet property="photo3" destination="afp-I2-ckp" id="CU9-oa-q7l"/>
                         <outlet property="photo4" destination="htg-FE-V6w" id="Mbg-vR-u4i"/>
                         <outlet property="regionButtonAction" destination="nYA-qb-V9F" id="uxy-1x-Sdu"/>
+                        <segue destination="cHm-am-y6s" kind="push" identifier="toLoginSegue" id="1bJ-Hc-rtb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qYa-HH-kgr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1049" y="-2287"/>
+            <point key="canvasLocation" x="1113" y="-2287"/>
         </scene>
         <!--Select Category View Controller-->
         <scene sceneID="QgQ-Xn-mZb">
@@ -1514,9 +1515,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="26k-dQ-GJ3"/>
-        <segue reference="Dan-U6-ilI"/>
-        <segue reference="sAC-Eb-JtH"/>
         <segue reference="Kfx-fx-0Qp"/>
+        <segue reference="26k-dQ-GJ3"/>
+        <segue reference="1bJ-Hc-rtb"/>
+        <segue reference="sAC-Eb-JtH"/>
     </inferredMetricsTieBreakers>
 </document>

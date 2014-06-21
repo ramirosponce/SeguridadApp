@@ -9,6 +9,7 @@
 #import "ComplaintViewController.h"
 #import "SelectCategoryViewController.h"
 #import "SelectRegionViewController.h"
+#import "SignInViewController.h"
 #import "MBProgressHUD.h"
 
 #define WANT_INFORMATION_Y_POS_4_INCH            270
@@ -58,6 +59,18 @@
 - (void) viewWillDisappear:(BOOL)animated
 {
     [self dismissImputController];
+}
+
+- (void) viewDidAppear:(BOOL)animated
+{
+    NSLog(@"-------- ******* --------");
+    if ([UserHelper getUserToken]) {
+        [anonymous setOn:NO];
+        is_an_anonymous_complaint = NO;
+    }else{
+        [anonymous setOn:YES];
+        is_an_anonymous_complaint = YES;
+    }
 }
 
 #pragma mark -
@@ -747,7 +760,23 @@
         [anonymous setOn:YES];
         is_an_anonymous_complaint = YES;
     }else if ([[alertView buttonTitleAtIndex:buttonIndex] isEqualToString:NSLocalizedString(@"Si", @"Si")]) {
-        is_an_anonymous_complaint = NO;
+        if (![UserHelper getUserToken]) {
+            [self performSegueWithIdentifier:@"toLoginSegue" sender:nil];
+        }else{
+            is_an_anonymous_complaint = NO;
+        }
+        
+    }
+}
+
+#pragma mark -
+#pragma mark AlertViewDelegate methods
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"toLoginSegue"]) {
+        SignInViewController* vc = [segue destinationViewController];
+        vc.originController = self;
     }
 }
 
