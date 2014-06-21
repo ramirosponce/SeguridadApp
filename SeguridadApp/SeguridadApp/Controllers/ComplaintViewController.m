@@ -22,6 +22,10 @@
     UIImage* chosenImg;
     NSString* finalImageName;
     NSString* icon_name;
+    
+    int image_tag_selected;
+    BOOL max_images_loaded;
+    BOOL is_an_anonymous_complaint;
 }
 @end
 
@@ -59,14 +63,55 @@
 #pragma mark -
 #pragma mark private methods
 
+- (void) setupPhotoContainers
+{
+    photo1.tag = 1;
+    photo2.tag = 2;
+    photo3.tag = 3;
+    photo4.tag = 4;
+    
+    [photo1 setUserInteractionEnabled:YES];
+    UITapGestureRecognizer* pictureTapRecognizer1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(addImageAction:)];
+    [pictureTapRecognizer1 setNumberOfTapsRequired:1];
+    [pictureTapRecognizer1 setNumberOfTouchesRequired:1];
+    [photo1 addGestureRecognizer:pictureTapRecognizer1];
+    
+    [photo2 setUserInteractionEnabled:YES];
+    UITapGestureRecognizer* pictureTapRecognizer2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(addImageAction:)];
+    [pictureTapRecognizer2 setNumberOfTapsRequired:1];
+    [pictureTapRecognizer2 setNumberOfTouchesRequired:1];
+    [photo2 addGestureRecognizer:pictureTapRecognizer2];
+    
+    [photo3 setUserInteractionEnabled:YES];
+    UITapGestureRecognizer* pictureTapRecognizer3 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(addImageAction:)];
+    [pictureTapRecognizer3 setNumberOfTapsRequired:1];
+    [pictureTapRecognizer3 setNumberOfTouchesRequired:1];
+    [photo3 addGestureRecognizer:pictureTapRecognizer3];
+    
+    [photo4 setUserInteractionEnabled:YES];
+    UITapGestureRecognizer* pictureTapRecognizer4 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(addImageAction:)];
+    [pictureTapRecognizer4 setNumberOfTapsRequired:1];
+    [pictureTapRecognizer4 setNumberOfTouchesRequired:1];
+    [photo4 addGestureRecognizer:pictureTapRecognizer4];
+    
+    photo1.hidden = NO;
+    photo2.hidden = YES;
+    photo3.hidden = YES;
+    photo4.hidden = YES;
+    
+    image_tag_selected = photo1.tag;
+    max_images_loaded = NO;
+}
+
 - (void) setupInterface
 {
     self.title = NSLocalizedString(@"Denounce", @"Denounce");
     
     [complaintTitle setPlaceholder:NSLocalizedString(@"Titulo de la denuncia", @"Titulo de la denuncia")];
-    [kindOfComplaint setTitle:NSLocalizedString(@"Tipo de denuncia", @"Tipo de denuncia") forState:UIControlStateNormal];
-    NSString* position_title = [NSString stringWithFormat:@"%@: %@",NSLocalizedString(@"Ubicacion", @"Ubicacion"),NSLocalizedString(@"Mi ubicacion", @"Mi ubicacion")];
-    [regionButtonAction setTitle:position_title forState:UIControlStateNormal];
+    [kindOfComplaint setTitle:NSLocalizedString(@"Seleccione el tipo de denuncia", @"Seleccione el tipo de denuncia") forState:UIControlStateNormal];
+    //NSString* position_title = [NSString stringWithFormat:@"%@: %@",NSLocalizedString(@"Ubicacion", @"Ubicacion"),NSLocalizedString(@"Mi ubicacion", @"Mi ubicacion")];
+    //[regionButtonAction setTitle:position_title forState:UIControlStateNormal];
+    [regionButtonAction setUserInteractionEnabled:NO];
     [dateButton setTitle:NSLocalizedString(@"Fecha", @"Fecha") forState:UIControlStateNormal];
     [hourButton setTitle:NSLocalizedString(@"Hora", @"Hora") forState:UIControlStateNormal];
     [complaintButton setTitle:NSLocalizedString(@"Denunciar", @"Denunciar") forState:UIControlStateNormal];
@@ -77,14 +122,12 @@
     commentView.layer.borderColor = [[UIColor lightGrayColor] CGColor];
     commentView.layer.borderWidth = 0.5f;
     
-    [photoImageView setUserInteractionEnabled:YES];
-    UITapGestureRecognizer* pictureTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(addImageAction:)];
-    [pictureTapRecognizer setNumberOfTapsRequired:1];
-    [pictureTapRecognizer setNumberOfTouchesRequired:1];
-    [photoImageView addGestureRecognizer:pictureTapRecognizer];
+    [self setupPhotoContainers];
     
     [frequently setOn:NO];
     
+    [anonymous setOn:YES];
+    is_an_anonymous_complaint = YES;
     
     locationView.delegate = self;
     locationView.showsUserLocation = YES;
@@ -107,11 +150,14 @@
     [dateView.layer setShadowOffset:CGSizeMake(1.0, 1.0)];
     
     [dateView.layer setCornerRadius:5.0f];
+    
+    [complaintButton setSelected:YES];
+    [container_scroll setContentSize:CGSizeMake(container_scroll.frame.size.width, 780.0)];
 }
 
 - (BOOL) checkFields
 {
-    if ([kindOfComplaint.titleLabel.text isEqualToString:NSLocalizedString(@"Tipo de denuncia", @"Tipo de denuncia")]) {
+    if ([kindOfComplaint.titleLabel.text isEqualToString:NSLocalizedString(@"Seleccione el tipo de denuncia", @"Seleccione el tipo de denuncia")]) {
         [[[UIAlertView alloc] initWithTitle:nil message:NSLocalizedString(@"Por favor, seleccione un tipo de denuncia", @"Por favor, seleccione un tipo de denuncia") delegate:nil cancelButtonTitle:NSLocalizedString(@"Ok", @"Ok") otherButtonTitles:nil] show];
         return NO;
     }
@@ -273,11 +319,36 @@
     [self showDateView];
 }
 
+- (void) checkImages
+{
+    int images = 0;
+    if (!photo2.hidden) {
+        images += 1;
+    }
+    
+    if (!photo3.hidden) {
+        images += 1;
+    }
+    
+    if (!photo4.hidden) {
+        images += 1;
+    }
+    
+    if (max_images_loaded) {
+        images = 4;
+    }
+    
+    NSLog(@"cantidad de imagenes para mandar: %i", images);
+}
+
 - (IBAction)complaintButtonAction:(id)sender
 {
     if (![self checkFields]) {
         return;
     }
+    
+    [self checkImages];
+    return;
     
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     
@@ -303,8 +374,12 @@
     }
 }
 
-- (IBAction)addImageAction:(id)sender
+- (void)addImageAction:(UITapGestureRecognizer *)gestureRecognizer
 {
+    //Get the View
+    UIImageView *imageSelected = (UIImageView*)gestureRecognizer.view;
+    image_tag_selected = imageSelected.tag;
+    
     [self hideDateView];
     [self dismissImputController];
     
@@ -331,6 +406,25 @@
         [dateButton setEnabled:YES];
         [hourButton setEnabled:YES];
     }
+}
+
+- (IBAction)anonymousValueChanged:(id)sender
+{
+    UISwitch* anonymous_switch = (UISwitch*)sender;
+    is_an_anonymous_complaint = anonymous_switch.isOn;
+    
+    if (is_an_anonymous_complaint == NO) {
+        NSString* title = NSLocalizedString(@"Advertencia", @"Advertencia");
+        NSString* message = NSLocalizedString(@"Si opta por esta opción se publicarán sus datos de usuario", @"Si opta por esta opción se publicarán sus datos de usuario");
+        
+        [[[UIAlertView alloc] initWithTitle:title
+                                    message:message
+                                   delegate:self
+                          cancelButtonTitle:NSLocalizedString(@"No", @"No")
+                          otherButtonTitles:NSLocalizedString(@"Si", @"Si"),nil] show];
+    }
+    
+    
 }
 
 #pragma mark -
@@ -401,13 +495,39 @@
     UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
     chosenImg = chosenImage;
     
-    [photoImageView setClipsToBounds:YES];
-    [photoImageView.layer setCornerRadius:(float)5.0];
-    [photoImageView setImage:chosenImage];
+    UIImageView* photo = nil;
+    UIImageView* next_photo_available = nil;
+    switch (image_tag_selected) {
+        case 1:
+            photo = photo1;
+            next_photo_available = photo2;
+            break;
+        case 2:
+            photo = photo2;
+            next_photo_available = photo3;
+            break;
+        case 3:
+            photo = photo3;
+            next_photo_available = photo4;
+            break;
+        case 4:
+            photo = photo4;
+            max_images_loaded = YES;
+            break;
+    }
     
-    photoImageView.layer.borderColor = [[UIColor lightGrayColor] CGColor];
-    photoImageView.layer.borderWidth = 0.5f;
-
+    if (photo) {
+        [photo setClipsToBounds:YES];
+        [photo.layer setCornerRadius:(float)5.0];
+        [photo setImage:chosenImage];
+        photo.layer.borderColor = [[UIColor lightGrayColor] CGColor];
+        photo.layer.borderWidth = 0.5f;
+    }
+    
+    if (next_photo_available) {
+        [next_photo_available setHidden:NO];
+    }
+    
     [picker dismissViewControllerAnimated:YES completion:NULL];
 }
 
@@ -431,7 +551,7 @@
         {
             // If an existing pin view was not available, create one.
             pinView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"pinAnnotationView"];
-            pinView.draggable = NO;
+            pinView.draggable = YES;
             [pinView setSelected:YES];
         } else {
             pinView.annotation = annotation;
@@ -470,6 +590,7 @@
     }else{
         point.coordinate = userLocation.coordinate;
     }
+    
 
     //NSString* title = [NSString stringWithFormat:@"%.f, %.f", userLocation.coordinate.longitude, userLocation.coordinate.latitude];
     //point.title = title;
@@ -481,6 +602,7 @@
 
     
     [locationView addAnnotation:point];
+    locationView.showsUserLocation = NO;
 }
 
 - (void) mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view didChangeDragState:(MKAnnotationViewDragState)newState fromOldState:(MKAnnotationViewDragState)oldState
@@ -614,6 +736,19 @@
 {
     [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
     [[[UIAlertView alloc] initWithTitle:nil message:error_message delegate:nil cancelButtonTitle:NSLocalizedString(@"Ok", @"Ok") otherButtonTitles:nil] show];
+}
+
+#pragma mark -
+#pragma mark AlertViewDelegate methods
+
+- (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if ([[alertView buttonTitleAtIndex:buttonIndex] isEqualToString:NSLocalizedString(@"No", @"No")]) {
+        [anonymous setOn:YES];
+        is_an_anonymous_complaint = YES;
+    }else if ([[alertView buttonTitleAtIndex:buttonIndex] isEqualToString:NSLocalizedString(@"Si", @"Si")]) {
+        is_an_anonymous_complaint = NO;
+    }
 }
 
 

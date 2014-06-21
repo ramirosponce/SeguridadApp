@@ -12,7 +12,7 @@
 #define SCREEN_HEIGHT_WITHOUT_STATUS_BAR     [[UIScreen mainScreen] bounds].size.height
 #define HEIGHT_STATUS_BAR                    20
 //#define Y_DOWN_TABLEVIEW                     SCREEN_HEIGHT_WITHOUT_STATUS_BAR - 40
-#define Y_DOWN_TABLEVIEW                     SCREEN_HEIGHT_WITHOUT_STATUS_BAR - 100
+#define Y_DOWN_TABLEVIEW                     SCREEN_HEIGHT_WITHOUT_STATUS_BAR - 250
 #define DEFAULT_HEIGHT_HEADER                100.0f
 #define MIN_HEIGHT_HEADER                    10.0f
 #define DEFAULT_Y_OFFSET                     ([[UIScreen mainScreen] bounds].size.height == 480.0f) ? -200.0f : -250.0f
@@ -176,9 +176,13 @@
                           delay:0.1
                         options: UIViewAnimationOptionCurveEaseOut
                      animations:^{
-                         self.tableView.tableHeaderView     = [[UIView alloc] initWithFrame: CGRectMake(0.0, 0.0, self.view.frame.size.width, self.minHeighTableViewHeader)];
-                         self.mapView.frame                 = CGRectMake(0, FULL_Y_OFFSET, self.mapView.frame.size.width, self.heightMap);
-                         self.tableView.frame               = CGRectMake(0, self.Y_tableViewOnBottom, self.tableView.frame.size.width, self.tableView.frame.size.height);
+                         self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:
+                                                           CGRectMake(0.0,
+                                                                      0.0,
+                                                                      self.view.frame.size.width,
+                                                                      self.minHeighTableViewHeader)];
+                         self.mapView.frame = CGRectMake(0, FULL_Y_OFFSET, self.mapView.frame.size.width, self.heightMap);
+                         self.tableView.frame = CGRectMake(0, self.Y_tableViewOnBottom, self.tableView.frame.size.width, self.tableView.frame.size.height);
                      }
                      completion:^(BOOL finished){
                          // Disable cells selection
