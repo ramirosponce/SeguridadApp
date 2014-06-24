@@ -494,7 +494,7 @@
             break;
         case 3:
             height = 60.0;
-            if (self.complaint.isAnonymous)
+            if (!self.complaint.user)
                 height = 44.0;
             break;
         case 4:

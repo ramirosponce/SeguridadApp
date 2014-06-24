@@ -42,7 +42,7 @@ typedef void (^IsNotTrueCompletitionHandler) (NSDictionary* data, NSError* error
 
 + (void) runLoginRequestWithParams:(NSDictionary*)params completition:(LoginCompletitionHandler)completitionHandler;
 
-+ (void) runSendComplaintRequestWithParams:(NSDictionary*)params completition:(SendComplaintCompletitionHandler)completitionHandler;
++ (void) runSendComplaintRequestWithParams:(NSDictionary*)params token:(NSString*)token completition:(SendComplaintCompletitionHandler)completitionHandler;
 
 + (void) sendCommentWithParams:(NSDictionary*)params token:(NSString*)token completition:(SendCommentCompletitionHandler)completitionHandler;
 

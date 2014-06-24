@@ -21,6 +21,9 @@
 @interface ComplaintViewController ()
 {
     UIImage* chosenImg;
+    NSMutableArray* imagesToSend;
+    
+    
     NSString* finalImageName;
     NSString* icon_name;
     
@@ -46,6 +49,8 @@
     [super viewDidLoad];
     
     networkAux = [[NetworkAuxiliar alloc] initWithDelegate:self];
+    
+    imagesToSend = [[NSMutableArray alloc] initWithCapacity:0];
     chosenImg = nil;
     
     [self setupInterface];
@@ -61,9 +66,7 @@
     [self dismissImputController];
 }
 
-- (void) viewDidAppear:(BOOL)animated
-{
-    NSLog(@"-------- ******* --------");
+- (void) loginComplete{
     if ([UserHelper getUserToken]) {
         [anonymous setOn:NO];
         is_an_anonymous_complaint = NO;
@@ -263,9 +266,9 @@
         [params setObject:complaint_description forKey:@"descripcion"];
     }
     
-    NSString* region_title = [NSString stringWithFormat:@"%@: ",NSLocalizedString(@"Ubicacion", @"Ubicacion")];
-    NSString* region = [regionButtonAction.titleLabel.text stringByReplacingOccurrencesOfString:region_title withString:@""];
-    [params setObject:region forKey:@"region"];
+    //NSString* region_title = [NSString stringWithFormat:@"%@: ",NSLocalizedString(@"Ubicacion", @"Ubicacion")];
+    //NSString* region = [regionButtonAction.titleLabel.text stringByReplacingOccurrencesOfString:region_title withString:@""];
+    //[params setObject:region forKey:@"region"];
     
     NSString* position = [NSString stringWithFormat:@"%f,%f",point.coordinate.latitude, point.coordinate.longitude];
     [params setObject:position forKey:@"pos"];
@@ -285,6 +288,10 @@
     
     //[params setObject:@"[]" forKey:@"comentarios"];
     [params setObject:icon_name forKey:@"icon"];
+    
+    if (is_an_anonymous_complaint == NO) {
+        [params setObject:[NSNumber numberWithInt:0] forKey:@"anonym"];
+    }
     
     NSLog(@"PARAMETROS: %@",params);
     
@@ -337,18 +344,22 @@
     int images = 0;
     if (!photo2.hidden) {
         images += 1;
+        [imagesToSend addObject:photo1.image];
     }
     
     if (!photo3.hidden) {
         images += 1;
+        [imagesToSend addObject:photo2.image];
     }
     
     if (!photo4.hidden) {
         images += 1;
+        [imagesToSend addObject:photo3.image];
     }
     
     if (max_images_loaded) {
         images = 4;
+        [imagesToSend addObject:photo4.image];
     }
     
     NSLog(@"cantidad de imagenes para mandar: %i", images);
@@ -360,21 +371,52 @@
         return;
     }
     
-    [self checkImages];
-    return;
-    
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
     hud.labelText = NSLocalizedString(@"Realizando la denuncia...", @"Realizando la denuncia...");
     
-    if (chosenImg) {
-        [networkAux uploadPhoto:chosenImg];
+    //if (chosenImg) {
+    //    [networkAux uploadPhoto:chosenImg];
+    //}
+    
+    // chequeamos las imagens primero
+    [self checkImages];
+    
+    if ([imagesToSend count] > 0) {
+        
+        UIImage* image1 = nil;
+        UIImage* image2 = nil;
+        UIImage* image3 = nil;
+        UIImage* image4 = nil;
+        
+        if (!photo2.hidden) {
+            image1 = photo1.image;
+        }
+        
+        if (!photo3.hidden) {
+            image2 = photo2.image;
+        }
+        
+        if (!photo4.hidden) {
+            image3 = photo3.image;
+        }
+        
+        if (max_images_loaded) {
+            image4 = photo4.image;
+        }
+        
+        [networkAux uploadPhotos:image1 image2:image2 image3:image3 image4:image4];
     }else{
         
         NSDictionary* params = [self createParams];
         
-        [NetworkManager runSendComplaintRequestWithParams:params completition:^(NSDictionary *data, NSError *error) {
+        NSString* token = nil;
+        if (is_an_anonymous_complaint == NO) {
+            token = [UserHelper getUserToken];
+        }
+        
+        [NetworkManager runSendComplaintRequestWithParams:params token:token completition:^(NSDictionary *data, NSError *error) {
             [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
             
             if (error) {
@@ -382,7 +424,6 @@
             }else{
                 [self.navigationController popViewControllerAnimated:YES];
             }
-            
         }];
     }
 }
@@ -731,8 +772,13 @@
     //NSLog(@"finalImageName: -%@-", finalImageName);
     
     NSDictionary* params = [self createParams];
-    [NetworkManager runSendComplaintRequestWithParams:params completition:^(NSDictionary *data, NSError *error) {
-        
+    
+    NSString* token = nil;
+    if (is_an_anonymous_complaint == NO) {
+        token = [UserHelper getUserToken];
+    }
+    
+    [NetworkManager runSendComplaintRequestWithParams:params token:token completition:^(NSDictionary *data, NSError *error) {
         [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
         [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
         
@@ -741,7 +787,6 @@
         }else{
             [self.navigationController popViewControllerAnimated:YES];
         }
-        
     }];
 }
 
@@ -761,6 +806,8 @@
         is_an_anonymous_complaint = YES;
     }else if ([[alertView buttonTitleAtIndex:buttonIndex] isEqualToString:NSLocalizedString(@"Si", @"Si")]) {
         if (![UserHelper getUserToken]) {
+            [anonymous setOn:YES];
+            is_an_anonymous_complaint = YES;
             [self performSegueWithIdentifier:@"toLoginSegue" sender:nil];
         }else{
             is_an_anonymous_complaint = NO;

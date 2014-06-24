@@ -201,7 +201,9 @@
                 [[[UIAlertView alloc] initWithTitle:nil message:NSLocalizedString(@"Se ha registrado correctamente, revise su casilla de correo electronico para confirmar su email. Una vez confirmado, usted puede realizar el login correctamente.","Se ha registrado correctamente, revise su casilla de correo electronico para confirmar su email. Una vez confirmado, usted puede realizar el login correctamente.") delegate:nil cancelButtonTitle:NSLocalizedString(@"Ok", @"Ok") otherButtonTitles:nil] show];
                 
                 if (self.originController) {
-                    
+                    if ([self.originController respondsToSelector:@selector(loginComplete)]) {
+                        [self.originController performSelector:@selector(loginComplete)];
+                    }
                     [self.navigationController popToViewController:self.originController animated:YES];
                     
                 }else{

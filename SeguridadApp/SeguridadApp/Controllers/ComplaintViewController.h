@@ -68,5 +68,6 @@
 - (IBAction)hourButtonAction:(id)sender;
 - (IBAction)complaintButtonAction:(id)sender;
 
+- (void) loginComplete;
 
 @end

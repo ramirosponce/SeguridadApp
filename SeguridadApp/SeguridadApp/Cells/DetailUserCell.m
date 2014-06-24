@@ -22,7 +22,7 @@
 
 - (void) populateCell:(User*)user isAnonymous:(BOOL)isAnonymous
 {
-    if (isAnonymous) {
+    if (!user) {
         usernameLabel.hidden = YES;
         profile_picture.hidden = YES;
         extraLabel.hidden = YES;
@@ -33,11 +33,11 @@
         extraLabel.hidden = NO;
         anonymousLabel.hidden = YES;
         
-        usernameLabel.text = user.username;
+        usernameLabel.text = [NSString stringWithFormat:@"%@ %@", user.user_first_name, user.user_last_name];
         
-        [profile_picture setClipsToBounds:YES];
-        [profile_picture.layer setCornerRadius:(float)(profile_picture.frame.size.width/2)];
-        [profile_picture setImage:[UIImage imageNamed:user.profile_image_name]];
+        //[profile_picture setClipsToBounds:YES];
+        //[profile_picture.layer setCornerRadius:(float)(profile_picture.frame.size.width/2)];
+        //[profile_picture setImage:[UIImage imageNamed:user.profile_image_name]];
     }
 }
 

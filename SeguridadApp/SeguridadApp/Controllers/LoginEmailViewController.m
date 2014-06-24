@@ -139,6 +139,10 @@
                 SideMenuViewController* sideMenu = (SideMenuViewController*)container.leftMenuViewController;
                 [sideMenu changeUserStatus];
                 
+                
+                if ([self.originController respondsToSelector:@selector(loginComplete)]) {
+                    [self.originController performSelector:@selector(loginComplete)];
+                }
                 [self.navigationController popToViewController:self.originController animated:YES];
                 
             }else{

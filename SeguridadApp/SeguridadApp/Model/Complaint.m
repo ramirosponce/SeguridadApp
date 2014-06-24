@@ -76,6 +76,10 @@
             self.frecuentemente = [[dictionary objectForKey:@"frecuentemente"] boolValue];
         }
         
+        if ([AppHelper existObject:@"usr" in:dictionary]) {
+            self.user = [[User alloc] initWithData:[dictionary objectForKey:@"usr"]];
+        }
+        
         self.isAnonymous = YES;
         
         //self.isAnonymous = [[dictionary objectForKey:@"isAnonymous"] boolValue];

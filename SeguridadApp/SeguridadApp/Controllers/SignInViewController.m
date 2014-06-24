@@ -127,6 +127,9 @@
                         
                         // go to main scren or do something
                         if (self.originController) {
+                            if ([self.originController respondsToSelector:@selector(loginComplete)]) {
+                                [self.originController performSelector:@selector(loginComplete)];
+                            }
                             [self.navigationController popToViewController:self.originController animated:YES];
                         }else{
                             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
@@ -157,6 +160,9 @@
                 MFSideMenuContainerViewController *container = (MFSideMenuContainerViewController*)[navigationController parentViewController];
                 SideMenuViewController* sideMenu = (SideMenuViewController*)container.leftMenuViewController;
                 [sideMenu changeUserStatus];
+                if ([self.originController respondsToSelector:@selector(loginComplete)]) {
+                    [self.originController performSelector:@selector(loginComplete)];
+                }
                 [self.navigationController popToViewController:self.originController animated:YES];
             
             }else{

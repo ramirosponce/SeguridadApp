@@ -83,11 +83,16 @@
     if (complaint.frecuentemente) {
         complaint_date.text = NSLocalizedString(@"Esto sucede frecuentemente", @"Esto sucede frecuentemente");
     }else{
-        NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"];
-        NSDate* date = [dateFormatter dateFromString:complaint.complaint_date];
-        [dateFormatter setDateFormat:@"dd/MM/yyyy"];
-        complaint_date.text = [NSString stringWithFormat:@"%@ - %@", [dateFormatter stringFromDate:date], complaint.hora];
+        
+        if (complaint.complaint_date != nil && complaint.hora != nil) {
+            NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+            [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"];
+            NSDate* date = [dateFormatter dateFromString:complaint.complaint_date];
+            [dateFormatter setDateFormat:@"dd/MM/yyyy"];
+            complaint_date.text = [NSString stringWithFormat:@"%@ - %@", [dateFormatter stringFromDate:date], complaint.hora];
+        }else{
+            complaint_date.text = @"";
+        }
     }
     
     
