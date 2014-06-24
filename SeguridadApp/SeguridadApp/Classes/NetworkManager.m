@@ -151,7 +151,7 @@
     [self PostRequest:API_DENUNCIA_SEARCH params:params completitionHandler:^(AFHTTPRequestOperation *operation, id responseObject, NSError *error) {
         
         if (!error) {
-            NSLog(@"%@", responseObject);
+            //NSLog(@"%@", responseObject);
             NSMutableArray* complaints = [NSMutableArray arrayWithCapacity:0];
             
             NSArray* response_array = (NSArray*)responseObject;
@@ -172,8 +172,7 @@
 {
     NSDictionary* params = @{@"id":byID};
     [self PostRequest:API_DENUNCIA_FIND_BY_ID params:params completitionHandler:^(AFHTTPRequestOperation *operation, id responseObject, NSError *error) {
-        
-        NSLog(@"Response: %@",responseObject);
+        //NSLog(@"Response: %@",responseObject);
         //NSLog(@"Error: %@",operation.responseObject);
         if (!error) {
             Complaint* complaint = [[Complaint alloc] initWithData:responseObject];

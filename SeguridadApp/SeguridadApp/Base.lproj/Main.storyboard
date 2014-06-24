@@ -1165,22 +1165,86 @@
                                             <action selector="kindOfComplaintAction:" destination="cmM-8U-17u" eventType="touchUpInside" id="iWA-ts-I5c"/>
                                         </connections>
                                     </button>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera_empty.png" id="N4Q-KM-5T1">
+                                    <view contentMode="scaleToFill" id="3Jn-ie-Bay" customClass="PhotoContainer">
                                         <rect key="frame" x="8" y="605" width="70" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera_empty.png" id="sGi-2j-XfM">
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera_empty.png" id="N4Q-KM-5T1">
+                                                <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" id="biq-dt-Sve">
+                                                <rect key="frame" x="5" y="59" width="60" height="2"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="progressTintColor" red="0.2314793202" green="0.5163369766" blue="0.2111703956" alpha="1" colorSpace="calibratedRGB"/>
+                                            </progressView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="photoImage" destination="N4Q-KM-5T1" id="cAD-py-oAg"/>
+                                            <outlet property="uploadProgress" destination="biq-dt-Sve" id="uVt-G9-Cyb"/>
+                                        </connections>
+                                    </view>
+                                    <view contentMode="scaleToFill" id="9sP-cz-iLP" customClass="PhotoContainer">
                                         <rect key="frame" x="86" y="605" width="70" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera_empty.png" id="afp-I2-ckp">
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera_empty.png" id="sGi-2j-XfM">
+                                                <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" id="IF5-XB-Vrw">
+                                                <rect key="frame" x="5" y="59" width="60" height="2"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="progressTintColor" red="0.2314793202" green="0.5163369766" blue="0.2111703956" alpha="1" colorSpace="calibratedRGB"/>
+                                            </progressView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="photoImage" destination="sGi-2j-XfM" id="Lac-uq-yg0"/>
+                                            <outlet property="uploadProgress" destination="IF5-XB-Vrw" id="lGP-On-Tbk"/>
+                                        </connections>
+                                    </view>
+                                    <view contentMode="scaleToFill" id="7U0-YV-bPq" customClass="PhotoContainer">
                                         <rect key="frame" x="164" y="605" width="70" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera_empty.png" id="htg-FE-V6w">
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera_empty.png" id="afp-I2-ckp">
+                                                <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" id="f2v-K1-lvA">
+                                                <rect key="frame" x="5" y="59" width="60" height="2"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="progressTintColor" red="0.2314793202" green="0.5163369766" blue="0.2111703956" alpha="1" colorSpace="calibratedRGB"/>
+                                            </progressView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="photoImage" destination="afp-I2-ckp" id="MFe-Y7-JUY"/>
+                                            <outlet property="uploadProgress" destination="f2v-K1-lvA" id="KnW-o6-dEL"/>
+                                        </connections>
+                                    </view>
+                                    <view contentMode="scaleToFill" id="ccm-9j-Etf" customClass="PhotoContainer">
                                         <rect key="frame" x="242" y="605" width="70" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera_empty.png" id="htg-FE-V6w">
+                                                <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" id="lZT-eD-Y4A">
+                                                <rect key="frame" x="5" y="59" width="60" height="2"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="progressTintColor" red="0.2314793202" green="0.5163369766" blue="0.2111703956" alpha="1" colorSpace="calibratedRGB"/>
+                                            </progressView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="photoImage" destination="htg-FE-V6w" id="dRm-TJ-bNi"/>
+                                            <outlet property="uploadProgress" destination="lZT-eD-Y4A" id="UeA-vT-CxI"/>
+                                        </connections>
+                                    </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="mFw-vi-z6m" customClass="GBFlatButton">
                                         <rect key="frame" x="60" y="716" width="200" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1263,10 +1327,10 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <outlet property="hourButton" destination="TjH-nJ-Xmg" id="imR-Fq-MEs"/>
                         <outlet property="kindOfComplaint" destination="fhT-yz-b53" id="KBv-DP-tkf"/>
                         <outlet property="locationView" destination="miu-Ty-zLV" id="k6s-xr-FbI"/>
-                        <outlet property="photo1" destination="N4Q-KM-5T1" id="ocI-Ld-qI4"/>
-                        <outlet property="photo2" destination="sGi-2j-XfM" id="Kja-Wc-40g"/>
-                        <outlet property="photo3" destination="afp-I2-ckp" id="CU9-oa-q7l"/>
-                        <outlet property="photo4" destination="htg-FE-V6w" id="Mbg-vR-u4i"/>
+                        <outlet property="photo1" destination="3Jn-ie-Bay" id="HRw-VN-sAc"/>
+                        <outlet property="photo2" destination="9sP-cz-iLP" id="dto-7B-PE3"/>
+                        <outlet property="photo3" destination="7U0-YV-bPq" id="Lwa-yO-Nri"/>
+                        <outlet property="photo4" destination="ccm-9j-Etf" id="2pX-Bc-OYz"/>
                         <outlet property="regionButtonAction" destination="nYA-qb-V9F" id="uxy-1x-Sdu"/>
                         <segue destination="cHm-am-y6s" kind="push" identifier="toLoginSegue" id="1bJ-Hc-rtb"/>
                     </connections>

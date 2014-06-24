@@ -30,6 +30,9 @@
     int image_tag_selected;
     BOOL max_images_loaded;
     BOOL is_an_anonymous_complaint;
+    
+    PhotoContainer* next_photo_available;
+    PhotoContainer* current_container;
 }
 @end
 
@@ -111,9 +114,16 @@
     [photo4 addGestureRecognizer:pictureTapRecognizer4];
     
     photo1.hidden = NO;
+    [photo1 loadContainer];
+    
     photo2.hidden = YES;
+    [photo2 loadContainer];
+    
     photo3.hidden = YES;
+    [photo3 loadContainer];
+    
     photo4.hidden = YES;
+    [photo4 loadContainer];
     
     image_tag_selected = photo1.tag;
     max_images_loaded = NO;
@@ -277,9 +287,10 @@
     [params setObject:[NSNumber numberWithInt:0] forKey:@"escierto"];
     [params setObject:[NSNumber numberWithInt:0] forKey:@"nocierto"];
     
-    if (finalImageName) {
-        NSArray* pictures = [NSArray arrayWithObject:finalImageName];
-        [params setObject:pictures forKey:@"attachs"];
+    if ([imagesToSend count] > 0) {
+        [params setObject:imagesToSend forKey:@"attachs"];
+        //NSArray* pictures = [NSArray arrayWithObject:finalImageName];
+        //[params setObject:pictures forKey:@"attachs"];
         //[params setObject:pictures forKey:@"fotos"];
     }else{
         //[params setObject:@"[]" forKey:@"attachs"];
@@ -344,28 +355,57 @@
     int images = 0;
     if (!photo2.hidden) {
         images += 1;
-        [imagesToSend addObject:photo1.image];
+        [imagesToSend addObject:photo1.photoImage.image];
     }
     
     if (!photo3.hidden) {
         images += 1;
-        [imagesToSend addObject:photo2.image];
+        [imagesToSend addObject:photo2.photoImage.image];
     }
     
     if (!photo4.hidden) {
         images += 1;
-        [imagesToSend addObject:photo3.image];
+        [imagesToSend addObject:photo3.photoImage.image];
     }
     
     if (max_images_loaded) {
         images = 4;
-        [imagesToSend addObject:photo4.image];
+        [imagesToSend addObject:photo4.photoImage.image];
     }
     
     NSLog(@"cantidad de imagenes para mandar: %i", images);
 }
 
 - (IBAction)complaintButtonAction:(id)sender
+{
+    if (![self checkFields]) {
+        return;
+    }
+    
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+    hud.labelText = NSLocalizedString(@"Realizando la denuncia...", @"Realizando la denuncia...");
+    
+    NSDictionary* params = [self createParams];
+    
+    NSString* token = nil;
+    if (is_an_anonymous_complaint == NO) {
+        token = [UserHelper getUserToken];
+    }
+    
+    [NetworkManager runSendComplaintRequestWithParams:params token:token completition:^(NSDictionary *data, NSError *error) {
+        [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
+        
+        if (error) {
+            [[[UIAlertView alloc] initWithTitle:nil message:NSLocalizedString(@"No se pudo realizar la denuncia, pruebe mas tarde nuevamente o chequee si conexion a internet",@"No se pudo realizar la denuncia, pruebe mas tarde nuevamente o chequee si conexion a internet") delegate:nil cancelButtonTitle:NSLocalizedString(@"Ok", @"Ok") otherButtonTitles:nil] show];
+        }else{
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+    }];
+}
+
+/*- (IBAction)complaintButtonAction:(id)sender
 {
     if (![self checkFields]) {
         return;
@@ -391,19 +431,19 @@
         UIImage* image4 = nil;
         
         if (!photo2.hidden) {
-            image1 = photo1.image;
+            image1 = photo1.photoImage.image;
         }
         
         if (!photo3.hidden) {
-            image2 = photo2.image;
+            image2 = photo2.photoImage.image;
         }
         
         if (!photo4.hidden) {
-            image3 = photo3.image;
+            image3 = photo3.photoImage.image;
         }
         
         if (max_images_loaded) {
-            image4 = photo4.image;
+            image4 = photo4.photoImage.image;
         }
         
         [networkAux uploadPhotos:image1 image2:image2 image3:image3 image4:image4];
@@ -426,7 +466,7 @@
             }
         }];
     }
-}
+}*/
 
 - (void)addImageAction:(UITapGestureRecognizer *)gestureRecognizer
 {
@@ -550,22 +590,27 @@
     chosenImg = chosenImage;
     
     UIImageView* photo = nil;
-    UIImageView* next_photo_available = nil;
+    current_container = nil;
+    next_photo_available = nil;
     switch (image_tag_selected) {
         case 1:
-            photo = photo1;
+            photo = photo1.photoImage;
+            current_container = photo1;
             next_photo_available = photo2;
             break;
         case 2:
-            photo = photo2;
+            photo = photo2.photoImage;
+            current_container = photo2;
             next_photo_available = photo3;
             break;
         case 3:
-            photo = photo3;
+            photo = photo3.photoImage;
+            current_container = photo3;
             next_photo_available = photo4;
             break;
         case 4:
-            photo = photo4;
+            photo = photo4.photoImage;
+            current_container = photo4;
             max_images_loaded = YES;
             break;
     }
@@ -578,12 +623,15 @@
         photo.layer.borderWidth = 0.5f;
     }
     
-    if (next_photo_available) {
-        [next_photo_available setHidden:NO];
-    }
-    
     [picker dismissViewControllerAnimated:YES completion:NULL];
+    
+    // uploading picture to server
+    [complaintButton setEnabled:NO];
+    [networkAux uploadPhoto:chosenImage];
+    [current_container uploadPicture];
+    
 }
+
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
     [picker dismissViewControllerAnimated:YES completion:NULL];
@@ -765,7 +813,7 @@
 #pragma mark -
 #pragma mark NetworkAuxiliarDelegate methods
 
-- (void) connectionDidFinishSuccess:(NSString*) imagename
+/*- (void) connectionDidFinishSuccess:(NSString*) imagename
 {
     NSString* name = [imagename stringByReplacingOccurrencesOfString:@"\"" withString:@""];
     finalImageName = name;
@@ -788,11 +836,40 @@
             [self.navigationController popViewControllerAnimated:YES];
         }
     }];
+}*/
+
+/*- (void) connectionDidFinishError:(NSString*) error_message
+{
+    [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
+    [[[UIAlertView alloc] initWithTitle:nil message:error_message delegate:nil cancelButtonTitle:NSLocalizedString(@"Ok", @"Ok") otherButtonTitles:nil] show];
+}*/
+
+- (void) connectionDidFinishSuccess:(NSString*) imagename
+{
+    NSString* name = [imagename stringByReplacingOccurrencesOfString:@"\"" withString:@""];
+    [imagesToSend addObject:name];
+    //finalImageName = name;
+    
+    if (next_photo_available) {
+        [next_photo_available setHidden:NO];
+    }
+    
+    [current_container.uploadProgress setProgress:1.0];
+    [current_container setHidden:NO];
+    [current_container setUserInteractionEnabled:NO];
+    
+    [current_container stopProgress];
+    
+    [complaintButton setEnabled:YES];
 }
 
 - (void) connectionDidFinishError:(NSString*) error_message
 {
-    [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
+    [current_container stopProgress];
+    [current_container.photoImage setImage:[UIImage imageNamed:@"camera_empty.png"]];
+    
+    [complaintButton setEnabled:YES];
+    
     [[[UIAlertView alloc] initWithTitle:nil message:error_message delegate:nil cancelButtonTitle:NSLocalizedString(@"Ok", @"Ok") otherButtonTitles:nil] show];
 }
 

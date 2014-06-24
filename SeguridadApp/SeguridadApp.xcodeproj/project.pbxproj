@@ -56,6 +56,7 @@
 		C64945F319228D6700C813A3 /* UIColor+GBFlatButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C64945F019228D6700C813A3 /* UIColor+GBFlatButton.m */; };
 		C64945F7192295DE00C813A3 /* DetailFeelingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C64945F5192295DE00C813A3 /* DetailFeelingCell.m */; };
 		C64945F8192295DE00C813A3 /* DetailFeelingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C64945F6192295DE00C813A3 /* DetailFeelingCell.xib */; };
+		C649948F19592BFF009B896D /* PhotoContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = C649948E19592BFF009B896D /* PhotoContainer.m */; };
 		C64E75AA193777C300EEC815 /* RegionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C64E75A9193777C300EEC815 /* RegionCell.m */; };
 		C64E75AD193778A000EEC815 /* SelectRegionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C64E75AC193778A000EEC815 /* SelectRegionViewController.m */; };
 		C655E2A5191AD20500C7E2F0 /* ComplaintViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C655E2A4191AD20500C7E2F0 /* ComplaintViewController.m */; };
@@ -280,6 +281,8 @@
 		C64945F4192295DE00C813A3 /* DetailFeelingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailFeelingCell.h; sourceTree = "<group>"; };
 		C64945F5192295DE00C813A3 /* DetailFeelingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailFeelingCell.m; sourceTree = "<group>"; };
 		C64945F6192295DE00C813A3 /* DetailFeelingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailFeelingCell.xib; sourceTree = "<group>"; };
+		C649948D19592BFF009B896D /* PhotoContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoContainer.h; sourceTree = "<group>"; };
+		C649948E19592BFF009B896D /* PhotoContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoContainer.m; sourceTree = "<group>"; };
 		C64E75A8193777C300EEC815 /* RegionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegionCell.h; sourceTree = "<group>"; };
 		C64E75A9193777C300EEC815 /* RegionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegionCell.m; sourceTree = "<group>"; };
 		C64E75AB193778A000EEC815 /* SelectRegionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectRegionViewController.h; sourceTree = "<group>"; };
@@ -672,6 +675,8 @@
 				C69914481932B4310076A716 /* UserHelper.m */,
 				C625A9EC193585CB009D8D5A /* ErrorHelper.h */,
 				C625A9ED193585CB009D8D5A /* ErrorHelper.m */,
+				C649948D19592BFF009B896D /* PhotoContainer.h */,
+				C649948E19592BFF009B896D /* PhotoContainer.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -1276,6 +1281,7 @@
 				C6B44484191C1F1F005C7056 /* CategoryFilterCell.m in Sources */,
 				C6D2BD7C1918333100D7BA0A /* SideMenuViewController.m in Sources */,
 				C6ED61D81923C6E7004F7FFF /* DetailCommentCell.m in Sources */,
+				C649948F19592BFF009B896D /* PhotoContainer.m in Sources */,
 				C6A46C9C191C4232000F431B /* GlobalManager.m in Sources */,
 				C6894A2B192BD36F0096A54D /* AFHTTPRequestOperation.m in Sources */,
 				C6894A31192BD36F0096A54D /* AFURLRequestSerialization.m in Sources */,

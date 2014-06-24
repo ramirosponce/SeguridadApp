@@ -11,6 +11,8 @@
 #import "Region.h"
 #import "NetworkAuxiliar.h"
 
+#import "PhotoContainer.h"
+
 @protocol ComplaintDelegate <NSObject>
 
 @optional
@@ -24,10 +26,10 @@
 {
     __weak IBOutlet UIImageView* photoImageView;
     
-    __weak IBOutlet UIImageView* photo1;
-    __weak IBOutlet UIImageView* photo2;
-    __weak IBOutlet UIImageView* photo3;
-    __weak IBOutlet UIImageView* photo4;
+    __weak IBOutlet PhotoContainer* photo1;
+    __weak IBOutlet PhotoContainer* photo2;
+    __weak IBOutlet PhotoContainer* photo3;
+    __weak IBOutlet PhotoContainer* photo4;
     
     __weak IBOutlet UITextField* complaintTitle;
     __weak IBOutlet UITextView* commentView;
