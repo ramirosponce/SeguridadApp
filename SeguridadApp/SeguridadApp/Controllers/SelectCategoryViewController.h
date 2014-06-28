@@ -15,5 +15,5 @@
 }
 
 @property (nonatomic, assign) id <ComplaintDelegate> delegate;
-
+@property (nonatomic, strong) NSString* category_selected_text;
 @end

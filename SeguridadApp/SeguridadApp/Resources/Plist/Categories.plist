@@ -4,97 +4,123 @@
 <array>
 	<dict>
 		<key>_id</key>
-		<string>536c79694b9c10f0fb4be618</string>
+		<string>53aa31b7935d3ba171cfbea7</string>
 		<key>icon</key>
-		<string>alcohol.png</string>
+		<string>1</string>
 		<key>nombre</key>
-		<string>Artículos ilegales</string>
-		<key>subcategorias</key>
-		<array>
-			<string>Contrabando</string>
-			<string>Drogas</string>
-			<string>Alcohol a menores</string>
-			<string>Cosas robada</string>
-		</array>
+		<string>Accidente de Transito</string>
 	</dict>
 	<dict>
 		<key>_id</key>
-		<string>536c79f14b9c10f0fb4be61c</string>
+		<string>53aa31ce935d3ba171cfbea8</string>
 		<key>icon</key>
-		<string>otros.png</string>
+		<string>2</string>
 		<key>nombre</key>
-		<string>Otros</string>
-		<key>subcategorias</key>
-		<array>
-			<string>Anciano vulnerable</string>
-			<string>Intento de homicidio</string>
-			<string>Suicidio</string>
-			<string>Trata de personas</string>
-			<string>Transporte ilegal</string>
-			<string>Indigencia</string>
-			<string>Otros</string>
-		</array>
+		<string>Obstrucción del Transito</string>
 	</dict>
 	<dict>
 		<key>_id</key>
-		<string>536c79d94b9c10f0fb4be61b</string>
+		<string>53aa3201935d3ba171cfbeab</string>
 		<key>icon</key>
-		<string>terrorismo.png</string>
+		<string>5</string>
 		<key>nombre</key>
-		<string>Terrorismo</string>
-		<key>subcategorias</key>
-		<array>
-			<string>Atentado terrorista</string>
-			<string>Secuestro</string>
-			<string>Existencia de explosivos</string>
-			<string>Otros</string>
-		</array>
+		<string>Congestionamiento Vehicular</string>
 	</dict>
 	<dict>
 		<key>_id</key>
-		<string>536c79a54b9c10f0fb4be61a</string>
+		<string>53aa3217935d3ba171cfbeac</string>
 		<key>icon</key>
-		<string>homicidio.png</string>
+		<string>6</string>
 		<key>nombre</key>
-		<string>Homicidios</string>
-		<key>subcategorias</key>
-		<array>
-			<string>Con arma de fuego</string>
-			<string>Con arma blanca</string>
-			<string>Otros</string>
-		</array>
+		<string>Semáforo Dañado</string>
 	</dict>
 	<dict>
 		<key>_id</key>
-		<string>536c79494b9c10f0fb4be617</string>
+		<string>53aa3230935d3ba171cfbead</string>
+		<key>icon</key>
+		<string>7</string>
+		<key>nombre</key>
+		<string>Perturbación al orden público y a la tranquilidad</string>
+	</dict>
+	<dict>
+		<key>_id</key>
+		<string>53aa3254935d3ba171cfbeaf</string>
+		<key>icon</key>
+		<string>9</string>
+		<key>nombre</key>
+		<string>Armas</string>
+	</dict>
+	<dict>
+		<key>_id</key>
+		<string>53aa3273935d3ba171cfbeb1</string>
+		<key>icon</key>
+		<string>11</string>
+		<key>nombre</key>
+		<string>Menores de edad</string>
+	</dict>
+	<dict>
+		<key>_id</key>
+		<string>53aa32a6935d3ba171cfbeb3</string>
+		<key>icon</key>
+		<string>13</string>
+		<key>nombre</key>
+		<string>Grupos criminales</string>
+	</dict>
+	<dict>
+		<key>_id</key>
+		<string>53aa32c1935d3ba171cfbeb4</string>
+		<key>icon</key>
+		<string>14</string>
+		<key>nombre</key>
+		<string>Fraudes / Estafas</string>
+	</dict>
+	<dict>
+		<key>_id</key>
+		<string>53aa31dd935d3ba171cfbea9</string>
 		<key>icon</key>
 		<string>robo.png</string>
 		<key>nombre</key>
-		<string>Hurtos</string>
-		<key>subcategorias</key>
-		<array>
-			<string>Fleteo</string>
-			<string>Raponazo</string>
-			<string>En residencia</string>
-			<string>Automóvil</string>
-			<string>Moto</string>
-			<string>Bicicleta</string>
-			<string>Celular</string>
-		</array>
+		<string>Robo de Vehículo</string>
 	</dict>
 	<dict>
 		<key>_id</key>
-		<string>536c798b4b9c10f0fb4be619</string>
+		<string>53aa31ef935d3ba171cfbeaa</string>
+		<key>icon</key>
+		<string>robo.png</string>
+		<key>nombre</key>
+		<string>Robo Piezas Vehículo</string>
+	</dict>
+	<dict>
+		<key>_id</key>
+		<string>53aa3243935d3ba171cfbeae</string>
 		<key>icon</key>
 		<string>violencia.png</string>
 		<key>nombre</key>
 		<string>Violencia</string>
-		<key>subcategorias</key>
-		<array>
-			<string>Violencia intrafamiliar</string>
-			<string>Lesiones personales</string>
-			<string>Abuso de autoridad</string>
-		</array>
+	</dict>
+	<dict>
+		<key>_id</key>
+		<string>53aa3263935d3ba171cfbeb0</string>
+		<key>icon</key>
+		<string>homicidio.png</string>
+		<key>nombre</key>
+		<string>Homicidios</string>
+	</dict>
+	<dict>
+		<key>_id</key>
+		<string>53aa328b935d3ba171cfbeb2</string>
+		<key>icon</key>
+		<string>terrorismo.png</string>
+		<key>nombre</key>
+		<string>Terrorismo</string>
+	</dict>
+	<dict>
+		<key>_id</key>
+		<string>53aa32d3935d3ba171cfbeb5</string>
+		<key>icon</key>
+		<string>otros.png</string>
+		<key>nombre</key>
+		<string>Otros</string>
 	</dict>
 </array>
 </plist>

@@ -19,8 +19,10 @@
     __weak IBOutlet UITableView* complaintTableView;
     __weak IBOutlet UIView* mapLeftTab;
     __weak IBOutlet GBFlatButton* complaintButton;
+    __weak IBOutlet UIButton* refresh_button;
 }
 
 - (IBAction)complaintAction:(id)sender;
+- (IBAction)refreshAction:(id)sender;
 
 @end

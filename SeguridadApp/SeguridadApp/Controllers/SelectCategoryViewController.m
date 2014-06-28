@@ -79,7 +79,13 @@
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     
     ComplaintType* category = [categories objectAtIndex:indexPath.row];
-    [cell populateCell:category.name];
+    
+    BOOL isSelected = NO;
+    if ([category.name isEqualToString:self.category_selected_text]) {
+        isSelected = YES;
+    }
+    
+    [cell populateCell:category.name isSelected:isSelected];
     
     return cell;
 }
@@ -87,8 +93,17 @@
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     ComplaintType* category = [categories objectAtIndex:indexPath.row];
-    [self performSegueWithIdentifier:@"subcategoriesSegue" sender:category];
     
+    if (self.delegate != nil && [self.delegate respondsToSelector:@selector(didFinishCategorySelection:subcategory:iconname:)]) {
+        [self.delegate didFinishCategorySelection:category.name subcategory:nil iconname:category.icon_name];
+    }
+    [self dismissViewControllerAnimated:YES completion:nil];
+    //[self performSegueWithIdentifier:@"subcategoriesSegue" sender:category];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 60.0;
 }
 
 #pragma mark -

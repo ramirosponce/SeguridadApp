@@ -271,9 +271,29 @@
     
     if (textView.text.length == 0) return;
     
-    if (![UserHelper getUserToken]) {
-        [[[UIAlertView alloc] initWithTitle:nil message:NSLocalizedString(@"Para poder realizar un comentario debe estar logueado.", @"Para poder realizar un comentario debe estar logueado") delegate:self cancelButtonTitle:NSLocalizedString(@"Ok", @"Ok") otherButtonTitles:nil] show];
-        return;
+    NSString* title = NSLocalizedString(@"Advertencia", @"Advertencia");
+    NSString* message = NSLocalizedString(@"Desea que se publiquen sus datos al realizar su comentario?", @"Desea que se publiquen sus datos al realizar su comentario?");
+    
+    [[[UIAlertView alloc] initWithTitle:title
+                                message:message
+                               delegate:self
+                      cancelButtonTitle:NSLocalizedString(@"No", @"No")
+                      otherButtonTitles:NSLocalizedString(@"Si", @"Si"),nil] show];
+    
+}
+
+- (void) sendAnonymuos:(BOOL)isAnonymuos
+{
+    NSString* user_token = nil;
+    
+    if (isAnonymuos == NO) {
+        
+        if (![UserHelper getUserToken]) {
+            [[[UIAlertView alloc] initWithTitle:nil message:NSLocalizedString(@"Para poder realizar un comentario debe estar logueado.", @"Para poder realizar un comentario debe estar logueado") delegate:self cancelButtonTitle:NSLocalizedString(@"Ok", @"Ok") otherButtonTitles:nil] show];
+            return;
+        }
+        
+        user_token = [UserHelper getUserToken];
     }
     
     NSMutableDictionary* params = [NSMutableDictionary dictionary];
@@ -283,7 +303,7 @@
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
     hud.labelText = NSLocalizedString(@"Enviando...", @"Enviando...");
     
-    [NetworkManager sendCommentWithParams:params token:[UserHelper getUserToken] completition:^(NSDictionary *data, NSError *error, NSString *error_message) {
+    [NetworkManager sendCommentWithParams:params token:user_token completition:^(NSDictionary *data, NSError *error, NSString *error_message) {
         
         [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
         
@@ -683,8 +703,14 @@
 {
     if ([[alertView buttonTitleAtIndex:buttonIndex] isEqualToString:NSLocalizedString(@"Ok", @"Ok")]) {
         [self performSegueWithIdentifier:@"toLoginSegue" sender:nil];
+    }else if ([[alertView buttonTitleAtIndex:buttonIndex] isEqualToString:NSLocalizedString(@"Si", @"Si")]) {
+        [self sendAnonymuos:NO];
+    }else if ([[alertView buttonTitleAtIndex:buttonIndex] isEqualToString:NSLocalizedString(@"No", @"No")]) {
+        [self sendAnonymuos:YES];
     }
 }
+
+
 
 #pragma mark -
 #pragma mark AlertViewDelegate methods

@@ -11,8 +11,9 @@
 @interface CategoryCell : UITableViewCell
 {
     __weak IBOutlet UILabel* cell_title;
+    __weak IBOutlet UIImageView* cell_check_selected;
 }
 
-- (void) populateCell:(NSString*)title;
+- (void) populateCell:(NSString*)title isSelected:(BOOL)selected;
 
 @end

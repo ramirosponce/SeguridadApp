@@ -138,8 +138,8 @@
     //NSString* position_title = [NSString stringWithFormat:@"%@: %@",NSLocalizedString(@"Ubicacion", @"Ubicacion"),NSLocalizedString(@"Mi ubicacion", @"Mi ubicacion")];
     //[regionButtonAction setTitle:position_title forState:UIControlStateNormal];
     [regionButtonAction setUserInteractionEnabled:NO];
-    [dateButton setTitle:NSLocalizedString(@"Fecha", @"Fecha") forState:UIControlStateNormal];
-    [hourButton setTitle:NSLocalizedString(@"Hora", @"Hora") forState:UIControlStateNormal];
+    [dateButton setTitle:NSLocalizedString(@"Elegir Fecha", @"Elegir Fecha") forState:UIControlStateNormal];
+    [hourButton setTitle:NSLocalizedString(@"Elegir Hora", @"Elegir Hora") forState:UIControlStateNormal];
     [complaintButton setTitle:NSLocalizedString(@"Denunciar", @"Denunciar") forState:UIControlStateNormal];
     
     
@@ -322,6 +322,7 @@
     
     SelectCategoryViewController* categoryView = [[categriesController viewControllers] objectAtIndex:0];
     categoryView.delegate = self;
+    categoryView.category_selected_text = kindOfComplaint.titleLabel.text;
     [self presentViewController:categriesController animated:YES completion:nil];
 }
 
@@ -626,7 +627,10 @@
     [picker dismissViewControllerAnimated:YES completion:NULL];
     
     // uploading picture to server
-    [complaintButton setEnabled:NO];
+    [complaintButton setUserInteractionEnabled:NO];
+    [complaintButton setTitle:NSLocalizedString(@"Cargando...", @"Cargando...") forState:UIControlStateNormal];
+    [complaintButton setTitle:NSLocalizedString(@"Cargando...", @"Cargando...") forState:UIControlStateSelected];
+    
     [networkAux uploadPhoto:chosenImage];
     [current_container uploadPicture];
     
@@ -770,8 +774,9 @@
 
 - (void) didFinishCategorySelection:(NSString*)category subcategory:(NSString*)subcategory iconname:(NSString*)iconname
 {
-    //NSLog(@"Icon name: %@",iconname);
-    [kindOfComplaint setTitle:[NSString stringWithFormat:@"%@ - %@", category, subcategory] forState:UIControlStateNormal];
+    //[kindOfComplaint setTitle:[NSString stringWithFormat:@"%@ - %@", category, subcategory] forState:UIControlStateNormal];
+    
+    [kindOfComplaint setTitle:[NSString stringWithFormat:@"%@", category] forState:UIControlStateNormal];
     icon_name = iconname;
 }
 
@@ -860,7 +865,9 @@
     
     [current_container stopProgress];
     
-    [complaintButton setEnabled:YES];
+    [complaintButton setUserInteractionEnabled:YES];
+    [complaintButton setTitle:NSLocalizedString(@"Denunciar", @"Denunciar") forState:UIControlStateNormal];
+    [complaintButton setTitle:NSLocalizedString(@"Denunciar", @"Denunciar") forState:UIControlStateSelected];
 }
 
 - (void) connectionDidFinishError:(NSString*) error_message
@@ -868,7 +875,9 @@
     [current_container stopProgress];
     [current_container.photoImage setImage:[UIImage imageNamed:@"camera_empty.png"]];
     
-    [complaintButton setEnabled:YES];
+    [complaintButton setUserInteractionEnabled:YES];
+    [complaintButton setTitle:NSLocalizedString(@"Denunciar", @"Denunciar") forState:UIControlStateNormal];
+    [complaintButton setTitle:NSLocalizedString(@"Denunciar", @"Denunciar") forState:UIControlStateSelected];
     
     [[[UIAlertView alloc] initWithTitle:nil message:error_message delegate:nil cancelButtonTitle:NSLocalizedString(@"Ok", @"Ok") otherButtonTitles:nil] show];
 }

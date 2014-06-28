@@ -91,6 +91,7 @@
 {
     [self GetRequest:API_TIPO_DENUNCIAS params:nil completitionHandler:^(AFHTTPRequestOperation *operation, id responseObject, NSError *error) {
         if (!error) {
+            
             NSMutableArray* types = [NSMutableArray arrayWithCapacity:0];
             
             NSArray* response_array = (NSArray*)responseObject;

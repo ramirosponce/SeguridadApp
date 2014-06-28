@@ -29,10 +29,13 @@
     [super setSelected:selected animated:animated];
 }
 
-- (void) populateCell:(NSString*)title
+- (void) populateCell:(NSString*)title isSelected:(BOOL)selected
 {
     [cell_title setTextColor:[UIColor grayColor]];
     cell_title.text = title;
+    
+    cell_check_selected.hidden = !selected;
+    
 }
 
 @end

@@ -150,10 +150,12 @@
     UISegmentedControl* segmentedControl = (UISegmentedControl*)sender;
     if (segmentedControl.selectedSegmentIndex == 0) {
         mapView.hidden = NO;
+        //refresh_button.hidden = NO;
         mapLeftTab.hidden = NO;
         complaintTableView.hidden = YES;
     }else{
         mapView.hidden = YES;
+        //refresh_button.hidden = YES;
         mapLeftTab.hidden = YES;
         complaintTableView.hidden = NO;
     }
@@ -180,6 +182,39 @@
 - (IBAction)complaintAction:(id)sender
 {
     [self performSegueWithIdentifier:@"complaintSegue" sender:nil];
+}
+
+- (IBAction)refreshAction:(id)sender
+{
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+    hud.labelText = NSLocalizedString(@"Loading...", @"Loading...");
+    
+    NSMutableDictionary* params = [NSMutableDictionary dictionary];
+    NSString* date_filter_selected = [self getFilterDateKey];
+    
+    // date filter
+    if (date_filter_selected) {
+        [params setObject:[NSNumber numberWithInt:1] forKey:date_filter_selected];
+    }
+    
+    // limit filter
+    [params setObject:[NSNumber numberWithInt:MAX_COMPLAINT_COUNT] forKey:@"limit"];
+    
+    // Input search
+    if (![[GlobalManager sharedManager].category_selected isEqualToString:NSLocalizedString(@"All", @"All")]) {
+        [params setObject:[GlobalManager sharedManager].category_selected forKey:@"inputSearch"];
+    }
+    
+    [NetworkManager runSearchRequestWithParams:params completition:^(NSArray *map_complaints, NSError *error) {
+        [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
+        data = [[NSMutableArray alloc] initWithArray:map_complaints];
+        
+        NSArray* annotations = [mapView annotations];
+        [mapView removeAnnotations:annotations];
+        
+        [self loadLocations:data];
+        [complaintTableView reloadData];
+    }];
 }
 
 #pragma mark -

@@ -862,7 +862,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ZvH-u7-yRr" customClass="GBFlatButton">
-                                <rect key="frame" x="70" y="444" width="180" height="40"/>
+                                <rect key="frame" x="106" y="444" width="180" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <color key="tintColor" red="0.2314793202" green="0.5163369766" blue="0.2111703956" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Denunciar">
@@ -871,6 +871,16 @@
                                 </state>
                                 <connections>
                                     <action selector="complaintAction:" destination="cXj-Ik-AkY" eventType="touchUpInside" id="Z4K-1X-D7t"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ch7-Do-uia">
+                                <rect key="frame" x="20" y="444" width="44" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="map_refresh.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="refreshAction:" destination="cXj-Ik-AkY" eventType="touchUpInside" id="VgL-Bw-7di"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -896,6 +906,7 @@
                         <outlet property="mapLeftTab" destination="Y6l-vK-eot" id="6bQ-6n-sIU"/>
                         <outlet property="mapView" destination="Zlb-EO-jCW" id="6yh-yS-nEH"/>
                         <outlet property="menuButtonItem" destination="g96-Nd-80L" id="QSC-aQ-WMR"/>
+                        <outlet property="refresh_button" destination="ch7-Do-uia" id="hRP-9Q-d6t"/>
                         <outlet property="segmentedMenu" destination="4gG-iJ-TWl" id="BlR-3x-vaa"/>
                         <segue destination="cmM-8U-17u" kind="push" identifier="complaintSegue" id="Kra-bO-Gub"/>
                         <segue destination="1jz-4D-MEK" kind="push" identifier="filterSegue" id="W5B-zR-yYg"/>
@@ -1155,7 +1166,7 @@
                                         <rect key="frame" x="20" y="336" width="280" height="180"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </mapView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="fhT-yz-b53">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" id="fhT-yz-b53">
                                         <rect key="frame" x="20" y="546" width="280" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Seleccione el tipo de denuncia">
@@ -1352,31 +1363,32 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CategoryCell" rowHeight="50" id="nVE-gs-ody" customClass="CategoryCell">
-                                        <rect key="frame" x="0.0" y="22" width="320" height="50"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CategoryCell" rowHeight="60" id="nVE-gs-ody" customClass="CategoryCell">
+                                        <rect key="frame" x="0.0" y="22" width="320" height="60"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nVE-gs-ody" id="Mri-0c-WkY">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="titulo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="e6z-wS-FK2">
-                                                    <rect key="frame" x="20" y="14" width="242" height="21"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="titulo" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="8" id="e6z-wS-FK2">
+                                                    <rect key="frame" x="20" y="5" width="258" height="48"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" id="rPj-Iq-aJo">
-                                                    <rect key="frame" x="0.0" y="47" width="320" height="1"/>
+                                                    <rect key="frame" x="0.0" y="57" width="320" height="1"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                     <color key="backgroundColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                                 </view>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="filter_arrow.png" id="nuG-ad-4UE">
-                                                    <rect key="frame" x="288" y="15" width="12" height="19"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="filter_checkmark.png" id="P7f-jl-kds">
+                                                    <rect key="frame" x="286" y="21" width="22" height="17"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="cell_check_selected" destination="P7f-jl-kds" id="Nsh-C6-EUx"/>
                                             <outlet property="cell_title" destination="e6z-wS-FK2" id="UVt-z2-Du5"/>
                                         </connections>
                                     </tableViewCell>
@@ -1571,6 +1583,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <image name="check_box_off.png" width="24" height="20"/>
         <image name="filter_arrow.png" width="12" height="19"/>
         <image name="filter_checkmark.png" width="22" height="17"/>
+        <image name="map_refresh.png" width="64" height="64"/>
         <image name="menu_icon.png" width="32" height="32"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
