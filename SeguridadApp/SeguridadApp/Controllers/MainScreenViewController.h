@@ -20,6 +20,8 @@
     __weak IBOutlet UIView* mapLeftTab;
     __weak IBOutlet GBFlatButton* complaintButton;
     __weak IBOutlet UIButton* refresh_button;
+    
+    BOOL updateMap;
 }
 
 - (IBAction)complaintAction:(id)sender;

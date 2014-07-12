@@ -46,12 +46,22 @@
 
 - (void) setupInterface
 {
+    self.title = NSLocalizedString(@"Sign In", @"Sign In");
+    
     [noAccountButton setTitle:NSLocalizedString(@"i have no account", @"i have no account") forState:UIControlStateNormal];
     [loginNormalButton setTitle:NSLocalizedString(@"log in with email", @"log in with email") forState:UIControlStateNormal];
     
     // In your viewDidLoad method:
     loginFacebook.readPermissions = @[@"public_profile", @"email"];
     loginFacebook.delegate = self;
+    
+    UIBarButtonItem *customBarItem = [[UIBarButtonItem alloc] initWithTitle:@"Atrás" style:UIBarButtonItemStyleBordered target:self action:@selector(popView)];
+    self.navigationItem.leftBarButtonItem = customBarItem;
+}
+
+- (void)popView
+{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark -

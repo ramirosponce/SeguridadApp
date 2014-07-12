@@ -147,6 +147,11 @@
 - (void) setupInterface
 {
     self.title = NSLocalizedString(@"Detalle", @"Detalle");
+    
+    //self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Atrás" style:UIBarButtonItemStyleBordered target:nil action:nil];
+    UIBarButtonItem *customBarItem = [[UIBarButtonItem alloc] initWithTitle:@"Atrás" style:UIBarButtonItemStyleBordered target:self action:@selector(popView)];
+    self.navigationItem.leftBarButtonItem = customBarItem;
+    
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     
     UIBarButtonItem* options = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(shareAction:)];
@@ -160,6 +165,11 @@
     self.tableView.frame = tableFrame;
     
     keyboardIsShowed = NO;
+}
+
+- (void)popView
+{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void) removeKeyboardNotifications
@@ -271,14 +281,16 @@
     
     if (textView.text.length == 0) return;
     
-    NSString* title = NSLocalizedString(@"Advertencia", @"Advertencia");
+    [self sendAnonymuos:NO];
+    
+    /*NSString* title = NSLocalizedString(@"Advertencia", @"Advertencia");
     NSString* message = NSLocalizedString(@"Desea que se publiquen sus datos al realizar su comentario?", @"Desea que se publiquen sus datos al realizar su comentario?");
     
     [[[UIAlertView alloc] initWithTitle:title
                                 message:message
                                delegate:self
                       cancelButtonTitle:NSLocalizedString(@"No", @"No")
-                      otherButtonTitles:NSLocalizedString(@"Si", @"Si"),nil] show];
+                      otherButtonTitles:NSLocalizedString(@"Si", @"Si"),nil] show];*/
     
 }
 
@@ -389,10 +401,10 @@
 
 - (void) shareAction:(id)sender
 {
-    NSString *shareString = NSLocalizedString(@"Estoy usando la aplicacion de seguridad para hacer denuncias en mi iphone.",@"Estoy usando la aplicacion de seguridad para hacer denuncias en mi iphone.");
-    NSURL *shareUrl = [NSURL URLWithString:@"http://appseguridad.avec.com.do/app"];
+    NSString* message = [NSString stringWithFormat:@"%@ - %@. Enviado desde la aplicacion de AMET",self.complaint.complaint_title, self.complaint.complaint_description];
+    NSURL *shareUrl = [NSURL URLWithString:@"http://911enlinea.do/app"];
     
-    NSArray *activityItems = [NSArray arrayWithObjects:shareString, shareUrl, nil];
+    NSArray *activityItems = [NSArray arrayWithObjects:message, shareUrl, nil];
     UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
     activityViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
     
@@ -632,11 +644,11 @@
     
     NSString *buttonTitle = [actionSheet buttonTitleAtIndex:buttonIndex];
     if  ([buttonTitle isEqualToString:NSLocalizedString(@"Share on Facebook", @"Share on Facebook")]){
-        //[[[UIAlertView alloc] initWithTitle:nil message:@"Facebook share" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+        [[[UIAlertView alloc] initWithTitle:nil message:@"Facebook share" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
     }else if  ([buttonTitle isEqualToString:NSLocalizedString(@"Share on Twitter", @"Share on Twitter")]){
-        //[[[UIAlertView alloc] initWithTitle:nil message:@"Twitter share" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+        [[[UIAlertView alloc] initWithTitle:nil message:@"Twitter share" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
     }else if  ([buttonTitle isEqualToString:NSLocalizedString(@"Share on Mail",@"Share on Mail")]){
-        //[[[UIAlertView alloc] initWithTitle:nil message:@"Mail share" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+        [[[UIAlertView alloc] initWithTitle:nil message:@"Mail share" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
     }
 }
 

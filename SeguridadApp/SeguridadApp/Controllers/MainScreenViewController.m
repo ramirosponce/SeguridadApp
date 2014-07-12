@@ -97,8 +97,10 @@
         NSArray* annotations = [mapView annotations];
         [mapView removeAnnotations:annotations];
         
+        updateMap = YES;
         [self loadLocations:data];
         [complaintTableView reloadData];
+        
     }];
 }
 
@@ -125,7 +127,9 @@
     [segmentedMenu addTarget:self action:@selector(segmentedValueChange:) forControlEvents:UIControlEventValueChanged];
     
     mapView.delegate = self;
+    updateMap = YES;
     mapView.showsUserLocation = YES;
+    
     
     [complaintButton setSelected:YES];
 }
@@ -252,8 +256,11 @@
 
 - (void)mapView:(MKMapView *)map didUpdateUserLocation:(MKUserLocation *)userLocation
 {
-    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 20000, 20000);
-    [mapView setRegion:[mapView regionThatFits:region] animated:NO];
+    if (updateMap) {
+        MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 20000, 20000);
+        [mapView setRegion:[mapView regionThatFits:region] animated:NO];
+        updateMap = NO;
+    }
 }
 
 -(void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control

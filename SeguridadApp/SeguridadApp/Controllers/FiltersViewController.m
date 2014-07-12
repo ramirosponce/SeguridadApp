@@ -107,7 +107,15 @@
     if (self.fromMenu) {
         UIBarButtonItem* options = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menu_icon.png"] style:UIBarButtonItemStylePlain target:self action:@selector(showMenu)];
         self.navigationItem.leftBarButtonItem = options;
+    }else{
+        UIBarButtonItem *customBarItem = [[UIBarButtonItem alloc] initWithTitle:@"Atrás" style:UIBarButtonItemStyleBordered target:self action:@selector(popView)];
+        self.navigationItem.leftBarButtonItem = customBarItem;
     }
+}
+
+- (void)popView
+{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark - 

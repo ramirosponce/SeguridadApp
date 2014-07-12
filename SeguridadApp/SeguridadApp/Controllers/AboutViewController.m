@@ -27,12 +27,20 @@
 {
     [super viewDidLoad];
     self.title = NSLocalizedString(@"Acerca de", @"Acerca de");
+    
+    UIBarButtonItem *customBarItem = [[UIBarButtonItem alloc] initWithTitle:@"Atrás" style:UIBarButtonItemStyleBordered target:self action:@selector(popView)];
+    self.navigationItem.leftBarButtonItem = customBarItem;
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)popView
+{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 /*

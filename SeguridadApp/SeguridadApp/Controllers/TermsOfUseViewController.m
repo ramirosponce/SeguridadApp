@@ -26,7 +26,18 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.title = @"Términos";
+    
+    UIBarButtonItem *customBarItem = [[UIBarButtonItem alloc] initWithTitle:@"Atrás" style:UIBarButtonItemStyleBordered target:self action:@selector(popView)];
+    self.navigationItem.leftBarButtonItem = customBarItem;
+    
     // Do any additional setup after loading the view.
+}
+
+- (void)popView
+{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)didReceiveMemoryWarning

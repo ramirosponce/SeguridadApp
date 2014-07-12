@@ -87,6 +87,16 @@
     [pictureTapRecognizer setNumberOfTouchesRequired:1];
     [photoImageView addGestureRecognizer:pictureTapRecognizer];
     
+    
+    UIBarButtonItem *customBarItem = [[UIBarButtonItem alloc] initWithTitle:@"Atrás" style:UIBarButtonItemStyleBordered target:self action:@selector(popView)];
+    self.navigationItem.leftBarButtonItem = customBarItem;
+}
+
+
+
+- (void)popView
+{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void) removeKeyboardNotifications

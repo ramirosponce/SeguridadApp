@@ -31,8 +31,8 @@ typedef enum {
     kDateFilterAll = 3,
 } DateFilterType;
 
-#define API_BASE_URL                  @"http://appseguridad.avec.com.do/"
-//#define API_BASE_URL                  @"http://911enlinea.avec.com.do/"
+//#define API_BASE_URL                  @"http://appseguridad.avec.com.do/"
+#define API_BASE_URL                  @"http://911enlinea.do/"
 #define API_TIPO_DENUNCIAS            @"tipodenuncias"
 #define API_DENUNCIA                  @"denuncia"
 #define API_DENUNCIA_SEARCH           @"denuncia/search"

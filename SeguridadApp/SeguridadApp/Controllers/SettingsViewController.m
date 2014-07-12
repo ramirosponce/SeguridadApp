@@ -110,8 +110,8 @@
             [self performSegueWithIdentifier:@"aboutSegue" sender:nil];
             break;
         case 2:{
-            NSString *shareString = @"Estoy usando la aplicacion de seguridad para hacer denuncias en mi iphone.";
-            NSURL *shareUrl = [NSURL URLWithString:@"http://appseguridad.avec.com.do/app"];
+            NSString *shareString = @"Estoy usando la aplicacion de Policia Metropolitana AMET para hacer denuncias desde mi iPhone.";
+            NSURL *shareUrl = [NSURL URLWithString:@"http://911enlinea.do/app"];
             
             NSArray *activityItems = [NSArray arrayWithObjects:shareString, shareUrl, nil];
             UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
