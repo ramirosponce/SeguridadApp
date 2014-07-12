@@ -157,7 +157,7 @@
             
             NSArray* response_array = (NSArray*)responseObject;
             for (NSDictionary* data in response_array) {
-                //NSLog(@"response denuncia: %@", data);
+                NSLog(@"response denuncia: %@", data);
                 Complaint* complaint = [[Complaint alloc] initWithData:data];
                 [complaints addObject:complaint];
             }

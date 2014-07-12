@@ -239,7 +239,8 @@
     NSMutableDictionary* params = [NSMutableDictionary dictionary];
     
     if (kind_of_complaint_selected) {
-        [params setObject:[NSArray arrayWithObject:kind_of_complaint_selected] forKey:@"tags"];
+        [params setObject:kind_of_complaint_selected forKey:@"tags"];
+        //[params setObject:[NSArray arrayWithObject:kind_of_complaint_selected] forKey:@"tags"];
     }
     
     if (date_selected) {

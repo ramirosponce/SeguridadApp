@@ -87,7 +87,9 @@
 
     // Input search
     if (![[GlobalManager sharedManager].category_selected isEqualToString:NSLocalizedString(@"All", @"All")]) {
+        NSLog(@"category_selected:%@", [GlobalManager sharedManager].category_selected);
         [params setObject:[GlobalManager sharedManager].category_selected forKey:@"inputSearch"];
+        //[params setObject:[NSArray arrayWithObject:[GlobalManager sharedManager].category_selected] forKey:@"inputSearch"];
     }
     
     [NetworkManager runSearchRequestWithParams:params completition:^(NSArray *map_complaints, NSError *error) {

@@ -402,7 +402,8 @@
 - (void) shareAction:(id)sender
 {
     NSString* message = [NSString stringWithFormat:@"%@ - %@. Enviado desde la aplicacion de AMET",self.complaint.complaint_title, self.complaint.complaint_description];
-    NSURL *shareUrl = [NSURL URLWithString:@"http://911enlinea.do/app"];
+    NSString* url_string = [NSString stringWithFormat:@"http://911enlinea.do/app/#/denuncia/%@",self.complaint.complaint_id];
+    NSURL *shareUrl = [NSURL URLWithString:url_string];
     
     NSArray *activityItems = [NSArray arrayWithObjects:message, shareUrl, nil];
     UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
