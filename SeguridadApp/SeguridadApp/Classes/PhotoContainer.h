@@ -13,6 +13,7 @@
     NSTimer* uploading_timer;
 }
 @property (nonatomic, strong) IBOutlet UIImageView* photoImage;
+@property (nonatomic, strong) IBOutlet UIImageView* videoIcon;
 @property (nonatomic, strong) IBOutlet UIProgressView* uploadProgress;
 
 - (void) loadContainer;

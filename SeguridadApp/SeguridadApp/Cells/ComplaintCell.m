@@ -9,7 +9,7 @@
 #import "ComplaintCell.h"
 #import "Complaint.h"
 #import "UIImageView+WebCache.h"
-
+#import <AVFoundation/AVFoundation.h>
 
 #define LABEL_FRAME_WITH_IMAGE      202.0
 #define LABEL_FRAME_WITHOUT_IMAGE   290.0
@@ -61,16 +61,29 @@
         [complaint_picture setImage:[UIImage imageNamed:image_named]];
         
         NSURL* image_url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@%@",API_BASE_URL,API_UPLOADS,image_named]];
-        [complaint_picture setImageWithURL:image_url
-                                 completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
+        NSString *urlPath = [image_url path];
+        NSArray* components = [[urlPath lastPathComponent] componentsSeparatedByString:@"."];
+        
+        if ([[components objectAtIndex:1] isEqualToString:@"mov"]){
+            //[complaint_picture setImage:[self getVideoThumb:image_url]];
+            [complaint_picture setImage:[UIImage imageNamed:@"Icon-72.png"]];
+            video_play_icon.hidden = NO;
             [indicator stopAnimating];
-        }];
+        }else{
+            video_play_icon.hidden = YES;
+            [complaint_picture setImageWithURL:image_url
+                                     completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
+                                         [indicator stopAnimating];
+                                     }];
+        }
+        
     }else{
         [indicator stopAnimating];
         titleFrame.size.width = LABEL_FRAME_WITHOUT_IMAGE;
         descriptionFrame.size.width = LABEL_FRAME_WITHOUT_IMAGE;
         complaint_picture.image = nil;
         photoBG1.hidden = YES;
+        video_play_icon.hidden = YES;
     }
     
     complaint_title.frame = titleFrame;
@@ -127,6 +140,19 @@
     [affectedTitle setTitle:NSLocalizedString(@"Me afecta", @"Me afecta") forState:UIControlStateNormal];
     [isTrueTitle setTitle:NSLocalizedString(@"Es cierto", @"Es cierto") forState:UIControlStateNormal];
     [isntTrueTitle setTitle:NSLocalizedString(@"No es cierto", @"No es cierto") forState:UIControlStateNormal];
+    
+}
+
+- (UIImage*)getVideoThumb:(NSURL*)vidURL{
+    
+    AVURLAsset *asset = [[AVURLAsset alloc] initWithURL:vidURL options:nil];
+    AVAssetImageGenerator *generate = [[AVAssetImageGenerator alloc] initWithAsset:asset];
+    NSError *err = NULL;
+    CMTime time = CMTimeMake(1, 60);
+    CGImageRef imgRef = [generate copyCGImageAtTime:time actualTime:NULL error:&err];
+    NSLog(@"err==%@, imageRef==%@", err, imgRef);
+    
+    return [[UIImage alloc] initWithCGImage:imgRef scale:(CGFloat)1.0 orientation:UIImageOrientationRight];
     
 }
 

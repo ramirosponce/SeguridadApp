@@ -11,6 +11,7 @@
 #import "SelectRegionViewController.h"
 #import "SignInViewController.h"
 #import "MBProgressHUD.h"
+#import <AVFoundation/AVFoundation.h>
 
 #define WANT_INFORMATION_Y_POS_4_INCH            270
 #define WANT_UPDATES_Y_POS_4_INCH                321
@@ -483,7 +484,7 @@
                                                                     delegate:self
                                                            cancelButtonTitle:NSLocalizedString(@"Cancel", @"Cancel")
                                                       destructiveButtonTitle:nil
-                                                           otherButtonTitles:NSLocalizedString(@"Camera", @"Camera"),NSLocalizedString(@"Select a Picture", @"Select a Picture"), nil];
+                                                           otherButtonTitles:NSLocalizedString(@"Grabar Video", @"Grabar Video"),NSLocalizedString(@"Tomar una foto", @"Tomar una foto"),NSLocalizedString(@"Select a Picture", @"Select a Picture"), nil];
     [pictureActionSheet showInView:self.view];
 }
 
@@ -529,7 +530,7 @@
 - (void) actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     NSString *buttonTitle = [actionSheet buttonTitleAtIndex:buttonIndex];
-    if  ([buttonTitle isEqualToString:NSLocalizedString(@"Camera", @"Camera")])
+    if  ([buttonTitle isEqualToString:NSLocalizedString(@"Tomar una foto", @"Tomar una foto")])
     {
         UIImagePickerController *picker = [[UIImagePickerController alloc] init];
         picker.delegate = self;
@@ -542,6 +543,19 @@
         picker.delegate = self;
         picker.allowsEditing = YES;
         picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        [self presentViewController:picker animated:YES completion:NULL];
+    }else{
+        UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+        picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        picker.delegate = self;
+        picker.allowsEditing = YES;
+        NSArray *mediaTypes = [UIImagePickerController availableMediaTypesForSourceType:UIImagePickerControllerSourceTypeCamera];
+        NSArray *videoMediaTypesOnly = [mediaTypes filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(SELF contains %@)", @"movie"]];
+        picker.cameraDevice = UIImagePickerControllerCameraDeviceRear;
+        picker.mediaTypes = videoMediaTypesOnly;
+		picker.videoQuality = UIImagePickerControllerQualityTypeMedium;
+		picker.videoMaximumDuration = 20;
+        
         [self presentViewController:picker animated:YES completion:NULL];
     }
     
@@ -586,55 +600,129 @@
 #pragma mark -
 #pragma mark imagePicker methods
 
+- (UIImage*)getVideoThumb:(NSURL*)vidURL{
+    
+    AVURLAsset *asset = [[AVURLAsset alloc] initWithURL:vidURL options:nil];
+    AVAssetImageGenerator *generate = [[AVAssetImageGenerator alloc] initWithAsset:asset];
+    NSError *err = NULL;
+    CMTime time = CMTimeMake(1, 60);
+    CGImageRef imgRef = [generate copyCGImageAtTime:time actualTime:NULL error:&err];
+    NSLog(@"err==%@, imageRef==%@", err, imgRef);
+    
+    return [[UIImage alloc] initWithCGImage:imgRef scale:(CGFloat)1.0 orientation:UIImageOrientationRight];
+    
+}
+
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     
-    UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
-    chosenImg = chosenImage;
+    NSURL *videoURL = [info objectForKey:UIImagePickerControllerMediaURL];
+    NSString *urlPath = [videoURL path];
     
-    UIImageView* photo = nil;
-    current_container = nil;
-    next_photo_available = nil;
-    switch (image_tag_selected) {
-        case 1:
-            photo = photo1.photoImage;
-            current_container = photo1;
-            next_photo_available = photo2;
-            break;
-        case 2:
-            photo = photo2.photoImage;
-            current_container = photo2;
-            next_photo_available = photo3;
-            break;
-        case 3:
-            photo = photo3.photoImage;
-            current_container = photo3;
-            next_photo_available = photo4;
-            break;
-        case 4:
-            photo = photo4.photoImage;
-            current_container = photo4;
-            max_images_loaded = YES;
-            break;
+    if ([[urlPath lastPathComponent] isEqualToString:@"capturedvideo.MOV"]){
+        
+        NSLog(@"Info: %@", info);
+        UIImage *chosenImage = [self getVideoThumb:videoURL];
+        chosenImg = chosenImage;
+        
+        UIImageView* photo = nil;
+        current_container = nil;
+        next_photo_available = nil;
+        switch (image_tag_selected) {
+            case 1:
+                photo = photo1.photoImage;
+                photo1.videoIcon.hidden = NO;
+                current_container = photo1;
+                next_photo_available = photo2;
+                break;
+            case 2:
+                photo = photo2.photoImage;
+                photo2.videoIcon.hidden = NO;
+                current_container = photo2;
+                next_photo_available = photo3;
+                break;
+            case 3:
+                photo = photo3.photoImage;
+                photo3.videoIcon.hidden = NO;
+                current_container = photo3;
+                next_photo_available = photo4;
+                break;
+            case 4:
+                photo = photo4.photoImage;
+                photo4.videoIcon.hidden = NO;
+                current_container = photo4;
+                max_images_loaded = YES;
+                break;
+        }
+        
+        if (photo) {
+            [photo setClipsToBounds:YES];
+            [photo.layer setCornerRadius:(float)5.0];
+            [photo setImage:chosenImage];
+            photo.layer.borderColor = [[UIColor lightGrayColor] CGColor];
+            photo.layer.borderWidth = 0.5f;
+        }
+        
+        [picker dismissViewControllerAnimated:YES completion:NULL];
+        
+        // uploading picture to server
+        [complaintButton setUserInteractionEnabled:NO];
+        [complaintButton setTitle:NSLocalizedString(@"Cargando...", @"Cargando...") forState:UIControlStateNormal];
+        [complaintButton setTitle:NSLocalizedString(@"Cargando...", @"Cargando...") forState:UIControlStateSelected];
+        
+        [networkAux uploadVideo:videoURL];
+        [current_container uploadPicture];
+    }else{
+        UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
+        chosenImg = chosenImage;
+        
+        UIImageView* photo = nil;
+        current_container = nil;
+        next_photo_available = nil;
+        switch (image_tag_selected) {
+            case 1:
+                photo = photo1.photoImage;
+                photo1.videoIcon.hidden = YES;
+                current_container = photo1;
+                next_photo_available = photo2;
+                break;
+            case 2:
+                photo = photo2.photoImage;
+                photo2.videoIcon.hidden = YES;
+                current_container = photo2;
+                next_photo_available = photo3;
+                break;
+            case 3:
+                photo = photo3.photoImage;
+                photo3.videoIcon.hidden = YES;
+                current_container = photo3;
+                next_photo_available = photo4;
+                break;
+            case 4:
+                photo = photo4.photoImage;
+                photo4.videoIcon.hidden = YES;
+                current_container = photo4;
+                max_images_loaded = YES;
+                break;
+        }
+        
+        if (photo) {
+            [photo setClipsToBounds:YES];
+            [photo.layer setCornerRadius:(float)5.0];
+            [photo setImage:chosenImage];
+            photo.layer.borderColor = [[UIColor lightGrayColor] CGColor];
+            photo.layer.borderWidth = 0.5f;
+        }
+        
+        [picker dismissViewControllerAnimated:YES completion:NULL];
+        
+        // uploading picture to server
+        [complaintButton setUserInteractionEnabled:NO];
+        [complaintButton setTitle:NSLocalizedString(@"Cargando...", @"Cargando...") forState:UIControlStateNormal];
+        [complaintButton setTitle:NSLocalizedString(@"Cargando...", @"Cargando...") forState:UIControlStateSelected];
+        
+        [networkAux uploadPhoto:chosenImage];
+        [current_container uploadPicture];
     }
-    
-    if (photo) {
-        [photo setClipsToBounds:YES];
-        [photo.layer setCornerRadius:(float)5.0];
-        [photo setImage:chosenImage];
-        photo.layer.borderColor = [[UIColor lightGrayColor] CGColor];
-        photo.layer.borderWidth = 0.5f;
-    }
-    
-    [picker dismissViewControllerAnimated:YES completion:NULL];
-    
-    // uploading picture to server
-    [complaintButton setUserInteractionEnabled:NO];
-    [complaintButton setTitle:NSLocalizedString(@"Cargando...", @"Cargando...") forState:UIControlStateNormal];
-    [complaintButton setTitle:NSLocalizedString(@"Cargando...", @"Cargando...") forState:UIControlStateSelected];
-    
-    [networkAux uploadPhoto:chosenImage];
-    [current_container uploadPicture];
-    
 }
 
 

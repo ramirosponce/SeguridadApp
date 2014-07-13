@@ -30,6 +30,7 @@
     [self.uploadProgress setTransform:CGAffineTransformMakeScale(1.0, 3.0)];
     [self.uploadProgress setProgress:0.0];
     self.uploadProgress.hidden = YES;
+    self.videoIcon.hidden = YES;
 }
 
 - (void) uploadPicture

@@ -18,7 +18,10 @@
     __weak IBOutlet UILabel* complaint_description;
     
     __weak IBOutlet UILabel* complaint_date;
+    
     __weak IBOutlet UIImageView* complaint_picture;
+    __weak IBOutlet UIImageView* video_play_icon;
+    
     __weak IBOutlet UILabel* complaint_isTrue;
     __weak IBOutlet UILabel* complaint_isntTrue;
     __weak IBOutlet UILabel* complaint_affected;

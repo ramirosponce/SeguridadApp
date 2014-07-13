@@ -24,6 +24,7 @@
 #import "FSBasicImageSource.h"
 #import "FSImageViewerViewController.h"
 
+
 #define SECTIONS    5
 
 @interface DetailViewController ()
@@ -37,7 +38,7 @@
     int affected;
     int isTrue;
     int isNotTrue;
-    
+    BOOL videoLoaded;
 }
 @end
 
@@ -75,23 +76,27 @@
     
     [self setupKeyboardNotifications];
     
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
-    hud.labelText = NSLocalizedString(@"Cargando comentarios...", @"Cargando comentarios...");
+    if (!videoLoaded) {
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+        hud.labelText = NSLocalizedString(@"Cargando comentarios...", @"Cargando comentarios...");
+        
+        [NetworkManager runFindById:self.complaint.complaint_id completition:^(NSArray *comments_aux, NSError *error) {
+            
+            [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
+            
+            comments = [[NSArray alloc] initWithArray:comments_aux];
+            
+            commentsHeights = [[NSMutableArray alloc] initWithCapacity:0];
+            for (Comment* comment in comments) {
+                CGFloat height = [self getCommentCellHeight2:comment];
+                [commentsHeights addObject:[NSNumber numberWithFloat:height]];
+            }
+            
+            [self.tableView reloadData];
+        }];
+    }
     
-    [NetworkManager runFindById:self.complaint.complaint_id completition:^(NSArray *comments_aux, NSError *error) {
-        
-        [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
-        
-        comments = [[NSArray alloc] initWithArray:comments_aux];
-        
-        commentsHeights = [[NSMutableArray alloc] initWithCapacity:0];
-        for (Comment* comment in comments) {
-            CGFloat height = [self getCommentCellHeight2:comment];
-            [commentsHeights addObject:[NSNumber numberWithFloat:height]];
-        }
-        
-        [self.tableView reloadData];
-    }];
+    videoLoaded = NO;
 }
 
 - (void) viewWillDisappear:(BOOL)animated
@@ -256,7 +261,7 @@
     UIButton *doneBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     doneBtn.frame = CGRectMake(containerView.frame.size.width - 69, 8, 63, 27);
     doneBtn.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin;
-    [doneBtn setTitle:@"Done" forState:UIControlStateNormal];
+    [doneBtn setTitle:@"Enviar" forState:UIControlStateNormal];
     
 	//UIButton *doneBtn = [UIButton buttonWithType:UIButtonTypeCustom];
 	//doneBtn.frame = CGRectMake(containerView.frame.size.width - 69, 8, 63, 27);
@@ -739,6 +744,39 @@
 #pragma mark -
 #pragma mark DetailDelegate methods
 
+- (void) videoTouched:(NSString*)videoURLString
+{
+    keyboardIsShowed = NO;
+    [textView resignFirstResponder];
+    
+    if (!videoURLString) return;
+        
+    //NSURL *url=[[NSURL alloc] initWithString:@"http://www.ebookfrenzy.com/ios_book/movie/movie.mov"];
+    //NSLog(@"URL: %@",videoURLString);
+    
+    NSURL *url=[[NSURL alloc] initWithString:videoURLString];
+    
+    moviePlayer=[[MPMoviePlayerController alloc] initWithContentURL:url];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(moviePlayBackDidFinish:) name:MPMoviePlayerPlaybackDidFinishNotification object:moviePlayer];
+    
+    moviePlayer.controlStyle=MPMovieControlStyleDefault;
+    moviePlayer.shouldAutoplay=YES;
+    [self.view addSubview:moviePlayer.view];
+    [moviePlayer setFullscreen:YES animated:YES];
+    
+    videoLoaded = YES;
+}
+
+- (void) moviePlayBackDidFinish:(NSNotification*)notification
+{
+    MPMoviePlayerController *player = [notification object];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:MPMoviePlayerPlaybackDidFinishNotification object:player];
+    
+    if ([player respondsToSelector:@selector(setFullscreen:animated:)])
+        [player.view removeFromSuperview];
+}
+
 - (void) photoTouched:(int)idx
 {
     keyboardIsShowed = NO;
@@ -748,9 +786,16 @@
     //
     NSMutableArray* images = [NSMutableArray arrayWithCapacity:0];
     for (NSString* image_name in self.complaint.attachs) {
+        
         NSString* urlString = [NSString stringWithFormat:@"%@%@%@",API_BASE_URL,API_UPLOADS,image_name];
-        FSBasicImage *photo = [[FSBasicImage alloc] initWithImageURL:[NSURL URLWithString:urlString] name:nil];
-        [images addObject:photo];
+        NSURL* image_url = [NSURL URLWithString:urlString];
+        NSString *urlPath = [image_url path];
+        NSArray* components = [[urlPath lastPathComponent] componentsSeparatedByString:@"."];
+        
+        if (![[components objectAtIndex:1] isEqualToString:@"mov"]){
+            FSBasicImage *photo = [[FSBasicImage alloc] initWithImageURL:image_url name:nil];
+            [images addObject:photo];
+        }
     }
     
     FSBasicImageSource *photoSource = [[FSBasicImageSource alloc] initWithImages:images];

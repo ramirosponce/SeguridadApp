@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="Q2t-AD-npg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="Q2t-AD-npg">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -766,6 +766,10 @@
                                                     <rect key="frame" x="236" y="11" width="60" height="60"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="video_play.png" id="AVV-Oc-Puv">
+                                                    <rect key="frame" x="236" y="11" width="60" height="60"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
                                                 <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" id="piO-q3-HeY">
                                                     <rect key="frame" x="257" y="32" width="20" height="20"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -844,6 +848,7 @@
                                             <outlet property="isntTrueNumber" destination="z79-Vz-uDE" id="GpJ-EZ-Usr"/>
                                             <outlet property="isntTrueTitle" destination="9BP-NV-gK0" id="Uuw-6K-VXj"/>
                                             <outlet property="photoBG1" destination="y7v-Kv-KSc" id="qyo-XZ-z3B"/>
+                                            <outlet property="video_play_icon" destination="AVV-Oc-Puv" id="pA2-Ua-mpx"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -1184,6 +1189,10 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="video_play.png" id="Vw2-Im-6KD">
+                                                <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
                                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" id="biq-dt-Sve">
                                                 <rect key="frame" x="5" y="59" width="60" height="2"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1194,6 +1203,7 @@
                                         <connections>
                                             <outlet property="photoImage" destination="N4Q-KM-5T1" id="cAD-py-oAg"/>
                                             <outlet property="uploadProgress" destination="biq-dt-Sve" id="uVt-G9-Cyb"/>
+                                            <outlet property="videoIcon" destination="Vw2-Im-6KD" id="YLB-pr-IQ7"/>
                                         </connections>
                                     </view>
                                     <view contentMode="scaleToFill" id="9sP-cz-iLP" customClass="PhotoContainer">
@@ -1201,6 +1211,10 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera_empty.png" id="sGi-2j-XfM">
+                                                <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="video_play.png" id="x6U-Fi-ijE">
                                                 <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
@@ -1214,6 +1228,7 @@
                                         <connections>
                                             <outlet property="photoImage" destination="sGi-2j-XfM" id="Lac-uq-yg0"/>
                                             <outlet property="uploadProgress" destination="IF5-XB-Vrw" id="lGP-On-Tbk"/>
+                                            <outlet property="videoIcon" destination="x6U-Fi-ijE" id="xTO-3S-FXI"/>
                                         </connections>
                                     </view>
                                     <view contentMode="scaleToFill" id="7U0-YV-bPq" customClass="PhotoContainer">
@@ -1221,6 +1236,10 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera_empty.png" id="afp-I2-ckp">
+                                                <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="video_play.png" id="2dL-IV-vwu">
                                                 <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
@@ -1234,6 +1253,7 @@
                                         <connections>
                                             <outlet property="photoImage" destination="afp-I2-ckp" id="MFe-Y7-JUY"/>
                                             <outlet property="uploadProgress" destination="f2v-K1-lvA" id="KnW-o6-dEL"/>
+                                            <outlet property="videoIcon" destination="2dL-IV-vwu" id="BeA-y7-fOt"/>
                                         </connections>
                                     </view>
                                     <view contentMode="scaleToFill" id="ccm-9j-Etf" customClass="PhotoContainer">
@@ -1241,6 +1261,10 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera_empty.png" id="htg-FE-V6w">
+                                                <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="video_play.png" id="sOT-4l-kK1">
                                                 <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
@@ -1254,6 +1278,7 @@
                                         <connections>
                                             <outlet property="photoImage" destination="htg-FE-V6w" id="dRm-TJ-bNi"/>
                                             <outlet property="uploadProgress" destination="lZT-eD-Y4A" id="UeA-vT-CxI"/>
+                                            <outlet property="videoIcon" destination="sOT-4l-kK1" id="hO6-cP-chU"/>
                                         </connections>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="mFw-vi-z6m" customClass="GBFlatButton">
@@ -1585,6 +1610,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <image name="filter_checkmark.png" width="22" height="17"/>
         <image name="map_refresh.png" width="64" height="64"/>
         <image name="menu_icon.png" width="32" height="32"/>
+        <image name="video_play.png" width="70" height="70"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

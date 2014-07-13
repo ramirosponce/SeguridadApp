@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "SLParallaxController.h"
 #import "HPGrowingTextView.h"
+#import <MediaPlayer/MediaPlayer.h>
 
 @class Complaint;
 
@@ -17,6 +18,8 @@
 @optional
 
 - (void) photoTouched:(int)idx;
+- (void) videoTouched:(NSString*)videoURLString;
+
 - (void) affectedAction:(id)sender;
 - (void) isTrueAction:(id)sender;
 - (void) isNotTrueAction:(id)sender;
@@ -27,6 +30,7 @@
 {
     UIView *containerView;
     HPGrowingTextView *textView;
+    MPMoviePlayerController *moviePlayer;
 }
 @property (nonatomic, strong) Complaint* complaint;
 

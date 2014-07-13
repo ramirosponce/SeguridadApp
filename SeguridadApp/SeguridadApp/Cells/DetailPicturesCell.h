@@ -12,6 +12,7 @@
 @interface DetailPicturesCell : UITableViewCell
 {
     __weak IBOutlet UIScrollView* picture_scroller;
+    NSMutableArray* media_urls;
 }
 
 @property (nonatomic, assign) id <DetailDelegate> delegate;
