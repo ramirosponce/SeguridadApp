@@ -192,7 +192,7 @@
         return [categoryData count];
 }
 
-- (UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+/*- (UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // set up the cell
     if (indexPath.section == 0) {
@@ -248,9 +248,9 @@
         [GlobalManager sharedManager].category_selected = category.name;
         [filtersTableView reloadData];
     }
-}
+}*/
 
-/*- (UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // set up the cell
     if (indexPath.section == 0) {
@@ -286,9 +286,9 @@
         
         return cell;
     }
-}*/
+}
 
-/*- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // set up the cell
     if (indexPath.section == 0) {
@@ -336,6 +336,6 @@
         }
         [filtersTableView reloadData];
     }
-}*/
+}
 
 @end

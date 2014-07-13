@@ -12,6 +12,7 @@
 #import "ComplaintCell.h"
 #import "Complaint.h"
 #import "MFSideMenu.h"
+#import "ComplaintType.h"
 
 @interface ComplaintsViewController ()
 {
@@ -77,9 +78,20 @@
     [params setObject:[NSNumber numberWithInt:MAX_COMPLAINT_COUNT] forKey:@"limit"];
     
     // Input search
-    if (![[GlobalManager sharedManager].category_selected isEqualToString:NSLocalizedString(@"All", @"All")]) {
-        [params setObject:[GlobalManager sharedManager].category_selected forKey:@"inputSearch"];
+    //if (![[GlobalManager sharedManager].category_selected isEqualToString:NSLocalizedString(@"All", @"All")]) {
+    //    [params setObject:[GlobalManager sharedManager].category_selected forKey:@"inputSearch"];
+    //}
+    
+    if (![GlobalManager sharedManager].categoryAllSelected) {
+        NSLog(@"Categories: %@",[GlobalManager sharedManager].category_filters);
+        
+        NSMutableArray* objects = [NSMutableArray arrayWithCapacity:0];
+        for (ComplaintType* category in [GlobalManager sharedManager].category_filters) {
+            [objects addObject:category.name];
+        }
+        [params setObject:objects forKey:@"inputSearch"];
     }
+    
     
     [NetworkManager runSearchRequestWithParams:params completition:^(NSArray *map_complaints, NSError *error) {
         [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
