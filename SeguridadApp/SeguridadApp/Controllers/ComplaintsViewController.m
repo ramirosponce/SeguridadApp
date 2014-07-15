@@ -89,7 +89,7 @@
         for (ComplaintType* category in [GlobalManager sharedManager].category_filters) {
             [objects addObject:category.name];
         }
-        [params setObject:objects forKey:@"inputSearch"];
+        [params setObject:objects forKey:@"categorias"];
     }
     
     

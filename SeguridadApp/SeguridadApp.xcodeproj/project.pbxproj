@@ -1508,7 +1508,7 @@
 				GCC_PREFIX_HEADER = "SeguridadApp/SeguridadApp-Prefix.pch";
 				INFOPLIST_FILE = "SeguridadApp/SeguridadApp-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "78FD55A0-2A92-4424-8319-996F7420255A";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1527,7 +1527,7 @@
 				GCC_PREFIX_HEADER = "SeguridadApp/SeguridadApp-Prefix.pch";
 				INFOPLIST_FILE = "SeguridadApp/SeguridadApp-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "78FD55A0-2A92-4424-8319-996F7420255A";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
