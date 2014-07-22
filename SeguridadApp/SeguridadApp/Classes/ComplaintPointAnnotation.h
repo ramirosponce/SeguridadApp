@@ -13,6 +13,7 @@
 
 @interface ComplaintPointAnnotation : MKPointAnnotation
 
+@property (nonatomic, strong) NSString* iconname;
 @property (nonatomic, assign) Complaint* complaint;
 
 @end

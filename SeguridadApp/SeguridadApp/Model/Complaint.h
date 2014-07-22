@@ -28,7 +28,7 @@
 @property (nonatomic) BOOL frecuentemente;
 @property (nonatomic, strong) NSString* hora;
 @property (nonatomic, strong) NSString* region;
-
+@property (nonatomic, strong) NSString* iconname;
 
 @property (nonatomic) BOOL isAnonymous;
 @property (nonatomic, strong) User* user;

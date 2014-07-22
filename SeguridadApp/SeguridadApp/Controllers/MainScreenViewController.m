@@ -156,6 +156,7 @@
         complaintAnnotation.title = complaint.complaint_title;
         complaintAnnotation.subtitle = complaint.complaint_description;
         complaintAnnotation.complaint = complaint;
+        complaintAnnotation.iconname = complaint.iconname;
         [mapView addAnnotation:complaintAnnotation];
     }
 }
@@ -321,7 +322,10 @@
             //pinView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"CustomPinAnnotationView"];
             pinView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"CustomPinAnnotationView"];
             pinView.canShowCallout = YES;
-            pinView.image = [UIImage imageNamed:@"orange_marker.png"];
+            
+            //pinView.image = [UIImage imageNamed:@"orange_marker.png"];
+            //pinView.image = [UIImage imageNamed:((ComplaintPointAnnotation*)annotation).iconname];
+            //pinView.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:((ComplaintPointAnnotation*)annotation).iconname ofType:nil]];
             pinView.calloutOffset = CGPointMake(0,19);
             //pinView.draggable = YES;
             // Add a detail disclosure button to the callout.
@@ -334,6 +338,9 @@
         } else {
             pinView.annotation = annotation;
         }
+        
+        pinView.image = [UIImage imageNamed:((ComplaintPointAnnotation*)annotation).iconname];
+        
         return pinView;
     }
     

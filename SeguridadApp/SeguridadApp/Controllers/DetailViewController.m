@@ -127,7 +127,7 @@
             //pinView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"CustomPinAnnotationView"];
             pinView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"CustomPinAnnotationView"];
             pinView.canShowCallout = YES;
-            pinView.image = [UIImage imageNamed:@"orange_marker.png"];
+            //pinView.image = [UIImage imageNamed:@"orange_marker.png"];
             pinView.calloutOffset = CGPointMake(0,19);
             
             // Add a detail disclosure button to the callout.
@@ -140,6 +140,9 @@
         } else {
             pinView.annotation = annotation;
         }
+        
+        pinView.image = [UIImage imageNamed:self.complaint.iconname];
+        
         return pinView;
     }
     

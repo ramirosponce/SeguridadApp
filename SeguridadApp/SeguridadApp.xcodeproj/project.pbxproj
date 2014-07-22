@@ -40,6 +40,36 @@
 		C62C81F81936EACA004B392B /* CategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C62C81F71936EACA004B392B /* CategoryCell.m */; };
 		C62C81FB1936EAFB004B392B /* SubcategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C62C81FA1936EAFB004B392B /* SubcategoryCell.m */; };
 		C6311AD61972D5AD002F0E0F /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6311AD51972D5AD002F0E0F /* MediaPlayer.framework */; };
+		C63A1076197EB70B000A11EB /* acc_transito@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C63A1057197EB70A000A11EB /* acc_transito@2x.png */; };
+		C63A1077197EB70B000A11EB /* armas@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C63A1058197EB70A000A11EB /* armas@2x.png */; };
+		C63A1078197EB70B000A11EB /* congestionamiento_vehiculos@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C63A1059197EB70A000A11EB /* congestionamiento_vehiculos@2x.png */; };
+		C63A1079197EB70B000A11EB /* fraudes_estafas@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C63A105A197EB70A000A11EB /* fraudes_estafas@2x.png */; };
+		C63A107A197EB70B000A11EB /* g_criminales@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C63A105B197EB70A000A11EB /* g_criminales@2x.png */; };
+		C63A107B197EB70B000A11EB /* homicidio@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C63A105C197EB70A000A11EB /* homicidio@2x.png */; };
+		C63A107C197EB70B000A11EB /* menores_edad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C63A105D197EB70B000A11EB /* menores_edad@2x.png */; };
+		C63A107D197EB70B000A11EB /* obstruccion_transito@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C63A105E197EB70B000A11EB /* obstruccion_transito@2x.png */; };
+		C63A107E197EB70B000A11EB /* otros@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C63A105F197EB70B000A11EB /* otros@2x.png */; };
+		C63A107F197EB70B000A11EB /* perturbacion@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C63A1060197EB70B000A11EB /* perturbacion@2x.png */; };
+		C63A1080197EB70B000A11EB /* robo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C63A1061197EB70B000A11EB /* robo@2x.png */; };
+		C63A1081197EB70B000A11EB /* semaforo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C63A1062197EB70B000A11EB /* semaforo@2x.png */; };
+		C63A1082197EB70B000A11EB /* semaforo_q@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C63A1063197EB70B000A11EB /* semaforo_q@2x.png */; };
+		C63A1083197EB70B000A11EB /* terrorismo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C63A1064197EB70B000A11EB /* terrorismo@2x.png */; };
+		C63A1084197EB70B000A11EB /* violencia@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C63A1065197EB70B000A11EB /* violencia@2x.png */; };
+		C63A1085197EB70B000A11EB /* acc_transito.png.png in Resources */ = {isa = PBXBuildFile; fileRef = C63A1067197EB70B000A11EB /* acc_transito.png.png */; };
+		C63A1086197EB70B000A11EB /* armas.png in Resources */ = {isa = PBXBuildFile; fileRef = C63A1068197EB70B000A11EB /* armas.png */; };
+		C63A1087197EB70B000A11EB /* congestionamiento_vehiculos.png in Resources */ = {isa = PBXBuildFile; fileRef = C63A1069197EB70B000A11EB /* congestionamiento_vehiculos.png */; };
+		C63A1088197EB70B000A11EB /* fraudes_estafas.png in Resources */ = {isa = PBXBuildFile; fileRef = C63A106A197EB70B000A11EB /* fraudes_estafas.png */; };
+		C63A1089197EB70B000A11EB /* g_criminales.png in Resources */ = {isa = PBXBuildFile; fileRef = C63A106B197EB70B000A11EB /* g_criminales.png */; };
+		C63A108A197EB70B000A11EB /* homicidio.png in Resources */ = {isa = PBXBuildFile; fileRef = C63A106C197EB70B000A11EB /* homicidio.png */; };
+		C63A108B197EB70B000A11EB /* menores_edad.png in Resources */ = {isa = PBXBuildFile; fileRef = C63A106D197EB70B000A11EB /* menores_edad.png */; };
+		C63A108C197EB70B000A11EB /* obstruccion_transito.png in Resources */ = {isa = PBXBuildFile; fileRef = C63A106E197EB70B000A11EB /* obstruccion_transito.png */; };
+		C63A108D197EB70B000A11EB /* otros.png in Resources */ = {isa = PBXBuildFile; fileRef = C63A106F197EB70B000A11EB /* otros.png */; };
+		C63A108E197EB70B000A11EB /* perturbacion.png in Resources */ = {isa = PBXBuildFile; fileRef = C63A1070197EB70B000A11EB /* perturbacion.png */; };
+		C63A108F197EB70B000A11EB /* robo.png in Resources */ = {isa = PBXBuildFile; fileRef = C63A1071197EB70B000A11EB /* robo.png */; };
+		C63A1090197EB70B000A11EB /* semaforo.png in Resources */ = {isa = PBXBuildFile; fileRef = C63A1072197EB70B000A11EB /* semaforo.png */; };
+		C63A1091197EB70B000A11EB /* semaforo_q.png in Resources */ = {isa = PBXBuildFile; fileRef = C63A1073197EB70B000A11EB /* semaforo_q.png */; };
+		C63A1092197EB70B000A11EB /* terrorismo.png in Resources */ = {isa = PBXBuildFile; fileRef = C63A1074197EB70B000A11EB /* terrorismo.png */; };
+		C63A1093197EB70B000A11EB /* violencia.png in Resources */ = {isa = PBXBuildFile; fileRef = C63A1075197EB70B000A11EB /* violencia.png */; };
 		C63DA468192537B200CA0CFE /* black_marker.png in Resources */ = {isa = PBXBuildFile; fileRef = C63DA45C192537B200CA0CFE /* black_marker.png */; };
 		C63DA469192537B200CA0CFE /* black_marker@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C63DA45D192537B200CA0CFE /* black_marker@2x.png */; };
 		C63DA46A192537B200CA0CFE /* blue_marker.png in Resources */ = {isa = PBXBuildFile; fileRef = C63DA45E192537B200CA0CFE /* blue_marker.png */; };
@@ -280,6 +310,36 @@
 		C62C81F91936EAFB004B392B /* SubcategoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubcategoryCell.h; sourceTree = "<group>"; };
 		C62C81FA1936EAFB004B392B /* SubcategoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubcategoryCell.m; sourceTree = "<group>"; };
 		C6311AD51972D5AD002F0E0F /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		C63A1057197EB70A000A11EB /* acc_transito@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "acc_transito@2x.png"; sourceTree = "<group>"; };
+		C63A1058197EB70A000A11EB /* armas@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "armas@2x.png"; sourceTree = "<group>"; };
+		C63A1059197EB70A000A11EB /* congestionamiento_vehiculos@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "congestionamiento_vehiculos@2x.png"; sourceTree = "<group>"; };
+		C63A105A197EB70A000A11EB /* fraudes_estafas@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fraudes_estafas@2x.png"; sourceTree = "<group>"; };
+		C63A105B197EB70A000A11EB /* g_criminales@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "g_criminales@2x.png"; sourceTree = "<group>"; };
+		C63A105C197EB70A000A11EB /* homicidio@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "homicidio@2x.png"; sourceTree = "<group>"; };
+		C63A105D197EB70B000A11EB /* menores_edad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menores_edad@2x.png"; sourceTree = "<group>"; };
+		C63A105E197EB70B000A11EB /* obstruccion_transito@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "obstruccion_transito@2x.png"; sourceTree = "<group>"; };
+		C63A105F197EB70B000A11EB /* otros@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "otros@2x.png"; sourceTree = "<group>"; };
+		C63A1060197EB70B000A11EB /* perturbacion@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "perturbacion@2x.png"; sourceTree = "<group>"; };
+		C63A1061197EB70B000A11EB /* robo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "robo@2x.png"; sourceTree = "<group>"; };
+		C63A1062197EB70B000A11EB /* semaforo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "semaforo@2x.png"; sourceTree = "<group>"; };
+		C63A1063197EB70B000A11EB /* semaforo_q@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "semaforo_q@2x.png"; sourceTree = "<group>"; };
+		C63A1064197EB70B000A11EB /* terrorismo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "terrorismo@2x.png"; sourceTree = "<group>"; };
+		C63A1065197EB70B000A11EB /* violencia@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "violencia@2x.png"; sourceTree = "<group>"; };
+		C63A1067197EB70B000A11EB /* acc_transito.png.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = acc_transito.png.png; sourceTree = "<group>"; };
+		C63A1068197EB70B000A11EB /* armas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = armas.png; sourceTree = "<group>"; };
+		C63A1069197EB70B000A11EB /* congestionamiento_vehiculos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = congestionamiento_vehiculos.png; sourceTree = "<group>"; };
+		C63A106A197EB70B000A11EB /* fraudes_estafas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fraudes_estafas.png; sourceTree = "<group>"; };
+		C63A106B197EB70B000A11EB /* g_criminales.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = g_criminales.png; sourceTree = "<group>"; };
+		C63A106C197EB70B000A11EB /* homicidio.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = homicidio.png; sourceTree = "<group>"; };
+		C63A106D197EB70B000A11EB /* menores_edad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menores_edad.png; sourceTree = "<group>"; };
+		C63A106E197EB70B000A11EB /* obstruccion_transito.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = obstruccion_transito.png; sourceTree = "<group>"; };
+		C63A106F197EB70B000A11EB /* otros.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = otros.png; sourceTree = "<group>"; };
+		C63A1070197EB70B000A11EB /* perturbacion.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = perturbacion.png; sourceTree = "<group>"; };
+		C63A1071197EB70B000A11EB /* robo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = robo.png; sourceTree = "<group>"; };
+		C63A1072197EB70B000A11EB /* semaforo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = semaforo.png; sourceTree = "<group>"; };
+		C63A1073197EB70B000A11EB /* semaforo_q.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = semaforo_q.png; sourceTree = "<group>"; };
+		C63A1074197EB70B000A11EB /* terrorismo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = terrorismo.png; sourceTree = "<group>"; };
+		C63A1075197EB70B000A11EB /* violencia.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = violencia.png; sourceTree = "<group>"; };
 		C63DA45C192537B200CA0CFE /* black_marker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = black_marker.png; sourceTree = "<group>"; };
 		C63DA45D192537B200CA0CFE /* black_marker@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "black_marker@2x.png"; sourceTree = "<group>"; };
 		C63DA45E192537B200CA0CFE /* blue_marker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blue_marker.png; sourceTree = "<group>"; };
@@ -743,6 +803,7 @@
 		C627DF2B19181A5800FE0C22 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				C63A1055197EB70A000A11EB /* map_pins */,
 				C6B4F0C7197212B800809ECD /* icons */,
 				C666A8071966EE1B00325822 /* Default-568h@2x.png */,
 				C666A8081966EE1B00325822 /* Default.png */,
@@ -811,6 +872,59 @@
 				C627DF3319181A7300FE0C22 /* UIViewController+MFSideMenuAdditions.m */,
 			);
 			path = MFSideMenu;
+			sourceTree = "<group>";
+		};
+		C63A1055197EB70A000A11EB /* map_pins */ = {
+			isa = PBXGroup;
+			children = (
+				C63A1056197EB70A000A11EB /* HD */,
+				C63A1066197EB70B000A11EB /* SD */,
+			);
+			path = map_pins;
+			sourceTree = "<group>";
+		};
+		C63A1056197EB70A000A11EB /* HD */ = {
+			isa = PBXGroup;
+			children = (
+				C63A1057197EB70A000A11EB /* acc_transito@2x.png */,
+				C63A1058197EB70A000A11EB /* armas@2x.png */,
+				C63A1059197EB70A000A11EB /* congestionamiento_vehiculos@2x.png */,
+				C63A105A197EB70A000A11EB /* fraudes_estafas@2x.png */,
+				C63A105B197EB70A000A11EB /* g_criminales@2x.png */,
+				C63A105C197EB70A000A11EB /* homicidio@2x.png */,
+				C63A105D197EB70B000A11EB /* menores_edad@2x.png */,
+				C63A105E197EB70B000A11EB /* obstruccion_transito@2x.png */,
+				C63A105F197EB70B000A11EB /* otros@2x.png */,
+				C63A1060197EB70B000A11EB /* perturbacion@2x.png */,
+				C63A1061197EB70B000A11EB /* robo@2x.png */,
+				C63A1062197EB70B000A11EB /* semaforo@2x.png */,
+				C63A1063197EB70B000A11EB /* semaforo_q@2x.png */,
+				C63A1064197EB70B000A11EB /* terrorismo@2x.png */,
+				C63A1065197EB70B000A11EB /* violencia@2x.png */,
+			);
+			path = HD;
+			sourceTree = "<group>";
+		};
+		C63A1066197EB70B000A11EB /* SD */ = {
+			isa = PBXGroup;
+			children = (
+				C63A1067197EB70B000A11EB /* acc_transito.png.png */,
+				C63A1068197EB70B000A11EB /* armas.png */,
+				C63A1069197EB70B000A11EB /* congestionamiento_vehiculos.png */,
+				C63A106A197EB70B000A11EB /* fraudes_estafas.png */,
+				C63A106B197EB70B000A11EB /* g_criminales.png */,
+				C63A106C197EB70B000A11EB /* homicidio.png */,
+				C63A106D197EB70B000A11EB /* menores_edad.png */,
+				C63A106E197EB70B000A11EB /* obstruccion_transito.png */,
+				C63A106F197EB70B000A11EB /* otros.png */,
+				C63A1070197EB70B000A11EB /* perturbacion.png */,
+				C63A1071197EB70B000A11EB /* robo.png */,
+				C63A1072197EB70B000A11EB /* semaforo.png */,
+				C63A1073197EB70B000A11EB /* semaforo_q.png */,
+				C63A1074197EB70B000A11EB /* terrorismo.png */,
+				C63A1075197EB70B000A11EB /* violencia.png */,
+			);
+			path = SD;
 			sourceTree = "<group>";
 		};
 		C64945EA19228D6700C813A3 /* GBFaltButton */ = {
@@ -1169,6 +1283,7 @@
 				C6C4D19819268ECE00A61959 /* MessageEntrySendButtonPressed.png in Resources */,
 				C68221BD192171ED003B579F /* DetailPicturesCell.xib in Resources */,
 				C6BE14F6191958E800C618AC /* isntTrueIcon.png in Resources */,
+				C63A1083197EB70B000A11EB /* terrorismo@2x.png in Resources */,
 				C6BE14FA191958E800C618AC /* isTrueIcon@2x.png in Resources */,
 				C66D886B1922D7220029A7F2 /* maradona.jpg in Resources */,
 				C6EDF1861951447000A7015C /* Regions.plist in Resources */,
@@ -1177,38 +1292,52 @@
 				C6B4F0DC197212B800809ECD /* Icon-Small-50@2x.png in Resources */,
 				C66D886D1922D7220029A7F2 /* turco.jpg in Resources */,
 				C6F767FC191D830800F36DC6 /* filter_arrow.png in Resources */,
+				C63A108F197EB70B000A11EB /* robo.png in Resources */,
+				C63A1087197EB70B000A11EB /* congestionamiento_vehiculos.png in Resources */,
+				C63A107C197EB70B000A11EB /* menores_edad@2x.png in Resources */,
 				C666A80A1966EE1B00325822 /* Default-568h@2x.png in Resources */,
 				C6CAD2C31922CF6D004C2BFE /* DetailUserCell.xib in Resources */,
+				C63A1084197EB70B000A11EB /* violencia@2x.png in Resources */,
 				C63DA471192537B200CA0CFE /* pink_marker@2x.png in Resources */,
 				C6BE14F9191958E800C618AC /* affectedIcon.png in Resources */,
 				C6D4AF01195288BB0093EBE9 /* MessageEntryBackground@2x.png in Resources */,
 				C6B4F0E519723E6F00809ECD /* video_play.png in Resources */,
+				C63A1086197EB70B000A11EB /* armas.png in Resources */,
 				C6B4447E191C198D005C7056 /* check_box_on.png in Resources */,
 				C6B4F0DA197212B800809ECD /* Icon-76@2x.png in Resources */,
 				C6B4F0D9197212B800809ECD /* Icon-76.png in Resources */,
 				C6EDF19619514D1800A7015C /* tire_icon@2x.png in Resources */,
 				C6D4AF07195288D40093EBE9 /* MessageEntryInputField@2x.png in Resources */,
 				C6BE14F5191958E800C618AC /* isntTrueIcon@2x.png in Resources */,
+				C63A107E197EB70B000A11EB /* otros@2x.png in Resources */,
 				C6B4F0D6197212B800809ECD /* Icon-120@2x.png in Resources */,
 				C6B4F0D7197212B800809ECD /* Icon-72.png in Resources */,
+				C63A107B197EB70B000A11EB /* homicidio@2x.png in Resources */,
 				C6D4AF02195288BB0093EBE9 /* MessageEntryBackgroundGray.png in Resources */,
+				C63A1088197EB70B000A11EB /* fraudes_estafas.png in Resources */,
 				C66D88661922D7220029A7F2 /* alberto.jpg in Resources */,
 				C63DA46F192537B200CA0CFE /* orange_marker@2x.png in Resources */,
+				C63A108C197EB70B000A11EB /* obstruccion_transito.png in Resources */,
 				C6ED61D91923C6E7004F7FFF /* DetailCommentCell.xib in Resources */,
 				C6EDF18119513F2C00A7015C /* Categories.plist in Resources */,
 				C6FB403C1943ADD8003011C9 /* EGOCache.podspec in Resources */,
 				C6B4F0E0197212B800809ECD /* icon.png in Resources */,
+				C63A1082197EB70B000A11EB /* semaforo_q@2x.png in Resources */,
 				C6AACB4C1919822F0030F19C /* filters_icon.png in Resources */,
 				C63DA46A192537B200CA0CFE /* blue_marker.png in Resources */,
 				C6B4F0D5197212B800809ECD /* Icon-120.png in Resources */,
 				C6FB403D1943ADD8003011C9 /* LICENSE in Resources */,
 				C6DD5553191B2BB8001701EE /* camera_empty@2x.png in Resources */,
+				C63A1091197EB70B000A11EB /* semaforo_q.png in Resources */,
 				C6DD5558191B2DDF001701EE /* segmented-bg-pressed-left.png in Resources */,
+				C63A1089197EB70B000A11EB /* g_criminales.png in Resources */,
 				C63DA46C192537B200CA0CFE /* green_marker.png in Resources */,
+				C63A108D197EB70B000A11EB /* otros.png in Resources */,
 				C627DF0B1918182800FE0C22 /* Images.xcassets in Resources */,
 				C6EDF19E19514E8F00A7015C /* eye_icon@2x.png in Resources */,
 				C6EDF1A619514F5800A7015C /* switches_icon@2x.png in Resources */,
 				C6AACB4F1919822F0030F19C /* map_icon.png in Resources */,
+				C63A1093197EB70B000A11EB /* violencia.png in Resources */,
 				C6EDF19D19514E8F00A7015C /* eye_icon.png in Resources */,
 				C6EDF19119514C8A00A7015C /* pin_icon.png in Resources */,
 				C6AACB58191992E90030F19C /* picture_example.png in Resources */,
@@ -1216,14 +1345,17 @@
 				C63DA46E192537B200CA0CFE /* orange_marker.png in Resources */,
 				C66D88691922D7220029A7F2 /* juan.jpg in Resources */,
 				C6B4F0E1197212B800809ECD /* Icon@2x.png in Resources */,
+				C63A108A197EB70B000A11EB /* homicidio.png in Resources */,
 				C6B4F0DE197212B800809ECD /* Icon-Spotlight-iOS7.png in Resources */,
 				C6C4D19919268ECE00A61959 /* MessageEntrySendButtonPressed@2x.png in Resources */,
 				C6B4F0DF197212B800809ECD /* Icon-Spotlight-iOS7@2x.png in Resources */,
+				C63A108B197EB70B000A11EB /* menores_edad.png in Resources */,
 				C6C4D19619268ECE00A61959 /* MessageEntrySendButton.png in Resources */,
 				C6F767FB191D830800F36DC6 /* filter_arrow@2x.png in Resources */,
 				C6DC01D8195E61BE005E3A99 /* map_refresh.png in Resources */,
 				C6B4447A191C194D005C7056 /* check_box_on@2x.png in Resources */,
 				C6D4AF00195288BB0093EBE9 /* MessageEntryBackground.png in Resources */,
+				C63A1079197EB70B000A11EB /* fraudes_estafas@2x.png in Resources */,
 				C63DA473192537B200CA0CFE /* purple_marker@2x.png in Resources */,
 				C6DC01D7195E61BE005E3A99 /* map_refresh@2x.png in Resources */,
 				C63DA470192537B200CA0CFE /* pink_marker.png in Resources */,
@@ -1231,6 +1363,7 @@
 				C6B4F0E419723E6F00809ECD /* video_play@2x.png in Resources */,
 				C6B4F0DB197212B800809ECD /* Icon-Small-50.png in Resources */,
 				C63DA46D192537B200CA0CFE /* green_marker@2x.png in Resources */,
+				C63A107F197EB70B000A11EB /* perturbacion@2x.png in Resources */,
 				C666A80B1966EE1B00325822 /* Default.png in Resources */,
 				C6D4AF03195288BB0093EBE9 /* MessageEntryBackgroundGray@2x.png in Resources */,
 				C66D88681922D7220029A7F2 /* heman.png in Resources */,
@@ -1240,26 +1373,37 @@
 				C64945F8192295DE00C813A3 /* DetailFeelingCell.xib in Resources */,
 				C66D88671922D7220029A7F2 /* bond.jpg in Resources */,
 				C6B4F0DD197212B800809ECD /* Icon-Small.png in Resources */,
+				C63A1090197EB70B000A11EB /* semaforo.png in Resources */,
 				C6EDF18D19514ADA00A7015C /* menu_icon.png in Resources */,
+				C63A1092197EB70B000A11EB /* terrorismo.png in Resources */,
 				C6DD5554191B2BB8001701EE /* camera_empty.png in Resources */,
+				C63A1076197EB70B000A11EB /* acc_transito@2x.png in Resources */,
+				C63A108E197EB70B000A11EB /* perturbacion.png in Resources */,
 				C6B44479191C194D005C7056 /* check_box_off@2x.png in Resources */,
+				C63A1078197EB70B000A11EB /* congestionamiento_vehiculos@2x.png in Resources */,
 				C6BE14E11919426000C618AC /* Localizable.strings in Resources */,
 				C6BE14F7191958E800C618AC /* isTrueIcon.png in Resources */,
+				C63A1077197EB70B000A11EB /* armas@2x.png in Resources */,
+				C63A1081197EB70B000A11EB /* semaforo@2x.png in Resources */,
 				C6AACB4D1919822F0030F19C /* gps_icon.png in Resources */,
 				C63DA468192537B200CA0CFE /* black_marker.png in Resources */,
 				C6EDF19219514C8A00A7015C /* pin_icon@2x.png in Resources */,
 				C63DA469192537B200CA0CFE /* black_marker@2x.png in Resources */,
 				C627DEFD1918182800FE0C22 /* InfoPlist.strings in Resources */,
 				C66D886C1922D7220029A7F2 /* mrT.png in Resources */,
+				C63A107A197EB70B000A11EB /* g_criminales@2x.png in Resources */,
 				C6B4447D191C198D005C7056 /* check_box_off.png in Resources */,
 				C6AACB4E1919822F0030F19C /* infinity_icon.png in Resources */,
 				C6B4F0D8197212B800809ECD /* Icon-72@2x.png in Resources */,
 				C6D4AF06195288D40093EBE9 /* MessageEntryInputField.png in Resources */,
+				C63A1080197EB70B000A11EB /* robo@2x.png in Resources */,
 				C666A80C1966EE1B00325822 /* Default@2x.png in Resources */,
 				C6A46C98191C3E6B000F431B /* filter_checkmark@2x.png in Resources */,
 				C6C4D19719268ECE00A61959 /* MessageEntrySendButton@2x.png in Resources */,
+				C63A107D197EB70B000A11EB /* obstruccion_transito@2x.png in Resources */,
 				C6A46C99191C3E6B000F431B /* filter_checkmark.png in Resources */,
 				C6EDF1A519514F5800A7015C /* switches_icon.png in Resources */,
+				C63A1085197EB70B000A11EB /* acc_transito.png.png in Resources */,
 				C66D886A1922D7220029A7F2 /* kkk.jpg in Resources */,
 				C627DF061918182800FE0C22 /* Main.storyboard in Resources */,
 				C6AACB521919822F0030F19C /* settings_icon.png in Resources */,
@@ -1500,6 +1644,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1508,7 +1653,7 @@
 				GCC_PREFIX_HEADER = "SeguridadApp/SeguridadApp-Prefix.pch";
 				INFOPLIST_FILE = "SeguridadApp/SeguridadApp-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "78FD55A0-2A92-4424-8319-996F7420255A";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1527,7 +1672,7 @@
 				GCC_PREFIX_HEADER = "SeguridadApp/SeguridadApp-Prefix.pch";
 				INFOPLIST_FILE = "SeguridadApp/SeguridadApp-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "78FD55A0-2A92-4424-8319-996F7420255A";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

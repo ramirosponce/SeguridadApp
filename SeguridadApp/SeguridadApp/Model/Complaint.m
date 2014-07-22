@@ -80,6 +80,15 @@
             self.user = [[User alloc] initWithData:[dictionary objectForKey:@"usr"]];
         }
         
+        self.iconname = nil;
+        if ([AppHelper existObject:@"icon" in:dictionary]) {
+            self.iconname = [dictionary objectForKey:@"icon"];
+        }else{
+            self.iconname = @"orange_marker.png";
+        }
+        
+        NSLog(@"self.iconname: %@",self.iconname);
+        
         self.isAnonymous = YES;
         
         //self.isAnonymous = [[dictionary objectForKey:@"isAnonymous"] boolValue];
